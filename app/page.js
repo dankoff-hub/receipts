@@ -13,6 +13,7 @@ export default function H(){return <main>
 <p style={{fontSize:18,color:"#ccc"}}>Passed over. Compared. Told you weren’t ready. Keep the receipt — then spend 30 days making it irrelevant.</p>
 <a href={PAY} style={btn}>Get the Receipts Pack — $29</a>
 <p style={{fontSize:13,color:"#888"}}>One-time payment · instant access</p>
+<p style={{fontSize:14}}><a href="/free?src=home" style={{color:"#fff"}}>Not ready? Start with the free receipt template →</a></p>
 
 <h2 style={{marginTop:40}}>How it works</h2>
 {[["1. Receipt","Write down exactly what was said or done. Privately. Once."],
@@ -28,4 +29,4 @@ export default function H(){return <main>
 
 <div style={{margin:"40px 0"}}><a href={PAY} style={btn}>Start your 30 days — $29</a></div>
 <p><a href="/pricing" style={{color:"#aaa"}}>Pricing</a></p>
-<p style={{fontSize:12,color:"#888"}}>Not therapy. No contacting or targeting other people.</p></main>}
+<p style={{fontSize:12,color:"#888"}}>Not therapy. No contacting or targeting other people. Rosa is the brand persona behind Receipts.</p></main>}
