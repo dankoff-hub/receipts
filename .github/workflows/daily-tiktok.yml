@@ -11,9 +11,6 @@ jobs:
       GH_TOKEN: ${{ github.token }}
       BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
       APP_URL: https://receipts-blond.vercel.app
-      SKOOL_COOKIES: ${{ secrets.SKOOL_COOKIES }}
-      SKOOL_GROUP: ${{ vars.SKOOL_GROUP }}
-      SKOOL_LABEL_ID: ${{ vars.SKOOL_LABEL_ID }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -48,6 +45,3 @@ jobs:
       - if: steps.day.outputs.new == 'true' || github.event_name == 'workflow_dispatch'
         name: Cross-post to Instagram Reels
         run: node scripts/cross-post-instagram.mjs ${{ steps.day.outputs.f }} || echo "instagram skip"
-      - if: steps.day.outputs.new == 'true' || github.event_name == 'workflow_dispatch'
-        name: Post to Skool community
-        run: node scripts/skool-post.mjs ${{ steps.day.outputs.n }} || echo "skool skip"
