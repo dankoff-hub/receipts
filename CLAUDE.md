@@ -31,6 +31,8 @@ Handover context for Claude (Code or chat). Read this first; it is the full oper
 | Workflow | Trigger | Does |
 |---|---|---|
 | `daily-tiktok.yml` | cron `0 6 * * *` (06:00 UTC) + dispatch | Make new day's video → commit → TikTok queue + Instagram Reel → daily brief issue (with swarm verdict) |
+| `virality-swarm.yml` | cron `0 5 * * *` + dispatch | Scout/Alchemist/Curator trend hooks + tag-scout hashtag refresh |
+| `growth-swarm.yml` | cron `30 5 * * *` + dispatch | Competitor watch → CTA lab → objection lab → pool guard (content-only, guard blocks non-content commits) |
 | `guerrilla-bot.yml` | cron `0 12 * * *` + dispatch | Generate guerrilla content, daily issue |
 | `deploy.yml` | push | Vercel deploy |
 | `ci.yml` | push/PR | Build check |
