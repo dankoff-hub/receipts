@@ -1,5 +1,5 @@
 {
-  "at": "2026-11-03T22:17:53.964Z",
+  "at": "2026-11-03T22:19:23.543Z",
   "trends": [
     {
       "sub": "hn",
@@ -142,36 +142,5 @@
       "url": "https://www.alternet.org/print/here-are-14-habits-highly-miserable-people"
     }
   ],
-  "added": [
-    {
-      "title": "EU copyright law proposal rejected",
-      "score": 1847,
-      "angle": "contrarian-trend"
-    },
-    {
-      "title": "A uBlock Origin update was rejected from the Chrome Web Store",
-      "score": 1757,
-      "angle": "inaction-gap"
-    },
-    {
-      "title": "Procrastination is about managing emotions, not time",
-      "score": 1375,
-      "angle": "reframe"
-    },
-    {
-      "title": "A receipt printer cured my procrastination",
-      "score": 1255,
-      "angle": "contrarian-trend"
-    },
-    {
-      "title": "New academic journal only publishes 'unsurprising' research rejected by others",
-      "score": 884,
-      "angle": "inaction-gap"
-    },
-    {
-      "title": "I was rejected by Codecademy three times, so I built my own",
-      "score": 832,
-      "angle": "reframe"
-    }
-  ]
+  "added": []
 }
