@@ -1,0 +1,98 @@
+name: Avatar render (SadTalker CPU) → TikTok + Instagram
+# Renders the talking-head avatar from assets/host.png + assets/avatar-voice.wav
+# on a free GitHub-hosted CPU runner. TRUST GATE: assets/host.png is a real
+# person's photo — only dispatch with publish=true after explicit consent from
+# that person is confirmed. Output video carries a visible "AI avatar" label
+# and the caption discloses AI generation (TikTok/Instagram policy).
+on:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: "Publish to TikTok + Instagram (consent confirmed)"
+        type: boolean
+        default: false
+permissions: {contents: write}
+concurrency: {group: avatar-render, cancel-in-progress: false}
+jobs:
+  render:
+    timeout-minutes: 240
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      APP_URL: https://receipts-blond.vercel.app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.10"}
+      - id: stcache
+        name: Cache SadTalker repo, model weights and pip
+        uses: actions/cache@v4
+        with:
+          path: |
+            sadtalker
+            ~/.cache/pip
+          key: sadtalker-v1-${{ runner.os }}
+      - if: steps.stcache.outputs.cache-hit != 'true'
+        name: Clone SadTalker + download only the 256px weights we use
+        run: |
+          git clone --depth 1 https://github.com/OpenTalker/SadTalker sadtalker
+          cd sadtalker
+          mkdir -p checkpoints gfpgan/weights
+          wget -q -nc https://github.com/OpenTalker/SadTalker/releases/download/v0.0.2-rc/mapping_00109-model.pth.tar -O checkpoints/mapping_00109-model.pth.tar
+          wget -q -nc https://github.com/OpenTalker/SadTalker/releases/download/v0.0.2-rc/mapping_00229-model.pth.tar -O checkpoints/mapping_00229-model.pth.tar
+          wget -q -nc https://github.com/OpenTalker/SadTalker/releases/download/v0.0.2-rc/SadTalker_V0.0.2_256.safetensors -O checkpoints/SadTalker_V0.0.2_256.safetensors
+          wget -q -nc https://github.com/xinntao/facexlib/releases/download/v0.1.0/alignment_WFLW_4HG.pth -O gfpgan/weights/alignment_WFLW_4HG.pth
+          wget -q -nc https://github.com/xinntao/facexlib/releases/download/v0.1.0/detection_Resnet50_Final.pth -O gfpgan/weights/detection_Resnet50_Final.pth
+          wget -q -nc https://github.com/TencentARC/GFPGAN/releases/download/v1.3.0/GFPGANv1.4.pth -O gfpgan/weights/GFPGANv1.4.pth
+          wget -q -nc https://github.com/xinntao/facexlib/releases/download/v0.2.2/parsing_parsenet.pth -O gfpgan/weights/parsing_parsenet.pth
+      - name: Install deps (CPU torch; gradio skipped)
+        run: |
+          python -m pip install -U -q pip
+          pip install -q "torch==2.1.2" "torchvision==0.16.2" --index-url https://download.pytorch.org/whl/cpu
+          sed -i '/^gradio$/d' sadtalker/requirements.txt
+          pip install -q -r sadtalker/requirements.txt
+      - name: Render talking head (CPU, ~400 frames)
+        run: |
+          cd sadtalker
+          python inference.py \
+            --driven_audio "$GITHUB_WORKSPACE/assets/avatar-voice.wav" \
+            --source_image "$GITHUB_WORKSPACE/assets/host.png" \
+            --result_dir "$GITHUB_WORKSPACE/avatar-out" \
+            --still --preprocess crop --size 256 --enhancer gfpgan --cpu
+      - name: Composite vertical 1080x1920 @24fps with branding + AI label
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq fonts-dejavu-core >/dev/null
+          RAW=$(ls -t avatar-out/*.mp4 | head -1)
+          printf 'They said you would not' > /tmp/h1.txt
+          printf 'make it. Keep the receipt.' > /tmp/h2.txt
+          printf '$29 once - link in bio' > /tmp/cta.txt
+          F=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf
+          FS=/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf
+          ffmpeg -y -f lavfi -i "color=c=0x0b0b0c:s=1080x1920:r=24" -i "$RAW" -filter_complex "
+            [1:v]scale=768:768,fps=24[av];
+            [0:v][av]overlay=(W-w)/2:430:shortest=1[v0];
+            [v0]drawtext=fontfile=$F:textfile=/tmp/h1.txt:fontcolor=white:fontsize=64:x=(w-text_w)/2:y=180,
+            drawtext=fontfile=$F:textfile=/tmp/h2.txt:fontcolor=white:fontsize=64:x=(w-text_w)/2:y=264,
+            drawtext=fontfile=$F:textfile=/tmp/cta.txt:fontcolor=white:fontsize=54:x=(w-text_w)/2:y=h-200,
+            drawtext=fontfile=$FS:text='AI avatar':fontcolor=white@0.60:fontsize=30:x=w-text_w-32:y=44[v]" \
+            -map "[v]" -map 1:a -c:v libx264 -pix_fmt yuv420p -preset medium -c:a aac -b:a 128k \
+            -movflags +faststart public/videos/avatar-intro.mp4
+          node -e 'const fs=require("fs");let tags="#receipts #provethemwrong #30daychallenge";try{const t=JSON.parse(fs.readFileSync("content/tags.json","utf8"));const m=t.mixes;if(Array.isArray(m)&&m.length&&m[0].tiktok)tags=m[0].tiktok}catch(e){}const hook="They said you would not make it — keep the receipt.";const caption=hook+"\n\nReceipts: 30 days, one standard, proof you can hold. $29 once. Link in bio.\n\n"+tags+" #aiavatar\n\nAI-generated avatar: synthetic voice over an animated photo, used with consent.";const d=JSON.parse(require("child_process").execSync("ffprobe -v error -show_entries format=duration -of json public/videos/avatar-intro.mp4").toString()).format.duration;fs.writeFileSync("public/videos/avatar-intro.mp4.json",JSON.stringify({hook,caption,duration:Math.round(d*10)/10,avatar:true},null,1));console.log("sidecar ok",d)'
+      - name: Commit video (Vercel hosts it)
+        run: |
+          git config user.name github-actions; git config user.email github-actions@github.com
+          git add public/videos/avatar-intro.mp4 public/videos/avatar-intro.mp4.json
+          git commit -m "Avatar intro video (SadTalker CPU render)"
+          git pull --rebase -q && git push -q
+      - name: Deploy to Vercel (GITHUB_TOKEN pushes do not trigger deploy.yml)
+        run: |
+          npm i -g vercel@latest >/dev/null 2>&1
+          vercel deploy --prod --yes --token "$VERCEL_TOKEN"
+      - if: ${{ inputs.publish }}
+        name: Publish to TikTok
+        run: node scripts/publish-buffer.mjs public/videos/avatar-intro.mp4
+      - if: ${{ inputs.publish }}
+        name: Cross-post to Instagram Reels
+        run: node scripts/cross-post-instagram.mjs public/videos/avatar-intro.mp4 || echo "instagram skip"
