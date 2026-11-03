@@ -1,108 +1,12 @@
 {
-  "at": "2026-11-03T22:42:15.647Z",
+  "at": "2026-11-03T22:43:45.523Z",
   "total": 60,
   "flagged": [
-    {
-      "n": 1,
-      "title": "They said I wasn't ready. So I kept the receipt.",
-      "reasons": [
-        "cta-missing-offer"
-      ],
-      "file": "content/launch-scripts.md"
-    },
-    {
-      "n": 2,
-      "title": "Spite is a great start and a terrible finish.",
-      "reasons": [
-        "cta-missing-offer"
-      ],
-      "file": "content/launch-scripts.md"
-    },
-    {
-      "n": 3,
-      "title": "I got passed over for a promotion. Here's my 30-day plan.",
-      "reasons": [
-        "cta-missing-offer"
-      ],
-      "file": "content/launch-scripts.md"
-    },
     {
       "n": 4,
       "title": "Stop calling it jealousy. It's data.",
       "reasons": [
-        "cta-missing-offer"
-      ],
-      "file": "content/launch-scripts.md"
-    },
-    {
-      "n": 5,
-      "title": "The difference between revenge and proof.",
-      "reasons": [
-        "cta-missing-offer"
-      ],
-      "file": "content/launch-scripts.md"
-    },
-    {
-      "n": 6,
-      "title": "What happens after you prove them wrong?",
-      "reasons": [
-        "cta-missing-offer"
-      ],
-      "file": "content/launch-scripts.md"
-    },
-    {
-      "n": 7,
-      "title": "You don't need motivation. You need a standard.",
-      "reasons": [
-        "cta-missing-offer"
-      ],
-      "file": "content/launch-scripts.md"
-    },
-    {
-      "n": 8,
-      "title": "Day 1 of turning a rejection into a standard.",
-      "reasons": [
-        "cta-missing-offer"
-      ],
-      "file": "content/launch-scripts.md"
-    },
-    {
-      "n": 9,
-      "title": "Day 7: what one week of proof looks like.",
-      "reasons": [
-        "cta-missing-offer"
-      ],
-      "file": "content/launch-scripts.md"
-    },
-    {
-      "n": 10,
-      "title": "Day 21: the question nobody asks.",
-      "reasons": [
-        "cta-missing-offer"
-      ],
-      "file": "content/launch-scripts.md"
-    },
-    {
-      "n": 11,
-      "title": "Day 30: I proved it. Now what?",
-      "reasons": [
-        "cta-missing-offer"
-      ],
-      "file": "content/launch-scripts.md"
-    },
-    {
-      "n": 12,
-      "title": "My family thought I'd fail. I didn't send them anything.",
-      "reasons": [
-        "cta-missing-offer"
-      ],
-      "file": "content/launch-scripts.md"
-    },
-    {
-      "n": 13,
-      "title": "Rejected by 40 companies. Kept every receipt.",
-      "reasons": [
-        "cta-missing-offer"
+        "off-theme"
       ],
       "file": "content/launch-scripts.md"
     },
@@ -110,15 +14,7 @@
       "n": 14,
       "title": "The minimum day rule saved my streak.",
       "reasons": [
-        "cta-missing-offer"
-      ],
-      "file": "content/launch-scripts.md"
-    },
-    {
-      "n": 15,
-      "title": "Your ex isn't your motivation. Your standard is.",
-      "reasons": [
-        "cta-missing-offer"
+        "off-theme"
       ],
       "file": "content/launch-scripts.md"
     },
@@ -126,31 +22,7 @@
       "n": 16,
       "title": "3 questions to ask before you 'prove them wrong'.",
       "reasons": [
-        "cta-missing-offer"
-      ],
-      "file": "content/launch-scripts.md"
-    },
-    {
-      "n": 17,
-      "title": "I hit my goal and felt empty. Here's why.",
-      "reasons": [
-        "cta-missing-offer"
-      ],
-      "file": "content/launch-scripts.md"
-    },
-    {
-      "n": 18,
-      "title": "Being underestimated is an unfair advantage. If you use it.",
-      "reasons": [
-        "cta-missing-offer"
-      ],
-      "file": "content/launch-scripts.md"
-    },
-    {
-      "n": 19,
-      "title": "How to write a receipt (without getting bitter).",
-      "reasons": [
-        "cta-missing-offer"
+        "off-theme"
       ],
       "file": "content/launch-scripts.md"
     },
@@ -158,31 +30,7 @@
       "n": 20,
       "title": "'Prove them wrong' is incomplete. Add: then prove it to yourself.",
       "reasons": [
-        "cta-missing-offer"
-      ],
-      "file": "content/launch-scripts.md"
-    },
-    {
-      "n": 21,
-      "title": "A habit tracker counts. A receipt reminds you why.",
-      "reasons": [
-        "cta-missing-offer"
-      ],
-      "file": "content/launch-scripts.md"
-    },
-    {
-      "n": 22,
-      "title": "The 4-word rule: keep the standard, not the grudge.",
-      "reasons": [
-        "cta-missing-offer"
-      ],
-      "file": "content/launch-scripts.md"
-    },
-    {
-      "n": 23,
-      "title": "I was the 'unsuccessful one' at every family dinner.",
-      "reasons": [
-        "cta-missing-offer"
+        "off-theme"
       ],
       "file": "content/launch-scripts.md"
     },
@@ -190,47 +38,7 @@
       "n": 24,
       "title": "Someone my age just did what I said I'd do.",
       "reasons": [
-        "cta-missing-offer"
-      ],
-      "file": "content/launch-scripts.md"
-    },
-    {
-      "n": 25,
-      "title": "Don't post the person. Post the progress.",
-      "reasons": [
-        "cta-missing-offer"
-      ],
-      "file": "content/launch-scripts.md"
-    },
-    {
-      "n": 26,
-      "title": "Why 30 days and not forever.",
-      "reasons": [
-        "cta-missing-offer"
-      ],
-      "file": "content/launch-scripts.md"
-    },
-    {
-      "n": 27,
-      "title": "The 7-day bridge: what to do the week after you win.",
-      "reasons": [
-        "cta-missing-offer"
-      ],
-      "file": "content/launch-scripts.md"
-    },
-    {
-      "n": 28,
-      "title": "Laid off? Write the receipt tonight.",
-      "reasons": [
-        "cta-missing-offer"
-      ],
-      "file": "content/launch-scripts.md"
-    },
-    {
-      "n": 29,
-      "title": "Creators: your follower count isn't your receipt.",
-      "reasons": [
-        "cta-missing-offer"
+        "off-theme"
       ],
       "file": "content/launch-scripts.md"
     },
@@ -238,113 +46,15 @@
       "n": 30,
       "title": "I'll show them → I'll show up.",
       "reasons": [
-        "cta-missing-offer"
+        "off-theme"
       ],
       "file": "content/launch-scripts.md"
-    },
-    {
-      "n": 31,
-      "title": "The investor who passed",
-      "reasons": [
-        "duplicate-hook",
-        "hook-too-long",
-        "cta-missing-offer"
-      ],
-      "file": "content/forge-scripts.md"
-    },
-    {
-      "n": 32,
-      "title": "The boss who smirked",
-      "reasons": [
-        "hook-too-long",
-        "cta-missing-offer"
-      ],
-      "file": "content/forge-scripts.md"
-    },
-    {
-      "n": 33,
-      "title": "The ex who laughed",
-      "reasons": [
-        "hook-too-long",
-        "cta-missing-offer"
-      ],
-      "file": "content/forge-scripts.md"
-    },
-    {
-      "n": 34,
-      "title": "The coach who cut you",
-      "reasons": [
-        "hook-too-long",
-        "cta-missing-offer"
-      ],
-      "file": "content/forge-scripts.md"
-    },
-    {
-      "n": 35,
-      "title": "The family member who said be realistic",
-      "reasons": [
-        "hook-too-long",
-        "cta-missing-offer"
-      ],
-      "file": "content/forge-scripts.md"
-    },
-    {
-      "n": 36,
-      "title": "The friend who went quiet",
-      "reasons": [
-        "duplicate-hook",
-        "hook-too-long",
-        "cta-missing-offer"
-      ],
-      "file": "content/forge-scripts.md"
-    },
-    {
-      "n": 37,
-      "title": "The gatekeeper who never replied",
-      "reasons": [
-        "duplicate-hook",
-        "hook-too-long",
-        "cta-missing-offer"
-      ],
-      "file": "content/forge-scripts.md"
-    },
-    {
-      "n": 38,
-      "title": "The manager who said next year",
-      "reasons": [
-        "duplicate-hook",
-        "hook-too-long",
-        "cta-missing-offer"
-      ],
-      "file": "content/forge-scripts.md"
-    },
-    {
-      "n": 39,
-      "title": "The group chat that went silent",
-      "reasons": [
-        "duplicate-hook",
-        "hook-too-long",
-        "cta-missing-offer"
-      ],
-      "file": "content/forge-scripts.md"
-    },
-    {
-      "n": 40,
-      "title": "The mentor who said not yet",
-      "reasons": [
-        "duplicate-hook",
-        "hook-too-long",
-        "cta-missing-offer"
-      ],
-      "file": "content/forge-scripts.md"
     },
     {
       "n": 41,
       "title": "The investor who passed",
       "reasons": [
-        "duplicate-hook",
-        "hook-too-long",
-        "cta-missing-offer"
+        "duplicate-hook"
       ],
       "file": "content/forge-scripts.md"
     },
@@ -352,9 +62,7 @@
       "n": 42,
       "title": "The boss who smirked",
       "reasons": [
-        "duplicate-hook",
-        "hook-too-long",
-        "cta-missing-offer"
+        "duplicate-hook"
       ],
       "file": "content/forge-scripts.md"
     },
@@ -362,9 +70,7 @@
       "n": 43,
       "title": "The ex who laughed",
       "reasons": [
-        "duplicate-hook",
-        "hook-too-long",
-        "cta-missing-offer"
+        "duplicate-hook"
       ],
       "file": "content/forge-scripts.md"
     },
@@ -372,9 +78,7 @@
       "n": 44,
       "title": "The coach who cut you",
       "reasons": [
-        "duplicate-hook",
-        "hook-too-long",
-        "cta-missing-offer"
+        "duplicate-hook"
       ],
       "file": "content/forge-scripts.md"
     },
@@ -382,9 +86,7 @@
       "n": 45,
       "title": "The family member who said be realistic",
       "reasons": [
-        "duplicate-hook",
-        "hook-too-long",
-        "cta-missing-offer"
+        "duplicate-hook"
       ],
       "file": "content/forge-scripts.md"
     },
@@ -392,9 +94,7 @@
       "n": 46,
       "title": "The friend who went quiet",
       "reasons": [
-        "duplicate-hook",
-        "hook-too-long",
-        "cta-missing-offer"
+        "duplicate-hook"
       ],
       "file": "content/forge-scripts.md"
     },
@@ -402,9 +102,7 @@
       "n": 47,
       "title": "The gatekeeper who never replied",
       "reasons": [
-        "duplicate-hook",
-        "hook-too-long",
-        "cta-missing-offer"
+        "duplicate-hook"
       ],
       "file": "content/forge-scripts.md"
     },
@@ -412,9 +110,7 @@
       "n": 48,
       "title": "The manager who said next year",
       "reasons": [
-        "duplicate-hook",
-        "hook-too-long",
-        "cta-missing-offer"
+        "duplicate-hook"
       ],
       "file": "content/forge-scripts.md"
     },
@@ -422,9 +118,7 @@
       "n": 49,
       "title": "The group chat that went silent",
       "reasons": [
-        "duplicate-hook",
-        "hook-too-long",
-        "cta-missing-offer"
+        "duplicate-hook"
       ],
       "file": "content/forge-scripts.md"
     },
@@ -432,9 +126,7 @@
       "n": 50,
       "title": "The mentor who said not yet",
       "reasons": [
-        "duplicate-hook",
-        "hook-too-long",
-        "cta-missing-offer"
+        "duplicate-hook"
       ],
       "file": "content/forge-scripts.md"
     },
@@ -442,9 +134,7 @@
       "n": 51,
       "title": "The investor who passed",
       "reasons": [
-        "duplicate-hook",
-        "hook-too-long",
-        "cta-missing-offer"
+        "duplicate-hook"
       ],
       "file": "content/forge-scripts.md"
     },
@@ -452,9 +142,7 @@
       "n": 52,
       "title": "The boss who smirked",
       "reasons": [
-        "duplicate-hook",
-        "hook-too-long",
-        "cta-missing-offer"
+        "duplicate-hook"
       ],
       "file": "content/forge-scripts.md"
     },
@@ -462,9 +150,7 @@
       "n": 53,
       "title": "The ex who laughed",
       "reasons": [
-        "duplicate-hook",
-        "hook-too-long",
-        "cta-missing-offer"
+        "duplicate-hook"
       ],
       "file": "content/forge-scripts.md"
     },
@@ -472,9 +158,7 @@
       "n": 54,
       "title": "The coach who cut you",
       "reasons": [
-        "duplicate-hook",
-        "hook-too-long",
-        "cta-missing-offer"
+        "duplicate-hook"
       ],
       "file": "content/forge-scripts.md"
     },
@@ -482,9 +166,7 @@
       "n": 55,
       "title": "The family member who said be realistic",
       "reasons": [
-        "duplicate-hook",
-        "hook-too-long",
-        "cta-missing-offer"
+        "duplicate-hook"
       ],
       "file": "content/forge-scripts.md"
     },
@@ -492,9 +174,7 @@
       "n": 56,
       "title": "The friend who went quiet",
       "reasons": [
-        "duplicate-hook",
-        "hook-too-long",
-        "cta-missing-offer"
+        "duplicate-hook"
       ],
       "file": "content/forge-scripts.md"
     },
@@ -502,9 +182,7 @@
       "n": 57,
       "title": "The gatekeeper who never replied",
       "reasons": [
-        "duplicate-hook",
-        "hook-too-long",
-        "cta-missing-offer"
+        "duplicate-hook"
       ],
       "file": "content/forge-scripts.md"
     },
@@ -512,9 +190,7 @@
       "n": 58,
       "title": "The manager who said next year",
       "reasons": [
-        "duplicate-hook",
-        "hook-too-long",
-        "cta-missing-offer"
+        "duplicate-hook"
       ],
       "file": "content/forge-scripts.md"
     },
@@ -522,9 +198,7 @@
       "n": 59,
       "title": "The group chat that went silent",
       "reasons": [
-        "duplicate-hook",
-        "hook-too-long",
-        "cta-missing-offer"
+        "duplicate-hook"
       ],
       "file": "content/forge-scripts.md"
     },
@@ -532,9 +206,7 @@
       "n": 60,
       "title": "The mentor who said not yet",
       "reasons": [
-        "duplicate-hook",
-        "hook-too-long",
-        "cta-missing-offer"
+        "duplicate-hook"
       ],
       "file": "content/forge-scripts.md"
     }
