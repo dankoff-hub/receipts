@@ -6,14 +6,13 @@ const faq=[
 ["What do I actually get?","A step-by-step 30-day system: receipt template, standard converter, proof plan, daily log, Arrival Check, and a 7-day bridge to your next goal. Delivered instantly after payment."],
 ["Why not just use a habit tracker?","Trackers count checkmarks. Receipts starts with the reason you care — being doubted — and handles the part trackers ignore: what to do after you’ve proved it."],
 ["What happens after I prove them wrong?","That’s where most people stall. The Arrival Check and 7-day bridge turn the win into a standard you keep, without needing anyone’s doubt."],
-["Is this therapy?","No. It’s a self-reflection and goal system, not medical or mental-health treatment."],
-["Refunds?","Reply to your Stripe receipt email within 14 days and you’ll get a refund."]];
+["Is this therapy?","No. It’s a self-reflection and goal system, not medical or mental-health treatment."]];
 export default function H(){return <main>
 <p style={{letterSpacing:2,fontSize:12,color:"#888"}}>RECEIPTS</p>
 <h1 style={{fontSize:40,lineHeight:1.1}}>Turn getting underestimated into a standard you keep.</h1>
 <p style={{fontSize:18,color:"#ccc"}}>Passed over. Compared. Told you weren’t ready. Keep the receipt — then spend 30 days making it irrelevant.</p>
 <a href={PAY} style={btn}>Get the Receipts Pack — $29</a>
-<p style={{fontSize:13,color:"#888"}}>One-time payment · instant access · 14-day refund</p>
+<p style={{fontSize:13,color:"#888"}}>One-time payment · instant access</p>
 
 <h2 style={{marginTop:40}}>How it works</h2>
 {[["1. Receipt","Write down exactly what was said or done. Privately. Once."],
