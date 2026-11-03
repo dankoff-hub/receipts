@@ -13,5 +13,5 @@ const orgs = (await gql(`{account{organizations{id}}}`)).account.organizations;
 let channel;
 for (const o of orgs) { const ch = (await gql(`{channels(input:{organizationId:"${o.id}"}){id name service}}`)).channels; channel = ch.find(c => c.service.toLowerCase() === "instagram"); if (channel) break; }
 if (!channel) { console.log("no instagram channel connected"); process.exit(0); }
-const res = await gql(`mutation{createPost(input:{text:${JSON.stringify(caption)},channelId:"${channel.id}",schedulingType:automatic,mode:shareNow,assets:[{video:{url:"${videoUrl}"}}]}){... on PostActionSuccess{post{id}} ... on MutationError{message}}}`);
+const res = await gql(`mutation{createPost(input:{text:${JSON.stringify(caption)},channelId:"${channel.id}",schedulingType:automatic,mode:shareNow,assets:[{video:{url:"${videoUrl}",metadata:{thumbnailOffset:1000}}}],metadata:{instagram:{type:reel,shouldShareToFeed:true}}}){... on PostActionSuccess{post{id}} ... on MutationError{message}}}`);
 console.log("instagram:", JSON.stringify(res.createPost));
