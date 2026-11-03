@@ -35,6 +35,4 @@ return <main style={{maxWidth:520,margin:"0 auto",padding:16}}>
 
 <a href={pay} style={btn}>Turn your receipt into a 30-day plan — $29</a>
 <p style={{fontSize:13,color:"#888",textAlign:"center"}}>One-time payment · instant access</p>
-
-<p style={{fontSize:12,color:"#666",textAlign:"center",marginTop:32}}>Not therapy or medical advice. No contacting or targeting other people.</p>
 </main>}
