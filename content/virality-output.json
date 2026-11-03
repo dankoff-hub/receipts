@@ -1,6 +1,42 @@
 {
-  "at": "2026-11-03T22:17:25.850Z",
-  "trendsFound": 0,
-  "scriptsAdded": 0,
-  "topTrends": []
+  "at": "2026-11-03T22:17:53.965Z",
+  "trendsFound": 20,
+  "scriptsAdded": 6,
+  "topTrends": [
+    {
+      "sub": "hn",
+      "title": "EU copyright law proposal rejected",
+      "score": 1847,
+      "comments": 314,
+      "url": "https://twitter.com/Senficon/status/1014814460488413185"
+    },
+    {
+      "sub": "hn",
+      "title": "A uBlock Origin update was rejected from the Chrome Web Store",
+      "score": 1757,
+      "comments": 588,
+      "url": "https://github.com/uBlockOrigin/uBlock-issues/issues/745"
+    },
+    {
+      "sub": "hn",
+      "title": "Procrastination is about managing emotions, not time",
+      "score": 1375,
+      "comments": 361,
+      "url": "https://www.bbc.com/worklife/article/20200121-why-procrastination-is-about-managing-emotions-not-time"
+    },
+    {
+      "sub": "hn",
+      "title": "A receipt printer cured my procrastination",
+      "score": 1255,
+      "comments": 603,
+      "url": "https://www.laurieherault.com/articles/a-thermal-receipt-printer-cured-my-procrastination"
+    },
+    {
+      "sub": "hn",
+      "title": "New academic journal only publishes 'unsurprising' research rejected by others",
+      "score": 884,
+      "comments": 202,
+      "url": "https://www.cbc.ca/radio/asithappens/as-it-happens-thursday-edition-1.5146761/new-academic-journal-only-publishes-unsurprising-research-rejected-by-others-1.5146765"
+    }
+  ]
 }

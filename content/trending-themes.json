@@ -1,5 +1,177 @@
 {
-  "at": "2026-11-03T22:17:25.850Z",
-  "trends": [],
-  "added": []
+  "at": "2026-11-03T22:17:53.964Z",
+  "trends": [
+    {
+      "sub": "hn",
+      "title": "EU copyright law proposal rejected",
+      "score": 1847,
+      "comments": 314,
+      "url": "https://twitter.com/Senficon/status/1014814460488413185"
+    },
+    {
+      "sub": "hn",
+      "title": "A uBlock Origin update was rejected from the Chrome Web Store",
+      "score": 1757,
+      "comments": 588,
+      "url": "https://github.com/uBlockOrigin/uBlock-issues/issues/745"
+    },
+    {
+      "sub": "hn",
+      "title": "Procrastination is about managing emotions, not time",
+      "score": 1375,
+      "comments": 361,
+      "url": "https://www.bbc.com/worklife/article/20200121-why-procrastination-is-about-managing-emotions-not-time"
+    },
+    {
+      "sub": "hn",
+      "title": "A receipt printer cured my procrastination",
+      "score": 1255,
+      "comments": 603,
+      "url": "https://www.laurieherault.com/articles/a-thermal-receipt-printer-cured-my-procrastination"
+    },
+    {
+      "sub": "hn",
+      "title": "New academic journal only publishes 'unsurprising' research rejected by others",
+      "score": 884,
+      "comments": 202,
+      "url": "https://www.cbc.ca/radio/asithappens/as-it-happens-thursday-edition-1.5146761/new-academic-journal-only-publishes-unsurprising-research-rejected-by-others-1.5146765"
+    },
+    {
+      "sub": "hn",
+      "title": "I was rejected by Codecademy three times, so I built my own",
+      "score": 832,
+      "comments": 250,
+      "url": "https://codeamigo.dev?ref=HN"
+    },
+    {
+      "sub": "hn",
+      "title": "Excellence is a habit, but so is failure",
+      "score": 810,
+      "comments": 255,
+      "url": "https://awesomekling.github.io/Excellence-is-a-habit-but-so-is-failure/"
+    },
+    {
+      "sub": "hn",
+      "title": "I gave the AI arms and legs then it rejected me",
+      "score": 809,
+      "comments": 404,
+      "url": "https://grell.dev/blog/ai_rejection"
+    },
+    {
+      "sub": "hn",
+      "title": "Procrastination is Not Laziness",
+      "score": 771,
+      "comments": 173,
+      "url": "http://thoughtcatalog.com/2013/procrastination-is-not-laziness/"
+    },
+    {
+      "sub": "hn",
+      "title": "Internet addiction and the habit of book reading",
+      "score": 760,
+      "comments": 370,
+      "url": "https://benwajdi.com/2021/12/18/is-internet-addiction-eradicating-the-habit-of-reading/"
+    },
+    {
+      "sub": "hn",
+      "title": "Habits of Expert Software Designers",
+      "score": 711,
+      "comments": 143,
+      "url": "https://thereader.mitpress.mit.edu/habits-of-expert-software-designers/"
+    },
+    {
+      "sub": "hn",
+      "title": "Procrastination is connected to perfectionism",
+      "score": 695,
+      "comments": 221,
+      "url": "https://solvingprocrastination.com/perfectionism/"
+    },
+    {
+      "sub": "hn",
+      "title": "Procrastination and the fear of not being good enough",
+      "score": 656,
+      "comments": 276,
+      "url": "https://swapnilchauhan.com/blog/procrastination-and-the-fear-of-not-being-good-enough"
+    },
+    {
+      "sub": "hn",
+      "title": "My bad habit of hoarding information",
+      "score": 656,
+      "comments": 323,
+      "url": "https://andreisurugiu.com/blog/bad-habit/"
+    },
+    {
+      "sub": "hn",
+      "title": "To Change Habits, Try Replacement Instead",
+      "score": 634,
+      "comments": 174,
+      "url": "https://www.nytimes.com/2018/03/19/your-money/resistance-is-futile-to-change-habits-try-replacement-instead.html"
+    },
+    {
+      "sub": "hn",
+      "title": "Donald Knuth on work habits, problem solving, and happiness (2020)",
+      "score": 634,
+      "comments": 161,
+      "url": "https://shuvomoy.github.io/blogs/posts/Knuth-on-work-habits-and-problem-solving-and-happiness/"
+    },
+    {
+      "sub": "hn",
+      "title": "Google Makes So Much Money, It Never Had to Worry About Financial Discipline",
+      "score": 632,
+      "comments": 441,
+      "url": "https://www.bloomberg.com/news/features/2016-12-08/google-makes-so-much-money-it-never-had-to-worry-about-financial-discipline"
+    },
+    {
+      "sub": "hn",
+      "title": "Procrastination is driven by our desire to avoid difficult emotions, says expert",
+      "score": 613,
+      "comments": 312,
+      "url": "https://www.cbc.ca/radio/thesundayedition/the-sunday-edition-for-june-14-2020-1.5604357/there-s-a-reason-we-procrastinate-and-it-s-not-laziness-1.5604433"
+    },
+    {
+      "sub": "hn",
+      "title": "Show HN: Why Do I Procrastinate? –  Web MD for Procrastination",
+      "score": 611,
+      "comments": 192,
+      "url": "https://whydoiprocrastinate.com/"
+    },
+    {
+      "sub": "hn",
+      "title": "Habits of Highly Miserable People",
+      "score": 603,
+      "comments": 297,
+      "url": "https://www.alternet.org/print/here-are-14-habits-highly-miserable-people"
+    }
+  ],
+  "added": [
+    {
+      "title": "EU copyright law proposal rejected",
+      "score": 1847,
+      "angle": "contrarian-trend"
+    },
+    {
+      "title": "A uBlock Origin update was rejected from the Chrome Web Store",
+      "score": 1757,
+      "angle": "inaction-gap"
+    },
+    {
+      "title": "Procrastination is about managing emotions, not time",
+      "score": 1375,
+      "angle": "reframe"
+    },
+    {
+      "title": "A receipt printer cured my procrastination",
+      "score": 1255,
+      "angle": "contrarian-trend"
+    },
+    {
+      "title": "New academic journal only publishes 'unsurprising' research rejected by others",
+      "score": 884,
+      "angle": "inaction-gap"
+    },
+    {
+      "title": "I was rejected by Codecademy three times, so I built my own",
+      "score": 832,
+      "angle": "reframe"
+    }
+  ]
 }

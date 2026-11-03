@@ -27,8 +27,23 @@ async function scout() {
       } catch {}
     }
   }
+  // Fallback sources (Reddit hard-blocks datacenter IPs with 403):
+  // HN Algolia for discipline/motivation-adjacent themes people actually debate.
+  for (const q of ["discipline", "motivation", "procrastination", "habits", "rejected"]) {
+    try {
+      const r = await fetch(`https://hn.algolia.com/api/v1/search?query=${encodeURIComponent(q)}&tags=story&hitsPerPage=8`);
+      if (!r.ok) continue;
+      const j = await r.json();
+      for (const h of j.hits || []) {
+        if ((h.points || 0) < 100) continue;
+        posts.push({ sub: "hn", title: h.title, score: h.points, comments: h.num_comments, url: h.url || `https://news.ycombinator.com/item?id=${h.objectID}` });
+      }
+    } catch {}
+  }
   posts.sort((a, b) => b.score - a.score);
-  return posts.slice(0, 20);
+  // Dedupe by title, keep top 20
+  const seen = new Set();
+  return posts.filter(p => !seen.has(p.title) && seen.add(p.title)).slice(0, 20);
 }
 
 // --- AGENT 2: ALCHEMIST -------------------------------------------------------
