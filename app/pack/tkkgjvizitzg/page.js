@@ -43,5 +43,5 @@ export default function Pack(){return <main>
 <div style={box}><p>Don’t stop and don’t jump straight into another month. For 7 days: 3 small actions on your chosen path and one written reflection. On day 7, write your next 30-day standard.</p>
 <p>Finally, mark the receipt: <b>Proved</b>, <b>Outgrown</b>, or <b>Released</b> — and write one line: “I keep the standard, not the grudge.”</p></div>
 
-<p style={{fontSize:12,color:"#888",marginTop:40}}>Receipts is a self-reflection and goal tool, not therapy or medical advice. Questions or refunds: reply to your Stripe receipt email.</p>
+<p style={{fontSize:12,color:"#888",marginTop:40}}>Receipts is a self-reflection and goal tool, not therapy or medical advice. Questions: reply to your Stripe receipt email.</p>
 </main>}
