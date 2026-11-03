@@ -26,13 +26,16 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: {python-version: "3.10"}
+      - name: Free runner disk (CUDA torch in a build env filled the disk last run)
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL || true
+          docker system prune -af >/dev/null 2>&1 || true
+          df -h / | tail -1
       - id: stcache
-        name: Cache SadTalker repo, model weights and pip
+        name: Cache SadTalker repo and model weights
         uses: actions/cache@v4
         with:
-          path: |
-            sadtalker
-            ~/.cache/pip
+          path: sadtalker
           key: sadtalker-v1-${{ runner.os }}
       - if: steps.stcache.outputs.cache-hit != 'true'
         name: Clone SadTalker + download only the 256px weights we use
@@ -47,12 +50,14 @@ jobs:
           wget -q -nc https://github.com/xinntao/facexlib/releases/download/v0.1.0/detection_Resnet50_Final.pth -O gfpgan/weights/detection_Resnet50_Final.pth
           wget -q -nc https://github.com/TencentARC/GFPGAN/releases/download/v1.3.0/GFPGANv1.4.pth -O gfpgan/weights/GFPGANv1.4.pth
           wget -q -nc https://github.com/xinntao/facexlib/releases/download/v0.2.2/parsing_parsenet.pth -O gfpgan/weights/parsing_parsenet.pth
-      - name: Install deps (CPU torch; gradio skipped)
+      - name: Install deps (CPU torch only; basicsr built against it without isolation)
         run: |
           python -m pip install -U -q pip
-          pip install -q "torch==2.1.2" "torchvision==0.16.2" --index-url https://download.pytorch.org/whl/cpu
-          sed -i '/^gradio$/d' sadtalker/requirements.txt
-          pip install -q -r sadtalker/requirements.txt
+          pip install -q --no-cache-dir "torch==2.0.1" "torchvision==0.15.2" --index-url https://download.pytorch.org/whl/cpu
+          sed -i '/^gradio$/d;/^basicsr/d' sadtalker/requirements.txt
+          pip install -q --no-cache-dir -r sadtalker/requirements.txt
+          pip install -q --no-cache-dir --no-build-isolation "basicsr==1.4.2"
+          df -h / | tail -1
       - name: Render talking head (CPU, ~400 frames)
         run: |
           cd sadtalker
