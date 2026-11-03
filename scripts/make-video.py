@@ -2,7 +2,10 @@
 """Generate a 1080x1920 TikTok video from a script: voiceover (edge-tts, free) + animated text cards (ffmpeg)."""
 import asyncio, json, re, subprocess, sys, textwrap, os, shutil
 day = int(sys.argv[1]); out = sys.argv[2]
+import os as _os
 md = open("content/launch-scripts.md").read()
+if _os.path.exists("content/forge-scripts.md"):
+    md += "\n" + open("content/forge-scripts.md").read()
 S = [dict(n=int(m[0]), hook=m[1], say=m[2], body=m[3], cta=m[4]) for m in re.findall(r"## (\d+)\. (.+)\n- Hook[^\n]*\n- Say: (.+)\n- Body: (.+)\n- CTA: (.+)", md)]
 s = S[day % len(S)]
 sent = [x.strip() for x in re.split(r"(?<=[.?!])\s+", s["say"]) if x.strip()]
@@ -34,5 +37,10 @@ filt.append(f"drawtext=fontfile={font}:text='RECEIPTS':fontcolor=0x888888:fontsi
 vf = ",".join(filt)
 subprocess.run(["ffmpeg","-y","-loglevel","error","-f","lavfi","-i",f"color=c=0x0b0b0c:s=1080x1920:d={dur:.2f}:r=30",
   "-i","/tmp/vid/voice.mp3","-vf",vf,"-c:v","libx264","-pix_fmt","yuv420p","-c:a","aac","-b:a","128k","-shortest",out],check=True)
-json.dump(dict(day=day+1, n=s["n"], hook=s["hook"], caption=f"{s['hook']} — the 30-day Receipts system, link in bio.\n#provethemwrong #selfimprovement #careertok #motivation #discipline #30daychallenge", duration=dur), open(out+".json","w"))
+json.dump(dict(day=day+1, n=s["n"], hook=s["hook"], caption=f"{s['hook']} — the 30-day Receipts system, link in bio.\n" + [
+      "#provethemwrong #selfimprovement #careertok #motivation #discipline #30daychallenge",
+      "#provethemwrong #discipline #selfimprovement #grindset #30daychallenge #receipts",
+      "#receipts #motivation #provethemwrong #selfdevelopment #dailystreak #30daychallenge",
+      "#provethemwrong #revenge #glowup #selfimprovement #receipts #mindset",
+    ][day % 4], duration=dur), open(out+".json","w"))
 print("ok", out, round(dur,1), "s")

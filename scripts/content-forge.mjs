@@ -1,0 +1,61 @@
+#!/usr/bin/env node
+// Content forge: generates new video script variants so daily posts don't go stale.
+// Strategy: 1) GitHub Models free tier (GITHUB_TOKEN, zero cost) if reachable.
+//           2) Combinatorial template generator as guaranteed fallback.
+// Appends to content/forge-scripts.md in the exact launch-scripts.md format.
+// Runs weekly via content-forge.yml; safe to re-run (appends, never rewrites).
+import fs from "node:fs";
+
+const FILE = "content/forge-scripts.md";
+const COUNT = 10;
+const existing = fs.existsSync(FILE) ? fs.readFileSync(FILE, "utf8") : "";
+const startN = Math.max(30, ...[...existing.matchAll(/## (\d+)\./g)].map(m => +m[1])) + 1;
+
+const FORMAT = `## <n>. <short title>
+- Hook: <first 2 seconds, spoken + on-screen>
+- Say: <3-5 short spoken sentences>
+- Body: <the lesson, 1-2 sentences>
+- CTA: <end line mentioning $29 link in bio>`;
+
+async function llmScripts() {
+  const tok = process.env.GITHUB_TOKEN || process.env.GH_TOKEN;
+  if (!tok) throw new Error("no token");
+  const prompt = `You write TikTok scripts for "Receipts Pack", a $29 one-time 30-day system that turns rejection and spite into a measurable standard and 30 days of proof. Dark-motivation tone, never name real people, B2C, spoken-word style, each 20-40s when read aloud. Vary the angles: investor rejection, boss doubt, ex, coach, family skepticism, being overlooked, being laughed at, being told to be realistic, gatekeepers, "who do you think you are". Output exactly ${COUNT} scripts, numbering from ${startN}, in this exact format (no other text):\n${FORMAT}`;
+  const r = await fetch("https://models.github.ai/inference/chat/completions", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${tok}` },
+    body: JSON.stringify({ model: "openai/gpt-4o-mini", messages: [{ role: "user", content: prompt }], temperature: 0.9 }),
+  });
+  if (!r.ok) throw new Error("models api " + r.status);
+  const j = await r.json();
+  const text = j.choices?.[0]?.message?.content || "";
+  const blocks = [...text.matchAll(/## (\d+)\. (.+)\n- Hook[^\n]*\n- Say: (.+)\n- Body: (.+)\n- CTA: (.+)/g)];
+  if (blocks.length < 3) throw new Error("llm output not parseable");
+  return blocks.map(m => `## ${m[1]}. ${m[2]}\n- Hook: ${m[3].replace(/^- Hook: ?/i, "")}\n- Say: ${m[4]}\n- Body: ${m[5]}\n- CTA: ${m[6]}`).join("\n\n");
+}
+
+function templateScripts() {
+  const doubters = ["The investor who passed", "The boss who smirked", "The ex who laughed", "The coach who cut you", "The family member who said be realistic", "The friend who went quiet", "The gatekeeper who never replied", "The manager who said next year", "The group chat that went silent", "The mentor who said not yet"];
+  const receipts = ["a screenshot you never deleted", "the email you read twice", "one sentence you wrote down", "a date you circled", "the voicemail you kept", "the rejection letter in your drawer", "a number you memorized", "the meeting notes you kept", "a text you screenshot at 2am", "the invoice of what it cost you"];
+  const standards = ["5am starts for 30 days", "one outreach email a day", "10,000 words of proof", "30 days of published work", "one measurable rep before breakfast", "a daily score nobody can argue with", "30 logged workouts", "30 shipped pages", "one uncomfortable call a day", "a streak that outlives the doubt"];
+  const closers = ["Not to send them. To prove it.", "Anger is fuel. Receipts are the engine.", "Doubt counted you out. Evidence counts you in.", "You don't argue. You accumulate.", "The receipt becomes the standard. The standard becomes the proof."];
+  const out = [];
+  for (let i = 0; i < COUNT; i++) {
+    const d = doubters[(startN - 1 + i) % doubters.length], r = receipts[(startN - 1 + i) % receipts.length], st = standards[(startN - 1 + i) % standards.length], c = closers[(startN - 1 + i) % closers.length];
+    const n = startN + i;
+    out.push(`## ${n}. ${d}
+- Hook: ${d}. So I kept the receipt.
+- Say: ${c} One receipt, one measurable standard, thirty days of evidence. That is the whole system. ${r.charAt(0).toUpperCase() + r.slice(1)} became ${st}. Nobody argues with a streak.
+- Body: Turning one moment of doubt into a 30-day standard is the entire Receipts method — pick the receipt, set the standard, collect daily proof.
+- CTA: The 30-day Receipts system is $29 — link in bio.`);
+  }
+  return out.join("\n\n");
+}
+
+let block, source;
+try { block = await llmScripts(); source = "llm"; }
+catch (e) { console.log("llm unavailable:", e.message, "— using templates"); block = templateScripts(); source = "templates"; }
+
+fs.mkdirSync("content", { recursive: true });
+fs.appendFileSync(FILE, (existing && !existing.endsWith("\n\n") ? "\n\n" : "") + block + "\n");
+console.log(`forge: appended ${COUNT} scripts (${startN}–${startN + COUNT - 1}) via ${source}`);

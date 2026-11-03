@@ -1,0 +1,22 @@
+name: Weekly content forge
+on:
+  schedule: [{cron: "0 4 * * 0"}]   # Sunday 04:00 UTC
+  workflow_dispatch:
+permissions: {contents: write}
+concurrency: {group: content-forge, cancel-in-progress: false}
+jobs:
+  forge:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GITHUB_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 20}
+      - run: node scripts/content-forge.mjs
+      - name: Commit new scripts
+        run: |
+          git config user.name github-actions; git config user.email github-actions@github.com
+          git add content/forge-scripts.md
+          git diff --cached --quiet || (git commit -m "Content forge: new script batch" && git pull --rebase -q && git push -q)
