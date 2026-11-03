@@ -12,7 +12,7 @@ os.makedirs("/tmp/vid", exist_ok=True)
 async def tts():
     import edge_tts
     try:
-        await edge_tts.Communicate(speech, "en-US-EricNeural", rate="-5%").save("/tmp/vid/voice.mp3"); return True
+        await edge_tts.Communicate(speech, "en-US-EricNeural", rate="+10%", pitch="-5Hz").save("/tmp/vid/voice.mp3"); return True
     except Exception as e:
         print("edge-tts failed:", e); return False
 ok = asyncio.run(tts())
