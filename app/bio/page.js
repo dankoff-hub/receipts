@@ -42,5 +42,4 @@ return <main style={{maxWidth:420,margin:"0 auto",padding:16}}>
 </div>
 
 <a href={free} style={btn}>Start with the free template →</a>
-<p style={{fontSize:12,color:"#666",textAlign:"center",marginTop:32}}>Not therapy. No contacting or targeting other people.</p>
 </main>}
