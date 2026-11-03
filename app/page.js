@@ -29,4 +29,4 @@ export default function H(){return <main>
 
 <div style={{margin:"40px 0"}}><a href={PAY} style={btn}>Start your 30 days — $29</a></div>
 <p><a href="/pricing" style={{color:"#aaa"}}>Pricing</a></p>
-<p style={{fontSize:12,color:"#888"}}>Not therapy. No contacting or targeting other people. Rosa is the brand persona behind Receipts.</p></main>}
+<p style={{fontSize:12,color:"#888"}}>Not therapy. No contacting or targeting other people.</p></main>}
