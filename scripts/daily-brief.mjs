@@ -1,7 +1,8 @@
 import fs from "node:fs";
 import { execSync } from "node:child_process";
 const SITE = "https://receipts-blond.vercel.app";
-const md = fs.readFileSync("content/launch-scripts.md", "utf8");
+let md = fs.readFileSync("content/launch-scripts.md", "utf8");
+if (fs.existsSync("content/forge-scripts.md")) md += "\n" + fs.readFileSync("content/forge-scripts.md", "utf8");
 const scripts = [...md.matchAll(/## (\d+)\. (.+)\n- Hook[^\n]*\n(?:- Say: (.+)\n)?- Body: (.+)\n- CTA: (.+)/g)].map(m => ({ n: +m[1], hook: m[2], body: m[4], cta: m[5], say: m[3] }));
 const start = new Date("2026-11-03T00:00:00Z");
 const day = Math.max(0, Math.floor((Date.now() - start) / 86400000));
