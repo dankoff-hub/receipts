@@ -1,0 +1,20 @@
+name: Guerrilla marketing bot (Level 28)
+on:
+  schedule: [{cron: "0 8,12,16,20 * * *"}]
+  workflow_dispatch:
+permissions: {contents: write, issues: write}
+jobs:
+  bot:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+      APP_URL: https://receipts-blond.vercel.app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 20}
+      - run: node scripts/guerrilla-bot.mjs
+      - name: Create daily action issue
+        run: |
+          gh issue create --title "Guerrilla actions for $(date +%Y-%m-%d)" --body-file content/guerrilla-output.json --label guerrilla || echo "issue exists"
