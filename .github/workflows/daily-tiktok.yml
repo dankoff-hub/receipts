@@ -17,13 +17,22 @@ jobs:
         with: {node-version: 20}
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg espeak-ng fonts-dejavu-core >/dev/null && pip install -q edge-tts
       - id: day
-        run: echo "n=$(( ( $(date +%s) - $(date -d 2026-11-04 +%s) ) / 86400 ))" >> $GITHUB_OUTPUT
-      - run: python3 scripts/make-video.py ${{ steps.day.outputs.n }} public/videos/day-$(printf %03d $(( ${{ steps.day.outputs.n }} + 1 ))).mp4
-      - name: Commit video (Vercel hosts it)
+        run: |
+          N=$(( ( $(date +%s) - $(date -d 2026-11-04 +%s) ) / 86400 ))
+          F="public/videos/day-$(printf %03d $(( N + 1 ))).mp4"
+          echo "n=$N" >> $GITHUB_OUTPUT
+          echo "f=$F" >> $GITHUB_OUTPUT
+          if [ -f "$F" ]; then echo "new=false" >> $GITHUB_OUTPUT; else echo "new=true" >> $GITHUB_OUTPUT; fi
+      - if: steps.day.outputs.new == 'true'
+        run: python3 scripts/make-video.py ${{ steps.day.outputs.n }} ${{ steps.day.outputs.f }}
+      - if: steps.day.outputs.new == 'true'
+        name: Commit video (Vercel hosts it)
         run: |
           git config user.name github-actions; git config user.email github-actions@github.com
-          git add public/videos && git commit -m "Daily video day $(( ${{ steps.day.outputs.n }} + 1 ))" && git push
-      - name: Wait for Vercel deploy then schedule in Buffer
-        run: node scripts/publish-buffer.mjs public/videos/day-$(printf %03d $(( ${{ steps.day.outputs.n }} + 1 ))).mp4
+          git add public/videos && git commit -m "Daily video day $(( ${{ steps.day.outputs.n }} + 1 ))"
+          git pull --rebase -q && git push -q
+      - if: steps.day.outputs.new == 'true'
+        name: Wait for Vercel deploy then schedule in Buffer
+        run: node scripts/publish-buffer.mjs ${{ steps.day.outputs.f }}
       - name: Daily brief issue
         run: node scripts/daily-brief.mjs
