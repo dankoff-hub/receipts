@@ -42,3 +42,5 @@ jobs:
           fi
       - name: Daily brief issue
         run: node scripts/daily-brief.mjs
+      - name: Cross-post to Instagram (if connected)
+        run: node scripts/cross-post-instagram.mjs || echo "instagram skip"
