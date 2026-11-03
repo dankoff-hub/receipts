@@ -42,6 +42,6 @@ jobs:
           fi
       - name: Daily brief issue
         run: node scripts/daily-brief.mjs
-      - if: steps.day.outputs.new == 'true'
+      - if: steps.day.outputs.new == 'true' || github.event_name == 'workflow_dispatch'
         name: Cross-post to Instagram Reels
         run: node scripts/cross-post-instagram.mjs ${{ steps.day.outputs.f }} || echo "instagram skip"
