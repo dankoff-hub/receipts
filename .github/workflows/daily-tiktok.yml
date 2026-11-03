@@ -11,6 +11,7 @@ jobs:
       GH_TOKEN: ${{ github.token }}
       BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
       APP_URL: https://receipts-blond.vercel.app
+      STRIPE_API_KEY: ${{ secrets.STRIPE_API_KEY }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
