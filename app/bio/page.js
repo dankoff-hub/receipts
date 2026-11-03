@@ -7,7 +7,7 @@ export default function Bio(){return <main style={{maxWidth:420,margin:"0 auto",
 <p style={{fontSize:16,color:"#ccc",textAlign:"center",marginBottom:24}}>The 30-day system that converts rejection into proof.</p>
 
 <a href={PAY} style={btn}>Get the Receipts Pack — $29</a>
-<p style={{fontSize:13,color:"#888",textAlign:"center",marginBottom:32}}>One-time payment · Instant access · 14-day refund</p>
+<p style={{fontSize:13,color:"#888",textAlign:"center",marginBottom:32}}>One-time payment · Instant access</p>
 
 <div style={card}>
 <b>What you get</b>
