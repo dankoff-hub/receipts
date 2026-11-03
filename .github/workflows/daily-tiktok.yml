@@ -1,6 +1,6 @@
 name: Daily TikTok video → Buffer → TikTok
 on:
-  schedule: [{cron: "0 6 * * *"}]
+  schedule: [{cron: "0 6,10,14,18 * * *"}]
   workflow_dispatch:
 permissions: {contents: write, issues: write}
 concurrency: {group: daily-tiktok, cancel-in-progress: false}
@@ -34,5 +34,11 @@ jobs:
       - if: steps.day.outputs.new == 'true'
         name: Wait for Vercel deploy then schedule in Buffer
         run: node scripts/publish-buffer.mjs ${{ steps.day.outputs.f }}
+      - if: github.event_name == 'workflow_dispatch'
+        name: Manual publish via queue
+        run: |
+          if [ -f state/publish-queue.json ] && grep -q '"when": *"now"' state/publish-queue.json; then
+            node scripts/buffer-poster.js
+          fi
       - name: Daily brief issue
         run: node scripts/daily-brief.mjs
