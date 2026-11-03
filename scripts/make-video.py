@@ -37,10 +37,12 @@ filt.append(f"drawtext=fontfile={font}:text='RECEIPTS':fontcolor=0x888888:fontsi
 vf = ",".join(filt)
 subprocess.run(["ffmpeg","-y","-loglevel","error","-f","lavfi","-i",f"color=c=0x0b0b0c:s=1080x1920:d={dur:.2f}:r=30",
   "-i","/tmp/vid/voice.mp3","-vf",vf,"-c:v","libx264","-pix_fmt","yuv420p","-c:a","aac","-b:a","128k","-shortest",out],check=True)
-json.dump(dict(day=day+1, n=s["n"], hook=s["hook"], caption=f"{s['hook']} — the 30-day Receipts system, link in bio.\n" + [
-      "#provethemwrong #selfimprovement #careertok #motivation #discipline #30daychallenge",
-      "#provethemwrong #discipline #selfimprovement #grindset #30daychallenge #receipts",
-      "#receipts #motivation #provethemwrong #selfdevelopment #dailystreak #30daychallenge",
-      "#provethemwrong #revenge #glowup #selfimprovement #receipts #mindset",
-    ][day % 4], duration=dur), open(out+".json","w"))
+_tags = ["provethemwrong","receipts","30daychallenge","fyp","careertok","motivation","selfimprovement"]
+try:
+    _tj = json.load(open("content/tags.json"))
+    if _tj.get("mixes"): _tags = _tj["mixes"][day % len(_tj["mixes"])]["tiktok"]
+    elif _tj.get("fallback"): _tags = _tj["fallback"]["tiktok"]
+except Exception: pass
+_tagstr = " ".join("#"+t for t in _tags)
+json.dump(dict(day=day+1, n=s["n"], hook=s["hook"], caption=f"{s['hook']} — the 30-day Receipts system, link in bio.\n" + _tagstr, duration=dur), open(out+".json","w"))
 print("ok", out, round(dur,1), "s")

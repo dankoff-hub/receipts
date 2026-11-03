@@ -14,6 +14,8 @@ jobs:
       - uses: actions/setup-node@v4
         with: {node-version: 20}
       - run: node scripts/virality-swarm.mjs
+      - name: Tag scout (daily TikTok/IG hashtag refresh)
+        run: node scripts/tag-scout.mjs
       - name: Commit trend scripts
         run: |
           git config user.name github-actions; git config user.email github-actions@github.com

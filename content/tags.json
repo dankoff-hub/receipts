@@ -1,0 +1,106 @@
+{
+  "at": "2026-11-03T22:35:05.203Z",
+  "ok": true,
+  "mixes": [
+    {
+      "instagram": [
+        "provethemwrong",
+        "receipts",
+        "30daychallenge",
+        "motivation",
+        "fitness",
+        "workout",
+        "personalgrowth"
+      ],
+      "tiktok": [
+        "provethemwrong",
+        "receipts",
+        "30daychallenge",
+        "fyp",
+        "careertok",
+        "motivation",
+        "fitness"
+      ]
+    },
+    {
+      "instagram": [
+        "provethemwrong",
+        "receipts",
+        "30daychallenge",
+        "selfimprovement",
+        "gym",
+        "selfcare",
+        "consistency"
+      ],
+      "tiktok": [
+        "provethemwrong",
+        "receipts",
+        "30daychallenge",
+        "fyp",
+        "careertok",
+        "selfimprovement",
+        "gym"
+      ]
+    },
+    {
+      "instagram": [
+        "provethemwrong",
+        "receipts",
+        "30daychallenge",
+        "discipline",
+        "selflove",
+        "goals",
+        "lifestyle"
+      ],
+      "tiktok": [
+        "provethemwrong",
+        "receipts",
+        "30daychallenge",
+        "fyp",
+        "careertok",
+        "discipline",
+        "selflove"
+      ]
+    },
+    {
+      "instagram": [
+        "provethemwrong",
+        "receipts",
+        "30daychallenge",
+        "mindset",
+        "success",
+        "inspiration",
+        "dedication"
+      ],
+      "tiktok": [
+        "provethemwrong",
+        "receipts",
+        "30daychallenge",
+        "fyp",
+        "careertok",
+        "mindset",
+        "success"
+      ]
+    }
+  ],
+  "fallback": {
+    "instagram": [
+      "provethemwrong",
+      "receipts",
+      "30daychallenge",
+      "selfimprovement",
+      "motivation",
+      "discipline",
+      "mindset"
+    ],
+    "tiktok": [
+      "provethemwrong",
+      "receipts",
+      "30daychallenge",
+      "fyp",
+      "careertok",
+      "motivationtiktok",
+      "selfimprovement"
+    ]
+  }
+}
