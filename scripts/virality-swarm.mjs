@@ -47,7 +47,9 @@ async function scout() {
 }
 
 // --- AGENT 2: ALCHEMIST -------------------------------------------------------
+const ON_THEME = /disciplin|motivat|habit|procrastin|resilien|fail|reject|quit|burnout|imposter|success|goal|focus|self.improve|grit|lazy|comfort zone/i;
 function alchemize(posts, usedKeys) {
+  posts = posts.filter(p => p.sub !== "hn" || ON_THEME.test(p.title));
   const frames = [
     (t) => ({ hook: `Everyone is posting about: "${t}". Here's the part nobody says.`, angle: "contrarian-trend" }),
     (t) => ({ hook: `"${t}" — 4,000 people agree. Most will do nothing.`, angle: "inaction-gap" }),

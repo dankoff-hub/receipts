@@ -58,7 +58,6 @@
 - Body: Turning one moment of doubt into a 30-day standard is the entire Receipts method — pick the receipt, set the standard, collect daily proof.
 - CTA: The 30-day Receipts system is $29 — link in bio.
 
-
 ## 41. The investor who passed
 - Hook: The investor who passed. So I kept the receipt.
 - Say: Not to send them. To prove it. One receipt, one measurable standard, thirty days of evidence. That is the whole system. A screenshot you never deleted became 5am starts for 30 days. Nobody argues with a streak.
@@ -118,7 +117,6 @@
 - Say: The receipt becomes the standard. The standard becomes the proof. One receipt, one measurable standard, thirty days of evidence. That is the whole system. The invoice of what it cost you became a streak that outlives the doubt. Nobody argues with a streak.
 - Body: Turning one moment of doubt into a 30-day standard is the entire Receipts method — pick the receipt, set the standard, collect daily proof.
 - CTA: The 30-day Receipts system is $29 — link in bio.
-
 
 ## 51. The investor who passed
 - Hook: The investor who passed. So I kept the receipt.
@@ -180,39 +178,3 @@
 - Body: Turning one moment of doubt into a 30-day standard is the entire Receipts method — pick the receipt, set the standard, collect daily proof.
 - CTA: The 30-day Receipts system is $29 — link in bio.
 
-
-## 61. Trend: contrarian-trend
-- Hook: Everyone is posting about: "EU copyright law proposal rejected". Here's the part nobody says.
-- Say: That post has 1.8 thousand upvotes. Agreement is not action. One receipt, one measurable standard, thirty days of evidence. That is the difference between feeling motivated and becoming undeniable.
-- Body: Trending theme converted into the Receipts method: the crowd's agreement is free — your daily proof is what compounds.
-- CTA: The 30-day Receipts system is $29 — link in bio.
-
-## 62. Trend: inaction-gap
-- Hook: "A uBlock Origin update was rejected from the Chrome Web Store" — 4,000 people agree. Most will do nothing.
-- Say: That post has 1.8 thousand upvotes. Agreement is not action. One receipt, one measurable standard, thirty days of evidence. That is the difference between feeling motivated and becoming undeniable.
-- Body: Trending theme converted into the Receipts method: the crowd's agreement is free — your daily proof is what compounds.
-- CTA: The 30-day Receipts system is $29 — link in bio.
-
-## 63. Trend: reframe
-- Hook: The internet calls this wisdom: "Procrastination is about managing emotions, not time". I call it a receipt.
-- Say: That post has 1.4 thousand upvotes. Agreement is not action. One receipt, one measurable standard, thirty days of evidence. That is the difference between feeling motivated and becoming undeniable.
-- Body: Trending theme converted into the Receipts method: the crowd's agreement is free — your daily proof is what compounds.
-- CTA: The 30-day Receipts system is $29 — link in bio.
-
-## 64. Trend: contrarian-trend
-- Hook: Everyone is posting about: "A receipt printer cured my procrastination". Here's the part nobody says.
-- Say: That post has 1.3 thousand upvotes. Agreement is not action. One receipt, one measurable standard, thirty days of evidence. That is the difference between feeling motivated and becoming undeniable.
-- Body: Trending theme converted into the Receipts method: the crowd's agreement is free — your daily proof is what compounds.
-- CTA: The 30-day Receipts system is $29 — link in bio.
-
-## 65. Trend: inaction-gap
-- Hook: "New academic journal only publishes 'unsurprising' research rejected by others" — 4,000 people agree. Most will do nothing.
-- Say: That post has 0.9 thousand upvotes. Agreement is not action. One receipt, one measurable standard, thirty days of evidence. That is the difference between feeling motivated and becoming undeniable.
-- Body: Trending theme converted into the Receipts method: the crowd's agreement is free — your daily proof is what compounds.
-- CTA: The 30-day Receipts system is $29 — link in bio.
-
-## 66. Trend: reframe
-- Hook: The internet calls this wisdom: "I was rejected by Codecademy three times, so I built my own". I call it a receipt.
-- Say: That post has 0.8 thousand upvotes. Agreement is not action. One receipt, one measurable standard, thirty days of evidence. That is the difference between feeling motivated and becoming undeniable.
-- Body: Trending theme converted into the Receipts method: the crowd's agreement is free — your daily proof is what compounds.
-- CTA: The 30-day Receipts system is $29 — link in bio.
