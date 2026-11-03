@@ -42,5 +42,6 @@ jobs:
           fi
       - name: Daily brief issue
         run: node scripts/daily-brief.mjs
-      - name: Cross-post to Instagram (if connected)
-        run: node scripts/cross-post-instagram.mjs || echo "instagram skip"
+      - if: steps.day.outputs.new == 'true'
+        name: Cross-post to Instagram Reels
+        run: node scripts/cross-post-instagram.mjs ${{ steps.day.outputs.f }} || echo "instagram skip"
