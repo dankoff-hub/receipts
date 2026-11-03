@@ -15,3 +15,8 @@ Limits: Buffer Free = 3 channels, 10 queued posts per channel; TikTok auto-publi
 
 ## TikTok bio link
 Add `https://receipts-blond.vercel.app/bio` to your TikTok profile bio. Mobile-optimized, Stripe checkout, one-tap buy.
+
+## Level 28 guerrilla automation
+- `guerrilla-bot.yml` runs 4x daily (08:00, 12:00, 16:00, 20:00 GMT) generating comment templates, Reddit drafts, QR text, influencer outreach, and action items.
+- Creates a GitHub issue with daily actions.
+- `cross-post-instagram.mjs` cross-posts to Instagram Reels when BUFFER_API_KEY and Instagram channel are connected.
