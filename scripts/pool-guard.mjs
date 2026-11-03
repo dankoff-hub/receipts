@@ -8,7 +8,7 @@ const files = ["content/launch-scripts.md", fs.existsSync("content/forge-scripts
 let all = [];
 for (const f of files) {
   const md = fs.readFileSync(f, "utf8");
-  all.push(...[...md.matchAll(/## (\d+)\. (.+)\n- Hook[^\n]*\n- Say: (.+)\n- Body: (.+)\n- CTA: (.+)/g)].map(m => ({ n: +m[1], title: m[2], hook: m[3], say: m[4], body: m[5], cta: m[6], file: f })));
+  all.push(...[...md.matchAll(/## (\d+)\. (.+)\n- Hook[^:\n]*: ?"?([^"\n]+)"?\n- Say: (.+)\n- Body: (.+)\n- CTA: ?"?(.+?)"?\n/g)].map(m => ({ n: +m[1], title: m[2], hook: (m[3] || m[2]).trim(), say: m[4], body: m[5], cta: m[6], file: f })));
 }
 const seen = new Map(); const bad = [];
 const ON_THEME = /receipt|standard|proof|doubt|reject|discipline|motivat|30.day|bio/i;
