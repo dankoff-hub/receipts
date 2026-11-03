@@ -44,5 +44,10 @@ try:
     elif _tj.get("fallback"): _tags = _tj["fallback"]["tiktok"]
 except Exception: pass
 _tagstr = " ".join("#"+t for t in _tags)
-json.dump(dict(day=day+1, n=s["n"], hook=s["hook"], caption=f"{s['hook']} — the 30-day Receipts system, link in bio.\n" + _tagstr, duration=dur), open(out+".json","w"))
+_cta_line = "the 30-day Receipts system, link in bio."
+try:
+    _cb = json.load(open("content/cta-bank.json"))
+    if _cb.get("lines"): _cta_line = _cb["lines"][day % len(_cb["lines"])]
+except Exception: pass
+json.dump(dict(day=day+1, n=s["n"], hook=s["hook"], caption=f"{s['hook']} — {_cta_line}\n" + _tagstr, duration=dur), open(out+".json","w"))
 print("ok", out, round(dur,1), "s")

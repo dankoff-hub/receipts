@@ -1,0 +1,25 @@
+name: Growth swarm (agents 5-8)
+on:
+  schedule: [{cron: "30 5 * * *"}]   # 05:30 UTC — between virality swarm (05:00) and video run (06:00)
+  workflow_dispatch:
+permissions: {contents: write}
+concurrency: {group: growth-swarm, cancel-in-progress: false}
+jobs:
+  swarm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 20}
+      # Agents run sequentially inside one runner boot = minimal usage.
+      - run: node scripts/competitor-watch.mjs   # 6
+      - run: node scripts/cta-lab.mjs            # 5 (reads survival context)
+      - run: node scripts/objection-lab.mjs      # 8 (reads competitor signals)
+      - run: node scripts/pool-guard.mjs         # 7 (quality gate last)
+      - name: Commit content only (payments/pricing/legal are out of agent reach)
+        run: |
+          git config user.name github-actions; git config user.email github-actions@github.com
+          git add content/
+          # Guard: never allow this workflow to change app code or workflows
+          git diff --cached --name-only | grep -vE '^content/' && { echo "GUARD TRIPPED: non-content change blocked"; git reset -q; exit 1; } || true
+          git diff --cached --quiet || (git commit -m "Growth swarm: CTA/lab/watch/guard outputs" && git pull --rebase -q && git push -q)
