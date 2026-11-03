@@ -12,3 +12,6 @@
 3. GitHub repo → Settings → Secrets → Actions → `BUFFER_API_KEY`.
 4. Run the "Daily TikTok" workflow once manually to verify; afterwards it runs at 06:00 GMT daily.
 Limits: Buffer Free = 3 channels, 10 queued posts per channel; TikTok auto-publish uses original audio only.
+
+## TikTok bio link
+Add `https://receipts-blond.vercel.app/bio` to your TikTok profile bio. Mobile-optimized, Stripe checkout, one-tap buy.
