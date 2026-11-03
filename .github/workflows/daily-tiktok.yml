@@ -18,7 +18,7 @@ jobs:
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg espeak-ng fonts-dejavu-core >/dev/null && pip install -q edge-tts
       - id: day
         run: |
-          N=$(( ( $(date +%s) - $(date -d 2026-11-04 +%s) ) / 86400 ))
+          N=$(( ( $(date +%s) - $(date -d 2026-11-03 +%s) ) / 86400 ))
           F="public/videos/day-$(printf %03d $(( N + 1 ))).mp4"
           echo "n=$N" >> $GITHUB_OUTPUT
           echo "f=$F" >> $GITHUB_OUTPUT
