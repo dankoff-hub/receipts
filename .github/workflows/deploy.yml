@@ -1,0 +1,22 @@
+name: Deploy to Vercel
+on:
+  push: {branches: [main]}
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 20}
+      - name: Skip if no token
+        if: env.VERCEL_TOKEN == ''
+        run: echo "VERCEL_TOKEN secret not set; skipping deploy."
+      - name: Deploy
+        if: env.VERCEL_TOKEN != ''
+        run: |
+          npm i -g vercel@latest
+          vercel deploy --prod --yes --token "$VERCEL_TOKEN" | tee url.txt
+          echo "Live: $(tail -1 url.txt)" >> $GITHUB_STEP_SUMMARY
