@@ -1,7 +1,6 @@
 name: Daily TikTok brief
 on:
   workflow_dispatch:
-  workflow_dispatch:
 permissions: {issues: write, contents: read}
 jobs:
   brief:
