@@ -1,6 +1,6 @@
 name: Guerrilla marketing bot (Level 28)
 on:
-  schedule: [{cron: "0 8,12,16,20 * * *"}]
+  schedule: [{cron: "0 12 * * *"}]
   workflow_dispatch:
 permissions: {contents: write, issues: write}
 jobs:

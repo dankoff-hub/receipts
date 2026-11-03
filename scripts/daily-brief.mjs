@@ -3,7 +3,7 @@ import { execSync } from "node:child_process";
 const SITE = "https://receipts-blond.vercel.app";
 const md = fs.readFileSync("content/launch-scripts.md", "utf8");
 const scripts = [...md.matchAll(/## (\d+)\. (.+)\n- Hook[^\n]*\n(?:- Say: (.+)\n)?- Body: (.+)\n- CTA: (.+)/g)].map(m => ({ n: +m[1], hook: m[2], body: m[4], cta: m[5], say: m[3] }));
-const start = new Date("2026-11-04T00:00:00Z");
+const start = new Date("2026-11-03T00:00:00Z");
 const day = Math.max(0, Math.floor((Date.now() - start) / 86400000));
 const s = scripts[day % scripts.length];
 const health = await fetch(SITE + "/api/health").then(r => r.status).catch(() => "down");
@@ -28,6 +28,9 @@ ${tags}
 **Site check:** health ${health === 200 ? "OK" : "FAILED (" + health + ")"} · Stripe button ${stripeOk ? "present" : "MISSING"} · ${SITE}
 
 **Your 2-minute follow-up:** reply here with views / clicks / sales so the weekly review can use it.`;
+let swarm = "";
+try { swarm = execSync("node scripts/target-check.mjs", { env: process.env }).toString().trim(); } catch (e) { swarm = "swarm check failed"; }
 const title = `Post today: Day ${day + 1} — ${s.hook}`;
-fs.writeFileSync("/tmp/body.md", body);
+const bodyWithSwarm = body + "\n\n---\n**Swarm survival:** " + swarm;
+fs.writeFileSync("/tmp/body.md", bodyWithSwarm);
 execSync(`gh issue create --title ${JSON.stringify(title)} --body-file /tmp/body.md --label daily-brief`, { stdio: "inherit" });

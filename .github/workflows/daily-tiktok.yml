@@ -1,6 +1,6 @@
 name: Daily TikTok video → Buffer → TikTok
 on:
-  schedule: [{cron: "0 6,10,14,18 * * *"}]
+  schedule: [{cron: "0 6 * * *"}]
   workflow_dispatch:
 permissions: {contents: write, issues: write}
 concurrency: {group: daily-tiktok, cancel-in-progress: false}
@@ -42,9 +42,6 @@ jobs:
           fi
       - name: Daily brief issue
         run: node scripts/daily-brief.mjs
-      - if: steps.day.outputs.new == 'true' || github.event_name == 'workflow_dispatch'
+      - if: steps.day.outputs.new == 'true'
         name: Cross-post to Instagram Reels
         run: node scripts/cross-post-instagram.mjs ${{ steps.day.outputs.f }} || echo "instagram skip"
-      - if: steps.day.outputs.new == 'true' || github.event_name == 'workflow_dispatch'
-        name: Cross-post to YouTube Shorts
-        run: node scripts/cross-post-youtube.mjs ${{ steps.day.outputs.f }} || echo "youtube skip"
