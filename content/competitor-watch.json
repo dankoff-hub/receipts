@@ -1,5 +1,5 @@
 {
-  "at": "2026-11-03T22:43:45.400Z",
+  "at": "2026-11-04T06:26:49.582Z",
   "hits": [
     {
       "q": "habit tracker paid",
@@ -30,12 +30,6 @@
       "title": "Show HN: GPU Price list inspired by diskprices.com",
       "points": 10,
       "url": "https://gpuquicklist.com/"
-    },
-    {
-      "q": "habit tracker paid",
-      "title": "Show HN: Track Habits with a Tweet",
-      "points": 7,
-      "url": "https://xtreeks.com/"
     },
     {
       "q": "habit tracker paid",
@@ -90,6 +84,12 @@
       "title": "My Biggest Lesson Doing a $10K in 30 Days Challenge",
       "points": 2,
       "url": "https://news.ycombinator.com/item?id=33798232"
+    },
+    {
+      "q": "30 day challenge product",
+      "title": "Show HN: 30 days challenge to build a SaaS tool – Copi",
+      "points": 2,
+      "url": "https://www.usecopi.com/04cbd07e"
     }
   ]
 }
