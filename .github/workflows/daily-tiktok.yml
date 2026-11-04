@@ -27,10 +27,13 @@ jobs:
       - if: steps.day.outputs.new == 'true'
         run: python3 scripts/make-video.py ${{ steps.day.outputs.n }} ${{ steps.day.outputs.f }}
       - if: steps.day.outputs.new == 'true'
+        name: Caption studio (unique per-channel captions, never repeated)
+        run: node scripts/caption-studio.mjs ${{ steps.day.outputs.f }}
+      - if: steps.day.outputs.new == 'true'
         name: Commit video (Vercel hosts it)
         run: |
           git config user.name github-actions; git config user.email github-actions@github.com
-          git add public/videos && git commit -m "Daily video day $(( ${{ steps.day.outputs.n }} + 1 ))"
+          git add public/videos content/caption-ledger.json content/script-ledger.json && git commit -m "Daily video day $(( ${{ steps.day.outputs.n }} + 1 ))"
           git pull --rebase -q && git push -q
       - if: steps.day.outputs.new == 'true'
         name: Deploy to Vercel (pushes made with GITHUB_TOKEN do not trigger deploy.yml)

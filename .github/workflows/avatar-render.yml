@@ -1,14 +1,19 @@
-name: Avatar render (SadTalker CPU) → TikTok + Instagram
-# Renders the talking-head avatar from assets/host.png + assets/avatar-voice.wav
-# on a free GitHub-hosted CPU runner. TRUST GATE: assets/host.png is a real
-# person's photo — only dispatch with publish=true after explicit consent from
-# that person is confirmed. Output video carries a visible "AI avatar" label
-# and the caption discloses AI generation (TikTok/Instagram policy).
+name: Avatar render (SadTalker CPU) → TikTok + Instagram + YouTube
+# Renders ONE avatar video from assets/host.png + assets/avatar-scripts/<slug>.wav
+# on a free GitHub-hosted CPU runner. Runs weekly (Fri 08:00 UTC) on rotation so
+# the person is NOT in every post, and each avatar script is rendered only once
+# (content/avatar-ledger.json). Unique per-channel captions via caption-studio.
+# TRUST GATE: host.png is a real person — runs only with confirmed consent.
+# Output carries a visible "AI avatar" label + AI disclosure in every caption.
 on:
+  schedule: [{cron: "0 8 * * 5"}]
   workflow_dispatch:
     inputs:
+      script:
+        description: "Avatar script slug (01-intro/02-proof/03-standard/04-evidence) or rotate"
+        default: "rotate"
       publish:
-        description: "Publish to TikTok + Instagram (consent confirmed)"
+        description: "Publish to TikTok + Instagram + YouTube"
         type: boolean
         default: false
 permissions: {contents: write}
@@ -24,20 +29,31 @@ jobs:
       APP_URL: https://receipts-blond.vercel.app
     steps:
       - uses: actions/checkout@v4
+      - id: pick
+        name: Pick avatar script (rotation skips used ones)
+        run: |
+          REQ="${{ github.event.inputs.script || 'rotate' }}"
+          SLUG=$(node scripts/avatar-pick.mjs "$REQ")
+          if [ -z "$SLUG" ]; then echo "skip=true" >> $GITHUB_OUTPUT; echo "No unused avatar script — nothing to render."; exit 0; fi
+          echo "slug=$SLUG" >> $GITHUB_OUTPUT; echo "skip=false" >> $GITHUB_OUTPUT
+          echo "Rendering avatar script: $SLUG"
       - uses: actions/setup-python@v5
+        if: steps.pick.outputs.skip != 'true'
         with: {python-version: "3.10"}
-      - name: Free runner disk (CUDA torch in a build env filled the disk last run)
+      - if: steps.pick.outputs.skip != 'true'
+        name: Free runner disk
         run: |
           sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL || true
           docker system prune -af >/dev/null 2>&1 || true
           df -h / | tail -1
       - id: stcache
+        if: steps.pick.outputs.skip != 'true'
         name: Cache SadTalker repo and model weights
         uses: actions/cache@v4
         with:
           path: sadtalker
           key: sadtalker-v1-${{ runner.os }}
-      - if: steps.stcache.outputs.cache-hit != 'true'
+      - if: steps.pick.outputs.skip != 'true' && steps.stcache.outputs.cache-hit != 'true'
         name: Clone SadTalker + download only the 256px weights we use
         run: |
           git clone --depth 1 https://github.com/OpenTalker/SadTalker sadtalker
@@ -50,7 +66,8 @@ jobs:
           wget -q -nc https://github.com/xinntao/facexlib/releases/download/v0.1.0/detection_Resnet50_Final.pth -O gfpgan/weights/detection_Resnet50_Final.pth
           wget -q -nc https://github.com/TencentARC/GFPGAN/releases/download/v1.3.0/GFPGANv1.4.pth -O gfpgan/weights/GFPGANv1.4.pth
           wget -q -nc https://github.com/xinntao/facexlib/releases/download/v0.2.2/parsing_parsenet.pth -O gfpgan/weights/parsing_parsenet.pth
-      - name: Install deps (CPU torch only; basicsr built against it without isolation)
+      - if: steps.pick.outputs.skip != 'true'
+        name: Install deps (CPU torch only; basicsr built against it without isolation)
         run: |
           python -m pip install -U -q pip
           pip install -q --no-cache-dir "torch==2.0.1" "torchvision==0.15.2" --index-url https://download.pytorch.org/whl/cpu
@@ -60,7 +77,8 @@ jobs:
           df -h / | tail -1
       # SadTalker needs its own static ffmpeg inside ./sadtalker (ubuntu-latest /usr/local/bin
       # is NOT on GitHub runners' PATH, and its runner ffmpeg clashes with the torch OpenMP runtime)
-      - name: Install static ffmpeg for SadTalker
+      - if: steps.pick.outputs.skip != 'true'
+        name: Install static ffmpeg for SadTalker
         run: |
           curl -sL https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz -o /tmp/ff.tar.xz
           tar -xJf /tmp/ff.tar.xz -C /tmp
@@ -69,36 +87,36 @@ jobs:
           chmod +x sadtalker/ffmpeg
           export PATH="$GITHUB_WORKSPACE/sadtalker:$PATH"
           echo "PATH=$PATH" >> $GITHUB_ENV
-          which ffmpeg && ffmpeg -version | head -1
-      - name: Render talking head (CPU, ~400 frames, ~105 min)
+      - if: steps.pick.outputs.skip != 'true'
+        name: Render talking head (CPU, ~50-105 min)
         run: |
           cd sadtalker
           python inference.py \
-            --driven_audio "$GITHUB_WORKSPACE/assets/avatar-voice.wav" \
+            --driven_audio "$GITHUB_WORKSPACE/assets/avatar-scripts/${{ steps.pick.outputs.slug }}.wav" \
             --source_image "$GITHUB_WORKSPACE/assets/host.png" \
             --result_dir "$GITHUB_WORKSPACE/avatar-out" \
             --still --preprocess crop --size 256 --cpu
           ls -la "$GITHUB_WORKSPACE/avatar-out"
-      # GFPGAN enhancer pass costs another ~100 min CPU — re-enable later for a
-      # quality upgrade once the pipeline is proven end-to-end.
-      - name: Preserve raw render as artifact (so a later-step failure never loses 2h of CPU work)
+      - if: steps.pick.outputs.skip != 'true'
+        name: Preserve raw render as artifact (so a later-step failure never loses hours of CPU work)
         uses: actions/upload-artifact@v4
         with:
-          name: avatar-raw
+          name: avatar-raw-${{ steps.pick.outputs.slug }}
           path: avatar-out/*.mp4
           retention-days: 7
-      - name: Composite vertical 1080x1920 @24fps with branding + AI label
+      - if: steps.pick.outputs.skip != 'true'
+        name: Composite vertical 1080x1920 @24fps with branding + AI label
         run: |
+          SLUG=${{ steps.pick.outputs.slug }}
+          OUT=public/videos/avatar-$SLUG.mp4
           # SadTalker's final output lands at avatar-out/<timestamp>.mp4 (root, not a subdir)
           sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core >/dev/null
           RAW=$(ls -t avatar-out/*.mp4 | head -1)
           test -s "$RAW" || { echo "no render output"; exit 1; }
           # the static ffmpeg in ./sadtalker (first in PATH here) lacks drawtext — use apt's /usr/bin/ffmpeg
-          FF=/usr/bin/ffmpeg; FP=/usr/bin/ffprobe
+          FF=/usr/bin/ffmpeg
           $FF -filters 2>/dev/null | grep -q drawtext || { echo "drawtext missing"; exit 1; }
-          printf 'They said you would not' > /tmp/h1.txt
-          printf 'make it. Keep the receipt.' > /tmp/h2.txt
-          printf '$29 once - link in bio' > /tmp/cta.txt
+          node -e 'const m=require("./assets/avatar-scripts/'"$SLUG"'.json");const fs=require("fs");fs.writeFileSync("/tmp/h1.txt",m.h1);fs.writeFileSync("/tmp/h2.txt",m.h2);fs.writeFileSync("/tmp/cta.txt",m.cta)'
           F=/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf
           FS=/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf
           $FF -y -f lavfi -i "color=c=0x0b0b0c:s=1080x1920:r=24" -i "$RAW" -filter_complex "
@@ -109,24 +127,25 @@ jobs:
             drawtext=fontfile=$F:textfile=/tmp/cta.txt:fontcolor=white:fontsize=54:x=(w-text_w)/2:y=h-200,
             drawtext=fontfile=$FS:text='AI avatar':fontcolor=white@0.60:fontsize=30:x=w-text_w-32:y=44[v]" \
             -map "[v]" -map 1:a -c:v libx264 -pix_fmt yuv420p -preset medium -c:a aac -b:a 128k \
-            -movflags +faststart public/videos/avatar-intro.mp4
-          node -e 'const fs=require("fs");let tags="#receipts #provethemwrong #30daychallenge";try{const t=JSON.parse(fs.readFileSync("content/tags.json","utf8"));const m=t.mixes;if(Array.isArray(m)&&m.length&&m[0].tiktok)tags=m[0].tiktok}catch(e){}const hook="They said you would not make it — keep the receipt.";const caption=hook+"\n\nReceipts: 30 days, one standard, proof you can hold. $29 once. Link in bio.\n\n"+tags+" #aiavatar\n\nAI-generated avatar: synthetic voice over an animated photo, used with consent.";const d=JSON.parse(require("child_process").execSync("/usr/bin/ffprobe -v error -show_entries format=duration -of json public/videos/avatar-intro.mp4").toString()).format.duration;fs.writeFileSync("public/videos/avatar-intro.mp4.json",JSON.stringify({hook,caption,duration:Math.round(d*10)/10,avatar:true},null,1));console.log("sidecar ok",d)'
-      - name: Commit video (Vercel hosts it)
+            -movflags +faststart "$OUT"
+          node -e 'const fs=require("fs");const m=require("./assets/avatar-scripts/'"$SLUG"'.json");const d=JSON.parse(require("child_process").execSync("/usr/bin/ffprobe -v error -show_entries format=duration -of json '"$OUT"'").toString()).format.duration;fs.writeFileSync("'"$OUT"'.json",JSON.stringify({hook:m.hook,caption:m.hook+"\n\nReceipts: 30 days, one standard, proof you can hold. $29 once. Link in bio.",duration:Math.round(d*10)/10,avatar:true},null,1));console.log("sidecar ok",d)'
+      - if: steps.pick.outputs.skip != 'true'
+        name: Caption studio (unique per-channel captions, never repeated)
+        run: node scripts/caption-studio.mjs public/videos/avatar-${{ steps.pick.outputs.slug }}.mp4
+      - if: steps.pick.outputs.skip != 'true'
+        name: Commit video + rotation ledger
         run: |
           git config user.name github-actions; git config user.email github-actions@github.com
-          git add public/videos/avatar-intro.mp4 public/videos/avatar-intro.mp4.json
-          git commit -m "Avatar intro video (SadTalker CPU render)"
+          node -e 'const fs=require("fs");const p="content/avatar-ledger.json";let l={used:[]};try{l=JSON.parse(fs.readFileSync(p,"utf8"))}catch(e){};if(!l.used.includes("${{ steps.pick.outputs.slug }}"))l.used.push("${{ steps.pick.outputs.slug }}");fs.writeFileSync(p,JSON.stringify(l,null,1))'
+          git add public/videos content/avatar-ledger.json content/caption-ledger.json
+          git commit -m "Avatar video: ${{ steps.pick.outputs.slug }} (SadTalker CPU render)"
           git pull --rebase -q && git push -q
-      - name: Deploy to Vercel (GITHUB_TOKEN pushes do not trigger deploy.yml)
-        run: |
-          npm i -g vercel@latest >/dev/null 2>&1
-          vercel deploy --prod --yes --token "$VERCEL_TOKEN"
-      - if: ${{ inputs.publish }}
+      - if: steps.pick.outputs.skip != 'true' && (github.event_name == 'schedule' || inputs.publish)
         name: Publish to TikTok
-        run: node scripts/publish-buffer.mjs public/videos/avatar-intro.mp4
-      - if: ${{ inputs.publish }}
+        run: node scripts/publish-buffer.mjs public/videos/avatar-${{ steps.pick.outputs.slug }}.mp4
+      - if: steps.pick.outputs.skip != 'true' && (github.event_name == 'schedule' || inputs.publish)
         name: Cross-post to Instagram Reels
-        run: node scripts/cross-post-instagram.mjs public/videos/avatar-intro.mp4 || echo "instagram skip"
-      - if: ${{ inputs.publish }}
+        run: node scripts/cross-post-instagram.mjs public/videos/avatar-${{ steps.pick.outputs.slug }}.mp4 || echo "instagram skip"
+      - if: steps.pick.outputs.skip != 'true' && (github.event_name == 'schedule' || inputs.publish)
         name: Cross-post to YouTube Shorts
-        run: node scripts/cross-post-youtube.mjs public/videos/avatar-intro.mp4 || echo "youtube skip"
+        run: node scripts/cross-post-youtube.mjs public/videos/avatar-${{ steps.pick.outputs.slug }}.mp4 || echo "youtube skip"

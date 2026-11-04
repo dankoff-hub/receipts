@@ -9,7 +9,7 @@ const SITE = process.env.APP_URL || "https://receipts-blond.vercel.app";
 const file = process.argv[2] || "public/videos/day-001.mp4";
 const videoUrl = `${SITE}/videos/${file.split("/").pop()}`;
 let caption = "They said I wasn't ready. So I kept the receipt.\n\nNot to send them. To prove it.\n\nOne receipt, one measurable standard, thirty days of evidence.\n\nThat is the whole system.\n\n$29 · link in bio\n\n#provethemwrong #selfimprovement #careertok #motivation #discipline #30daychallenge #receipts";
-try { caption = JSON.parse(fs.readFileSync(file + ".json", "utf8")).caption || caption; } catch {}
+try { const m = JSON.parse(fs.readFileSync(file + ".json", "utf8")); caption = (m.captions && m.captions.instagram) || m.caption || caption; } catch {}
 if (!KEY) { console.log("BUFFER_API_KEY not set — skip"); process.exit(0); }
 const gql = async (query) => { const r = await fetch("https://api.buffer.com", { method: "POST", headers: { "Content-Type": "application/json", Authorization: `Bearer ${KEY}` }, body: JSON.stringify({ query }) }); const j = await r.json(); if (j.errors) throw new Error(JSON.stringify(j.errors)); return j.data; };
 // wait until Vercel serves the video (deploy may lag)

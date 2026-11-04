@@ -7,7 +7,20 @@ md = open("content/launch-scripts.md").read()
 if _os.path.exists("content/forge-scripts.md"):
     md += "\n" + open("content/forge-scripts.md").read()
 S = [dict(n=int(m[0]), hook=m[1], say=m[2], body=m[3], cta=m[4]) for m in re.findall(r"## (\d+)\. (.+)\n- Hook[^\n]*\n- Say: (.+)\n- Body: (.+)\n- CTA: (.+)", md)]
-s = S[day % len(S)]
+# no-repeat guarantee: pick the first script not yet used (content/script-ledger.json)
+import hashlib as _hl
+_led_p = "content/script-ledger.json"
+try: _led = json.load(open(_led_p))
+except Exception: _led = {"used": []}
+def _sh(x): return _hl.md5((x["hook"] + "|" + x["say"]).encode()).hexdigest()
+s = None
+for _i in range(len(S)):
+    _c = S[(day + _i) % len(S)]
+    if _sh(_c) not in _led["used"]: s = _c; break
+if s is None:
+    s = S[day % len(S)]  # pool exhausted — fall back to rotation (forge adds 10/week)
+else:
+    _led["used"].append(_sh(s)); json.dump(_led, open(_led_p, "w"))
 sent = [x.strip() for x in re.split(r"(?<=[.?!])\s+", s["say"]) if x.strip()]
 cards = [s["hook"]] + sent + ["$29 · link in bio"]
 speech = f"{s['hook']} ... {s['say']} ... {s['cta']}"

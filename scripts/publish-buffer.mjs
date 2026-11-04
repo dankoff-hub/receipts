@@ -11,7 +11,7 @@ const orgs = (await gql(`{ account { organizations { id name } } }`)).account.or
 let channel;
 for (const o of orgs) { const ch = (await gql(`{ channels(input:{organizationId:"${o.id}"}) { id name service } }`)).channels; channel = ch.find(c => c.service.toLowerCase() === "tiktok"); if (channel) break; }
 if (!channel) throw new Error("No TikTok channel connected in Buffer");
-const text = JSON.stringify(meta.caption);
+const text = JSON.stringify((meta.captions && meta.captions.tiktok) || meta.caption);
 const res = await gql(`mutation { createPost(input:{ text:${text}, channelId:"${channel.id}", schedulingType: automatic, mode: addToQueue, assets:[{ video:{ url:"${videoUrl}", metadata:{ thumbnailOffset: 1000 } } }] }) { ... on PostActionSuccess { post { id dueAt } } ... on MutationError { message } } }`);
 console.log("Buffer:", JSON.stringify(res.createPost));
 if (res.createPost.message) process.exit(1);
