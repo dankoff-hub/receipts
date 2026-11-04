@@ -58,6 +58,18 @@ jobs:
           pip install -q --no-cache-dir -r sadtalker/requirements.txt
           pip install -q --no-cache-dir --no-build-isolation "basicsr==1.4.2"
           df -h / | tail -1
+      # SadTalker needs its own static ffmpeg inside ./sadtalker (ubuntu-latest /usr/local/bin
+      # is NOT on GitHub runners' PATH, and its runner ffmpeg clashes with the torch OpenMP runtime)
+      - name: Install static ffmpeg for SadTalker
+        run: |
+          curl -sL https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz -o /tmp/ff.tar.xz
+          tar -xJf /tmp/ff.tar.xz -C /tmp
+          BIN=$(find /tmp -maxdepth 2 -name ffmpeg -type f | head -1)
+          cp "$BIN" sadtalker/ffmpeg
+          chmod +x sadtalker/ffmpeg
+          export PATH="$GITHUB_WORKSPACE/sadtalker:$PATH"
+          echo "PATH=$PATH" >> $GITHUB_ENV
+          which ffmpeg && ffmpeg -version | head -1
       - name: Render talking head (CPU, ~400 frames)
         run: |
           cd sadtalker
@@ -68,8 +80,8 @@ jobs:
             --still --preprocess crop --size 256 --enhancer gfpgan --cpu
       - name: Composite vertical 1080x1920 @24fps with branding + AI label
         run: |
-          sudo apt-get update -qq && sudo apt-get install -y -qq fonts-dejavu-core >/dev/null
-          RAW=$(ls -t avatar-out/*.mp4 | head -1)
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core >/dev/null
+          RAW=$(ls -t avatar-out/*/*.mp4 | head -1)
           printf 'They said you would not' > /tmp/h1.txt
           printf 'make it. Keep the receipt.' > /tmp/h2.txt
           printf '$29 once - link in bio' > /tmp/cta.txt
