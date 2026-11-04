@@ -113,3 +113,6 @@ jobs:
       - if: ${{ inputs.publish }}
         name: Cross-post to Instagram Reels
         run: node scripts/cross-post-instagram.mjs public/videos/avatar-intro.mp4 || echo "instagram skip"
+      - if: ${{ inputs.publish }}
+        name: Cross-post to YouTube Shorts
+        run: node scripts/cross-post-youtube.mjs public/videos/avatar-intro.mp4 || echo "youtube skip"

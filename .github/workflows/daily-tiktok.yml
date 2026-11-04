@@ -53,3 +53,6 @@ jobs:
       - if: steps.day.outputs.new == 'true'
         name: Cross-post to Instagram Reels
         run: node scripts/cross-post-instagram.mjs ${{ steps.day.outputs.f }} || echo "instagram skip"
+      - if: steps.day.outputs.new == 'true'
+        name: Cross-post to YouTube Shorts
+        run: node scripts/cross-post-youtube.mjs ${{ steps.day.outputs.f }} || echo "youtube skip"
