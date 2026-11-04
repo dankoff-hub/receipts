@@ -1,0 +1,17 @@
+name: Publish avatar video (TikTok + Instagram + YouTube)
+# Publish-only: uses the already-rendered public/videos/avatar-intro.mp4 (no re-render).
+on: workflow_dispatch
+permissions: {contents: read}
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    env:
+      BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+      APP_URL: https://receipts-blond.vercel.app
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 20}
+      - run: node scripts/publish-buffer.mjs public/videos/avatar-intro.mp4
+      - run: node scripts/cross-post-instagram.mjs public/videos/avatar-intro.mp4 || echo "instagram skip"
+      - run: node scripts/cross-post-youtube.mjs public/videos/avatar-intro.mp4 || echo "youtube skip"
