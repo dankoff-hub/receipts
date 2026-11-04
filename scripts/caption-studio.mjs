@@ -19,6 +19,10 @@ const mixes = tags?.mixes?.length ? tags.mixes : (tags?.fallback ? [tags.fallbac
 const ctaLines = load("content/cta-bank.json")?.lines?.length ? load("content/cta-bank.json").lines : ["the 30-day Receipts system, link in bio."];
 const ledgerPath = "content/caption-ledger.json";
 const ledger = load(ledgerPath) || { used: [] };
+// swarm feedback: audience-watch biases CTA/tag choices once real growth data exists
+const strat = load("content/strategy-brief.json");
+const ctaOffset = strat?.best_cta_index ?? 0;
+const mixOffset = strat?.best_tag_mix_index ?? 0;
 const md5 = s => crypto.createHash("md5").update(s).digest("hex");
 const tagstr = l => (l || []).map(t => "#" + t).join(" ");
 
@@ -45,8 +49,8 @@ const YT = [
 function build(bank, tagsKey, seed) {
   for (let attempt = 0; attempt < 16; attempt++) {
     const tpl = bank[(seed + attempt) % bank.length];
-    const mix = mixes[(seed + attempt) % mixes.length];
-    const cta = ctaLines[(seed + attempt) % ctaLines.length];
+    const mix = mixes[(seed + attempt + mixOffset) % mixes.length];
+    const cta = ctaLines[(seed + attempt + ctaOffset) % ctaLines.length];
     let caption = tpl(hook, cta, tagstr(mix[tagsKey] || mix.tiktok || []));
     if (attempt > 8) caption += `\n\nDay ${day}.`; // last-resort uniqueness marker
     if (meta.avatar) caption += `\n\n${AI_NOTE} #aiavatar`;

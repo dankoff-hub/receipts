@@ -1,0 +1,25 @@
+name: Audience watch (daily)
+# Daily audience check across YouTube/TikTok/Instagram + post delivery verification
+# + strategy brief for the swarm. Runs after the daily video (06:00 UTC).
+on:
+  schedule: [{cron: "0 7 * * *"}]
+  workflow_dispatch:
+permissions: {contents: write, issues: write}
+jobs:
+  audience:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GITHUB_REPOSITORY: ${{ github.repository }}
+      BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+      STRIPE_API_KEY: ${{ secrets.STRIPE_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 20}
+      - run: node scripts/audience-watch.mjs
+      - name: Commit audience data
+        run: |
+          git config user.name github-actions; git config user.email github-actions@github.com
+          git add content/audience-history.json content/audience-config.json content/strategy-brief.json content/post-log.json
+          git diff --cached --quiet || { git commit -m "Audience watch: daily stats + strategy brief"; git pull --rebase -q && git push -q; }

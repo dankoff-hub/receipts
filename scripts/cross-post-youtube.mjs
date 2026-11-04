@@ -3,6 +3,7 @@
 // Usage: node scripts/cross-post-youtube.mjs <path-to-video.mp4>  (expects <video>.json sidecar)
 // Title: "Day N: <hook>" for daily videos, plain hook for one-offs (e.g. avatar intro).
 import fs from "node:fs";
+import crypto from "node:crypto";
 const KEY = process.env.BUFFER_API_KEY;
 const SITE = process.env.APP_URL || "https://receipts-blond.vercel.app";
 const file = process.argv[2] || "public/videos/day-001.mp4";
@@ -24,4 +25,10 @@ for (const o of orgs) { const ch = (await gql(`{channels(input:{organizationId:\
 if (!channel) { console.log("no youtube channel connected"); process.exit(0); }
 const res = await gql(`mutation{createPost(input:{text:${JSON.stringify(caption)},channelId:"${channel.id}",schedulingType:automatic,mode:shareNow,assets:[{video:{url:"${videoUrl}",metadata:{thumbnailOffset:1000}}}],metadata:{youtube:{title:${JSON.stringify(title)},categoryId:"22",madeForKids:false,privacy:public}}}){... on PostActionSuccess{post{id}} ... on MutationError{message}}}`);
 console.log("youtube:", JSON.stringify(res.createPost));
+try {
+  const p = "content/post-log.json";
+  const l = JSON.parse(fs.readFileSync(p, "utf8") || "[]");
+  l.push({ ts: new Date().toISOString(), channel: "youtube", postId: res.createPost.post?.id || null, status: res.createPost.message ? "failed" : "sent", video: file.split("/").pop(), day: meta.day || null, captionHash: crypto.createHash("md5").update(caption).digest("hex") });
+  fs.writeFileSync(p, JSON.stringify(l, null, 1));
+} catch (e) { console.log("post-log skip:", e.message); }
 if (res.createPost.message) process.exit(1);

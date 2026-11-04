@@ -4,6 +4,7 @@
 // Runs only when a new daily video was generated (guarded by workflow `if: steps.day.outputs.new == 'true'`),
 // so each day's video is posted to Instagram exactly once.
 import fs from "node:fs";
+import crypto from "node:crypto";
 const KEY = process.env.BUFFER_API_KEY;
 const SITE = process.env.APP_URL || "https://receipts-blond.vercel.app";
 const file = process.argv[2] || "public/videos/day-001.mp4";
@@ -20,4 +21,11 @@ for (const o of orgs) { const ch = (await gql(`{channels(input:{organizationId:"
 if (!channel) { console.log("no instagram channel connected"); process.exit(0); }
 const res = await gql(`mutation{createPost(input:{text:${JSON.stringify(caption)},channelId:"${channel.id}",schedulingType:automatic,mode:shareNow,assets:[{video:{url:"${videoUrl}",metadata:{thumbnailOffset:1000}}}],metadata:{instagram:{type:reel,shouldShareToFeed:true}}}){... on PostActionSuccess{post{id}} ... on MutationError{message}}}`);
 console.log("instagram:", JSON.stringify(res.createPost));
+try {
+  const p = "content/post-log.json";
+  const l = JSON.parse(fs.readFileSync(p, "utf8") || "[]");
+  const meta = JSON.parse(fs.readFileSync(file + ".json", "utf8") || "{}");
+  l.push({ ts: new Date().toISOString(), channel: "instagram", postId: res.createPost.post?.id || null, status: res.createPost.message ? "failed" : "sent", video: file.split("/").pop(), day: meta.day || null, captionHash: crypto.createHash("md5").update(caption).digest("hex") });
+  fs.writeFileSync(p, JSON.stringify(l, null, 1));
+} catch (e) { console.log("post-log skip:", e.message); }
 if (res.createPost.message) process.exit(1);

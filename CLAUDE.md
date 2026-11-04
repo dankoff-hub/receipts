@@ -95,3 +95,8 @@ curl -sI https://receipts-blond.vercel.app/videos/day-001.mp4 | head -1
 - EVERY post differs: caption-studio.mjs writes per-channel captions (captions.tiktok/instagram/youtube/ytTitle) into each video sidecar; publish-buffer/cross-post-* read their own channel caption. Never post meta.caption verbatim to all three.
 - Never repeated: content/caption-ledger.json (caption md5), content/script-ledger.json (script md5 — make-video.py picks first unused), content/avatar-ledger.json (avatar slug used once). Commit ledger files with every video commit.
 - Avatar (real-person video) is a WEEKLY Friday 08:00 UTC rotation (avatar-render.yml, scripts in assets/avatar-scripts/<slug>.{txt,wav,json}), NOT in every post. Daily 06:00 UTC videos stay text-card format.
+
+## Audience watch (added 2026-11-04)
+- audience-watch.mjs runs daily 07:00 UTC (audience-watch.yml): YouTube subs/views (public page parse), TikTok followers, Instagram (usually login-walled -> null), Stripe paid-by-src, Buffer post delivery verification. Writes content/audience-history.json, strategy-brief.json, and a daily "Audience watch" issue.
+- Feedback loop: caption-studio reads strategy-brief.json (best_cta_index/best_tag_mix_index) and biases rotations once 7-day growth >= +5; before that it collects baselines with no bias.
+- All three publishers append to content/post-log.json (postId, channel, captionHash) — audience-watch verifies delivery and flags failures in its issue.

@@ -1,5 +1,6 @@
 // Schedules today's video to TikTok via Buffer (free plan) GraphQL API. Needs BUFFER_API_KEY.
 import fs from "node:fs";
+import crypto from "node:crypto";
 const KEY = process.env.BUFFER_API_KEY; const SITE = process.env.APP_URL || "https://receipts-blond.vercel.app";
 const meta = JSON.parse(fs.readFileSync(process.argv[2] + ".json", "utf8"));
 const videoUrl = `${SITE}/videos/${process.argv[2].split("/").pop()}`;
@@ -14,4 +15,10 @@ if (!channel) throw new Error("No TikTok channel connected in Buffer");
 const text = JSON.stringify((meta.captions && meta.captions.tiktok) || meta.caption);
 const res = await gql(`mutation { createPost(input:{ text:${text}, channelId:"${channel.id}", schedulingType: automatic, mode: addToQueue, assets:[{ video:{ url:"${videoUrl}", metadata:{ thumbnailOffset: 1000 } } }] }) { ... on PostActionSuccess { post { id dueAt } } ... on MutationError { message } } }`);
 console.log("Buffer:", JSON.stringify(res.createPost));
+try {
+  const p = "content/post-log.json";
+  const l = JSON.parse(fs.readFileSync(p, "utf8") || "[]");
+  l.push({ ts: new Date().toISOString(), channel: "tiktok", postId: res.createPost.post?.id || null, dueAt: res.createPost.post?.dueAt || null, status: "queued", video: file.split("/").pop(), day: meta.day || null, captionHash: crypto.createHash("md5").update(JSON.parse(text)).digest("hex") });
+  fs.writeFileSync(p, JSON.stringify(l, null, 1));
+} catch (e) { console.log("post-log skip:", e.message); }
 if (res.createPost.message) process.exit(1);

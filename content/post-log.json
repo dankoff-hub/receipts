@@ -1,0 +1,40 @@
+[
+  {
+    "ts": "2026-11-03T21:31:00Z",
+    "channel": "tiktok",
+    "postId": "6aea54240a183b1b742e9031",
+    "status": "sent",
+    "video": "day-001.mp4",
+    "day": 1
+  },
+  {
+    "ts": "2026-11-03T21:05:00Z",
+    "channel": "instagram",
+    "postId": "6aea492ba8918d96047e31ee",
+    "status": "sent",
+    "video": "day-001.mp4",
+    "day": 1
+  },
+  {
+    "ts": "2026-11-04T06:35:27Z",
+    "channel": "tiktok",
+    "postId": "6aead22fe478396c27424b82",
+    "dueAt": "2026-11-04T12:18:00.000Z",
+    "status": "queued",
+    "video": "avatar-intro.mp4"
+  },
+  {
+    "ts": "2026-11-04T06:35:38Z",
+    "channel": "instagram",
+    "postId": "6aead2302b43f8ba7d702099",
+    "status": "sent",
+    "video": "avatar-intro.mp4"
+  },
+  {
+    "ts": "2026-11-04T06:39:32Z",
+    "channel": "youtube",
+    "postId": "6aead322dc38f4d7bad361a9",
+    "status": "sent",
+    "video": "avatar-intro.mp4"
+  }
+]
