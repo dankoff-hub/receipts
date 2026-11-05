@@ -68,5 +68,23 @@
   "status": "sent",
   "video": "day-002.mp4",
   "day": 2
+ },
+ {
+  "ts": "2026-11-05T19:03:12.249Z",
+  "channel": "instagram",
+  "postId": "6aecd2e54070500dc30330f4",
+  "status": "sent",
+  "video": "day-003.mp4",
+  "day": 3,
+  "captionHash": "36630e19a3a1aec6351a85b68a1f11e1"
+ },
+ {
+  "ts": "2026-11-05T19:03:15.686Z",
+  "channel": "youtube",
+  "postId": "6aecd2f1217b5aff654a0a2b",
+  "status": "sent",
+  "video": "day-003.mp4",
+  "day": 3,
+  "captionHash": "a1ac3cbb608e147673e04a90dc7acf4a"
  }
 ]
