@@ -86,5 +86,13 @@
   "video": "day-003.mp4",
   "day": 3,
   "captionHash": "a1ac3cbb608e147673e04a90dc7acf4a"
+ },
+ {
+  "ts": "2026-11-05T19:02:54Z",
+  "channel": "tiktok",
+  "postId": "6aecd2de0a3dd0f3ff1a07c3",
+  "status": "sent",
+  "video": "day-003.mp4",
+  "day": 3
  }
 ]
