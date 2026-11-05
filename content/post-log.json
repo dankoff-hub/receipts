@@ -16,14 +16,6 @@
   "day": 1
  },
  {
-  "ts": "2026-11-04T06:35:27Z",
-  "channel": "tiktok",
-  "postId": "6aead22fe478396c27424b82",
-  "dueAt": "2026-11-04T12:18:00.000Z",
-  "status": "queued",
-  "video": "avatar-intro.mp4"
- },
- {
   "ts": "2026-11-04T06:35:38Z",
   "channel": "instagram",
   "postId": "6aead2302b43f8ba7d702099",
@@ -44,14 +36,6 @@
   "status": "skipped",
   "video": "day-001.mp4",
   "day": 1
- },
- {
-  "ts": "2026-11-05T18:57:00Z",
-  "channel": "tiktok",
-  "postId": "6aecd17d4070500dc30287a4",
-  "status": "sent",
-  "video": "day-002.mp4",
-  "day": 2
  },
  {
   "ts": "2026-11-05T18:57:00Z",
@@ -94,5 +78,12 @@
   "status": "sent",
   "video": "day-003.mp4",
   "day": 3
+ },
+ {
+  "ts": "2026-11-05T21:10:00Z",
+  "channel": "tiktok",
+  "postId": null,
+  "status": "skipped",
+  "video": "avatar-intro.mp4"
  }
 ]

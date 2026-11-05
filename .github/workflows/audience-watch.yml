@@ -17,6 +17,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: {node-version: 20}
+      - name: Reconcile post-log against Buffer (catches failed/lost posts)
+        run: node scripts/check-posts.mjs
       - run: node scripts/audience-watch.mjs
       - name: Commit audience data
         run: |
