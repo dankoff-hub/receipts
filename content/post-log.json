@@ -44,5 +44,29 @@
   "status": "skipped",
   "video": "day-001.mp4",
   "day": 1
+ },
+ {
+  "ts": "2026-11-05T18:57:00Z",
+  "channel": "tiktok",
+  "postId": "6aecd17d4070500dc30287a4",
+  "status": "sent",
+  "video": "day-002.mp4",
+  "day": 2
+ },
+ {
+  "ts": "2026-11-05T18:57:00Z",
+  "channel": "instagram",
+  "postId": "6aecd1800a3dd0f3ff1966ba",
+  "status": "sent",
+  "video": "day-002.mp4",
+  "day": 2
+ },
+ {
+  "ts": "2026-11-05T18:57:00Z",
+  "channel": "youtube",
+  "postId": "6aecd18c217b5aff65496ac2",
+  "status": "sent",
+  "video": "day-002.mp4",
+  "day": 2
  }
 ]

@@ -60,8 +60,8 @@ jobs:
         if: always()
         run: |
           git config user.name github-actions; git config user.email github-actions@github.com
-          git add content/post-log.json content/caption-ledger.json
-          git diff --cached --quiet || { git commit -m "Post log (${{ steps.day.outputs.slot }})"; git pull --rebase -q && git push -q; }
+          git add content/post-log.json content/caption-ledger.json public/videos
+          git diff --cached --quiet || { git commit -m "Post log (${{ steps.day.outputs.slot }})"; git pull --rebase --autostash -q && git push -q; }
       - if: steps.day.outputs.slot == 'am'
         name: Daily brief issue
         run: node scripts/daily-brief.mjs
