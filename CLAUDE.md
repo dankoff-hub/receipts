@@ -107,3 +107,9 @@ curl -sI https://receipts-blond.vercel.app/videos/day-001.mp4 | head -1
 - In-job "vercel deploy" hangs are why runs died Nov 4-5: workflows must NOT call the Vercel CLI. Daily dispatches deploy.yml instead; deploy.yml has timeout-minutes: 15. Jobs have timeout-minutes: 60.
 - TikTok uses mode: shareNow (fixed 2x/day slots make queue timing wrong).
 - KNOWN GAP: first video of a run lands right at run start, not at the slot's social peak — Buffer per-channel queue times would fix timing; block backfill until then.
+
+## Posting consistency fixes (2026-11-05)
+- check-posts.mjs (daily, before audience-watch) reconciles post-log against Buffer statuses (sent/error/scheduled) per channel; publish-pending retries failed up to 2 attempts. Run it after any suspected missed post.
+- post-log statuses: sent (confirmed by Buffer), queued (Buffer scheduled), skipped (intentionally NOT posted to that channel, e.g. day-001 on YouTube), failed (Buffer error).
+- avatar-render.yml commit step now includes avatar-out/ — raw renders were being committed to an ignored dir and lost (01-intro recovered from run artifact 41776261200).
+- TikTok queue accepts only 1 video post per 24h per account on Buffer free — keep daily posts at the 2 cron slots, don't add a third.
