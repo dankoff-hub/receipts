@@ -100,3 +100,10 @@ curl -sI https://receipts-blond.vercel.app/videos/day-001.mp4 | head -1
 - audience-watch.mjs runs daily 07:00 UTC (audience-watch.yml): YouTube subs/views (public page parse), TikTok followers, Instagram (usually login-walled -> null), Stripe paid-by-src, Buffer post delivery verification. Writes content/audience-history.json, strategy-brief.json, and a daily "Audience watch" issue.
 - Feedback loop: caption-studio reads strategy-brief.json (best_cta_index/best_tag_mix_index) and biases rotations once 7-day growth >= +5; before that it collects baselines with no bias.
 - All three publishers append to content/post-log.json (postId, channel, captionHash) — audience-watch verifies delivery and flags failures in its issue.
+
+## Two-slot daily pipeline (2026-11-05)
+- daily-tiktok.yml now runs 11:00 + 19:00 UTC ("am"/"pm" slots). pm slot makes day-XXXb.mp4 (make-video.py 3rd arg = label, script index = N*2+slot for unique scripts).
+- publish-pending.mjs is the single entry point for posting: oldest not-yet-posted video per channel, max 1/channel/run, hard cap 2/channel/day (avatar posts count). Self-heals after cancelled runs. Entry "status: skipped" marks a video intentionally NOT for a channel.
+- In-job "vercel deploy" hangs are why runs died Nov 4-5: workflows must NOT call the Vercel CLI. Daily dispatches deploy.yml instead; deploy.yml has timeout-minutes: 15. Jobs have timeout-minutes: 60.
+- TikTok uses mode: shareNow (fixed 2x/day slots make queue timing wrong).
+- KNOWN GAP: first video of a run lands right at run start, not at the slot's social peak — Buffer per-channel queue times would fix timing; block backfill until then.
