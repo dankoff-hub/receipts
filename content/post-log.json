@@ -85,5 +85,19 @@
   "postId": null,
   "status": "skipped",
   "video": "avatar-intro.mp4"
+ },
+ {
+  "ts": "2026-11-05T21:15:00Z",
+  "channel": "instagram",
+  "postId": null,
+  "status": "skipped",
+  "video": "avatar-01-intro.mp4"
+ },
+ {
+  "ts": "2026-11-05T21:15:00Z",
+  "channel": "youtube",
+  "postId": null,
+  "status": "skipped",
+  "video": "avatar-01-intro.mp4"
  }
 ]
