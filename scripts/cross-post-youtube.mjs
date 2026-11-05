@@ -18,7 +18,7 @@ const caption = ((meta.captions && meta.captions.youtube) || meta.caption || `${
 if (!KEY) { console.log("BUFFER_API_KEY not set — skip"); process.exit(0); }
 const gql = async (query) => { const r = await fetch("https://api.buffer.com", { method: "POST", headers: { "Content-Type": "application/json", Authorization: `Bearer ${KEY}` }, body: JSON.stringify({ query }) }); const j = await r.json(); if (j.errors) throw new Error(JSON.stringify(j.errors)); return j.data; };
 // wait until Vercel serves the video (deploy may lag)
-for (let i = 0; i < 30; i++) { const r = await fetch(videoUrl, { method: "HEAD" }).catch(() => ({ status: 0 })); if (r.status === 200) break; if (i === 29) throw new Error("video not reachable: " + videoUrl); await new Promise(r => setTimeout(r, 20000)); }
+for (let i = 0; i < 45; i++) { const r = await fetch(videoUrl, { method: "HEAD" }).catch(() => ({ status: 0 })); if (r.status === 200) break; if (i === 44) throw new Error("video not reachable: " + videoUrl); await new Promise(r => setTimeout(r, 20000)); }
 const orgs = (await gql(`{account{organizations{id}}}`)).account.organizations;
 let channel;
 for (const o of orgs) { const ch = (await gql(`{channels(input:{organizationId:\"${o.id}\"}){id name service}}`)).channels; channel = ch.find(c => c.service.toLowerCase() === "youtube"); if (channel) break; }

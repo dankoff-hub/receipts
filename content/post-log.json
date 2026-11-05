@@ -36,5 +36,13 @@
   "postId": "6aead322dc38f4d7bad361a9",
   "status": "sent",
   "video": "avatar-intro.mp4"
+ },
+ {
+  "ts": "2026-11-04T00:00:00Z",
+  "channel": "youtube",
+  "postId": null,
+  "status": "skipped",
+  "video": "day-001.mp4",
+  "day": 1
  }
 ]

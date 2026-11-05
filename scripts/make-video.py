@@ -62,5 +62,5 @@ try:
     _cb = json.load(open("content/cta-bank.json"))
     if _cb.get("lines"): _cta_line = _cb["lines"][day % len(_cb["lines"])]
 except Exception: pass
-json.dump(dict(day=day+1, n=s["n"], hook=s["hook"], caption=f"{s['hook']} — {_cta_line}\n" + _tagstr, duration=dur), open(out+".json","w"))
+json.dump(dict(day=(int(sys.argv[3]) if len(sys.argv)>3 else day+1), n=s["n"], hook=s["hook"], caption=f"{s['hook']} — {_cta_line}\n" + _tagstr, duration=dur), open(out+".json","w"))
 print("ok", out, round(dur,1), "s")

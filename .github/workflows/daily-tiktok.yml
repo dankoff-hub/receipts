@@ -1,12 +1,23 @@
-name: Daily TikTok video → Buffer → TikTok
+name: Daily videos (2 slots) → TikTok + Instagram + YouTube
+# Two slots per day: 11:00 UTC (am) and 19:00 UTC (pm). Each slot generates one new
+# video (unique script, per-channel captions) and posts the OLDEST not-yet-posted video
+# to every channel — max 1 per channel per run, hard cap 2 per channel per day.
+# A cancelled/failed run self-heals: its videos stay pending and go out next slot.
 on:
-  schedule: [{cron: "0 6 * * *"}]
+  schedule:
+    - cron: "0 11 * * *"
+    - cron: "0 19 * * *"
   workflow_dispatch:
-permissions: {contents: write, issues: write}
-concurrency: {group: daily-tiktok, cancel-in-progress: false}
+    inputs:
+      slot:
+        description: "am or pm (default: by time of day)"
+        default: ""
+permissions: {contents: write, issues: write, actions: write}
+concurrency: {group: daily-videos, cancel-in-progress: false}
 jobs:
   post:
     runs-on: ubuntu-latest
+    timeout-minutes: 60
     env:
       GH_TOKEN: ${{ github.token }}
       BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
@@ -19,43 +30,42 @@ jobs:
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg espeak-ng fonts-dejavu-core >/dev/null && pip install -q edge-tts
       - id: day
         run: |
+          SLOT="${{ github.event.inputs.slot }}"
+          if [ -z "$SLOT" ]; then if [ "$(date -u +%H)" -lt 15 ]; then SLOT=am; else SLOT=pm; fi; fi
           N=$(( ( $(date +%s) - $(date -d 2026-11-03 +%s) ) / 86400 ))
-          F="public/videos/day-$(printf %03d $(( N + 1 ))).mp4"
-          echo "n=$N" >> $GITHUB_OUTPUT
+          if [ "$SLOT" = "pm" ]; then S=1; SUF=b; else S=0; SUF=""; fi
+          F="public/videos/day-$(printf %03d $(( N + 1 )))${SUF}.mp4"
+          echo "slot=$SLOT" >> $GITHUB_OUTPUT
+          echo "idx=$(( N * 2 + S ))" >> $GITHUB_OUTPUT
+          echo "label=$(( N + 1 ))" >> $GITHUB_OUTPUT
           echo "f=$F" >> $GITHUB_OUTPUT
           if [ -f "$F" ]; then echo "new=false" >> $GITHUB_OUTPUT; else echo "new=true" >> $GITHUB_OUTPUT; fi
       - if: steps.day.outputs.new == 'true'
-        run: python3 scripts/make-video.py ${{ steps.day.outputs.n }} ${{ steps.day.outputs.f }}
+        name: Generate video (never-repeated script)
+        run: python3 scripts/make-video.py ${{ steps.day.outputs.idx }} ${{ steps.day.outputs.f }} ${{ steps.day.outputs.label }}
       - if: steps.day.outputs.new == 'true'
         name: Caption studio (unique per-channel captions, never repeated)
         run: node scripts/caption-studio.mjs ${{ steps.day.outputs.f }}
-      - if: steps.day.outputs.new == 'true'
-        name: Commit video (Vercel hosts it)
+      - name: Commit video + ledgers
         run: |
           git config user.name github-actions; git config user.email github-actions@github.com
-          git add public/videos content/caption-ledger.json content/script-ledger.json && git commit -m "Daily video day $(( ${{ steps.day.outputs.n }} + 1 ))"
+          git add public/videos content/caption-ledger.json content/script-ledger.json
+          git diff --cached --quiet || git commit -m "Daily video ${{ steps.day.outputs.slot }} (day ${{ steps.day.outputs.label }})"
           git pull --rebase -q && git push -q
-      - if: steps.day.outputs.new == 'true'
-        name: Deploy to Vercel (pushes made with GITHUB_TOKEN do not trigger deploy.yml)
-        env:
-          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      - name: Deploy (dispatch the proven deploy workflow; no in-job Vercel CLI to hang)
+        run: gh workflow run deploy.yml --ref main
+      - name: Publish oldest pending video to TikTok, Instagram, YouTube (cap 2/day each)
+        run: node scripts/publish-pending.mjs
+      - name: Commit post log
+        if: always()
         run: |
-          npm i -g vercel@latest >/dev/null 2>&1
-          vercel deploy --prod --yes --token "$VERCEL_TOKEN"
-      - if: steps.day.outputs.new == 'true'
-        name: Wait for Vercel deploy then schedule in Buffer
-        run: node scripts/publish-buffer.mjs ${{ steps.day.outputs.f }}
-      - if: github.event_name == 'workflow_dispatch'
-        name: Manual publish via queue
-        run: |
-          if [ -f state/publish-queue.json ] && grep -q '"when": *"now"' state/publish-queue.json; then
-            node scripts/buffer-poster.js
-          fi
-      - name: Daily brief issue
+          git config user.name github-actions; git config user.email github-actions@github.com
+          git add content/post-log.json content/caption-ledger.json
+          git diff --cached --quiet || { git commit -m "Post log (${{ steps.day.outputs.slot }})"; git pull --rebase -q && git push -q; }
+      - if: steps.day.outputs.slot == 'am'
+        name: Daily brief issue
         run: node scripts/daily-brief.mjs
-      - if: steps.day.outputs.new == 'true'
-        name: Cross-post to Instagram Reels
-        run: node scripts/cross-post-instagram.mjs ${{ steps.day.outputs.f }} || echo "instagram skip"
-      - if: steps.day.outputs.new == 'true'
-        name: Cross-post to YouTube Shorts
-        run: node scripts/cross-post-youtube.mjs ${{ steps.day.outputs.f }} || echo "youtube skip"
+      - if: github.event_name == 'workflow_dispatch' && github.event.inputs.slot == ''
+        name: Manual publish via queue (legacy)
+        run: |
+          if [ -f state/publish-queue.json ] && grep -q '"when": *"now"' state/publish-queue.json; then node scripts/buffer-poster.js; fi
