@@ -1,16 +1,21 @@
 {
- "at": "2026-11-06T23:07:54.738Z",
+ "at": "2026-11-06T23:29:46.130Z",
  "pass": true,
  "checks": [
   {
    "check": "card_free_llm",
    "pass": true,
-   "detail": "3 usable no-card providers: github_models,pollinations,ollama_local"
+   "detail": "4 usable no-card providers: github_models,groq,pollinations,ollama_local"
   },
   {
    "check": "card_free_execution",
    "pass": true,
    "detail": "runtime=GitHub Actions; repo public=true"
+  },
+  {
+   "check": "card_free_edge_worker",
+   "pass": true,
+   "detail": "Cloudflare Workers Free: https://receipts-swarm.tryuderzhi.workers.dev health=true; last scan=none yet tier1=- tier2=-"
   },
   {
    "check": "card_free_posting",
