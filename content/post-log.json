@@ -108,5 +108,23 @@
   "postId": null,
   "status": "skipped",
   "video": "avatar-01-intro.mp4"
+ },
+ {
+  "ts": "2026-11-06T00:49:09.664Z",
+  "channel": "instagram",
+  "postId": "6aed23fbf3498efda75e7bc3",
+  "status": "sent",
+  "video": "day-003b.mp4",
+  "day": 3,
+  "captionHash": "8101dcb08319ce302131f7a8bfaba2ee"
+ },
+ {
+  "ts": "2026-11-06T00:49:12.627Z",
+  "channel": "youtube",
+  "postId": "6aed2406dbada656bee3ef7c",
+  "status": "sent",
+  "video": "day-003b.mp4",
+  "day": 3,
+  "captionHash": "d86f8ed8cf0ae8a292052ed9c72e02f9"
  }
 ]
