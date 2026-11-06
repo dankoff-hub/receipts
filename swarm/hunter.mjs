@@ -1,7 +1,8 @@
 // Revenue Hunter — scans public, keyless sources for high-intent posts; rule-tiers first, LLM only for ambiguous ones.
 // Sources: Reddit public search JSON, Bluesky public search (both read-only, no account). Writes swarm/LEADS.json.
 import fs from "node:fs";
-import { chat, parseJSON } from "./llm.mjs";
+import { chat, parseJSON, saveQuota } from "./llm.mjs";
+process.on("exit", () => saveQuota());
 const QUERIES = ["30 day challenge tracker template", "prove them wrong 30 days", "accountability tracker printable", "someone said I couldn't", "habit tracker pdf where to buy", "daily proof journal", "spite motivation 30 days"];
 const T1 = /\b(where (can|do) i (buy|get|find)|link\??|is there a (template|tracker|pdf)|how much|worth (it|buying)|recommend(ation)?s? for (a )?(tracker|template|planner)|take my money|looking for (a )?(tracker|template|system|planner))\b/i;
 const T2 = /\b(start(ing)? (a )?30[- ]day|accountab|track(ing)? (my )?progress|prove (them|him|her|everyone) wrong|told me i (couldn'?t|wasn'?t)|habit tracker|daily proof|streak)\b/i;
@@ -9,9 +10,9 @@ const LEADS_P = "swarm/LEADS.json"; const leads = fs.existsSync(LEADS_P) ? JSON.
 const UA = { "User-Agent": "receipts-swarm/1.0 (read-only research)" };
 const items = [];
 for (const q of QUERIES) {
-  try { const r = await fetch(`https://www.reddit.com/search.json?q=${encodeURIComponent(q)}&sort=new&t=week&limit=25`, { headers: UA }); const j = await r.json();
-    for (const c of j?.data?.children || []) { const d = c.data; items.push({ src: "reddit", id: d.name, url: "https://reddit.com" + d.permalink, text: `${d.title} ${d.selftext || ""}`.slice(0, 600), sub: d.subreddit, at: new Date(d.created_utc * 1000).toISOString() }); } } catch {}
-  try { const r = await fetch(`https://public.api.bsky.app/xrpc/app.bsky.feed.searchPosts?q=${encodeURIComponent(q)}&limit=25&sort=latest`, { headers: UA }); const j = await r.json();
+  try { const r = await fetch(`https://www.reddit.com/search.json?q=${encodeURIComponent(q)}&sort=new&t=week&limit=25`, { headers: UA }); if (!r.ok) console.error(`reddit HTTP ${r.status}`); const j = await r.json();
+    for (const c of j?.data?.children || []) { const d = c.data; items.push({ src: "reddit", id: d.name, url: "https://reddit.com" + d.permalink, text: `${d.title} ${d.selftext || ""}`.slice(0, 600), sub: d.subreddit, at: new Date(d.created_utc * 1000).toISOString() }); } } catch (e) { console.error("reddit err", e.message); }
+  try { const r = await fetch(`https://public.api.bsky.app/xrpc/app.bsky.feed.searchPosts?q=${encodeURIComponent(q)}&limit=25&sort=latest`, { headers: UA }); if (!r.ok) console.error(`bluesky HTTP ${r.status}`); const j = await r.json();
     for (const p of j?.posts || []) { const h = p.author?.handle, rk = p.uri?.split("/").pop(); items.push({ src: "bluesky", id: p.uri, url: `https://bsky.app/profile/${h}/post/${rk}`, text: String(p.record?.text || "").slice(0, 600), sub: h, at: p.record?.createdAt }); } } catch {}
 }
 const fresh = items.filter((x, i, a) => x.text && a.findIndex(y => y.id === x.id) === i && !leads.seen.includes(x.id));

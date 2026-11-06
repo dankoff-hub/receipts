@@ -2,7 +2,8 @@
 // Output: swarm/CONCEPTS.json (all) + content/swarm-scripts.md (video-ready scripts that make-video.py publishes FIRST).
 import fs from "node:fs";
 import crypto from "node:crypto";
-import { chat, parseJSON } from "./llm.mjs";
+import { chat, parseJSON, saveQuota } from "./llm.mjs";
+process.on("exit", () => saveQuota());
 const today = new Date().toISOString().slice(0, 10);
 const CP = "swarm/CONCEPTS.json"; const C = fs.existsSync(CP) ? JSON.parse(fs.readFileSync(CP, "utf8")) : { days: {}, hooks: [] };
 if (C.days[today]?.length >= 9) { console.log("creative: today already done"); process.exit(0); }

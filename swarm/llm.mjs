@@ -36,7 +36,7 @@ export async function chat(prompt, { system = "Output compact JSON only.", maxTo
   for (const name of tryOrder) {
     const p = PROV[name], st = Q.providers[name]; if (!p || !st) continue;
     if (st.cooldown_until > now) continue;
-    const key = p.key(); if (!key) continue;
+    const key = p.key(); if (!key) { console.error(`llm ${name}: no key`); continue; }
     if (p.local && !ensureOllama()) { st.fails++; st.cooldown_until = now + 6 * 3600e3; continue; }
     for (let attempt = 0; attempt < (name === "pollinations" ? 3 : 1); attempt++) {
     if (attempt) await new Promise(r => setTimeout(r, 47000)); // Pollinations anonymous: 1 reply / 45s per IP
@@ -44,13 +44,13 @@ export async function chat(prompt, { system = "Output compact JSON only.", maxTo
     try {
       const r = await fetch(p.url, { method: "POST", signal: ctrl.signal, headers: { "Content-Type": "application/json", Authorization: `Bearer ${key}` },
         body: JSON.stringify({ model: p.model, max_tokens: maxTokens, temperature: 0.9, messages: [{ role: "system", content: compress(system, 600) }, { role: "user", content: compress(prompt) }], ...(json && name !== "pollinations" && name !== "ollama_local" ? { response_format: { type: "json_object" } } : {}) }) });
-      clearTimeout(t); st.calls++;
+      clearTimeout(t); st.calls++; if (!r.ok) console.error(`llm ${name} HTTP ${r.status}: ${(await r.clone().text()).slice(0,160).replace(/\s+/g," ")}`);
       if (name === "pollinations" && (r.status === 402 || r.status === 429)) { st.fails++; continue; } // per-IP pacing, retry after wait
       if (r.status === 429 || r.status === 402 || r.status === 403) { st.fails++; st.cooldown_until = now + (r.status === 429 ? 3600e3 : 24 * 3600e3); break; }
       if (!r.ok) { st.fails++; if (r.status >= 500) st.cooldown_until = now + 900e3; break; }
       const j = await r.json(); const txt = j.choices?.[0]?.message?.content ?? ""; if (!txt) { st.fails++; break; }
       return { provider: name, text: txt };
-    } catch { clearTimeout(t); st.fails++; st.cooldown_until = now + 900e3; break; }
+    } catch (e) { clearTimeout(t); st.fails++; st.cooldown_until = now + 900e3; console.error(`llm ${name} error: ${e.message} ${e.cause?.message||""}`); break; }
     }
   }
   Q.providers.template.calls++;
