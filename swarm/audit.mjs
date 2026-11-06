@@ -4,7 +4,7 @@ const Q = JSON.parse(fs.readFileSync("swarm/QUOTA_STATE.json", "utf8"));
 const checks = [];
 const add = (check, pass, detail) => checks.push({ check, pass: !!pass, detail });
 // 1 card-free LLM: ≥3 cascade providers that need no card and are usable now (token/anonymous/local)
-const usable = Object.entries(Q.providers).filter(([n, p]) => p.card === false && n !== "template" && (n === "pollinations" || n === "ollama_local" || (n === "github_models" && (process.env.GITHUB_TOKEN || process.env.GH_TOKEN)) || (n === "groq" && process.env.GROQ_API_KEY) || (n === "nvidia_nim" && process.env.NVIDIA_API_KEY)));
+const usable = Object.entries(Q.providers).filter(([n, p]) => p.card === false && n !== "template" && (n === "pollinations" || n === "ollama_local" || (n === "groq" && process.env.GROQ_API_KEY) || (n === "nvidia_nim" && process.env.NVIDIA_API_KEY)));
 add("card_free_llm", usable.length >= 3, `${usable.length} usable no-card providers: ${usable.map(u => u[0]).join(",")}`);
 // 2 card-free execution: GitHub Actions on a public repo (unlimited free minutes) — or Cloudflare Workers Free
 let pub = null; try { const r = await fetch("https://api.github.com/repos/dankoff-hub/receipts", { headers: { "User-Agent": "swarm-audit" } }); pub = r.ok ? !(await r.json()).private : null; } catch {}

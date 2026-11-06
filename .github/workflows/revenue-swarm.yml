@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       allow_ollama_install: { description: install Ollama on the runner as last-resort LLM fallback, type: boolean, default: true }
-permissions: { contents: write, models: read, issues: write }
+permissions: { contents: write, issues: write }
 concurrency: { group: revenue-swarm, cancel-in-progress: false }
 jobs:
   cycle:

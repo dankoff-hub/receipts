@@ -1,6 +1,5 @@
 {
  "cascade": [
-  "github_models",
   "groq",
   "nvidia_nim",
   "pollinations",
@@ -8,14 +7,6 @@
   "template"
  ],
  "providers": {
-  "github_models": {
-   "card": false,
-   "auth": "GITHUB_TOKEN (Actions, models:read)",
-   "limit": "free tier per-model RPD",
-   "cooldown_until": 0,
-   "calls": 0,
-   "fails": 1
-  },
   "groq": {
    "card": false,
    "auth": "GROQ_API_KEY secret (optional)",
@@ -58,10 +49,10 @@
   }
  },
  "not_configured": {
-  "iflow": "browser OAuth — founder-only login",
-  "kiro": "AWS Builder ID OAuth — founder-only login",
-  "qwen": "device-code OAuth — founder-only login",
-  "puter": "browser session — founder-only login"
+  "iflow": "browser OAuth \u2014 founder-only login",
+  "kiro": "AWS Builder ID OAuth \u2014 founder-only login",
+  "qwen": "device-code OAuth \u2014 founder-only login",
+  "puter": "browser session \u2014 founder-only login"
  },
  "rotation_offset": 3,
  "updated": "2026-11-06T23:41:02.650Z"

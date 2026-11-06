@@ -101,7 +101,7 @@ This is an absolutely zero-cost autonomous revenue operation. Execute.
 ---
 ## Implementation mapping (what runs where, 2026-11-06)
 - Runtime: GitHub Actions on public repo (directive §1.2 secondary option) — `revenue-swarm.yml`, cron every 4h. Cloudflare Workers/Postflare need a founder Cloudflare account (browser login) → not deployed.
-- LLM cascade (`swarm/llm.mjs`): GitHub Models (GITHUB_TOKEN) → Groq / NVIDIA NIM (if GROQ_API_KEY / NVIDIA_API_KEY secrets exist) → Pollinations anonymous (1 reply/45 s per IP; wait+retry) → Ollama on-demand on the runner → deterministic template. iFlow/Kiro/Qwen/Puter require interactive OAuth by the founder → listed in QUOTA_STATE.not_configured.
+- LLM cascade (`swarm/llm.mjs`): Groq / NVIDIA NIM (if GROQ_API_KEY / NVIDIA_API_KEY secrets exist) → Pollinations anonymous (1 reply/45 s per IP; wait+retry) → Ollama on-demand on the runner → deterministic template. iFlow/Kiro/Qwen/Puter require interactive OAuth by the founder → listed in QUOTA_STATE.not_configured.
 - Posting: Buffer Free (3 channels, no card) via existing daily-tiktok.yml; swarm creatives go to `content/swarm-scripts.md`, which `make-video.py` publishes before any other script.
 - Hunter: public Reddit + Bluesky search (no account). Replies/DMs are High risk and need founder-owned accounts → leads wait in LEADS.json / the "Revenue swarm — daily report" issue.
 - State: `swarm/GOALS.md`, `MEMORY.md`, `QUOTA_STATE.json`, `LEADS.json`, `CONCEPTS.json`, `CHECKPOINT.json`, `ZERO_COST_AUDIT.json`, `REVENUE_SWARM_REPORT.md` — all in git.

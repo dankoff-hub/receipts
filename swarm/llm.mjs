@@ -1,4 +1,4 @@
-// LLM cascade — no-card providers only. OpenAI-compatible chat; on 429/5xx/timeout fall to the next provider.
+// LLM cascade — no-card providers only. (GitHub Models retired 2026-07-30 — removed.) OpenAI-compatible chat; on 429/5xx/timeout fall to the next provider.
 // Order + cooldowns live in swarm/QUOTA_STATE.json (rotated each cycle so one provider isn't always hit first).
 import fs from "node:fs";
 import { execSync } from "node:child_process";
@@ -14,7 +14,6 @@ export function compress(s, max = 1800) {
 }
 
 const PROV = {
-  github_models: { url: "https://models.github.ai/inference/chat/completions", model: "openai/gpt-4o-mini", key: () => process.env.GITHUB_TOKEN || process.env.GH_TOKEN },
   groq: { url: "https://api.groq.com/openai/v1/chat/completions", model: process.env.GROQ_MODEL || "openai/gpt-oss-120b", key: () => process.env.GROQ_API_KEY },
   nvidia_nim: { url: "https://integrate.api.nvidia.com/v1/chat/completions", model: process.env.NVIDIA_MODEL || "google/gemma-4-31b-it", key: () => process.env.NVIDIA_API_KEY },
   pollinations: { url: "https://text.pollinations.ai/openai", model: "openai", key: () => "anonymous" },
