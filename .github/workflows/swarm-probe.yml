@@ -1,0 +1,14 @@
+name: swarm source probe (temp)
+on: { workflow_dispatch: {} }
+permissions: { contents: read, models: read }
+jobs:
+  p:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env: { GITHUB_TOKEN: "${{ github.token }}" }
+    steps:
+      - run: |
+          for u in "https://public.api.bsky.app/xrpc/app.bsky.feed.searchPosts?q=habit%20tracker&limit=2" "https://api.bsky.app/xrpc/app.bsky.feed.searchPosts?q=habit%20tracker&limit=2" "https://hn.algolia.com/api/v1/search_by_date?query=habit%20tracker&tags=comment&hitsPerPage=2" "https://mastodon.social/api/v1/timelines/tag/habittracker?limit=2" "https://lemmy.world/api/v3/search?q=habit%20tracker&type_=Posts&limit=2&sort=New" "https://www.reddit.com/r/getdisciplined/new.json?limit=2" "https://old.reddit.com/search.json?q=habit+tracker&limit=2" "https://api.pullpush.io/reddit/search/submission/?q=habit%20tracker&size=2" "https://www.youtube.com/results?search_query=30+day+challenge" ; do
+            printf "%-110s " "$u"; curl -s -o /tmp/o -w "%{http_code} " -A "Mozilla/5.0 (X11; Linux x86_64) receipts-swarm/1.0" "$u"; head -c 80 /tmp/o | tr '\n' ' '; echo; done
+          echo "--- github models"; curl -s -o /tmp/g -w "%{http_code}\n" -X POST https://models.github.ai/inference/chat/completions -H "Authorization: Bearer $GITHUB_TOKEN" -H "Content-Type: application/json" -d '{"model":"openai/gpt-4o-mini","messages":[{"role":"user","content":"say ok"}],"max_tokens":5}'; head -c 300 /tmp/g; echo
+          echo "--- pollinations"; curl -s -o /tmp/p -w "%{http_code}\n" -X POST https://text.pollinations.ai/openai -H "Content-Type: application/json" -d '{"model":"openai","messages":[{"role":"user","content":"say ok"}],"max_tokens":5}'; head -c 200 /tmp/p; echo
