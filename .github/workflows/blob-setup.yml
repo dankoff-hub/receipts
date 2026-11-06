@@ -1,23 +1,33 @@
 name: Vercel Blob store setup (subscriber storage, idempotent)
-on: { workflow_dispatch: {} }
+on:
+  workflow_dispatch:
+    inputs:
+      recreate_private:
+        description: delete existing receipts-subscribers store and recreate as private
+        type: boolean
+        default: false
 permissions: { contents: read, actions: write }
 jobs:
   setup:
     runs-on: ubuntu-latest
     timeout-minutes: 6
-    env: { VERCEL_TOKEN: "${{ secrets.VERCEL_TOKEN }}", GH_TOKEN: "${{ github.token }}", TEAM: team_oSZddW9gFlPVuv4UA7ENCx9F }
+    env: { VERCEL_TOKEN: "${{ secrets.VERCEL_TOKEN }}", GH_TOKEN: "${{ github.token }}", TEAM: team_oSZddW9gFlPVuv4UA7ENCx9F, RECREATE: "${{ inputs.recreate_private }}" }
     steps:
       - run: |
           A="Authorization: Bearer $VERCEL_TOKEN"; API=https://api.vercel.com
           PID=$(curl -s -H "$A" "$API/v9/projects/receipts?teamId=$TEAM" | jq -r .id); echo "project id: ${PID:0:8}…"
-          if curl -s -H "$A" "$API/v9/projects/receipts/env?teamId=$TEAM" | jq -e '.envs[]|select(.key=="BLOB_READ_WRITE_TOKEN")' >/dev/null; then echo "BLOB_READ_WRITE_TOKEN already present"; exit 0; fi
-          # existing store?
           SID=$(curl -s -H "$A" "$API/v1/storage/stores?teamId=$TEAM" | jq -r '.stores[]? | select(.type=="blob" and .name=="receipts-subscribers") | .id' | head -1)
+          if [ -n "$SID" ] && [ "$RECREATE" = "true" ]; then
+            echo "deleting store (was public)"; curl -s -o /dev/null -w 'delete store http %{http_code}\n' -H "$A" -X DELETE "$API/v1/storage/stores/blob/$SID?teamId=$TEAM"; SID=""
+            for E in $(curl -s -H "$A" "$API/v9/projects/receipts/env?teamId=$TEAM" | jq -r '.envs[]|select(.key=="BLOB_READ_WRITE_TOKEN")|.id'); do curl -s -o /dev/null -w 'delete env http %{http_code}\n' -H "$A" -X DELETE "$API/v9/projects/receipts/env/$E?teamId=$TEAM"; done
+          fi
           if [ -z "$SID" ]; then
-            R=$(curl -s -w '\n%{http_code}' -H "$A" -H 'content-type: application/json' -X POST "$API/v1/storage/stores/blob?teamId=$TEAM" -d '{"name":"receipts-subscribers","region":"iad1"}')
-            echo "create store http $(echo "$R" | tail -1)"; SID=$(echo "$R" | head -1 | jq -r '.store.id // .id // empty'); echo "$R" | head -1 | jq -r '.error.message // empty'
+            R=$(curl -s -w '\n%{http_code}' -H "$A" -H 'content-type: application/json' -X POST "$API/v1/storage/stores/blob?teamId=$TEAM" -d '{"name":"receipts-subscribers","region":"iad1","access":"private"}')
+            echo "create store http $(echo "$R" | tail -1)"; SID=$(echo "$R" | head -1 | jq -r '.store.id // .id // empty'); echo "$R" | head -1 | jq -r '.error.message // empty'; echo "$R" | head -1 | jq -c '.store | {access, blobAccess, public, name} // empty' 2>/dev/null
           else echo "store exists"; fi
           [ -n "$SID" ] || { echo "no store id"; exit 1; }
-          R=$(curl -s -w '\n%{http_code}' -H "$A" -H 'content-type: application/json' -X POST "$API/v1/storage/stores/$SID/connections?teamId=$TEAM" -d "{\"projectId\":\"$PID\",\"envVarEnvironments\":[\"production\",\"preview\",\"development\"]}")
-          echo "connect http $(echo "$R" | tail -1)"; echo "$R" | head -1 | jq -r '.error.message // empty'
+          if ! curl -s -H "$A" "$API/v9/projects/receipts/env?teamId=$TEAM" | jq -e '.envs[]|select(.key=="BLOB_READ_WRITE_TOKEN")' >/dev/null; then
+            R=$(curl -s -w '\n%{http_code}' -H "$A" -H 'content-type: application/json' -X POST "$API/v1/storage/stores/$SID/connections?teamId=$TEAM" -d "{\"projectId\":\"$PID\",\"envVarEnvironments\":[\"production\",\"preview\",\"development\"]}")
+            echo "connect http $(echo "$R" | tail -1)"; echo "$R" | head -1 | jq -r '.error.message // empty'
+          fi
           curl -s -H "$A" "$API/v9/projects/receipts/env?teamId=$TEAM" | jq -e '.envs[]|select(.key=="BLOB_READ_WRITE_TOKEN")' >/dev/null && echo "BLOB_READ_WRITE_TOKEN present" && gh workflow run deploy.yml -R ${{ github.repository }} --ref main && echo "redeploy dispatched"
