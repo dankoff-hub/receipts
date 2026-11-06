@@ -1,7 +1,7 @@
 // Orchestrator — one cron cycle: audit → quota → hunter → creative → attribution → report → memory. Checkpoints to swarm/CHECKPOINT.json.
 import fs from "node:fs";
 import { execSync } from "node:child_process";
-import { Q, saveQuota } from "./llm.mjs";
+import { Q, saveQuota, reloadQuota } from "./llm.mjs";
 const sh = (c) => execSync(c, { stdio: ["ignore", "pipe", "inherit"], env: process.env }).toString();
 const CK = "swarm/CHECKPOINT.json"; const ck = fs.existsSync(CK) ? JSON.parse(fs.readFileSync(CK, "utf8")) : {};
 const cycle = new Date().toISOString(); const stage = s => { ck.stage = s; ck.at = new Date().toISOString(); fs.writeFileSync(CK, JSON.stringify(ck, null, 1)); console.log(`[${s}]`); };
@@ -19,7 +19,7 @@ if (live === 0) { console.log("all providers cooling down — exhausted; resume 
 // 2) hunter  3) creative
 stage("hunter"); try { sh("node swarm/hunter.mjs"); } catch (e) { console.log("hunter error", e.message); }
 stage("creative"); try { sh("node swarm/creative.mjs"); } catch (e) { console.log("creative error", e.message); }
-saveQuota();
+reloadQuota(); saveQuota();
 
 // 4) attribution — Stripe (read) + post log
 stage("attribution");

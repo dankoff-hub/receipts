@@ -4,6 +4,7 @@ import fs from "node:fs";
 import { execSync } from "node:child_process";
 const QP = "swarm/QUOTA_STATE.json";
 export const Q = JSON.parse(fs.readFileSync(QP, "utf8"));
+export function reloadQuota() { const f = JSON.parse(fs.readFileSync(QP, "utf8")); for (const [n, p] of Object.entries(f.providers)) Object.assign(Q.providers[n] ??= {}, p); }
 export function saveQuota() { Q.updated = new Date().toISOString(); fs.writeFileSync(QP, JSON.stringify(Q, null, 1)); }
 
 // Offline prompt compression (deterministic, zero-cost): drop filler, collapse whitespace, clamp context.
@@ -13,7 +14,7 @@ export function compress(s, max = 1800) {
 }
 
 const PROV = {
-  github_models: { url: "https://models.github.ai/inference/chat/completions", model: "openai/gpt-4o-mini", key: () => process.env.GITHUB_TOKEN || process.env.GH_TOKEN },
+  github_models: { url: "https://models.inference.ai.azure.com/chat/completions", model: "gpt-4o-mini", key: () => process.env.GITHUB_TOKEN || process.env.GH_TOKEN },
   groq: { url: "https://api.groq.com/openai/v1/chat/completions", model: "llama-3.3-70b-versatile", key: () => process.env.GROQ_API_KEY },
   nvidia_nim: { url: "https://integrate.api.nvidia.com/v1/chat/completions", model: "meta/llama-3.1-70b-instruct", key: () => process.env.NVIDIA_API_KEY },
   pollinations: { url: "https://text.pollinations.ai/openai", model: "openai", key: () => "anonymous" },

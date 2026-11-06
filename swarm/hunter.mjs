@@ -4,7 +4,7 @@ import fs from "node:fs";
 import { chat, parseJSON, saveQuota } from "./llm.mjs";
 process.on("exit", () => saveQuota());
 const QUERIES = ["30 day challenge tracker template", "prove them wrong 30 days", "accountability tracker printable", "someone said I couldn't", "habit tracker pdf where to buy", "daily proof journal", "spite motivation 30 days"];
-const T1 = /\b(where (can|do) i (buy|get|find)|link\??|is there a (template|tracker|pdf)|how much|worth (it|buying)|recommend(ation)?s? for (a )?(tracker|template|planner)|take my money|looking for (a )?(tracker|template|system|planner))\b/i;
+const T1 = /\b(where (can|do) i (buy|get|find)( a| the)? (tracker|template|planner|journal|pdf|system)|(drop|send|share) (me )?(the|a) link|link please|is there a (template|tracker|pdf|printable)|how much (is|does|for)( a| the)? (tracker|template|planner|journal)|worth buying|recommend(ation)?s? for (a |an )?(tracker|template|planner|journal|accountability)|take my money|looking for (a |an )?(habit |accountability |30[- ]day )?(tracker|template|system|planner|journal))\b/i;
 const T2 = /\b(start(ing)? (a )?30[- ]day|accountab|track(ing)? (my )?progress|prove (them|him|her|everyone) wrong|told me i (couldn'?t|wasn'?t)|habit tracker|daily proof|streak)\b/i;
 const LEADS_P = "swarm/LEADS.json"; const leads = fs.existsSync(LEADS_P) ? JSON.parse(fs.readFileSync(LEADS_P, "utf8")) : { seen: [], leads: [] };
 const UA = { "User-Agent": "receipts-swarm/1.0 (read-only research)" };
@@ -17,7 +17,7 @@ for (const q of QUERIES) {
   try { const r = await fetch(`https://lemmy.world/api/v3/search?q=${encodeURIComponent(q)}&type_=Posts&limit=20&sort=New`, { headers: UA }); if (!r.ok) console.error(`lemmy HTTP ${r.status}`); const j = await r.json();
     for (const p of j?.posts || []) { const d = p.post; push({ src: "lemmy", id: "lemmy:" + d.id, url: d.ap_id, text: `${d.name} ${d.body || ""}`.slice(0, 600), sub: p.community?.name, at: d.published }); } } catch (e) { console.error("lemmy err", e.message); }
 }
-for (const tag of ["habittracker", "30daychallenge", "accountability", "discipline", "provethemwrong", "selfimprovement"]) {
+for (const tag of ["habittracker", "30daychallenge", "selfimprovement", "discipline", "journaling", "provethemwrong"]) {
   try { const r = await fetch(`https://mastodon.social/api/v1/timelines/tag/${tag}?limit=40`, { headers: UA }); if (!r.ok) console.error(`mastodon HTTP ${r.status}`); const j = await r.json();
     for (const p of Array.isArray(j) ? j : []) push({ src: "mastodon", id: "masto:" + p.id, url: p.url, text: String(p.content || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").slice(0, 600), sub: p.account?.acct, at: p.created_at }); } catch (e) { console.error("mastodon err", e.message); }
 }
@@ -28,7 +28,7 @@ for (const it of fresh) {
   if (tier === 0 && llmCalls < 6 && /30|track|prove|doubt|accountab/i.test(it.text)) {
     llmCalls++;
     const r = await chat(`Classify buying intent for a $29 "30-day proof/accountability system" PDF. Post: """${it.text}""". Reply JSON {"tier":1|2|3,"why":"<8 words"}. 1=asks for product/link/price, 2=starting a 30-day/accountability effort, 3=unrelated.`, { maxTokens: 40 });
-    const j = parseJSON(r.text); tier = j?.tier === 1 || j?.tier === 2 ? j.tier : 3; it.llm = r.provider;
+    const j = parseJSON(r.text); tier = j?.tier === 1 && T2.test(it.text) ? 1 : j?.tier === 1 || j?.tier === 2 ? 2 : 3; it.llm = r.provider; // LLM alone can only reach tier 2
   }
   if (tier === 0) tier = 3;
   leads.seen.push(it.id);
