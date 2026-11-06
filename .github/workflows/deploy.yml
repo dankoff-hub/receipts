@@ -19,5 +19,7 @@ jobs:
         if: env.VERCEL_TOKEN != ''
         run: |
           npm i -g vercel@65.11.0   # 65.12.0 (2026-11-05) hangs at "Loading teams…" in CI — keep pinned
-          vercel deploy --prod --yes --token "$VERCEL_TOKEN" | tee url.txt
+          timeout 90 vercel whoami --token "$VERCEL_TOKEN" --debug 2>&1 | grep -v "Authorization" | tail -25 || echo "whoami timed out/failed"
+          curl -s -m 20 -o /dev/null -w "api.vercel.com/v2/user -> %{http_code}\n" -H "Authorization: Bearer $VERCEL_TOKEN" https://api.vercel.com/v2/user
+          timeout 420 vercel deploy --prod --yes --token "$VERCEL_TOKEN" | tee url.txt
           echo "Live: $(tail -1 url.txt)" >> $GITHUB_STEP_SUMMARY
