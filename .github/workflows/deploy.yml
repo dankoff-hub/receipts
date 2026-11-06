@@ -8,6 +8,8 @@ jobs:
     timeout-minutes: 8
     env:
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      PACK_DEPLOY_KEY: ${{ secrets.PACK_DEPLOY_KEY }}
+      STRIPE_API_KEY: ${{ secrets.STRIPE_API_KEY }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -15,10 +17,25 @@ jobs:
       - name: Skip if no token
         if: env.VERCEL_TOKEN == ''
         run: echo "VERCEL_TOKEN secret not set; skipping deploy."
+      - name: Pull paid-pack content (private repo, read-only deploy key) and bundle it
+        if: env.PACK_DEPLOY_KEY != ''
+        run: |
+          mkdir -p ~/.ssh && printf '%s\n' "$PACK_DEPLOY_KEY" > ~/.ssh/pack_key && chmod 600 ~/.ssh/pack_key
+          ssh-keyscan -H github.com >> ~/.ssh/known_hosts 2>/dev/null
+          GIT_SSH_COMMAND="ssh -i ~/.ssh/pack_key -o IdentitiesOnly=yes" git clone -q --depth 1 git@github.com:dankoff-hub/receipts-pack.git pack-content
+          node scripts/bundle-pack.mjs pack-content/content
+          rm -rf pack-content ~/.ssh/pack_key
       - name: Deploy
         if: env.VERCEL_TOKEN != ''
         run: |
           npm i -g vercel@65.11.0   # 65.12.0 (2026-11-05) hangs at "Loading teams…" in CI — keep pinned
+          # Ensure the gated /pack route can verify payments: Stripe restricted key as a Vercel production env var (value never printed)
+          if [ -n "$STRIPE_API_KEY" ]; then
+            timeout 60 vercel link --yes --project receipts --token "$VERCEL_TOKEN" >/dev/null 2>&1 || true
+            if ! timeout 60 vercel env ls production --token "$VERCEL_TOKEN" 2>/dev/null | grep -q "STRIPE_API_KEY"; then
+              printf '%s' "$STRIPE_API_KEY" | timeout 60 vercel env add STRIPE_API_KEY production --token "$VERCEL_TOKEN" >/dev/null && echo "STRIPE_API_KEY env added"
+            else echo "STRIPE_API_KEY env present"; fi
+          fi
           timeout 420 vercel deploy --prod --yes --token "$VERCEL_TOKEN" | tee url.txt
           URL=$(tail -1 url.txt)
           for i in $(seq 1 30); do

@@ -1,3 +1,4 @@
+import Capture from "./Capture";
 const PAY="https://buy.stripe.com/dRm7sEfUs0CQbscfSx3840a";
 const btn={display:"block",padding:"16px 24px",background:"#fff",color:"#000",borderRadius:12,textDecoration:"none",fontWeight:700,fontSize:18,textAlign:"center",margin:"20px 0 8px 0"};
 const box={background:"#16161a",border:"1px solid #2a2a30",borderRadius:12,padding:16,margin:"16px 0"};
@@ -19,6 +20,8 @@ return <main style={{maxWidth:520,margin:"0 auto",padding:16}}>
 <li>What would make this irrelevant in 90 days?</li>
 </ol>
 <p style={{color:"#aaa",marginBottom:0}}>Rule: the receipt is about your standard, not about them. Never contact, name publicly or target the person.</p></div>
+
+<div style={box}><b>Want it as a printable, plus one nudge on day 1?</b><p style={{color:"#aaa",margin:"6px 0 0 0",fontSize:14}}>No spam. One email with the Step 1 sheet, one reminder on day 1.</p><Capture src={src} /></div>
 
 <h2 style={{marginTop:32}}>Done? Here’s where most people stop.</h2>
 <p style={{color:"#ccc"}}>Writing it down feels good for a day. Without a plan, the feeling fades and nothing changes. The full pack turns answer 4 into a 30-day standard you actually follow.</p>

@@ -2,7 +2,7 @@
 // Read-only customer-journey audit: page reachability + CTA links + Stripe checkout-session config (success_url, status). Prints no secrets.
 const SITE = process.env.APP_URL || "https://receipts-blond.vercel.app";
 const PAY = "https://buy.stripe.com/dRm7sEfUs0CQbscfSx3840a";
-const pages = ["/", "/bio?src=ig", "/free?src=ig", "/pricing", "/pack/tkkgjvizitzg"];
+const pages = ["/", "/bio?src=ig", "/free?src=ig", "/pricing", "/pack"];
 for (const p of pages) {
   const r = await fetch(SITE + p); const html = await r.text();
   const links = [...html.matchAll(/href="([^"]+)"/g)].map(m => m[1]).filter(h => /stripe|\/free|\/bio|\/pack|\/pricing/.test(h));
