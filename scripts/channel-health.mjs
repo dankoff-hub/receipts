@@ -13,7 +13,11 @@ for (const o of orgs) {
   console.log(JSON.stringify(r, null, 1));
   const tk = (r.data?.channels || []).find(c => c.service.toLowerCase() === "tiktok");
   if (tk) {
-    const p = await gql(`{posts(input:{organizationId:"${o.id}",filter:{channelIds:["${tk.id}"]},first:10}){edges{node{id status dueAt sentAt error{message} text}}}}`);
+    const pf = await gql(`{__type(name:"Post"){fields{name}}}`);
+    console.log("Post fields:", (pf.data?.__type?.fields||[]).map(f=>f.name).join(", "));
+    const p = await gql(`{posts(first:10,input:{organizationId:"${o.id}",filter:{channelIds:["${tk.id}"]},sort:[{field:createdAt,direction:desc}]}){edges{node{id status dueAt sentAt createdAt error{message} notificationStatus}}}}`);
+    if (p.errors) { const p2 = await gql(`{posts(first:10,input:{organizationId:"${o.id}",filter:{channelIds:["${tk.id}"]},sort:[{field:createdAt,direction:desc}]}){edges{node{id status dueAt sentAt createdAt error{message}}}}}`); console.log("TikTok posts:", JSON.stringify(p2, null, 1).slice(0, 5000)); }
+    else console.log("TikTok posts:", JSON.stringify(p, null, 1).slice(0, 5000));
     console.log("TikTok posts:", JSON.stringify(p, null, 1).slice(0, 4000));
   }
 }
