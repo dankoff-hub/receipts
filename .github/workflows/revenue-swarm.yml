@@ -1,0 +1,38 @@
+name: Revenue swarm (absolute zero-cost) — cron cycle
+# Orchestrator cycle every 4h: audit → quota → hunter (public Reddit/Bluesky intent scan) → creative (≥3 concepts/platform/day
+# → content/swarm-scripts.md, published first by the daily video slots) → Stripe attribution → report → memory. $0: GitHub Actions
+# (public repo), GitHub Models/Pollinations/on-demand Ollama for LLM, Buffer free for posting, git for state.
+on:
+  schedule: [{ cron: "30 */4 * * *" }]
+  workflow_dispatch:
+    inputs:
+      allow_ollama_install: { description: install Ollama on the runner as last-resort LLM fallback, type: boolean, default: false }
+permissions: { contents: write, models: read, issues: write }
+concurrency: { group: revenue-swarm, cancel-in-progress: false }
+jobs:
+  cycle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GITHUB_TOKEN: ${{ github.token }}
+      STRIPE_API_KEY: ${{ secrets.STRIPE_API_KEY }}
+      BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
+      GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+      NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+      SWARM_ALLOW_OLLAMA_INSTALL: ${{ inputs.allow_ollama_install == true && '1' || '0' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Orchestrator cycle
+        run: node swarm/orchestrator.mjs
+      - name: Commit state (author = repo owner; Vercel Hobby rule)
+        run: |
+          git config user.name dankoff-hub; git config user.email 345066702+dankoff-hub@users.noreply.github.com
+          git add swarm content/swarm-scripts.md
+          git diff --cached --quiet || { git commit -qm "Swarm cycle $(date -u +%FT%H:%M)Z [skip ci]"; git pull --rebase --autostash -q; git push -q; }
+      - name: Post report to the swarm issue
+        run: |
+          N=$(gh issue list -R ${{ github.repository }} --search "Revenue swarm — daily report in:title" --state open --json number --jq '.[0].number')
+          [ -n "$N" ] || N=$(gh issue create -R ${{ github.repository }} --title "Revenue swarm — daily report" --body "Auto-updated by revenue-swarm.yml. Tier-1 leads need a founder-owned Reddit/Bluesky account before any reply (High risk → human approval)." | grep -o '[0-9]*$')
+          gh issue comment "$N" -R ${{ github.repository }} --body-file swarm/REVENUE_SWARM_REPORT.md >/dev/null && echo "report → issue #$N"

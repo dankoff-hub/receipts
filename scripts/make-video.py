@@ -14,7 +14,13 @@ try: _led = json.load(open(_led_p))
 except Exception: _led = {"used": []}
 def _sh(x): return _hl.md5((x["hook"] + "|" + x["say"]).encode()).hexdigest()
 s = None
+# Revenue-swarm priority: unused scripts in content/swarm-scripts.md (written by swarm/creative.mjs) publish first.
+if _os.path.exists("content/swarm-scripts.md"):
+    _SW = [dict(n=int(m[0]), hook=m[1], say=m[2], body=m[3], cta=m[4]) for m in re.findall(r"## (\d+)\. (.+)\n- Hook[^\n]*\n- Say: (.+)\n- Body: (.+)\n- CTA: (.+)", open("content/swarm-scripts.md").read())]
+    for _c in _SW:
+        if _sh(_c) not in _led["used"]: s = _c; break
 for _i in range(len(S)):
+    if s is not None: break
     _c = S[(day + _i) % len(S)]
     if _sh(_c) not in _led["used"]: s = _c; break
 if s is None:
