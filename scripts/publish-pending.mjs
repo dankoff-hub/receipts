@@ -17,8 +17,11 @@ const SCRIPTS = { tiktok: "scripts/publish-buffer.mjs", instagram: "scripts/cros
 const videos = fs.readdirSync("public/videos").filter(f => f.endsWith(".mp4") && fs.existsSync(`public/videos/${f}.json`))
   .sort((a, b) => a.localeCompare(b)) // day-003 < day-003b < day-004;
 
+const cfg = load("content/audience-config.json", {});
 let failures = 0;
 for (const channel of Object.keys(SCRIPTS)) {
+  const pause = cfg.paused?.[channel];
+  if (pause?.until && new Date(pause.until) > new Date()) { console.log(`${channel}: paused until ${pause.until} — ${pause.reason || ""}`); continue; }
   const log = load(LOG, []);
   const mine = log.filter(p => p.channel === channel);
   const countToday = mine.filter(p => p.ts?.slice(0, 10) === today && p.status !== "failed" && p.status !== "skipped").length;

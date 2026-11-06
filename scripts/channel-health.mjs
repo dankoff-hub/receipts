@@ -21,3 +21,26 @@ for (const o of orgs) {
     console.log("TikTok posts:", JSON.stringify(p, null, 1).slice(0, 4000));
   }
 }
+
+// ---- auto-pause: if the newest TikTok post errored with an account ban, pause TikTok for 3 days (re-probe after)
+import fs from "node:fs";
+const cfgPath = "content/audience-config.json";
+const cfg = JSON.parse(fs.readFileSync(cfgPath, "utf8"));
+cfg.paused ??= {};
+for (const o of orgs) {
+  const chans = (await gql(`{channels(input:{organizationId:"${o.id}"}){id service isDisconnected isLocked}}`)).data?.channels || [];
+  for (const ch of chans) {
+    const svc = ch.service.toLowerCase();
+    const p = await gql(`{posts(first:1,input:{organizationId:"${o.id}",filter:{channelIds:["${ch.id}"]},sort:[{field:createdAt,direction:desc}]}){edges{node{status error{message} createdAt}}}}`);
+    const last = p.data?.posts?.edges?.[0]?.node;
+    const banned = last?.status === "error" && /bann|suspend|disabled/i.test(last.error?.message || "");
+    if (banned || ch.isDisconnected || ch.isLocked) {
+      const until = new Date(Date.now() + 3 * 864e5).toISOString();
+      cfg.paused[svc] = { until, reason: banned ? `Buffer error: ${last.error.message}` : (ch.isDisconnected ? "channel disconnected in Buffer" : "channel locked in Buffer") };
+      console.log(`AUTO-PAUSE ${svc} until ${until}: ${cfg.paused[svc].reason}`);
+    } else if (cfg.paused[svc] && last?.status === "sent") {
+      delete cfg.paused[svc]; console.log(`UNPAUSE ${svc}: last post sent OK`);
+    }
+  }
+}
+fs.writeFileSync(cfgPath, JSON.stringify(cfg, null, 1));

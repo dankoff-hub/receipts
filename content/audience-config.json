@@ -1,5 +1,11 @@
 {
  "tiktok_username": "user6155581825874",
  "youtube_channel_id": "UC_Io87isTmHUvzIAs-RwiFw",
- "instagram_username": null
+ "instagram_username": null,
+ "paused": {
+  "tiktok": {
+   "until": "2026-11-09T00:00:00Z",
+   "reason": "TikTok banned @user6155581825874 (Buffer error 2026-11-05). Founder appeal pending; swarm re-probes with one post every 3 days."
+  }
+ }
 }

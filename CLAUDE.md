@@ -120,3 +120,8 @@ curl -sI https://receipts-blond.vercel.app/videos/day-001.mp4 | head -1
 - daily-tiktok.yml now has 4 slots (08/12/16/20 UTC → suffix "", b, c, d; idx = N*4+S). publish-pending caps: TikTok 2, Instagram 4, YouTube 4.
 - Every video carries an on-screen URL (receipts-blond.vercel.app/free); YT/IG captions include the URL.
 - Founder-owned levers (Stripe price ladder, email service, $197 cohort, $3k creator seeding, 30 min/day community time) are in content/growth-plan.md — swarm must not do payments/legal.
+
+## 2026-11-06 — TikTok ban
+- Buffer error on all TikTok posts since Nov 5 19:00 UTC: "TikTok account being banned" (@user6155581825874). Likely cause: 7 API posts in ~40 min on a brand-new account on Nov 3.
+- `scripts/channel-health.mjs` (daily in audience-watch, also `channel-health.yml` dispatch) auto-pauses a channel in content/audience-config.json `paused.<svc>.until` (3 days) on ban/disconnect; publish-pending skips paused channels; one re-probe post after the pause, unpause when it sends.
+- Only the founder can appeal in the TikTok app. If a new TikTok account is created: warm up manually, max 1 API post/day for the first 2 weeks.
