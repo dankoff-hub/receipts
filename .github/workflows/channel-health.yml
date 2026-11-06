@@ -1,0 +1,12 @@
+name: Channel health (Buffer, read-only)
+on: {workflow_dispatch: {}}
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env: {BUFFER_API_KEY: "${{ secrets.BUFFER_API_KEY }}"}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 20}
+      - run: node scripts/channel-health.mjs
