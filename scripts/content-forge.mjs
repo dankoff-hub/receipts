@@ -7,7 +7,7 @@
 import fs from "node:fs";
 
 const FILE = "content/forge-scripts.md";
-const COUNT = 10;
+const COUNT = 40; // 4 videos + 1 carousel per day = 35 unique scripts/week
 const existing = fs.existsSync(FILE) ? fs.readFileSync(FILE, "utf8") : "";
 const startN = Math.max(30, ...[...existing.matchAll(/## (\d+)\./g)].map(m => +m[1])) + 1;
 

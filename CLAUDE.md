@@ -131,3 +131,6 @@ curl -sI https://receipts-blond.vercel.app/videos/day-001.mp4 | head -1
 - `scripts/render-v2.py` is now the renderer (make-video.py calls it): animated gradient bg, 1.6s hook card, word-level karaoke captions from edge-tts WordBoundary, progress bar, URL end card + "follow for day N". Spoken CTA = "free step one template, link on screen".
 - Daily loop: post-metrics.mjs → strategy-brief.performance (medians, top/bottom hooks, breakouts ≥3x median) → content-forge prompt uses real best/worst hooks. content/audience-scoreboard.json tracks the bet (baseline 2026-11-06: YT 53 subs, Shorts median 3 views, Reels 0).
 - TODO next: Instagram carousel (PIL slides) 1/day via Buffer image post; YouTube titles as search questions; IG follower count (Buffer does not expose it).
+
+## 2026-11-06 — Instagram carousels
+- Slot b (12:00 UTC) also runs `scripts/make-carousel.py` (PIL, 6 slides 1080x1350, next unused script from the shared script-ledger, unique caption in caption-ledger) → public/carousels/car-NNN/, then `scripts/post-carousel.mjs` posts it to Instagram via Buffer (image assets, logged as channel `instagram_carousel`, separate from the 4 Reel slots). Forge COUNT raised to 40/week to keep the pool ahead of 35 scripts/week.
