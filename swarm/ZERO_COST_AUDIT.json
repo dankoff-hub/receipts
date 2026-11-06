@@ -1,11 +1,11 @@
 {
- "at": "2026-11-06T23:29:46.130Z",
+ "at": "2026-11-06T23:40:41.510Z",
  "pass": true,
  "checks": [
   {
    "check": "card_free_llm",
    "pass": true,
-   "detail": "4 usable no-card providers: github_models,groq,pollinations,ollama_local"
+   "detail": "5 usable no-card providers: github_models,groq,nvidia_nim,pollinations,ollama_local"
   },
   {
    "check": "card_free_execution",
