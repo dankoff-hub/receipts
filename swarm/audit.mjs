@@ -9,7 +9,9 @@ add("card_free_llm", usable.length >= 3, `${usable.length} usable no-card provid
 // 2 card-free execution: GitHub Actions on a public repo (unlimited free minutes) — or Cloudflare Workers Free
 let pub = null; try { const r = await fetch("https://api.github.com/repos/dankoff-hub/receipts", { headers: { "User-Agent": "swarm-audit" } }); pub = r.ok ? !(await r.json()).private : null; } catch {}
 add("card_free_execution", process.env.GITHUB_ACTIONS === "true" ? pub !== false : true, `runtime=${process.env.GITHUB_ACTIONS === "true" ? "GitHub Actions" : "local"}; repo public=${pub}`);
-// 3 card-free posting: Buffer free plan (≤3 channels, no card) — Postflare/Cloudflare not deployed (needs founder Cloudflare account)
+// 2b card-free edge runtime: Cloudflare Worker (Free plan, cron hunter) reachable — informational unless SWARM_WORKER_URL is set
+if (process.env.SWARM_WORKER_URL) { let ok = false, rep = null; try { const r = await fetch(process.env.SWARM_WORKER_URL.replace(/\/$/, "") + "/health"); const j = await r.json(); ok = r.ok && j.ok === true; rep = j.report; } catch {} add("card_free_edge_worker", ok, `Cloudflare Workers Free: ${process.env.SWARM_WORKER_URL} health=${ok}; last scan=${rep?.at ?? "none yet"} tier1=${rep?.tier1 ?? "-"} tier2=${rep?.tier2 ?? "-"}`); }
+// 3 card-free posting: Buffer free plan (≤3 channels, no card) — Postflare skipped: Buffer already holds all 3 channels and Postflare needs per-platform OAuth apps (Meta/TikTok/YouTube developer apps + review)
 let ch = null; if (process.env.BUFFER_API_KEY) { try { const r = await fetch("https://api.buffer.com/", { method: "POST", headers: { "Content-Type": "application/json", Authorization: `Bearer ${process.env.BUFFER_API_KEY}` }, body: JSON.stringify({ query: "{ account { channels { id service } } }" }) }); const j = await r.json(); ch = j?.data?.account?.channels?.length ?? null; } catch {} }
 add("card_free_posting", ch === null || ch <= 3, `Buffer free plan channels=${ch ?? "unknown (no key in this context)"} (limit 3, no card)`);
 // 4 card-free state: git files in this repo (+ Vercel Hobby Blob/Stripe read — both no-card)

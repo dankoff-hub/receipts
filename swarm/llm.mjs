@@ -15,7 +15,7 @@ export function compress(s, max = 1800) {
 
 const PROV = {
   github_models: { url: "https://models.github.ai/inference/chat/completions", model: "openai/gpt-4o-mini", key: () => process.env.GITHUB_TOKEN || process.env.GH_TOKEN },
-  groq: { url: "https://api.groq.com/openai/v1/chat/completions", model: "llama-3.3-70b-versatile", key: () => process.env.GROQ_API_KEY },
+  groq: { url: "https://api.groq.com/openai/v1/chat/completions", model: process.env.GROQ_MODEL || "openai/gpt-oss-120b", key: () => process.env.GROQ_API_KEY },
   nvidia_nim: { url: "https://integrate.api.nvidia.com/v1/chat/completions", model: "meta/llama-3.1-70b-instruct", key: () => process.env.NVIDIA_API_KEY },
   pollinations: { url: "https://text.pollinations.ai/openai", model: "openai", key: () => "anonymous" },
   ollama_local: { url: "http://127.0.0.1:11434/v1/chat/completions", model: "qwen2.5:0.5b", key: () => "ollama", local: true },
