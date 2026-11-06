@@ -1,55 +1,55 @@
 # Swarm scripts (priority queue for daily videos)
 
-## 1001. The coworker who laughed when I asked for the raise. I kept the receipt [instagram/POV story]
-- Hook: The coworker who laughed when I asked for the raise. I kept the receipt.
-- Say: I stopped arguing and started measuring. One standard, written down, checked daily. Day 7 the streak said more than I ever could. Nobody debates a streak.
-- Body: Turn one moment of doubt into one measurable standard and collect daily proof for 30 days.
-- CTA: The 30-day Receipts system is $29 — link in bio.
+## 1001. What if you could prove your worth in 30 days [instagram/POV Story]
+- Hook: What if you could prove your worth in 30 days?
+- Say: I was told I couldn't. I decided to record every win. Now I have clear evidence of my progress.
+- Body: Visual proof turns doubt into undeniable confidence.
+- CTA: Try it for $29—link in bio.
 
-## 1002. My own voice note from day zero. I kept the receipt [youtube/receipt reveal]
-- Hook: My own voice note from day zero. I kept the receipt.
-- Say: I stopped arguing and started measuring. One standard, written down, checked daily. Day 10 the streak said more than I ever could. Nobody debates a streak.
-- Body: Turn one moment of doubt into one measurable standard and collect daily proof for 30 days.
-- CTA: The 30-day Receipts system is $29 — link in bio.
+## 1002. Your failures aren’t proof you’re stuck [instagram/Myth Bust]
+- Hook: Your failures aren’t proof you’re stuck.
+- Say: Everyone thinks a setback ends a journey. I captured how each set back opened a new path. Those receipts prove it.
+- Body: Reframe setbacks as stepping stones with evidence.
+- CTA: See the system in $29—link in bio.
 
-## 1003. The rejection email I printed. I kept the receipt [tiktok/3-rule list]
-- Hook: The rejection email I printed. I kept the receipt.
-- Say: I stopped arguing and started measuring. One standard, written down, checked daily. Day 13 the streak said more than I ever could. Nobody debates a streak.
-- Body: Turn one moment of doubt into one measurable standard and collect daily proof for 30 days.
-- CTA: The 30-day Receipts system is $29 — link in bio.
+## 1003. 30 days, 30 receipts, no excuses [instagram/Challenge]
+- Hook: 30 days, 30 receipts, no excuses.
+- Say: I’ll document every small win. You can too. We’ll meet at day 30, no hype, just results.
+- Body: Daily accountability delivers measurable success.
+- CTA: $29 to start—link in bio.
 
-## 1004. The gym buddy who quit on day 4. I kept the receipt [instagram/confession]
-- Hook: The gym buddy who quit on day 4. I kept the receipt.
-- Say: I stopped arguing and started measuring. One standard, written down, checked daily. Day 16 the streak said more than I ever could. Nobody debates a streak.
-- Body: Turn one moment of doubt into one measurable standard and collect daily proof for 30 days.
-- CTA: The 30-day Receipts system is $29 — link in bio.
+## 1004. Top 3 ways receipts reset your mindset [youtube/List]
+- Hook: Top 3 ways receipts reset your mindset.
+- Say: First, spot patterns you miss. Second, celebrate tiny victories. Third, keep your doubts at bay with data.
+- Body: Numbers calm the brain, proof builds momentum.
+- CTA: Get the $29 system—link in bio.
 
-## 1005. The landlord who wanted proof of income. I kept the receipt [youtube/myth-bust]
-- Hook: The landlord who wanted proof of income. I kept the receipt.
-- Say: I stopped arguing and started measuring. One standard, written down, checked daily. Day 19 the streak said more than I ever could. Nobody debates a streak.
-- Body: Turn one moment of doubt into one measurable standard and collect daily proof for 30 days.
-- CTA: The 30-day Receipts system is $29 — link in bio.
+## 1005. I lied about my progress once—here’s why [youtube/Confession]
+- Hook: I lied about my progress once—here’s why.
+- Say: I claimed success, no evidence. I lost credibility. Then I started tracking receipts and the truth came out.
+- Body: Honesty powered by proof restores trust.
+- CTA: $29 link in bio to create yours.
 
-## 1006. The 'we went another direction' call. I kept the receipt [tiktok/day-7 check-in]
-- Hook: The 'we went another direction' call. I kept the receipt.
-- Say: I stopped arguing and started measuring. One standard, written down, checked daily. Day 22 the streak said more than I ever could. Nobody debates a streak.
-- Body: Turn one moment of doubt into one measurable standard and collect daily proof for 30 days.
-- CTA: The 30-day Receipts system is $29 — link in bio.
+## 1006. Watch this receipt change my whole career [youtube/Receipt Reveal]
+- Hook: Watch this receipt change my whole career.
+- Say: One line in a document, one shift in fortune. I went from doubt to decision in 30 days.
+- Body: The right data can pivot destiny.
+- CTA: Grab the $29 system—link in bio.
 
-## 1007. The family dinner question. I kept the receipt [instagram/challenge]
-- Hook: The family dinner question. I kept the receipt.
-- Say: I stopped arguing and started measuring. One standard, written down, checked daily. Day 25 the streak said more than I ever could. Nobody debates a streak.
-- Body: Turn one moment of doubt into one measurable standard and collect daily proof for 30 days.
-- CTA: The 30-day Receipts system is $29 — link in bio.
+## 1007. Ever felt like nobody believes you [tiktok/POV Story]
+- Hook: Ever felt like nobody believes you?
+- Say: I had that feeling. Then I started capturing moments. Now my future looks different.
+- Body: Proof silences skeptics.
+- CTA: $29—link in bio.
 
-## 1008. The 2am screenshot. I kept the receipt [youtube/before/after]
-- Hook: The 2am screenshot. I kept the receipt.
-- Say: I stopped arguing and started measuring. One standard, written down, checked daily. Day 28 the streak said more than I ever could. Nobody debates a streak.
-- Body: Turn one moment of doubt into one measurable standard and collect daily proof for 30 days.
-- CTA: The 30-day Receipts system is $29 — link in bio.
+## 1008. Think proof is a luxury? Think again [tiktok/Myth Bust]
+- Hook: Think proof is a luxury? Think again.
+- Say: I thought it cost too much. I spent $29 and the receipts spoke louder than words.
+- Body: Small investment yields massive confidence.
+- CTA: Get it for $29—link in bio.
 
-## 1009. The unanswered application. I kept the receipt [tiktok/quiet flex]
-- Hook: The unanswered application. I kept the receipt.
-- Say: I stopped arguing and started measuring. One standard, written down, checked daily. Day 31 the streak said more than I ever could. Nobody debates a streak.
-- Body: Turn one moment of doubt into one measurable standard and collect daily proof for 30 days.
-- CTA: The 30-day Receipts system is $29 — link in bio.
+## 1009. 3 receipts that changed my life instantly [tiktok/List]
+- Hook: 3 receipts that changed my life instantly.
+- Say: Receipt one: I turned a doubt into a plan. Receipt two: I decided to act. Receipt three: I proved it.
+- Body: Track today to master tomorrow.
+- CTA: Buy at $29—link in bio.

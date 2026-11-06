@@ -3,105 +3,105 @@
   "2026-11-06": [
    {
     "platform": "instagram",
-    "format": "POV story",
-    "hook": "The coworker who laughed when I asked for the raise. I kept the receipt.",
-    "say": "I stopped arguing and started measuring. One standard, written down, checked daily. Day 7 the streak said more than I ever could. Nobody debates a streak.",
-    "body": "Turn one moment of doubt into one measurable standard and collect daily proof for 30 days.",
-    "cta": "The 30-day Receipts system is $29 — link in bio.",
-    "provider": "template",
-    "id": "ff395dee70ec0bd017fb2a39a2fa36d1"
-   },
-   {
-    "platform": "youtube",
-    "format": "receipt reveal",
-    "hook": "My own voice note from day zero. I kept the receipt.",
-    "say": "I stopped arguing and started measuring. One standard, written down, checked daily. Day 10 the streak said more than I ever could. Nobody debates a streak.",
-    "body": "Turn one moment of doubt into one measurable standard and collect daily proof for 30 days.",
-    "cta": "The 30-day Receipts system is $29 — link in bio.",
-    "provider": "template",
-    "id": "84e3d7a5e924bded6b67ec02f092ea89"
-   },
-   {
-    "platform": "tiktok",
-    "format": "3-rule list",
-    "hook": "The rejection email I printed. I kept the receipt.",
-    "say": "I stopped arguing and started measuring. One standard, written down, checked daily. Day 13 the streak said more than I ever could. Nobody debates a streak.",
-    "body": "Turn one moment of doubt into one measurable standard and collect daily proof for 30 days.",
-    "cta": "The 30-day Receipts system is $29 — link in bio.",
-    "provider": "template",
-    "id": "7f6b18dcb46449fb585102850fa305e2"
+    "format": "POV Story",
+    "hook": "What if you could prove your worth in 30 days?",
+    "say": "I was told I couldn't. I decided to record every win. Now I have clear evidence of my progress.",
+    "body": "Visual proof turns doubt into undeniable confidence.",
+    "cta": "Try it for $29—link in bio.",
+    "provider": "pollinations",
+    "id": "997cf4646e081ea63199c6fde39d2bcf"
    },
    {
     "platform": "instagram",
-    "format": "confession",
-    "hook": "The gym buddy who quit on day 4. I kept the receipt.",
-    "say": "I stopped arguing and started measuring. One standard, written down, checked daily. Day 16 the streak said more than I ever could. Nobody debates a streak.",
-    "body": "Turn one moment of doubt into one measurable standard and collect daily proof for 30 days.",
-    "cta": "The 30-day Receipts system is $29 — link in bio.",
-    "provider": "template",
-    "id": "d59f0ad463b9497b8173330952cac770"
-   },
-   {
-    "platform": "youtube",
-    "format": "myth-bust",
-    "hook": "The landlord who wanted proof of income. I kept the receipt.",
-    "say": "I stopped arguing and started measuring. One standard, written down, checked daily. Day 19 the streak said more than I ever could. Nobody debates a streak.",
-    "body": "Turn one moment of doubt into one measurable standard and collect daily proof for 30 days.",
-    "cta": "The 30-day Receipts system is $29 — link in bio.",
-    "provider": "template",
-    "id": "4a988e8fb567119a9eedfeae1d4c2d27"
-   },
-   {
-    "platform": "tiktok",
-    "format": "day-7 check-in",
-    "hook": "The 'we went another direction' call. I kept the receipt.",
-    "say": "I stopped arguing and started measuring. One standard, written down, checked daily. Day 22 the streak said more than I ever could. Nobody debates a streak.",
-    "body": "Turn one moment of doubt into one measurable standard and collect daily proof for 30 days.",
-    "cta": "The 30-day Receipts system is $29 — link in bio.",
-    "provider": "template",
-    "id": "a0e9479708b2eb0803e171c1713dbdae"
+    "format": "Myth Bust",
+    "hook": "Your failures aren’t proof you’re stuck.",
+    "say": "Everyone thinks a setback ends a journey. I captured how each set back opened a new path. Those receipts prove it.",
+    "body": "Reframe setbacks as stepping stones with evidence.",
+    "cta": "See the system in $29—link in bio.",
+    "provider": "pollinations",
+    "id": "ff8dc151d16321ce12f175e988e50cc2"
    },
    {
     "platform": "instagram",
-    "format": "challenge",
-    "hook": "The family dinner question. I kept the receipt.",
-    "say": "I stopped arguing and started measuring. One standard, written down, checked daily. Day 25 the streak said more than I ever could. Nobody debates a streak.",
-    "body": "Turn one moment of doubt into one measurable standard and collect daily proof for 30 days.",
-    "cta": "The 30-day Receipts system is $29 — link in bio.",
-    "provider": "template",
-    "id": "41281472e1047a011f174c93081adb10"
+    "format": "Challenge",
+    "hook": "30 days, 30 receipts, no excuses.",
+    "say": "I’ll document every small win. You can too. We’ll meet at day 30, no hype, just results.",
+    "body": "Daily accountability delivers measurable success.",
+    "cta": "$29 to start—link in bio.",
+    "provider": "pollinations",
+    "id": "e317d93df45eef4d80ab7f2df651a74f"
    },
    {
     "platform": "youtube",
-    "format": "before/after",
-    "hook": "The 2am screenshot. I kept the receipt.",
-    "say": "I stopped arguing and started measuring. One standard, written down, checked daily. Day 28 the streak said more than I ever could. Nobody debates a streak.",
-    "body": "Turn one moment of doubt into one measurable standard and collect daily proof for 30 days.",
-    "cta": "The 30-day Receipts system is $29 — link in bio.",
-    "provider": "template",
-    "id": "8dda5ff6b5a6b6481da2cee385235680"
+    "format": "List",
+    "hook": "Top 3 ways receipts reset your mindset.",
+    "say": "First, spot patterns you miss. Second, celebrate tiny victories. Third, keep your doubts at bay with data.",
+    "body": "Numbers calm the brain, proof builds momentum.",
+    "cta": "Get the $29 system—link in bio.",
+    "provider": "pollinations",
+    "id": "5f95c6114b6996ca50a5f53cf8c4f797"
+   },
+   {
+    "platform": "youtube",
+    "format": "Confession",
+    "hook": "I lied about my progress once—here’s why.",
+    "say": "I claimed success, no evidence. I lost credibility. Then I started tracking receipts and the truth came out.",
+    "body": "Honesty powered by proof restores trust.",
+    "cta": "$29 link in bio to create yours.",
+    "provider": "pollinations",
+    "id": "36525495543117dbe1668aff67378872"
+   },
+   {
+    "platform": "youtube",
+    "format": "Receipt Reveal",
+    "hook": "Watch this receipt change my whole career.",
+    "say": "One line in a document, one shift in fortune. I went from doubt to decision in 30 days.",
+    "body": "The right data can pivot destiny.",
+    "cta": "Grab the $29 system—link in bio.",
+    "provider": "pollinations",
+    "id": "93eb836ad488929492a512fcb763fcc6"
    },
    {
     "platform": "tiktok",
-    "format": "quiet flex",
-    "hook": "The unanswered application. I kept the receipt.",
-    "say": "I stopped arguing and started measuring. One standard, written down, checked daily. Day 31 the streak said more than I ever could. Nobody debates a streak.",
-    "body": "Turn one moment of doubt into one measurable standard and collect daily proof for 30 days.",
-    "cta": "The 30-day Receipts system is $29 — link in bio.",
-    "provider": "template",
-    "id": "104e731c380752212489efc1686d8711"
+    "format": "POV Story",
+    "hook": "Ever felt like nobody believes you?",
+    "say": "I had that feeling. Then I started capturing moments. Now my future looks different.",
+    "body": "Proof silences skeptics.",
+    "cta": "$29—link in bio.",
+    "provider": "pollinations",
+    "id": "2d0405cc9e6f27774e162049aef33568"
+   },
+   {
+    "platform": "tiktok",
+    "format": "Myth Bust",
+    "hook": "Think proof is a luxury? Think again.",
+    "say": "I thought it cost too much. I spent $29 and the receipts spoke louder than words.",
+    "body": "Small investment yields massive confidence.",
+    "cta": "Get it for $29—link in bio.",
+    "provider": "pollinations",
+    "id": "b5efbf34bb86fa271049b50129155cc8"
+   },
+   {
+    "platform": "tiktok",
+    "format": "List",
+    "hook": "3 receipts that changed my life instantly.",
+    "say": "Receipt one: I turned a doubt into a plan. Receipt two: I decided to act. Receipt three: I proved it.",
+    "body": "Track today to master tomorrow.",
+    "cta": "Buy at $29—link in bio.",
+    "provider": "pollinations",
+    "id": "dbf406742882507f65a09af657e3c030"
    }
   ]
  },
  "hooks": [
-  "ff395dee70ec0bd017fb2a39a2fa36d1",
-  "84e3d7a5e924bded6b67ec02f092ea89",
-  "7f6b18dcb46449fb585102850fa305e2",
-  "d59f0ad463b9497b8173330952cac770",
-  "4a988e8fb567119a9eedfeae1d4c2d27",
-  "a0e9479708b2eb0803e171c1713dbdae",
-  "41281472e1047a011f174c93081adb10",
-  "8dda5ff6b5a6b6481da2cee385235680",
-  "104e731c380752212489efc1686d8711"
+  "997cf4646e081ea63199c6fde39d2bcf",
+  "ff8dc151d16321ce12f175e988e50cc2",
+  "e317d93df45eef4d80ab7f2df651a74f",
+  "5f95c6114b6996ca50a5f53cf8c4f797",
+  "36525495543117dbe1668aff67378872",
+  "93eb836ad488929492a512fcb763fcc6",
+  "2d0405cc9e6f27774e162049aef33568",
+  "b5efbf34bb86fa271049b50129155cc8",
+  "dbf406742882507f65a09af657e3c030"
  ]
 }

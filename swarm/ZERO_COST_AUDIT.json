@@ -1,5 +1,5 @@
 {
- "at": "2026-11-06T23:01:59.467Z",
+ "at": "2026-11-06T23:07:54.738Z",
  "pass": true,
  "checks": [
   {
@@ -30,7 +30,7 @@
   {
    "check": "local_fallback_exists",
    "pass": true,
-   "detail": "ollama_local on-demand install=disabled (template fallback still guarantees progress)"
+   "detail": "ollama_local on-demand install=enabled"
   }
  ]
 }
