@@ -128,5 +128,32 @@
   "day": 3,
   "captionHash": "d86f8ed8cf0ae8a292052ed9c72e02f9",
   "sentAt": "2026-11-06T00:49:12.069Z"
+ },
+ {
+  "ts": "2026-11-06T20:21:20.939Z",
+  "channel": "instagram",
+  "postId": "6aee36b69214322f68ad498f",
+  "status": "sent",
+  "video": "day-004.mp4",
+  "day": 4,
+  "captionHash": "8e4e30c131fbb1bfeedeec254830f7a4"
+ },
+ {
+  "ts": "2026-11-06T20:21:24.050Z",
+  "channel": "youtube",
+  "postId": "6aee36c1004e4879a712d346",
+  "status": "sent",
+  "video": "day-004.mp4",
+  "day": 4,
+  "captionHash": "195f202705f0d85ef33887df44b30c29"
+ },
+ {
+  "ts": "2026-11-06T20:21:35.189Z",
+  "channel": "instagram_carousel",
+  "postId": "6aee36c4d6bbae6fa1460acb",
+  "status": "sent",
+  "video": "car-004",
+  "day": 4,
+  "captionHash": "c5d1d25a586dae0e4f76c3c37eb798a8"
  }
 ]
