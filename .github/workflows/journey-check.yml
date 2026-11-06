@@ -27,6 +27,6 @@ jobs:
           node -e '
             const { list, del } = require("@vercel/blob");
             (async () => { const r = await list({ prefix: "subscribers/" }); console.log("subscribers stored:", r.blobs.length);
-              for (const b of r.blobs) { const j = await fetch(b.downloadUrl).then(x=>x.json()).catch(()=>({}));
+              for (const b of r.blobs) { const j = await fetch(b.downloadUrl, { headers: { Authorization: "Bearer " + process.env.BLOB_READ_WRITE_TOKEN } }).then(x=>x.json()).catch(()=>({}));
                 const test = /@example\.com$/.test(j.email||""); console.log(" -", b.pathname.slice(12,20)+"…", j.src||"?", j.at||"", test?"(test entry)":"");
                 if (test && process.env.PRUNE_TEST === "true") { await del(b.url); console.log("   pruned"); } } })().catch(e => { console.log("blob list error:", e.message); });'
