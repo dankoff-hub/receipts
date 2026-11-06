@@ -6,20 +6,20 @@ on:
   schedule: [{ cron: "30 */4 * * *" }]
   workflow_dispatch:
     inputs:
-      allow_ollama_install: { description: install Ollama on the runner as last-resort LLM fallback, type: boolean, default: false }
+      allow_ollama_install: { description: install Ollama on the runner as last-resort LLM fallback, type: boolean, default: true }
 permissions: { contents: write, models: read, issues: write }
 concurrency: { group: revenue-swarm, cancel-in-progress: false }
 jobs:
   cycle:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
     env:
       GITHUB_TOKEN: ${{ github.token }}
       STRIPE_API_KEY: ${{ secrets.STRIPE_API_KEY }}
       BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
       GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
       NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
-      SWARM_ALLOW_OLLAMA_INSTALL: ${{ inputs.allow_ollama_install == true && '1' || '0' }}
+      SWARM_ALLOW_OLLAMA_INSTALL: ${{ (github.event_name == 'schedule' || inputs.allow_ollama_install == true) && '1' || '0' }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

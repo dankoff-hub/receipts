@@ -34,6 +34,9 @@ for (const it of fresh) {
   leads.seen.push(it.id);
   if (tier <= 2) tiered.push({ ...it, tier, found: new Date().toISOString(), status: "new" });
 }
+// re-tier older leads with the current rules (classification tightened over time)
+for (const l of leads.leads) { if (l.tier === 1 && !T1.test(l.text)) l.tier = T2.test(l.text) ? 2 : 3; }
+leads.leads = leads.leads.filter(l => l.tier <= 2);
 leads.seen = leads.seen.slice(-5000);
 leads.leads = [...tiered, ...leads.leads].slice(0, 400);
 fs.writeFileSync(LEADS_P, JSON.stringify(leads, null, 1));
