@@ -37,7 +37,7 @@ fs.writeFileSync("content/strategy-brief.json", JSON.stringify(brief, null, 1));
 // scoreboard for the audience bet (baseline 2026-11-06: YT 53 subs, IG ~0 reach, Shorts 0-7 views)
 const sb = load("content/audience-scoreboard.json", { baseline: { date: "2026-11-06", youtube_subs: 53, youtube_median_views: 3, instagram_median_views: 0 }, history: [] });
 const hist = load("content/audience-history.json", []);
-const last = Array.isArray(hist) ? hist[hist.length - 1] : null;
+const days = Array.isArray(hist) ? hist : (hist.days || []); const last = days[days.length - 1] || null;
 sb.history.push({ date: new Date().toISOString().slice(0, 10), youtube_subs: last?.youtube?.subscribers ?? last?.youtube_subs ?? null,
   youtube_median_views: perf.youtube.medianViews, instagram_median_views: perf.instagram.medianViews, instagram_median_reach: med(rows.filter(x => x.channel === "instagram").map(x => x.reach)),
   posts_7d: rows.filter(x => Date.now() - Date.parse(x.sentAt) < 7 * 864e5).length });
