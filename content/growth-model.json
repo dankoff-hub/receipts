@@ -1,7 +1,7 @@
 {
  "horizon_days": 86,
  "target": 50000,
- "runs": 2000,
+ "runs": 600,
  "scenarios": [
   {
    "name": "A. Current pipeline (2 posts/day x3, $29, bio link only)",
@@ -16,18 +16,18 @@
    "name": "B. + Volume: 5 YT + 4 IG + 2 TT per day (free slots)",
    "p_hit": 0.0,
    "p10": 899,
-   "median": 1102,
-   "p90": 1276,
-   "median_buyers": 38,
+   "median": 1073,
+   "p90": 1305,
+   "median_buyers": 37,
    "aov": 29
   },
   {
    "name": "C. + CTR 0.2% -> 0.5% (spoken URL, on-screen URL, pinned comment)",
    "p_hit": 0.0,
-   "p10": 2378,
-   "median": 2697,
-   "p90": 3074,
-   "median_buyers": 93,
+   "p10": 2407,
+   "median": 2726,
+   "p90": 3103,
+   "median_buyers": 94,
    "aov": 29
   },
   {
@@ -35,62 +35,62 @@
    "p_hit": 0.0,
    "p10": 3335,
    "median": 3770,
-   "p90": 4350,
+   "p90": 4292,
    "median_buyers": 130,
    "aov": 29
   },
   {
    "name": "E. + Email capture on /free (25% of clicks -> lead; 3%/30d -> buy)",
    "p_hit": 0.0,
-   "p10": 6438,
+   "p10": 6467,
    "median": 7279,
-   "p90": 8294,
+   "p90": 8352,
    "median_buyers": 251,
    "aov": 29
   },
   {
    "name": "F. + Price ladder: $29 + $19 bump @25% + $97 upsell @10%",
    "p_hit": 0.0,
-   "p10": 9689,
-   "median": 10906,
+   "p10": 9602,
+   "median": 10862,
    "p90": 12427,
-   "median_buyers": 251,
+   "median_buyers": 250,
    "aov": 43.45
   },
   {
    "name": "G. + Proof loop: 25% of buyers post their receipts (UGC)",
    "p_hit": 0.0,
-   "p10": 9863,
-   "median": 11080,
+   "p10": 9820,
+   "median": 11210,
    "p90": 12687,
-   "median_buyers": 255,
+   "median_buyers": 258,
    "aov": 43.45
   },
   {
    "name": "H. + $197 cohort: 4% of buyers, 1.5% of leads/mo",
    "p_hit": 0.0,
-   "p10": 19646,
-   "median": 22436,
-   "p90": 25602,
-   "median_buyers": 255,
+   "p10": 19710,
+   "median": 22375,
+   "p90": 25730,
+   "median_buyers": 254,
    "aov": 43.45
   },
   {
    "name": "I. + Founder 30 min/day: communities + comment replies (+150 visits/day)",
-   "p_hit": 0.069,
-   "p10": 43398,
-   "median": 46054,
-   "p90": 49377,
-   "median_buyers": 517,
+   "p_hit": 0.065,
+   "p10": 43244,
+   "median": 46057,
+   "p90": 49290,
+   "median_buyers": 516,
    "aov": 43.45
   },
   {
    "name": "J. + $3k on 40 micro-creator UGC seeds in Dec (not ads)",
-   "p_hit": 0.21,
-   "p10": 45095,
-   "median": 48071,
-   "p90": 51335,
-   "median_buyers": 538,
+   "p_hit": 0.195,
+   "p10": 45209,
+   "median": 47851,
+   "p90": 51359,
+   "median_buyers": 536,
    "aov": 43.45
   }
  ]

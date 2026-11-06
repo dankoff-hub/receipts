@@ -5,7 +5,8 @@
   "postId": "6aea54240a183b1b742e9031",
   "status": "sent",
   "video": "day-001.mp4",
-  "day": 1
+  "day": 1,
+  "sentAt": "2026-11-03T21:39:22.082Z"
  },
  {
   "ts": "2026-11-03T21:05:00Z",
@@ -13,21 +14,24 @@
   "postId": "6aea492ba8918d96047e31ee",
   "status": "sent",
   "video": "day-001.mp4",
-  "day": 1
+  "day": 1,
+  "sentAt": "2026-11-03T20:51:16.606Z"
  },
  {
   "ts": "2026-11-04T06:35:38Z",
   "channel": "instagram",
   "postId": "6aead2302b43f8ba7d702099",
   "status": "sent",
-  "video": "avatar-intro.mp4"
+  "video": "avatar-intro.mp4",
+  "sentAt": "2026-11-04T06:36:24.796Z"
  },
  {
   "ts": "2026-11-04T06:39:32Z",
   "channel": "youtube",
   "postId": "6aead322dc38f4d7bad361a9",
   "status": "sent",
-  "video": "avatar-intro.mp4"
+  "video": "avatar-intro.mp4",
+  "sentAt": "2026-11-04T06:39:31.640Z"
  },
  {
   "ts": "2026-11-04T00:00:00Z",
@@ -43,7 +47,8 @@
   "postId": "6aecd1800a3dd0f3ff1966ba",
   "status": "sent",
   "video": "day-002.mp4",
-  "day": 2
+  "day": 2,
+  "sentAt": "2026-11-05T18:58:01.793Z"
  },
  {
   "ts": "2026-11-05T18:57:00Z",
@@ -51,7 +56,8 @@
   "postId": "6aecd18c217b5aff65496ac2",
   "status": "sent",
   "video": "day-002.mp4",
-  "day": 2
+  "day": 2,
+  "sentAt": "2026-11-05T18:57:17.827Z"
  },
  {
   "ts": "2026-11-05T19:03:12.249Z",
@@ -60,7 +66,8 @@
   "status": "sent",
   "video": "day-003.mp4",
   "day": 3,
-  "captionHash": "36630e19a3a1aec6351a85b68a1f11e1"
+  "captionHash": "36630e19a3a1aec6351a85b68a1f11e1",
+  "sentAt": "2026-11-05T19:03:59.353Z"
  },
  {
   "ts": "2026-11-05T19:03:15.686Z",
@@ -69,7 +76,8 @@
   "status": "sent",
   "video": "day-003.mp4",
   "day": 3,
-  "captionHash": "a1ac3cbb608e147673e04a90dc7acf4a"
+  "captionHash": "a1ac3cbb608e147673e04a90dc7acf4a",
+  "sentAt": "2026-11-05T19:03:14.691Z"
  },
  {
   "ts": "2026-11-05T19:02:54Z",
