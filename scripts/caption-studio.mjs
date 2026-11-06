@@ -33,13 +33,13 @@ const TK = [
   (h, c, t) => `POV: ${h.charAt(0).toLowerCase() + h.slice(1)}\n${c}\n${t}`,
   (h, c, t) => `${h}\n${c} Save this for day one.\n${t}`,
 ];
+const URL = "receipts-blond.vercel.app/free";
 const IG = [
   (h, c, t) => `${h}\n\n${c}\n\n30 days. One standard. Proof you can hold.\n\n${t}`,
   (h, c, t) => `${h}\n\nOne receipt, one measurable standard, thirty days of evidence.\n${c}\n\n${t}`,
   (h, c, t) => `${h}\n\n${c}\nSave this. Start tomorrow: ${URL}\n\n${t}`,
   (h, c, t) => `${h}\n\n${c}\n\nFollow for day ${day + 1}.\n\n${t}`,
 ];
-const URL = "receipts-blond.vercel.app/free";
 const YT = [
   (h, c, t) => `${h}\n\n${c}\nFree Step 1 template: https://${URL}\n\n${t} #shorts`,
   (h, c, t) => `${h}\n${c}\nStart free: link in bio.\n\n${t} #shorts`,

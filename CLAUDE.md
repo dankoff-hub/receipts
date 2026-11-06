@@ -113,3 +113,10 @@ curl -sI https://receipts-blond.vercel.app/videos/day-001.mp4 | head -1
 - post-log statuses: sent (confirmed by Buffer), queued (Buffer scheduled), skipped (intentionally NOT posted to that channel, e.g. day-001 on YouTube), failed (Buffer error).
 - avatar-render.yml commit step now includes avatar-out/ — raw renders were being committed to an ignored dir and lost (01-intro recovered from run artifact 41776261200).
 - TikTok queue accepts only 1 video post per 24h per account on Buffer free — keep daily posts at the 2 cron slots, don't add a third.
+
+
+## 2026-11-06 — Growth model + 4-slot pipeline
+- `scripts/growth-model.py` = Monte Carlo revenue model (benchmarks in content/growth-plan.md). Runs daily in audience-watch.yml, comments on the audience issue, writes content/growth-model.json.
+- daily-tiktok.yml now has 4 slots (08/12/16/20 UTC → suffix "", b, c, d; idx = N*4+S). publish-pending caps: TikTok 2, Instagram 4, YouTube 4.
+- Every video carries an on-screen URL (receipts-blond.vercel.app/free); YT/IG captions include the URL.
+- Founder-owned levers (Stripe price ladder, email service, $197 cohort, $3k creator seeding, 30 min/day community time) are in content/growth-plan.md — swarm must not do payments/legal.
