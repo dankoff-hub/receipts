@@ -5,7 +5,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 8
     env:
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
     steps:
@@ -18,6 +18,6 @@ jobs:
       - name: Deploy
         if: env.VERCEL_TOKEN != ''
         run: |
-          npm i -g vercel@latest
+          npm i -g vercel@65.11.0   # 65.12.0 (2026-11-05) hangs at "Loading teams…" in CI — keep pinned
           vercel deploy --prod --yes --token "$VERCEL_TOKEN" | tee url.txt
           echo "Live: $(tail -1 url.txt)" >> $GITHUB_STEP_SUMMARY

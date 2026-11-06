@@ -134,3 +134,4 @@ curl -sI https://receipts-blond.vercel.app/videos/day-001.mp4 | head -1
 
 ## 2026-11-06 — Instagram carousels
 - Slot b (12:00 UTC) also runs `scripts/make-carousel.py` (PIL, 6 slides 1080x1350, next unused script from the shared script-ledger, unique caption in caption-ledger) → public/carousels/car-NNN/, then `scripts/post-carousel.mjs` posts it to Instagram via Buffer (image assets, logged as channel `instagram_carousel`, separate from the 4 Reel slots). Forge COUNT raised to 40/week to keep the pool ahead of 35 scripts/week.
+- Vercel CLI pinned to 65.11.0 in deploy.yml: 65.12.0 (released 2026-11-05 23:40 UTC) hangs at "Loading teams…" in GitHub Actions; 13 deploys were cancelled at 15 min on Nov 6 until pinned. If deploys hang again, check `npm view vercel time` first.
