@@ -1,5 +1,5 @@
 // Revenue Hunter — scans public, keyless sources for high-intent posts; rule-tiers first, LLM only for ambiguous ones.
-// Sources: Reddit public search JSON, Bluesky public search (both read-only, no account). Writes swarm/LEADS.json.
+// Sources: Bluesky public search, Lemmy search, Mastodon tags (all read-only, keyless) + Cloudflare worker leads. Writes swarm/LEADS.json.
 import fs from "node:fs";
 import { chat, parseJSON, saveQuota } from "./llm.mjs";
 process.on("exit", () => saveQuota());
@@ -10,7 +10,7 @@ const LEADS_P = "swarm/LEADS.json"; const leads = fs.existsSync(LEADS_P) ? JSON.
 const UA = { "User-Agent": "receipts-swarm/1.0 (read-only research)" };
 const items = [];
 const push = (o) => { if (o.text) items.push(o); };
-// Reddit blocks cloud-runner IPs (403) — skipped until founder supplies Reddit app credentials (REDDIT_CLIENT_ID/SECRET).
+// Reddit excluded: Data API needs explicit Reddit approval (written approval for commercial use) — founder-only request; see DIRECTIVE.md "Reddit gate".
 for (const q of QUERIES) {
   try { const r = await fetch(`https://api.bsky.app/xrpc/app.bsky.feed.searchPosts?q=${encodeURIComponent(q)}&limit=25&sort=latest`, { headers: UA }); if (!r.ok) console.error(`bluesky HTTP ${r.status}`); const j = await r.json();
     for (const p of j?.posts || []) { const hnd = p.author?.handle, rk = p.uri?.split("/").pop(); push({ src: "bluesky", id: p.uri, url: `https://bsky.app/profile/${hnd}/post/${rk}`, text: String(p.record?.text || "").slice(0, 600), sub: hnd, at: p.record?.createdAt }); } } catch (e) { console.error("bluesky err", e.message); }

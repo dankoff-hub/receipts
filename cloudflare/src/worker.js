@@ -1,4 +1,4 @@
-// Receipts Revenue Swarm — Cloudflare Worker (Free plan). Cron: Revenue Hunter intent scan on keyless public sources,
+// Receipts Revenue Swarm — Cloudflare Worker (Free plan). Cron: Revenue Hunter intent scan on keyless public sources (Bluesky/Lemmy/Mastodon; Reddit excluded pending approval),
 // rule-based tiering, state in KV. HTTP: /health, /leads, /report. No LLM here (10ms CPU budget) — LLM work runs in the
 // GitHub Actions orchestrator, which merges /leads each cycle. Zero cost: Workers Free + KV Free.
 const QUERIES = ["30 day challenge tracker template", "prove them wrong 30 days", "accountability tracker printable", "someone said I couldn't", "habit tracker pdf where to buy", "daily proof journal", "spite motivation 30 days"];
@@ -14,8 +14,7 @@ async function scan(env) {
   for (const q of QUERIES) {
     const b = await j(`https://api.bsky.app/xrpc/app.bsky.feed.searchPosts?q=${encodeURIComponent(q)}&limit=25&sort=latest`).catch(() => ({ status: 0 })); src.bluesky = b.status;
     for (const p of b.body?.posts || []) push({ src: "bluesky", id: p.uri, url: `https://bsky.app/profile/${p.author?.handle}/post/${p.uri?.split("/").pop()}`, text: String(p.record?.text || "").slice(0, 600), at: p.record?.createdAt });
-    const r = await j(`https://www.reddit.com/search.json?q=${encodeURIComponent(q)}&sort=new&t=week&limit=25`).catch(() => ({ status: 0 })); src.reddit = r.status;
-    for (const c of r.body?.data?.children || []) { const d = c.data; push({ src: "reddit", id: d.name, url: "https://reddit.com" + d.permalink, text: `${d.title} ${d.selftext || ""}`.slice(0, 600), at: new Date(d.created_utc * 1000).toISOString() }); }
+    // Reddit intentionally excluded: Reddit Data API requires explicit (written, for commercial use) approval — see swarm/DIRECTIVE.md "Reddit gate".
     const l = await j(`https://lemmy.world/api/v3/search?q=${encodeURIComponent(q)}&type_=Posts&limit=20&sort=New`).catch(() => ({ status: 0 })); src.lemmy = l.status;
     for (const p of l.body?.posts || []) push({ src: "lemmy", id: "lemmy:" + p.post.id, url: p.post.ap_id, text: `${p.post.name} ${p.post.body || ""}`.slice(0, 600), at: p.post.published });
   }

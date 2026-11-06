@@ -105,3 +105,8 @@ This is an absolutely zero-cost autonomous revenue operation. Execute.
 - Posting: Buffer Free (3 channels, no card) via existing daily-tiktok.yml; swarm creatives go to `content/swarm-scripts.md`, which `make-video.py` publishes before any other script.
 - Hunter: public Reddit + Bluesky search (no account). Replies/DMs are High risk and need founder-owned accounts → leads wait in LEADS.json / the "Revenue swarm — daily report" issue.
 - State: `swarm/GOALS.md`, `MEMORY.md`, `QUOTA_STATE.json`, `LEADS.json`, `CONCEPTS.json`, `CHECKPOINT.json`, `ZERO_COST_AUDIT.json`, `REVENUE_SWARM_REPORT.md` — all in git.
+
+## Reddit gate (added 2026-11-06)
+- Reddit's Responsible Builder Policy (Oct 2026) requires explicit approval before any Data API access and written approval for commercial use (lead research for a paid product counts). Unauthenticated `search.json` also returns 403 from GitHub runners and the sandbox.
+- Account `danrossi2026` exists (Google login); app creation at reddit.com/prefs/apps is blocked until API access is approved. Script-app credentials would be `REDDIT_CLIENT_ID` / `REDDIT_CLIENT_SECRET` secrets.
+- Risk tier: Critical (legal/ToS) → founder decides whether to submit Reddit's API access request. Until approved, both hunters (Actions + Cloudflare Worker) exclude Reddit. No workaround (scraping, proxies) is permitted.
