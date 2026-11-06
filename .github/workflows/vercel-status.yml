@@ -27,4 +27,10 @@ jobs:
             for U in $(cat /tmp/stuck.txt); do echo "cancel $U"; curl -s -X PATCH -H "Authorization: Bearer $VERCEL_TOKEN" "https://api.vercel.com/v12/deployments/$U/cancel" | head -c 200; echo; done
           fi
           L=$(python3 -c "import json;d=json.load(open('/tmp/d.json'));print(d['deployments'][0]['uid'])")
+          echo "== details of latest $L"; curl -s -H "Authorization: Bearer $VERCEL_TOKEN" "https://api.vercel.com/v13/deployments/$L" | python3 -c "
+          import sys,json;d=json.load(sys.stdin)
+          for k in ['readyState','readyStateReason','errorCode','errorMessage','errorStep','status','blocked','blockReason','softDeletedByRetention','plan','public','target']: print(k,'=',d.get(k))
+          print('keys:',[k for k in d.keys()][:60])"
+          echo "== team"; curl -s -H "Authorization: Bearer $VERCEL_TOKEN" "https://api.vercel.com/v2/teams/team_oSZddW9gFlPVuv4UA7ENCx9F" | python3 -c "
+          import sys,json;d=json.load(sys.stdin); b=d.get('billing',{}); print('plan',b.get('plan'),'status',b.get('status'),'trial',b.get('trial'),'overdue',b.get('overdue')); print({k:d.get(k) for k in ['softBlock','blocked','limited','remoteCaching'] if k in d}); print([k for k in d.keys()][:50])"
           echo "== build events of latest $L"; curl -s -H "Authorization: Bearer $VERCEL_TOKEN" "https://api.vercel.com/v3/deployments/$L/events?limit=40" | python3 -c "import sys,json;[print(e.get('type'),str(e.get('payload',{}).get('text',''))[:160]) for e in json.load(sys.stdin)]" 2>&1 | tail -40
