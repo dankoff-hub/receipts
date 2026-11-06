@@ -21,6 +21,11 @@ for (const tag of ["habittracker", "30daychallenge", "selfimprovement", "discipl
   try { const r = await fetch(`https://mastodon.social/api/v1/timelines/tag/${tag}?limit=40`, { headers: UA }); if (!r.ok) console.error(`mastodon HTTP ${r.status}`); const j = await r.json();
     for (const p of Array.isArray(j) ? j : []) push({ src: "mastodon", id: "masto:" + p.id, url: p.url, text: String(p.content || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").slice(0, 600), sub: p.account?.acct, at: p.created_at }); } catch (e) { console.error("mastodon err", e.message); }
 }
+// Cloudflare Worker hunter (cloudflare/src/worker.js) scans every 2h from Cloudflare's network — merge its leads.
+if (process.env.SWARM_WORKER_URL) {
+  try { const r = await fetch(process.env.SWARM_WORKER_URL.replace(/\/$/, "") + "/leads", { headers: UA }); const j = await r.json();
+    let m = 0; for (const l of j.leads || []) { if (!leads.seen.includes(l.id) && !items.some(x => x.id === l.id)) { items.push({ src: "cf:" + l.src, id: l.id, url: l.url, text: l.text, at: l.at }); m++; } } console.log(`worker leads merged: ${m}`); } catch (e) { console.error("worker leads err", e.message); }
+}
 const fresh = items.filter((x, i, a) => x.text && a.findIndex(y => y.id === x.id) === i && !leads.seen.includes(x.id));
 let llmCalls = 0, tiered = [];
 for (const it of fresh) {
