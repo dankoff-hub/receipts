@@ -173,5 +173,23 @@
   "video": "day-004b.mp4",
   "day": 4,
   "captionHash": "4627f158b6883604f6b666034c53b009"
+ },
+ {
+  "ts": "2026-11-06T20:38:51.311Z",
+  "channel": "instagram",
+  "postId": "6aee3ad1004e4879a713f412",
+  "status": "sent",
+  "video": "day-004c.mp4",
+  "day": 4,
+  "captionHash": "f9cc45d6ad99d8b21792d82c5630d480"
+ },
+ {
+  "ts": "2026-11-06T20:38:54.248Z",
+  "channel": "youtube",
+  "postId": "6aee3adcaf7e526d43de801e",
+  "status": "sent",
+  "video": "day-004c.mp4",
+  "day": 4,
+  "captionHash": "ba77dbd1fc4af72498a9e23c64d8cae2"
  }
 ]
