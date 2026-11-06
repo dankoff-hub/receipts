@@ -6,7 +6,9 @@ import { chat, parseJSON, saveQuota } from "./llm.mjs";
 process.on("exit", () => saveQuota());
 const today = new Date().toISOString().slice(0, 10);
 const CP = "swarm/CONCEPTS.json"; const C = fs.existsSync(CP) ? JSON.parse(fs.readFileSync(CP, "utf8")) : { days: {}, hooks: [] };
-if (C.days[today]?.length >= 9) { console.log("creative: today already done"); process.exit(0); }
+const todays = C.days[today] || [];
+if (todays.length >= 9 && !todays.every(c => c.provider === "template")) { console.log("creative: today already done"); process.exit(0); }
+const replacingTemplates = todays.length > 0 && todays.every(c => c.provider === "template");
 const mem = fs.readFileSync("swarm/MEMORY.md", "utf8");
 const black = [...mem.matchAll(/^- blacklist: (.+)$/gm)].map(m => m[1]);
 const hunter = (() => { try { return JSON.parse(fs.readFileSync("swarm/_hunter_cycle.json", "utf8")); } catch { return {}; } })();
@@ -24,11 +26,14 @@ if (!Array.isArray(concepts) || concepts.length < 3) { // deterministic fallback
   concepts = seeds.map((s, i) => ({ platform: ["instagram", "youtube", "tiktok"][i % 3], format: formats[i], hook: `${s}. I kept the receipt.`, say: `I stopped arguing and started measuring. One standard, written down, checked daily. Day ${7 + i * 3} the streak said more than I ever could. Nobody debates a streak.`, body: "Turn one moment of doubt into one measurable standard and collect daily proof for 30 days.", cta: "The 30-day Receipts system is $29 — link in bio." }));
 }
 concepts = concepts.filter(c => c.hook && c.say && !ledger.has(md5(c.hook + "|" + c.say)) && !/^they said/i.test(c.hook)).slice(0, 9);
+if (replacingTemplates && r.provider === "template") { console.log("creative: still template — keeping existing"); process.exit(0); }
+if (replacingTemplates) { const old = new Set(todays.map(c => c.id)); C.hooks = C.hooks.filter(h => !old.has(h)); }
 C.days[today] = concepts.map(c => ({ ...c, provider: r.provider, id: md5(c.hook + "|" + c.say) }));
 C.hooks.push(...C.days[today].map(c => c.id)); C.hooks = C.hooks.slice(-2000);
 fs.writeFileSync(CP, JSON.stringify(C, null, 1));
 // video-ready scripts → consumed first by make-video.py (never repeated: script-ledger)
-const SP = "content/swarm-scripts.md"; const ex = fs.existsSync(SP) ? fs.readFileSync(SP, "utf8") : "# Swarm scripts (priority queue for daily videos)\n";
+const SP = "content/swarm-scripts.md"; let ex = fs.existsSync(SP) ? fs.readFileSync(SP, "utf8") : "# Swarm scripts (priority queue for daily videos)\n";
+if (replacingTemplates) { const usedIds = new Set(JSON.parse(fs.readFileSync("content/script-ledger.json", "utf8")).used || []); ex = ex.replace(/\n## \d+\. [^\n]*\n- Hook: ([^\n]*)\n- Say: ([^\n]*)\n- Body: [^\n]*\n- CTA: [^\n]*\n/g, (m, hook, say) => usedIds.has(md5(hook + "|" + say)) || !todays.some(t => t.id === md5(hook + "|" + say)) ? m : ""); }
 let n = Math.max(1000, ...[...ex.matchAll(/## (\d+)\./g)].map(m => +m[1])) + 1;
 const add = concepts.map(c => `\n## ${n++}. ${c.hook.replace(/[.!?]+$/, "")} [${c.platform}/${c.format}]\n- Hook: ${c.hook}\n- Say: ${c.say.replace(/\n+/g, " ")}\n- Body: ${c.body.replace(/\n+/g, " ")}\n- CTA: ${c.cta.replace(/\n+/g, " ")}\n`).join("");
 fs.writeFileSync(SP, ex + add);

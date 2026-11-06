@@ -9,11 +9,17 @@ const T2 = /\b(start(ing)? (a )?30[- ]day|accountab|track(ing)? (my )?progress|p
 const LEADS_P = "swarm/LEADS.json"; const leads = fs.existsSync(LEADS_P) ? JSON.parse(fs.readFileSync(LEADS_P, "utf8")) : { seen: [], leads: [] };
 const UA = { "User-Agent": "receipts-swarm/1.0 (read-only research)" };
 const items = [];
+const push = (o) => { if (o.text) items.push(o); };
+// Reddit blocks cloud-runner IPs (403) — skipped until founder supplies Reddit app credentials (REDDIT_CLIENT_ID/SECRET).
 for (const q of QUERIES) {
-  try { const r = await fetch(`https://www.reddit.com/search.json?q=${encodeURIComponent(q)}&sort=new&t=week&limit=25`, { headers: UA }); if (!r.ok) console.error(`reddit HTTP ${r.status}`); const j = await r.json();
-    for (const c of j?.data?.children || []) { const d = c.data; items.push({ src: "reddit", id: d.name, url: "https://reddit.com" + d.permalink, text: `${d.title} ${d.selftext || ""}`.slice(0, 600), sub: d.subreddit, at: new Date(d.created_utc * 1000).toISOString() }); } } catch (e) { console.error("reddit err", e.message); }
-  try { const r = await fetch(`https://public.api.bsky.app/xrpc/app.bsky.feed.searchPosts?q=${encodeURIComponent(q)}&limit=25&sort=latest`, { headers: UA }); if (!r.ok) console.error(`bluesky HTTP ${r.status}`); const j = await r.json();
-    for (const p of j?.posts || []) { const h = p.author?.handle, rk = p.uri?.split("/").pop(); items.push({ src: "bluesky", id: p.uri, url: `https://bsky.app/profile/${h}/post/${rk}`, text: String(p.record?.text || "").slice(0, 600), sub: h, at: p.record?.createdAt }); } } catch {}
+  try { const r = await fetch(`https://api.bsky.app/xrpc/app.bsky.feed.searchPosts?q=${encodeURIComponent(q)}&limit=25&sort=latest`, { headers: UA }); if (!r.ok) console.error(`bluesky HTTP ${r.status}`); const j = await r.json();
+    for (const p of j?.posts || []) { const hnd = p.author?.handle, rk = p.uri?.split("/").pop(); push({ src: "bluesky", id: p.uri, url: `https://bsky.app/profile/${hnd}/post/${rk}`, text: String(p.record?.text || "").slice(0, 600), sub: hnd, at: p.record?.createdAt }); } } catch (e) { console.error("bluesky err", e.message); }
+  try { const r = await fetch(`https://lemmy.world/api/v3/search?q=${encodeURIComponent(q)}&type_=Posts&limit=20&sort=New`, { headers: UA }); if (!r.ok) console.error(`lemmy HTTP ${r.status}`); const j = await r.json();
+    for (const p of j?.posts || []) { const d = p.post; push({ src: "lemmy", id: "lemmy:" + d.id, url: d.ap_id, text: `${d.name} ${d.body || ""}`.slice(0, 600), sub: p.community?.name, at: d.published }); } } catch (e) { console.error("lemmy err", e.message); }
+}
+for (const tag of ["habittracker", "30daychallenge", "accountability", "discipline", "provethemwrong", "selfimprovement"]) {
+  try { const r = await fetch(`https://mastodon.social/api/v1/timelines/tag/${tag}?limit=40`, { headers: UA }); if (!r.ok) console.error(`mastodon HTTP ${r.status}`); const j = await r.json();
+    for (const p of Array.isArray(j) ? j : []) push({ src: "mastodon", id: "masto:" + p.id, url: p.url, text: String(p.content || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").slice(0, 600), sub: p.account?.acct, at: p.created_at }); } catch (e) { console.error("mastodon err", e.message); }
 }
 const fresh = items.filter((x, i, a) => x.text && a.findIndex(y => y.id === x.id) === i && !leads.seen.includes(x.id));
 let llmCalls = 0, tiered = [];
