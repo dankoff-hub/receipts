@@ -17,7 +17,7 @@ const live = Object.entries(Q.providers).filter(([n, p]) => n !== "template" && 
 if (live === 0) { console.log("all providers cooling down — exhausted; resume next cron"); Q.exhausted_at = cycle; saveQuota(); process.exit(0); }
 
 // 2) hunter  3) creative
-stage("hunter"); try { sh("node swarm/hunter.mjs"); } catch (e) { console.log("hunter error", e.message); }
+stage("hunter"); try { process.stdout.write(sh("node swarm/hunter.mjs")); } catch (e) { console.log("hunter error", e.message); }
 stage("creative"); try { sh("node swarm/creative.mjs"); } catch (e) { console.log("creative error", e.message); }
 reloadQuota(); saveQuota();
 
