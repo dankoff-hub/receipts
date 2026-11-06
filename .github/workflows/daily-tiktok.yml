@@ -1,4 +1,4 @@
-name: Daily videos (4 slots) + IG carousel → TikTok + Instagram + YouTube
+name: Daily videos (4 slots) + IG carousel + photo → TikTok + Instagram + YouTube
 # Four slots per day: 08/12/16/20 UTC (a/b/c/d). Each slot generates one new video
 # (unique script, per-channel captions) and posts the OLDEST not-yet-posted video to every
 # channel — max 1 per channel per run; daily caps: TikTok 2 (Buffer free), Instagram 4, YouTube 4.
@@ -78,6 +78,9 @@ jobs:
         run: gh workflow run deploy.yml --ref main
       - name: Publish oldest pending video to TikTok (cap 2/day), Instagram (4), YouTube (4)
         run: node scripts/publish-pending.mjs
+      - if: steps.day.outputs.slot == 'c' || inputs.channels == 'photo'
+        name: Instagram lifestyle photo (slot c only; 1/day from content/photo-queue.json)
+        run: node scripts/post-photo.mjs || true
       - if: steps.day.outputs.slot == 'b' && env.car != ''
         name: Post carousel to Instagram (1/day)
         run: |
@@ -86,7 +89,7 @@ jobs:
         if: always()
         run: |
           git config user.name dankoff-hub; git config user.email 345066702+dankoff-hub@users.noreply.github.com
-          git add content/post-log.json content/caption-ledger.json public/videos
+          git add content/post-log.json content/caption-ledger.json public/videos public/photos
           git diff --cached --quiet || { git commit -m "Post log (${{ steps.day.outputs.slot }})"; git pull --rebase --autostash -q && git push -q; }
       - if: steps.day.outputs.slot == 'a'
         name: Daily brief issue
