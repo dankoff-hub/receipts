@@ -19,7 +19,9 @@ const videos = fs.readdirSync("public/videos").filter(f => f.endsWith(".mp4") &&
 
 const cfg = load("content/audience-config.json", {});
 let failures = 0;
+const ONLY = (process.env.ONLY_CHANNELS || "").split(",").map(x => x.trim().toLowerCase()).filter(Boolean);
 for (const channel of Object.keys(SCRIPTS)) {
+  if (ONLY.length && !ONLY.includes(channel)) { console.log(`${channel}: not in ONLY_CHANNELS`); continue; }
   const pause = cfg.paused?.[channel];
   if (pause?.until && new Date(pause.until) > new Date()) { console.log(`${channel}: paused until ${pause.until} — ${pause.reason || ""}`); continue; }
   const log = load(LOG, []);

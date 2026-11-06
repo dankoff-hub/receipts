@@ -15,6 +15,9 @@ on:
       slot:
         description: "a, b, c or d (default: by time of day)"
         default: ""
+      channels:
+        description: "comma list to restrict publishing, e.g. tiktok (default: all)"
+        default: ""
 permissions: {contents: write, issues: write, actions: write}
 concurrency: {group: daily-videos, cancel-in-progress: false}
 jobs:
@@ -25,6 +28,7 @@ jobs:
       GH_TOKEN: ${{ github.token }}
       BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
       APP_URL: https://receipts-blond.vercel.app
+      ONLY_CHANNELS: ${{ inputs.channels }}
       STRIPE_API_KEY: ${{ secrets.STRIPE_API_KEY }}
     steps:
       - uses: actions/checkout@v4

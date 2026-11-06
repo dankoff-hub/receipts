@@ -11,7 +11,7 @@ Handover context for Claude (Code or chat). Read this first; it is the full oper
 - Stripe payment link ($29, live): https://buy.stripe.com/dRm7sEfUs0CQbscfSx3840a
 - Delivery page (unlisted, post-purchase redirect target): https://receipts-blond.vercel.app/pack/tkkgjvizitzg
 - Repo (private): https://github.com/dankoff-hub/receipts
-- TikTok: @user6155581825874 · Instagram: connected via Buffer (same video pipeline)
+- TikTok: @dan.rosa71 (new account 2026-11-06; old @user6155581825874 banned; Buffer channel 6aee32c6e29c69a1718774ff) · Instagram: connected via Buffer (same video pipeline)
 
 ## Architecture
 
