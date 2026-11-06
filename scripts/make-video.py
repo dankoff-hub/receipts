@@ -46,7 +46,9 @@ for i, c in enumerate(cards):
         tf=f"/tmp/vid/c{i}_{j}.txt"; open(tf,"w").write(ln)
         y = f"(h-{total})/2+{j*lh}"
         filt.append(f"drawtext=fontfile={font}:textfile={tf}:fontcolor=white:fontsize={size}:x=(w-text_w)/2:y={y}:enable='between(t,{i*seg:.2f},{(i+1)*seg:.2f})'")
-filt.append(f"drawtext=fontfile={font}:text='RECEIPTS':fontcolor=0x888888:fontsize=34:x=(w-text_w)/2:y=h-160")
+filt.append(f"drawtext=fontfile={font}:text='RECEIPTS':fontcolor=0x888888:fontsize=34:x=(w-text_w)/2:y=h-200")
+# persistent on-screen URL: viewers cannot click captions on TikTok/IG, a readable URL is the CTR lever
+filt.append(f"drawtext=fontfile={font}:text='receipts-blond.vercel.app/free':fontcolor=0xf2c94c:fontsize=40:x=(w-text_w)/2:y=h-140")
 vf = ",".join(filt)
 subprocess.run(["ffmpeg","-y","-loglevel","error","-f","lavfi","-i",f"color=c=0x0b0b0c:s=1080x1920:d={dur:.2f}:r=30",
   "-i","/tmp/vid/voice.mp3","-vf",vf,"-c:v","libx264","-pix_fmt","yuv420p","-c:a","aac","-b:a","128k","-shortest",out],check=True)

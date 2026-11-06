@@ -36,13 +36,14 @@ const TK = [
 const IG = [
   (h, c, t) => `${h}\n\n${c}\n\n30 days. One standard. Proof you can hold.\n\n${t}`,
   (h, c, t) => `${h}\n\nOne receipt, one measurable standard, thirty days of evidence.\n${c}\n\n${t}`,
-  (h, c, t) => `${h}\n\n${c}\nSave this. Start tomorrow.\n\n${t}`,
+  (h, c, t) => `${h}\n\n${c}\nSave this. Start tomorrow: ${URL}\n\n${t}`,
   (h, c, t) => `${h}\n\n${c}\n\nFollow for day ${day + 1}.\n\n${t}`,
 ];
+const URL = "receipts-blond.vercel.app/free";
 const YT = [
-  (h, c, t) => `${h}\n\n${c}\n\n${t} #shorts`,
+  (h, c, t) => `${h}\n\n${c}\nFree Step 1 template: https://${URL}\n\n${t} #shorts`,
   (h, c, t) => `${h}\n${c}\nStart free: link in bio.\n\n${t} #shorts`,
-  (h, c, t) => `${h}\n\nDay ${day} of 30. ${c}\n\n${t} #shorts`,
+  (h, c, t) => `${h}\n\nDay ${day} of 30. ${c}\nStart here: https://${URL}\n\n${t} #shorts`,
   (h, c, t) => `${h}\n\n${c}\nReceipts: 30 days, one standard, proof you can hold.\n\n${t} #shorts`,
 ];
 

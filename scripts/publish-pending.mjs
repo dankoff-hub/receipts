@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 // Publish driver: for each channel, posts the OLDEST video that channel has not received yet.
 // - at most 1 post per channel per run (so the two daily slots are spaced out)
-// - hard cap of 2 posts per channel per UTC day (counts avatar posts too)
+// - hard caps per UTC day: TikTok 2, Instagram 4, YouTube 4 (counts avatar posts too)
 // - a missed/cancelled run self-heals: unposted videos stay pending and go out next slot
 // - a video that failed twice on a channel is skipped (no retry loops)
 // Usage: node scripts/publish-pending.mjs
 import fs from "node:fs";
 import { spawnSync } from "node:child_process";
 
-const DAILY_CAP = 2;
+const CAPS = { tiktok: 2, instagram: 4, youtube: 4 }; // Buffer free accepts ~1-2 TikTok videos/day; IG/YT have no such limit
 const LOG = "content/post-log.json";
 const load = (p, d) => { try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch { return d; } };
 const today = new Date().toISOString().slice(0, 10);
@@ -22,6 +22,7 @@ for (const channel of Object.keys(SCRIPTS)) {
   const log = load(LOG, []);
   const mine = log.filter(p => p.channel === channel);
   const countToday = mine.filter(p => p.ts?.slice(0, 10) === today && p.status !== "failed" && p.status !== "skipped").length;
+  const DAILY_CAP = CAPS[channel] ?? 2;
   if (countToday >= DAILY_CAP) { console.log(`${channel}: daily cap reached (${countToday}/${DAILY_CAP}) — nothing to post`); continue; }
   const pending = videos.find(v => {
     const entries = mine.filter(p => p.video === v);

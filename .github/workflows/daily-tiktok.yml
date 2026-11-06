@@ -1,16 +1,19 @@
-name: Daily videos (2 slots) → TikTok + Instagram + YouTube
-# Two slots per day: 11:00 UTC (am) and 19:00 UTC (pm). Each slot generates one new
-# video (unique script, per-channel captions) and posts the OLDEST not-yet-posted video
-# to every channel — max 1 per channel per run, hard cap 2 per channel per day.
+name: Daily videos (4 slots) → TikTok + Instagram + YouTube
+# Four slots per day: 08/12/16/20 UTC (a/b/c/d). Each slot generates one new video
+# (unique script, per-channel captions) and posts the OLDEST not-yet-posted video to every
+# channel — max 1 per channel per run; daily caps: TikTok 2 (Buffer free), Instagram 4, YouTube 4.
+# Volume is the first lever in scripts/growth-model.py (see content/growth-model.json).
 # A cancelled/failed run self-heals: its videos stay pending and go out next slot.
 on:
   schedule:
-    - cron: "0 11 * * *"
-    - cron: "0 19 * * *"
+    - cron: "0 8 * * *"
+    - cron: "0 12 * * *"
+    - cron: "0 16 * * *"
+    - cron: "0 20 * * *"
   workflow_dispatch:
     inputs:
       slot:
-        description: "am or pm (default: by time of day)"
+        description: "a, b, c or d (default: by time of day)"
         default: ""
 permissions: {contents: write, issues: write, actions: write}
 concurrency: {group: daily-videos, cancel-in-progress: false}
@@ -31,12 +34,14 @@ jobs:
       - id: day
         run: |
           SLOT="${{ github.event.inputs.slot }}"
-          if [ -z "$SLOT" ]; then if [ "$(date -u +%H)" -lt 15 ]; then SLOT=am; else SLOT=pm; fi; fi
+          H=$(date -u +%H)
+          if [ -z "$SLOT" ]; then if [ "$H" -lt 10 ]; then SLOT=a; elif [ "$H" -lt 14 ]; then SLOT=b; elif [ "$H" -lt 18 ]; then SLOT=c; else SLOT=d; fi; fi
+          case "$SLOT" in am) SLOT=a;; pm) SLOT=b;; esac
           N=$(( ( $(date +%s) - $(date -d 2026-11-03 +%s) ) / 86400 ))
-          if [ "$SLOT" = "pm" ]; then S=1; SUF=b; else S=0; SUF=""; fi
+          case "$SLOT" in a) S=0; SUF="";; b) S=1; SUF=b;; c) S=2; SUF=c;; *) S=3; SUF=d;; esac
           F="public/videos/day-$(printf %03d $(( N + 1 )))${SUF}.mp4"
           echo "slot=$SLOT" >> $GITHUB_OUTPUT
-          echo "idx=$(( N * 2 + S ))" >> $GITHUB_OUTPUT
+          echo "idx=$(( N * 4 + S ))" >> $GITHUB_OUTPUT
           echo "label=$(( N + 1 ))" >> $GITHUB_OUTPUT
           echo "f=$F" >> $GITHUB_OUTPUT
           if [ -f "$F" ]; then echo "new=false" >> $GITHUB_OUTPUT; else echo "new=true" >> $GITHUB_OUTPUT; fi
@@ -54,7 +59,7 @@ jobs:
           git pull --rebase -q && git push -q
       - name: Deploy (dispatch the proven deploy workflow; no in-job Vercel CLI to hang)
         run: gh workflow run deploy.yml --ref main
-      - name: Publish oldest pending video to TikTok, Instagram, YouTube (cap 2/day each)
+      - name: Publish oldest pending video to TikTok (cap 2/day), Instagram (4), YouTube (4)
         run: node scripts/publish-pending.mjs
       - name: Commit post log
         if: always()
@@ -62,7 +67,7 @@ jobs:
           git config user.name github-actions; git config user.email github-actions@github.com
           git add content/post-log.json content/caption-ledger.json public/videos
           git diff --cached --quiet || { git commit -m "Post log (${{ steps.day.outputs.slot }})"; git pull --rebase --autostash -q && git push -q; }
-      - if: steps.day.outputs.slot == 'am'
+      - if: steps.day.outputs.slot == 'a'
         name: Daily brief issue
         run: node scripts/daily-brief.mjs
       - if: github.event_name == 'workflow_dispatch' && github.event.inputs.slot == ''

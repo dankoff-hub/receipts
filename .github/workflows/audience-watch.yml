@@ -20,8 +20,13 @@ jobs:
       - name: Reconcile post-log against Buffer (catches failed/lost posts)
         run: node scripts/check-posts.mjs
       - run: node scripts/audience-watch.mjs
+      - name: Growth model (Monte Carlo to $50k by Jan 31) → comment on today's audience issue
+        run: |
+          python3 scripts/growth-model.py 600 | tee /tmp/model.txt
+          ISSUE=$(gh issue list -l audience -L 1 --json number --jq '.[0].number' || true)
+          if [ -n "$ISSUE" ]; then printf '### Growth model (daily)\n```\n%s\n```\nLevers A–H run on free infra; I (founder time) and J ($3k creator seeding) need the founder. See content/growth-plan.md.\n' "$(cat /tmp/model.txt)" | gh issue comment "$ISSUE" -F -; fi
       - name: Commit audience data
         run: |
           git config user.name github-actions; git config user.email github-actions@github.com
-          git add content/audience-history.json content/audience-config.json content/strategy-brief.json content/post-log.json
+          git add content/audience-history.json content/audience-config.json content/strategy-brief.json content/post-log.json content/growth-model.json
           git diff --cached --quiet || { git commit -m "Audience watch: daily stats + strategy brief"; git pull --rebase -q && git push -q; }
