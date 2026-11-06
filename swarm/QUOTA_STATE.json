@@ -12,9 +12,9 @@
    "card": false,
    "auth": "GITHUB_TOKEN (Actions, models:read)",
    "limit": "free tier per-model RPD",
-   "cooldown_until": 0,
+   "cooldown_until": 1794007037521,
    "calls": 0,
-   "fails": 0
+   "fails": 1
   },
   "groq": {
    "card": false,
@@ -37,23 +37,23 @@
    "auth": "none (anonymous)",
    "limit": "rate-limited anonymous",
    "cooldown_until": 0,
-   "calls": 0,
-   "fails": 0
+   "calls": 6,
+   "fails": 3
   },
   "ollama_local": {
    "card": false,
    "auth": "none (installed on runner on demand)",
    "limit": "unlimited, slow",
-   "cooldown_until": 0,
+   "cooldown_until": 1794027862804,
    "calls": 0,
-   "fails": 0
+   "fails": 1
   },
   "template": {
    "card": false,
    "auth": "none",
    "limit": "unlimited (deterministic)",
    "cooldown_until": 0,
-   "calls": 0,
+   "calls": 1,
    "fails": 0
   }
  },
@@ -63,6 +63,6 @@
   "qwen": "device-code OAuth — founder-only login",
   "puter": "browser session — founder-only login"
  },
- "rotation_offset": 3,
- "updated": "2026-11-06T23:00:17.680Z"
+ "rotation_offset": 0,
+ "updated": "2026-11-06T23:04:23.301Z"
 }
