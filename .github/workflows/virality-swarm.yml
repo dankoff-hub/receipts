@@ -18,6 +18,6 @@ jobs:
         run: node scripts/tag-scout.mjs
       - name: Commit trend scripts
         run: |
-          git config user.name github-actions; git config user.email github-actions@github.com
+          git config user.name dankoff-hub; git config user.email 345066702+dankoff-hub@users.noreply.github.com
           git add content/
           git diff --cached --quiet || (git commit -m "Virality swarm: trend-reactive hooks" && git pull --rebase -q && git push -q)

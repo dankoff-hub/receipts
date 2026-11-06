@@ -17,6 +17,6 @@ jobs:
       - run: node scripts/content-forge.mjs
       - name: Commit new scripts
         run: |
-          git config user.name github-actions; git config user.email github-actions@github.com
+          git config user.name dankoff-hub; git config user.email 345066702+dankoff-hub@users.noreply.github.com
           git add content/forge-scripts.md
           git diff --cached --quiet || (git commit -m "Content forge: new script batch" && git pull --rebase -q && git push -q)

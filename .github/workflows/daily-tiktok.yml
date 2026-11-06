@@ -60,7 +60,7 @@ jobs:
           [ -f "$C.json" ] || python3 scripts/make-carousel.py ${{ steps.day.outputs.idx }} car-$(printf %03d ${{ steps.day.outputs.label }}) ${{ steps.day.outputs.label }}
       - name: Commit video + ledgers
         run: |
-          git config user.name github-actions; git config user.email github-actions@github.com
+          git config user.name dankoff-hub; git config user.email 345066702+dankoff-hub@users.noreply.github.com
           git add public/videos public/carousels content/caption-ledger.json content/script-ledger.json
           git diff --cached --quiet || git commit -m "Daily video ${{ steps.day.outputs.slot }} (day ${{ steps.day.outputs.label }})"
           git pull --rebase -q && git push -q
@@ -75,7 +75,7 @@ jobs:
       - name: Commit post log
         if: always()
         run: |
-          git config user.name github-actions; git config user.email github-actions@github.com
+          git config user.name dankoff-hub; git config user.email 345066702+dankoff-hub@users.noreply.github.com
           git add content/post-log.json content/caption-ledger.json public/videos
           git diff --cached --quiet || { git commit -m "Post log (${{ steps.day.outputs.slot }})"; git pull --rebase --autostash -q && git push -q; }
       - if: steps.day.outputs.slot == 'a'
