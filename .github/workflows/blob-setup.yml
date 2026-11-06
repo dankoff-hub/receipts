@@ -5,15 +5,19 @@ jobs:
   setup:
     runs-on: ubuntu-latest
     timeout-minutes: 6
-    env: { VERCEL_TOKEN: "${{ secrets.VERCEL_TOKEN }}", GH_TOKEN: "${{ github.token }}" }
+    env: { VERCEL_TOKEN: "${{ secrets.VERCEL_TOKEN }}", GH_TOKEN: "${{ github.token }}", TEAM: team_oSZddW9gFlPVuv4UA7ENCx9F }
     steps:
-      - uses: actions/setup-node@v4
-        with: { node-version: 20 }
       - run: |
-          npm i -g vercel@65.11.0 >/dev/null 2>&1
-          mkdir -p app && cd app
-          timeout 60 vercel link --yes --project receipts --token "$VERCEL_TOKEN" >/dev/null 2>&1 || true
-          if timeout 60 vercel env ls production --token "$VERCEL_TOKEN" 2>/dev/null | grep -q BLOB_READ_WRITE_TOKEN; then echo "BLOB_READ_WRITE_TOKEN already present"; exit 0; fi
-          # creates a Blob store and connects it to the linked project (adds BLOB_READ_WRITE_TOKEN env)
-          timeout 120 vercel blob store add receipts-subscribers --token "$VERCEL_TOKEN" 2>&1 | sed -E 's/vercel_blob_rw_[A-Za-z0-9_]+/[redacted]/g' | tail -5
-          timeout 60 vercel env ls production --token "$VERCEL_TOKEN" 2>/dev/null | grep -q BLOB_READ_WRITE_TOKEN && echo "BLOB_READ_WRITE_TOKEN present" && gh workflow run deploy.yml -R ${{ github.repository }} --ref main && echo "redeploy dispatched"
+          A="Authorization: Bearer $VERCEL_TOKEN"; API=https://api.vercel.com
+          PID=$(curl -s -H "$A" "$API/v9/projects/receipts?teamId=$TEAM" | jq -r .id); echo "project id: ${PID:0:8}…"
+          if curl -s -H "$A" "$API/v9/projects/receipts/env?teamId=$TEAM" | jq -e '.envs[]|select(.key=="BLOB_READ_WRITE_TOKEN")' >/dev/null; then echo "BLOB_READ_WRITE_TOKEN already present"; exit 0; fi
+          # existing store?
+          SID=$(curl -s -H "$A" "$API/v1/storage/stores?teamId=$TEAM" | jq -r '.stores[]? | select(.type=="blob" and .name=="receipts-subscribers") | .id' | head -1)
+          if [ -z "$SID" ]; then
+            R=$(curl -s -w '\n%{http_code}' -H "$A" -H 'content-type: application/json' -X POST "$API/v1/storage/stores/blob?teamId=$TEAM" -d '{"name":"receipts-subscribers","region":"iad1"}')
+            echo "create store http $(echo "$R" | tail -1)"; SID=$(echo "$R" | head -1 | jq -r '.store.id // .id // empty'); echo "$R" | head -1 | jq -r '.error.message // empty'
+          else echo "store exists"; fi
+          [ -n "$SID" ] || { echo "no store id"; exit 1; }
+          R=$(curl -s -w '\n%{http_code}' -H "$A" -H 'content-type: application/json' -X POST "$API/v1/storage/stores/$SID/connections?teamId=$TEAM" -d "{\"projectId\":\"$PID\",\"envVarEnvironments\":[\"production\",\"preview\",\"development\"]}")
+          echo "connect http $(echo "$R" | tail -1)"; echo "$R" | head -1 | jq -r '.error.message // empty'
+          curl -s -H "$A" "$API/v9/projects/receipts/env?teamId=$TEAM" | jq -e '.envs[]|select(.key=="BLOB_READ_WRITE_TOKEN")' >/dev/null && echo "BLOB_READ_WRITE_TOKEN present" && gh workflow run deploy.yml -R ${{ github.repository }} --ref main && echo "redeploy dispatched"
