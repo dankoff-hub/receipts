@@ -10,7 +10,7 @@ jobs:
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
       GH_TOKEN: ${{ github.token }}
       APP_URL: https://receipts-blond.vercel.app
-      SECRET_OUT: ${{ runner.temp }}/whsec
+      SECRET_OUT: /tmp/whsec
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
