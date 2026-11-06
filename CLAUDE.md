@@ -125,3 +125,9 @@ curl -sI https://receipts-blond.vercel.app/videos/day-001.mp4 | head -1
 - Buffer error on all TikTok posts since Nov 5 19:00 UTC: "TikTok account being banned" (@user6155581825874). Likely cause: 7 API posts in ~40 min on a brand-new account on Nov 3.
 - `scripts/channel-health.mjs` (daily in audience-watch, also `channel-health.yml` dispatch) auto-pauses a channel in content/audience-config.json `paused.<svc>.until` (3 days) on ban/disconnect; publish-pending skips paused channels; one re-probe post after the pause, unpause when it sends.
 - Only the founder can appeal in the TikTok app. If a new TikTok account is created: warm up manually, max 1 API post/day for the first 2 weeks.
+
+## 2026-11-06 — Audience bet (Instagram + YouTube)
+- Ground truth from Buffer metrics (scripts/post-metrics.mjs): v1 videos got 0–7 views on Shorts, 0 reach on Reels, 3.7–5.3s avg watch on TikTok. Diagnosis: first-3-seconds retention, not volume.
+- `scripts/render-v2.py` is now the renderer (make-video.py calls it): animated gradient bg, 1.6s hook card, word-level karaoke captions from edge-tts WordBoundary, progress bar, URL end card + "follow for day N". Spoken CTA = "free step one template, link on screen".
+- Daily loop: post-metrics.mjs → strategy-brief.performance (medians, top/bottom hooks, breakouts ≥3x median) → content-forge prompt uses real best/worst hooks. content/audience-scoreboard.json tracks the bet (baseline 2026-11-06: YT 53 subs, Shorts median 3 views, Reels 0).
+- TODO next: Instagram carousel (PIL slides) 1/day via Buffer image post; YouTube titles as search questions; IG follower count (Buffer does not expose it).

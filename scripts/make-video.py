@@ -24,34 +24,15 @@ else:
 sent = [x.strip() for x in re.split(r"(?<=[.?!])\s+", s["say"]) if x.strip()]
 cards = [s["hook"]] + sent + ["$29 · link in bio"]
 speech = f"{s['hook']} ... {s['say']} ... {s['cta']}"
-os.makedirs("/tmp/vid", exist_ok=True)
-async def tts():
-    import edge_tts
-    try:
-        await edge_tts.Communicate(speech, "en-US-BrianMultilingualNeural", rate="+10%", pitch="-5Hz").save("/tmp/vid/voice.mp3"); return True
-    except Exception as e:
-        print("edge-tts failed:", e); return False
-ok = asyncio.run(tts())
-if not ok:
-    subprocess.run(["espeak-ng","-s","150","-w","/tmp/vid/voice.wav",speech],check=True)
-    subprocess.run(["ffmpeg","-y","-loglevel","error","-i","/tmp/vid/voice.wav","/tmp/vid/voice.mp3"],check=True)
-dur = float(subprocess.check_output(["ffprobe","-v","error","-show_entries","format=duration","-of","csv=p=0","/tmp/vid/voice.mp3"]).decode()) + 1.2
-font = "/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf"
-def esc(t): return t.replace("\\","\\\\").replace("'","\u2019").replace(":","\\:").replace("%","\\%")
-seg = dur / len(cards); filt = []
-for i, c in enumerate(cards):
-    lines = textwrap.wrap(c, 24); size = 72 if i == 0 else 60; lh = int(size*1.35)
-    total = lh*len(lines)
-    for j, ln in enumerate(lines):
-        tf=f"/tmp/vid/c{i}_{j}.txt"; open(tf,"w").write(ln)
-        y = f"(h-{total})/2+{j*lh}"
-        filt.append(f"drawtext=fontfile={font}:textfile={tf}:fontcolor=white:fontsize={size}:x=(w-text_w)/2:y={y}:enable='between(t,{i*seg:.2f},{(i+1)*seg:.2f})'")
-filt.append(f"drawtext=fontfile={font}:text='RECEIPTS':fontcolor=0x888888:fontsize=34:x=(w-text_w)/2:y=h-200")
-# persistent on-screen URL: viewers cannot click captions on TikTok/IG, a readable URL is the CTR lever
-filt.append(f"drawtext=fontfile={font}:text='receipts-blond.vercel.app/free':fontcolor=0xf2c94c:fontsize=40:x=(w-text_w)/2:y=h-140")
-vf = ",".join(filt)
-subprocess.run(["ffmpeg","-y","-loglevel","error","-f","lavfi","-i",f"color=c=0x0b0b0c:s=1080x1920:d={dur:.2f}:r=30",
-  "-i","/tmp/vid/voice.mp3","-vf",vf,"-c:v","libx264","-pix_fmt","yuv420p","-c:a","aac","-b:a","128k","-shortest",out],check=True)
+# v2 renderer (retention-first: animated bg, hook card, karaoke captions, URL end card) — see scripts/render-v2.py
+sys.path.insert(0, "scripts"); from importlib import import_module
+_r = import_module("render-v2".replace("-", "_")) if False else None
+import importlib.util as _ilu
+_spec = _ilu.spec_from_file_location("render_v2", "scripts/render-v2.py"); _rv = _ilu.module_from_spec(_spec); _spec.loader.exec_module(_rv)
+_label = int(sys.argv[3]) if len(sys.argv) > 3 else day + 1
+_cta_spoken = re.sub(r"\$?29[^.]*link in bio\.?", "Free step one template, link on screen.", s["cta"]).replace("link in bio", "link on screen")
+speech = f"{s['hook']} {s['say']} {_cta_spoken}"
+dur = _rv.render(s["hook"], speech, "receipts-blond.vercel.app/free", _label, out, seed=day)
 _tags = ["provethemwrong","receipts","30daychallenge","fyp","careertok","motivation","selfimprovement"]
 try:
     _tj = json.load(open("content/tags.json"))
