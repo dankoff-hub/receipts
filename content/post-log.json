@@ -155,5 +155,23 @@
   "video": "car-004",
   "day": 4,
   "captionHash": "c5d1d25a586dae0e4f76c3c37eb798a8"
+ },
+ {
+  "ts": "2026-11-06T20:22:58.696Z",
+  "channel": "instagram",
+  "postId": "6aee3718004e4879a712e65a",
+  "status": "sent",
+  "video": "day-004b.mp4",
+  "day": 4,
+  "captionHash": "ffd69c55ff72e5037497a18666948a21"
+ },
+ {
+  "ts": "2026-11-06T20:23:01.684Z",
+  "channel": "youtube",
+  "postId": "6aee3723004e4879a712ec51",
+  "status": "sent",
+  "video": "day-004b.mp4",
+  "day": 4,
+  "captionHash": "4627f158b6883604f6b666034c53b009"
  }
 ]
