@@ -1,0 +1,29 @@
+name: Stripe fulfillment setup (idempotent)
+on: { workflow_dispatch: {} }
+permissions: { contents: read, actions: write }
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    env:
+      STRIPE_API_KEY: ${{ secrets.STRIPE_API_KEY }}
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      GH_TOKEN: ${{ github.token }}
+      APP_URL: https://receipts-blond.vercel.app
+      SECRET_OUT: ${{ runner.temp }}/whsec
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: node scripts/stripe-setup.mjs | tee setup.log
+      - name: Store webhook signing secret in Vercel (never printed) and redeploy
+        if: env.VERCEL_TOKEN != ''
+        run: |
+          if grep -q NEW_WEBHOOK_SECRET=1 setup.log && [ -s "$SECRET_OUT" ]; then
+            npm i -g vercel@65.11.0 >/dev/null 2>&1
+            timeout 60 vercel link --yes --project receipts --token "$VERCEL_TOKEN" >/dev/null 2>&1 || true
+            timeout 60 vercel env rm STRIPE_WEBHOOK_SECRET production --yes --token "$VERCEL_TOKEN" >/dev/null 2>&1 || true
+            cat "$SECRET_OUT" | timeout 60 vercel env add STRIPE_WEBHOOK_SECRET production --token "$VERCEL_TOKEN" >/dev/null && echo "STRIPE_WEBHOOK_SECRET stored in Vercel"
+            rm -f "$SECRET_OUT"
+            gh workflow run deploy.yml --ref main && echo "redeploy dispatched"
+          else echo "no new webhook secret"; fi

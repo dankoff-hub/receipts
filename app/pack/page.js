@@ -1,9 +1,11 @@
 import { verify, loadBundle } from "../../lib/pack";
+import { fulfillCheckout } from "../../lib/fulfill";
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Your Receipts Pack", robots: { index: false, follow: false } };
 const box = { background: "#16161a", border: "1px solid #2a2a30", borderRadius: 10, padding: 16, margin: "16px 0" };
 const btn = { display: "inline-block", padding: "12px 18px", background: "#fff", color: "#000", borderRadius: 10, textDecoration: "none", fontWeight: 700, margin: "6px 8px 6px 0" };
 export default async function Pack({ searchParams }) {
+  if (searchParams?.session_id) await fulfillCheckout(searchParams.session_id); // idempotent; webhook does the same
   const v = await verify(searchParams);
   if (!v.ok) return <main style={{ maxWidth: 520, margin: "0 auto", padding: 16 }}>
     <h1>Find your Receipts Pack</h1>
