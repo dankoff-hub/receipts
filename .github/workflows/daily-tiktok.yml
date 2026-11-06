@@ -30,7 +30,13 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: {node-version: 20}
-      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg espeak-ng fonts-dejavu-core >/dev/null && pip install -q edge-tts
+      - name: System deps (bounded; apt can hang on fresh runner images)
+        timeout-minutes: 6
+        run: |
+          sudo systemctl stop unattended-upgrades 2>/dev/null || true
+          for i in 1 2 3; do sudo timeout 150 apt-get update -qq && break; sleep 10; done
+          sudo DEBIAN_FRONTEND=noninteractive timeout 200 apt-get install -y -qq --no-install-recommends ffmpeg espeak-ng fonts-dejavu-core >/dev/null
+          timeout 120 pip install -q edge-tts
       - id: day
         run: |
           SLOT="${{ github.event.inputs.slot }}"
