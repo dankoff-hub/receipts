@@ -1,6 +1,38 @@
 {
- "updated": "2026-11-06T00:47:51.512Z",
+ "updated": "2026-11-06T08:10:11.888Z",
  "posts": [
+  {
+   "postId": "6aed2406dbada656bee3ef7c",
+   "channel": "youtube",
+   "sentAt": "2026-11-06T00:49:12.069Z",
+   "link": "https://www.youtube.com/shorts/pHrOV084xr4",
+   "video": "day-003b.mp4",
+   "hook": "What happens after you prove them wrong?",
+   "views": 0,
+   "reach": null,
+   "saves": null,
+   "shares": null,
+   "likes": 0,
+   "comments": 0,
+   "avgWatch": null,
+   "metricsAt": "2026-11-06T00:51:38.400Z"
+  },
+  {
+   "postId": "6aed23fbf3498efda75e7bc3",
+   "channel": "instagram",
+   "sentAt": "2026-11-06T00:49:55.839Z",
+   "link": "https://www.instagram.com/reel/DfYW0BKCTww/",
+   "video": "day-003b.mp4",
+   "hook": "What happens after you prove them wrong?",
+   "views": null,
+   "reach": null,
+   "saves": null,
+   "shares": null,
+   "likes": null,
+   "comments": null,
+   "avgWatch": null,
+   "metricsAt": "2026-11-06T00:48:59.467Z"
+  },
   {
    "postId": "6aecd2f1217b5aff654a0a2b",
    "channel": "youtube",

@@ -116,7 +116,8 @@
   "status": "sent",
   "video": "day-003b.mp4",
   "day": 3,
-  "captionHash": "8101dcb08319ce302131f7a8bfaba2ee"
+  "captionHash": "8101dcb08319ce302131f7a8bfaba2ee",
+  "sentAt": "2026-11-06T00:49:55.839Z"
  },
  {
   "ts": "2026-11-06T00:49:12.627Z",
@@ -125,6 +126,7 @@
   "status": "sent",
   "video": "day-003b.mp4",
   "day": 3,
-  "captionHash": "d86f8ed8cf0ae8a292052ed9c72e02f9"
+  "captionHash": "d86f8ed8cf0ae8a292052ed9c72e02f9",
+  "sentAt": "2026-11-06T00:49:12.069Z"
  }
 ]

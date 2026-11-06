@@ -5,7 +5,7 @@
   "tiktok_followers": 0,
   "instagram_followers": null
  },
- "posts_logged": 13,
+ "posts_logged": 15,
  "post_issues": [],
  "best_cta_index": null,
  "best_tag_mix_index": null,
@@ -14,9 +14,9 @@
   "instagram stats unavailable (login wall)"
  ],
  "performance": {
-  "updated": "2026-11-06T00:47:51.513Z",
+  "updated": "2026-11-06T08:10:11.888Z",
   "instagram": {
-   "posts": 4,
+   "posts": 6,
    "medianViews": 0,
    "medianAvgWatch": 15.1,
    "top": [
@@ -48,22 +48,44 @@
    "breakouts": []
   },
   "youtube": {
-   "posts": 1,
+   "posts": 3,
    "medianViews": 3,
    "medianAvgWatch": null,
    "top": [
+    {
+     "hook": "Spite is a great start and a terrible finish.",
+     "views": 7,
+     "avgWatch": null,
+     "video": "day-002.mp4"
+    },
     {
      "hook": "They said you would not make it — keep the receipt.",
      "views": 3,
      "avgWatch": null,
      "video": "avatar-intro.mp4"
+    },
+    {
+     "hook": "I got passed over for a promotion. Here's my 30-day plan.",
+     "views": 0,
+     "avgWatch": null,
+     "video": "day-003.mp4"
     }
    ],
    "bottom": [
     {
+     "hook": "Spite is a great start and a terrible finish.",
+     "views": 7,
+     "video": "day-002.mp4"
+    },
+    {
      "hook": "They said you would not make it — keep the receipt.",
      "views": 3,
      "video": "avatar-intro.mp4"
+    },
+    {
+     "hook": "I got passed over for a promotion. Here's my 30-day plan.",
+     "views": 0,
+     "video": "day-003.mp4"
     }
    ],
    "breakouts": []
