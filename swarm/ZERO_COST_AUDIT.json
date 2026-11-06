@@ -1,0 +1,36 @@
+{
+ "at": "2026-11-06T22:52:03.580Z",
+ "pass": true,
+ "checks": [
+  {
+   "check": "card_free_llm",
+   "pass": true,
+   "detail": "3 usable no-card providers: github_models,pollinations,ollama_local"
+  },
+  {
+   "check": "card_free_execution",
+   "pass": true,
+   "detail": "runtime=GitHub Actions; repo public=true"
+  },
+  {
+   "check": "card_free_posting",
+   "pass": true,
+   "detail": "Buffer free plan channels=unknown (no key in this context) (limit 3, no card)"
+  },
+  {
+   "check": "card_free_state",
+   "pass": true,
+   "detail": "state = swarm/*.md|json committed to git"
+  },
+  {
+   "check": "no_auto_billing",
+   "pass": true,
+   "detail": "all cascade providers card:false; Vercel Hobby, Buffer Free, Stripe (fees only on sales), GitHub public — none auto-bill"
+  },
+  {
+   "check": "local_fallback_exists",
+   "pass": true,
+   "detail": "ollama_local on-demand install=disabled (template fallback still guarantees progress)"
+  }
+ ]
+}

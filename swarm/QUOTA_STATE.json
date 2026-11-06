@@ -58,11 +58,11 @@
   }
  },
  "not_configured": {
-  "iflow": "browser OAuth \u2014 founder-only login",
-  "kiro": "AWS Builder ID OAuth \u2014 founder-only login",
-  "qwen": "device-code OAuth \u2014 founder-only login",
-  "puter": "browser session \u2014 founder-only login"
+  "iflow": "browser OAuth — founder-only login",
+  "kiro": "AWS Builder ID OAuth — founder-only login",
+  "qwen": "device-code OAuth — founder-only login",
+  "puter": "browser session — founder-only login"
  },
- "rotation_offset": 0,
- "updated": null
+ "rotation_offset": 1,
+ "updated": "2026-11-06T22:52:05.439Z"
 }

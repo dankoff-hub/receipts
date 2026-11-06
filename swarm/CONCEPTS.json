@@ -1,0 +1,107 @@
+{
+ "days": {
+  "2026-11-06": [
+   {
+    "platform": "instagram",
+    "format": "POV story",
+    "hook": "The coworker who laughed when I asked for the raise. I kept the receipt.",
+    "say": "I stopped arguing and started measuring. One standard, written down, checked daily. Day 7 the streak said more than I ever could. Nobody debates a streak.",
+    "body": "Turn one moment of doubt into one measurable standard and collect daily proof for 30 days.",
+    "cta": "The 30-day Receipts system is $29 — link in bio.",
+    "provider": "template",
+    "id": "ff395dee70ec0bd017fb2a39a2fa36d1"
+   },
+   {
+    "platform": "youtube",
+    "format": "receipt reveal",
+    "hook": "My own voice note from day zero. I kept the receipt.",
+    "say": "I stopped arguing and started measuring. One standard, written down, checked daily. Day 10 the streak said more than I ever could. Nobody debates a streak.",
+    "body": "Turn one moment of doubt into one measurable standard and collect daily proof for 30 days.",
+    "cta": "The 30-day Receipts system is $29 — link in bio.",
+    "provider": "template",
+    "id": "84e3d7a5e924bded6b67ec02f092ea89"
+   },
+   {
+    "platform": "tiktok",
+    "format": "3-rule list",
+    "hook": "The rejection email I printed. I kept the receipt.",
+    "say": "I stopped arguing and started measuring. One standard, written down, checked daily. Day 13 the streak said more than I ever could. Nobody debates a streak.",
+    "body": "Turn one moment of doubt into one measurable standard and collect daily proof for 30 days.",
+    "cta": "The 30-day Receipts system is $29 — link in bio.",
+    "provider": "template",
+    "id": "7f6b18dcb46449fb585102850fa305e2"
+   },
+   {
+    "platform": "instagram",
+    "format": "confession",
+    "hook": "The gym buddy who quit on day 4. I kept the receipt.",
+    "say": "I stopped arguing and started measuring. One standard, written down, checked daily. Day 16 the streak said more than I ever could. Nobody debates a streak.",
+    "body": "Turn one moment of doubt into one measurable standard and collect daily proof for 30 days.",
+    "cta": "The 30-day Receipts system is $29 — link in bio.",
+    "provider": "template",
+    "id": "d59f0ad463b9497b8173330952cac770"
+   },
+   {
+    "platform": "youtube",
+    "format": "myth-bust",
+    "hook": "The landlord who wanted proof of income. I kept the receipt.",
+    "say": "I stopped arguing and started measuring. One standard, written down, checked daily. Day 19 the streak said more than I ever could. Nobody debates a streak.",
+    "body": "Turn one moment of doubt into one measurable standard and collect daily proof for 30 days.",
+    "cta": "The 30-day Receipts system is $29 — link in bio.",
+    "provider": "template",
+    "id": "4a988e8fb567119a9eedfeae1d4c2d27"
+   },
+   {
+    "platform": "tiktok",
+    "format": "day-7 check-in",
+    "hook": "The 'we went another direction' call. I kept the receipt.",
+    "say": "I stopped arguing and started measuring. One standard, written down, checked daily. Day 22 the streak said more than I ever could. Nobody debates a streak.",
+    "body": "Turn one moment of doubt into one measurable standard and collect daily proof for 30 days.",
+    "cta": "The 30-day Receipts system is $29 — link in bio.",
+    "provider": "template",
+    "id": "a0e9479708b2eb0803e171c1713dbdae"
+   },
+   {
+    "platform": "instagram",
+    "format": "challenge",
+    "hook": "The family dinner question. I kept the receipt.",
+    "say": "I stopped arguing and started measuring. One standard, written down, checked daily. Day 25 the streak said more than I ever could. Nobody debates a streak.",
+    "body": "Turn one moment of doubt into one measurable standard and collect daily proof for 30 days.",
+    "cta": "The 30-day Receipts system is $29 — link in bio.",
+    "provider": "template",
+    "id": "41281472e1047a011f174c93081adb10"
+   },
+   {
+    "platform": "youtube",
+    "format": "before/after",
+    "hook": "The 2am screenshot. I kept the receipt.",
+    "say": "I stopped arguing and started measuring. One standard, written down, checked daily. Day 28 the streak said more than I ever could. Nobody debates a streak.",
+    "body": "Turn one moment of doubt into one measurable standard and collect daily proof for 30 days.",
+    "cta": "The 30-day Receipts system is $29 — link in bio.",
+    "provider": "template",
+    "id": "8dda5ff6b5a6b6481da2cee385235680"
+   },
+   {
+    "platform": "tiktok",
+    "format": "quiet flex",
+    "hook": "The unanswered application. I kept the receipt.",
+    "say": "I stopped arguing and started measuring. One standard, written down, checked daily. Day 31 the streak said more than I ever could. Nobody debates a streak.",
+    "body": "Turn one moment of doubt into one measurable standard and collect daily proof for 30 days.",
+    "cta": "The 30-day Receipts system is $29 — link in bio.",
+    "provider": "template",
+    "id": "104e731c380752212489efc1686d8711"
+   }
+  ]
+ },
+ "hooks": [
+  "ff395dee70ec0bd017fb2a39a2fa36d1",
+  "84e3d7a5e924bded6b67ec02f092ea89",
+  "7f6b18dcb46449fb585102850fa305e2",
+  "d59f0ad463b9497b8173330952cac770",
+  "4a988e8fb567119a9eedfeae1d4c2d27",
+  "a0e9479708b2eb0803e171c1713dbdae",
+  "41281472e1047a011f174c93081adb10",
+  "8dda5ff6b5a6b6481da2cee385235680",
+  "104e731c380752212489efc1686d8711"
+ ]
+}
