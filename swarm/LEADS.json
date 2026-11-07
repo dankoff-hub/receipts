@@ -810,9 +810,41 @@
   "at://did:plc:ttlyg75cufhgzdbhy45g6gdu/app.bsky.feed.post/3mzqozsmnin2y",
   "at://did:plc:fyhpq3dldft26foexvzs5onr/app.bsky.feed.post/3mzqmasd5zs2c",
   "masto:117577169166150357",
-  "masto:117576885549021051"
+  "masto:117576885549021051",
+  "at://did:plc:24oenooz3nkpchyifqvh7xcx/app.bsky.feed.post/3mzqve2wbzk2y",
+  "lemmy:54121756",
+  "lemmy:54120341",
+  "at://did:plc:jfqup6hjfbznjnkykoqamv5s/app.bsky.feed.post/3mzqtrbjj7y2l",
+  "at://did:plc:hozc7mpnafedn4wo7wx6wjyv/app.bsky.feed.post/3mzqymwdq7s2z",
+  "at://did:plc:hqp5p56ukumcynbhp7j7vqdo/app.bsky.feed.post/3mzqwqie4z7w2",
+  "at://did:plc:eyqmmgc6hzplivg7b4hrrnwi/app.bsky.feed.post/3mzquuetuzk26",
+  "at://did:plc:hut6aguffcsxljufne6l74ck/app.bsky.feed.post/3mzqygnwvbs2u",
+  "at://did:plc:ak3lxjznz5ujwsmylthx32m5/app.bsky.feed.post/3mzqtyjcucs2b"
  ],
  "leads": [
+  {
+   "src": "bluesky",
+   "id": "at://did:plc:jfqup6hjfbznjnkykoqamv5s/app.bsky.feed.post/3mzqtrbjj7y2l",
+   "url": "https://bsky.app/profile/aismartprompts.bsky.social/post/3mzqtrbjj7y2l",
+   "text": "الاستمرار أسهل حين ترى تقدّمك بوضوح. تتبّع عاداتك في شبكة أسبوعية وابنِ سلاسل التزام تحفّزك على المواصلة عبر متتبّع العادات.\nhttps://aismartprompts.com/tools/habit-tracker/?src=x",
+   "sub": "aismartprompts.bsky.social",
+   "at": "2026-11-07T21:30:01.000Z",
+   "llm": "groq",
+   "tier": 2,
+   "found": "2026-11-07T23:02:45.340Z",
+   "status": "new"
+  },
+  {
+   "src": "bluesky",
+   "id": "at://did:plc:ak3lxjznz5ujwsmylthx32m5/app.bsky.feed.post/3mzqtyjcucs2b",
+   "url": "https://bsky.app/profile/swervestarex.bsky.social/post/3mzqtyjcucs2b",
+   "text": "They say you can pick your friends and you can pick your nose, but you can't pick your friend's nose. Evidently you are here to do the impossible and prove them wrong. XD",
+   "sub": "swervestarex.bsky.social",
+   "at": "2026-11-07T21:34:05.344Z",
+   "tier": 2,
+   "found": "2026-11-07T23:02:45.818Z",
+   "status": "skipped"
+  },
   {
    "src": "bluesky",
    "id": "at://did:plc:ogyb6rgwozch4phnhqu7riqo/app.bsky.feed.post/3mzqpub3pgs25",
