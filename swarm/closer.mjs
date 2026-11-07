@@ -10,7 +10,7 @@ import { chat, parseJSON, saveQuota, skillHint } from "./llm.mjs";
 process.on("exit", () => saveQuota());
 const SEND = process.env.CLOSER_SEND === "1";
 const HANDLE = process.env.BLUESKY_HANDLE, APP_PW = process.env.BLUESKY_APP_PASSWORD, CAP = Number(process.env.CLOSER_DAILY_CAP || 3);
-const FREE = "receipts-blond.vercel.app/free";
+const FREE = "receiptspack.vercel.app/free";
 const LOG_P = "swarm/CLOSER_LOG.json", LEADS_P = "swarm/LEADS.json";
 const load = (p, d) => { try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch { return d; } };
 const log = load(LOG_P, { replies: [], skipped: [] }), leads = load(LEADS_P, { leads: [] });

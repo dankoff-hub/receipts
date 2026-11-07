@@ -52,10 +52,10 @@ _force = _os.environ.get("VIDEO_VARIANT")
 if _force:
     try: _variant.update(json.loads(_force))
     except Exception: pass
-_cta_spoken = re.sub(r"\$?29[^.]*link in bio\.?", "Free step one template, link on screen.", s["cta"]).replace("link in bio", "link on screen")
+_cta_spoken = re.sub(r"\$?29[^.]*link in bio\.?", "Free step one template, link in my profile.", s["cta"]).replace("link in bio", "link in my profile")  # a URL on screen is not tappable; the profile link is
 if _variant.get("cta") == "follow": _cta_spoken = f"Follow for day {_label + 1}."
 speech = f"{s['hook']} {s['say']} {_cta_spoken}"
-dur, _meta = _rv.render(s["hook"], speech, "receipts-blond.vercel.app/free", _label, out, seed=_slot_seed, variant=_variant)
+dur, _meta = _rv.render(s["hook"], speech, "receiptspack.vercel.app/free", _label, out, seed=_slot_seed, variant=_variant)
 print("variant:", json.dumps(_meta))
 _tags = ["provethemwrong","receipts","30daychallenge","fyp","careertok","motivation","selfimprovement"]
 try:
@@ -64,10 +64,11 @@ try:
     elif _tj.get("fallback"): _tags = _tj["fallback"]["tiktok"]
 except Exception: pass
 _tagstr = " ".join("#"+t for t in _tags)
-_cta_line = "the 30-day Receipts system, link in bio."
+_cta_line = "the 30-day Receipts system, link in my profile."
 try:
     _cb = json.load(open("content/cta-bank.json"))
     if _cb.get("lines"): _cta_line = _cb["lines"][day % len(_cb["lines"])]
+    _cta_line = re.sub(r"link in (bio|my profile)\.?", "link in my profile (tap Instagram).", _cta_line)  # TikTok: no tappable website link under 1k followers
 except Exception: pass
 json.dump(dict(day=(int(sys.argv[3]) if len(sys.argv)>3 else day+1), n=s["n"], hook=s["hook"], caption=f"{s['hook']} — {_cta_line}\n" + _tagstr, duration=dur, **_meta), open(out+".json","w"))
 print("ok", out, round(dur,1), "s")

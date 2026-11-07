@@ -169,12 +169,13 @@ def render(hook, speech, url, day, out, seed=0, variant=None):
     if variant.get("cta") == "follow":  # follow-first end card
         f.append(f"drawtext=fontfile={FONT}:text='FOLLOW':fontcolor=0xf2c94c:fontsize=120:borderw=6:bordercolor=black@0.5:x=(w-text_w)/2:y=h/2-200:enable='gte(t,{dur-2:.2f})'")
         f.append(f"drawtext=fontfile={FONT}:text='for day {day+1} tomorrow':fontcolor=white:fontsize=64:x=(w-text_w)/2:y=h/2-40:enable='gte(t,{dur-2:.2f})'")
-        f.append(f"drawtext=fontfile={FONT}:text='Free Step 1 template':fontcolor=0xcccccc:fontsize=38:x=(w-text_w)/2:y=h/2+90:enable='gte(t,{dur-2:.2f})'")
-        f.append(f"drawtext=fontfile={FONT}:text='{esc(url)}':fontcolor=0xf2c94c:fontsize=40:x=(w-text_w)/2:y=h/2+145:enable='gte(t,{dur-2:.2f})'")
+        f.append(f"drawtext=fontfile={FONT}:text='Free Step 1 template \\: link in my profile':fontcolor=0xcccccc:fontsize=38:x=(w-text_w)/2:y=h/2+90:enable='gte(t,{dur-2:.2f})'")
+        f.append(f"drawtext=fontfile={FONT}:text='or type {esc(url)}':fontcolor=0x999999:fontsize=32:x=(w-text_w)/2:y=h/2+145:enable='gte(t,{dur-2:.2f})'")
     else:
-        f.append(f"drawtext=fontfile={FONT}:text='Free Step 1 template':fontcolor=white:fontsize=72:x=(w-text_w)/2:y=h/2-160:enable='gte(t,{dur-2:.2f})'")
-        f.append(f"drawtext=fontfile={FONT}:text='{esc(url)}':fontcolor=0xf2c94c:fontsize=56:x=(w-text_w)/2:y=h/2-40:enable='gte(t,{dur-2:.2f})'")
-        f.append(f"drawtext=fontfile={FONT}:text='Follow for day {day+1}':fontcolor=0xcccccc:fontsize=48:x=(w-text_w)/2:y=h/2+80:enable='gte(t,{dur-2:.2f})'")
+        f.append(f"drawtext=fontfile={FONT}:text='Free Step 1 template':fontcolor=white:fontsize=68:x=(w-text_w)/2:y=h/2-200:enable='gte(t,{dur-2:.2f})'")
+        f.append(f"drawtext=fontfile={FONT}:text='LINK IN MY PROFILE':fontcolor=0xf2c94c:fontsize=76:borderw=6:bordercolor=black@0.5:x=(w-text_w)/2:y=h/2-90:enable='gte(t,{dur-2:.2f})'")
+        f.append(f"drawtext=fontfile={FONT}:text='or type {esc(url)}':fontcolor=0x999999:fontsize=32:x=(w-text_w)/2:y=h/2+30:enable='gte(t,{dur-2:.2f})'")
+        f.append(f"drawtext=fontfile={FONT}:text='Follow for day {day+1}':fontcolor=0xcccccc:fontsize=48:x=(w-text_w)/2:y=h/2+120:enable='gte(t,{dur-2:.2f})'")
     f.append("vignette=PI/4")
     vf = ",".join(f)
     # ---- inputs: 0 = background, then audio inputs
@@ -199,5 +200,5 @@ def render(hook, speech, url, day, out, seed=0, variant=None):
 
 if __name__ == "__main__":
     v = json.loads(sys.argv[5]) if len(sys.argv) > 5 else None
-    d, m = render(sys.argv[1], sys.argv[2], "receipts-blond.vercel.app/free", int(sys.argv[3]), sys.argv[4], int(sys.argv[3]), v)
+    d, m = render(sys.argv[1], sys.argv[2], "receiptspack.vercel.app/free", int(sys.argv[3]), sys.argv[4], int(sys.argv[3]), v)
     print("ok", sys.argv[4], round(d, 1), json.dumps(m))

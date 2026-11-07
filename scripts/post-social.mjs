@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // post-social — original posts on the founder-owned text platforms (Bluesky @danrossi2026.bsky.social, Mastodon @danrossi2026@mastodon.social).
 // Founder directive 2026-11-07: "do posts and replies on other platforms as well. target is revenue."
-// Slot a (08:00 UTC): a fresh text post written from today's newest swarm concept (never repeated: hash ledger). No link — reach.
+// Slot a (08:00 UTC): a fresh text post written from today's newest swarm concept (never repeated: hash ledger) + tappable free link.
 // Slot c (16:00 UTC): today's photo (the one Instagram got) + its caption + the free-tracker link with a per-platform src tag — conversion.
 // Zero cost: AT Protocol + Mastodon REST, free accounts, no card. Every post logged in content/post-log.json (channel bluesky|mastodon).
 import fs from "node:fs";
@@ -31,7 +31,7 @@ if (kind === "video") {  // slots b/d: today's newest rendered video → Mastodo
   videoPath = "public/videos/" + pick.f; if (fs.statSync(videoPath).size > 39e6) { console.log("post-social: video too large for Mastodon"); process.exit(0); }
   const meta = load(videoPath + ".json", {}); const cap = (meta.captions?.instagram || meta.caption || meta.hook || "").replace(/#\w+/g, "").replace(/link in bio\.?/gi, "").replace(/\n{3,}/g, "\n\n").trim();
   text = (cap.length > 300 ? cap.slice(0, 297).replace(/\s+\S*$/, "") + "…" : cap) + `\n\nDay ${meta.day || "?"} of 30. Follow for tomorrow's line.`;
-  alt = `Short video: ${meta.hook || "daily receipt"}`; link = "receipts-blond.vercel.app/free";
+  alt = `Short video: ${meta.hook || "daily receipt"}`; link = "receiptspack.vercel.app/free";
 } else if (kind === "photo") {
   const ig = [...log].reverse().find(p => p.channel === "instagram_photo" && p.status === "sent" && p.ts.slice(0, 10) === today);
   const caps = load("content/photo-captions.json", { captions: {} }).captions;
@@ -39,7 +39,7 @@ if (kind === "video") {  // slots b/d: today's newest rendered video → Mastodo
   imagePath = `public/photos/${ig.video}`; alt = `Photo: ${ig.slug.replace(/-/g, " ")}`;
   const cap = caps[ig.slug].replace(/#\w+/g, "").replace(/\n{3,}/g, "\n\n").trim();
   text = cap.length > 240 ? cap.slice(0, 237).replace(/\s+\S*$/, "") + "…" : cap;
-  link = "receipts-blond.vercel.app/free";
+  link = "receiptspack.vercel.app/free";
 } else {
   const C = load("swarm/CONCEPTS.json", { days: {} });
   const days = Object.keys(C.days).sort(); const pool = (C.days[days.at(-1)] || []).concat(C.days[days.at(-2)] || []);
@@ -51,6 +51,7 @@ if (kind === "video") {  // slots b/d: today's newest rendered video → Mastodo
   text = text.replace(/https?:\/\/\S+/g, "").replace(/#\w+/g, "").trim();
   if (text.length > 290) text = text.slice(0, 287).replace(/\s+\S*$/, "") + "…";
   if (seed) ledger.social.push(md5("seed|" + seed.id));
+  link = "receiptspack.vercel.app/free"; // tappable on Bluesky (facet) and Mastodon; chronological feeds → no reach penalty for a link
 }
 const h = md5(text);
 if (ledger.social.includes(h) && !FORCE) { console.log("post-social: text already posted once — refusing to repeat"); process.exit(0); }

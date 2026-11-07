@@ -13,7 +13,7 @@ FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
 FONT_R = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
 PALETTES = [((15, 23, 42), (49, 46, 129)), ((26, 26, 26), (124, 45, 18)), ((4, 47, 46), (15, 23, 42)), ((59, 7, 100), (12, 10, 9)), ((17, 24, 39), (6, 95, 70))]
 GOLD = (242, 201, 76); WHITE = (255, 255, 255); GREY = (200, 200, 200)
-URL = "receipts-blond.vercel.app/free"
+URL = "receiptspack.vercel.app/free"
 
 md = open("content/launch-scripts.md").read()
 if os.path.exists("content/forge-scripts.md"): md += "\n" + open("content/forge-scripts.md").read()
@@ -66,9 +66,9 @@ def slide(i, total, title, body=None, kicker=None, cta=False):
     if i == 1: d.text((80, H - 150), "swipe  →", font=ImageFont.truetype(FONT, 40), fill=GOLD)
     if cta:
         d.rounded_rectangle((80, H - 330, W - 80, H - 200), 24, fill=GOLD)
-        t = "Free Step 1 template"; fc = ImageFont.truetype(FONT, 46)
-        d.text(((W - d.textlength(t, font=fc)) / 2, H - 300), t, font=fc, fill=(20, 20, 20))
-        d.text(((W - d.textlength(URL, font=small)) / 2, H - 180), URL, font=small, fill=WHITE)
+        t = "Free Step 1 template → link in my profile"; fc = ImageFont.truetype(FONT, 35)
+        d.text(((W - d.textlength(t, font=fc)) / 2, H - 295), t, font=fc, fill=(20, 20, 20))
+        d.text(((W - d.textlength("or type " + URL, font=small)) / 2, H - 180), "or type " + URL, font=small, fill=(170, 170, 170))
     else:
         d.text((80, H - 90), URL, font=tiny, fill=(160, 160, 160)); d.text((W - 80 - d.textlength(f"Day {label}", font=tiny), H - 90), f"Day {label}", font=tiny, fill=(160, 160, 160))
     return im
@@ -118,8 +118,8 @@ try:
     tags = (mix.get("instagram") or mix.get("tiktok") or tags)[:8]
 except Exception: pass
 tpls = [
-    lambda: f"{s['hook']}\n\nSwipe: {len(pts)} points, one standard, thirty days of evidence.\n\nSave this for the day you want to quit.\n\nFree Step 1 template in bio. Follow for day {label + 1}.\n\n" + " ".join("#" + t for t in tags),
-    lambda: f"{s['hook']}\n\n{pts[0]}\n\nThe rest is in the slides. Save it, then start day one. Follow for day {label + 1} tomorrow.\n\nFree Step 1 template in bio.\n\n" + " ".join("#" + t for t in tags),
+    lambda: f"{s['hook']}\n\nSwipe: {len(pts)} points, one standard, thirty days of evidence.\n\nSave this for the day you want to quit.\n\nFree Step 1 template: link in bio. Follow for day {label + 1}.\n\n" + " ".join("#" + t for t in tags),
+    lambda: f"{s['hook']}\n\n{pts[0]}\n\nThe rest is in the slides. Save it, then start day one. Follow for day {label + 1} tomorrow.\n\nFree Step 1 template: link in bio.\n\n" + " ".join("#" + t for t in tags),
     lambda: f"Day {label} of 30.\n\n{s['hook']}\n\nSwipe for the standard. Comment 'receipt' if you're starting this week, and follow for day {label + 1}.\n\n" + " ".join("#" + t for t in tags),
 ]
 caption = None

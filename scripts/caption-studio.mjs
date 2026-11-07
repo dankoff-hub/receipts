@@ -33,7 +33,7 @@ const TK = [
   (h, c, t) => `POV: ${h.charAt(0).toLowerCase() + h.slice(1)}\n${c}\n${t}`,
   (h, c, t) => `${h}\n${c} Save this for day one.\n${t}`,
 ];
-const URL = "receipts-blond.vercel.app/free";
+const URL = "receiptspack.vercel.app/free";
 const IG = [
   (h, c, t) => `${h}\n\n${c}\n\n30 days. One standard. Proof you can hold.\n\n${t}`,
   (h, c, t) => `${h}\n\nOne receipt, one measurable standard, thirty days of evidence.\n${c}\n\n${t}`,
@@ -42,9 +42,9 @@ const IG = [
 ];
 const YT = [
   (h, c, t) => `${h}\n\n${c}\nFree Step 1 template: https://${URL}\n\n${t} #shorts`,
-  (h, c, t) => `${h}\n${c}\nStart free: link in bio.\n\n${t} #shorts`,
+  (h, c, t) => `${h}\n${c}\nStart free (link in description): https://${URL}\n\n${t} #shorts`,
   (h, c, t) => `${h}\n\nDay ${day} of 30. ${c}\nStart here: https://${URL}\n\n${t} #shorts`,
-  (h, c, t) => `${h}\n\n${c}\nReceipts: 30 days, one standard, proof you can hold.\n\n${t} #shorts`,
+  (h, c, t) => `${h}\n\n${c}\nReceipts: 30 days, one standard, proof you can hold. Free Step 1: https://${URL}\n\n${t} #shorts`,
 ];
 
 function build(bank, tagsKey, seed) {
@@ -53,6 +53,10 @@ function build(bank, tagsKey, seed) {
     const mix = mixes[(seed + attempt + mixOffset) % mixes.length];
     const cta = ctaLines[(seed + attempt + ctaOffset) % ctaLines.length];
     let caption = tpl(hook, cta, tagstr(mix[tagsKey] || mix.tiktok || []));
+    // Tappable-path rule: a URL on screen or in an IG/TikTok caption is not tappable. Say only what the thumb can hit on THIS platform.
+    if (tagsKey === "tiktok" && bank === TK) caption = caption.replace(/link in bio\.?/gi, "link in my profile (tap Instagram).").replace(/link in my profile\.?/gi, "link in my profile (tap Instagram).");
+    if (bank === YT) caption = caption.replace(/link in bio\.?/gi, `link in the description: https://${URL}`).replace(/link in my profile\.?/gi, `link in the description: https://${URL}`);
+    if (bank === IG) caption = caption.replace(/link in my profile\.?/gi, "link in bio.");
     if (attempt > 8) caption += `\n\nDay ${day}.`; // last-resort uniqueness marker
     if (!/follow/i.test(caption)) caption = caption.replace(/\n\n(#[^\n]*)$/, `\n\nFollow for day ${day + 1} tomorrow.\n\n$1`); // followers first
     if (meta.avatar) caption += `\n\n${AI_NOTE} #aiavatar`;

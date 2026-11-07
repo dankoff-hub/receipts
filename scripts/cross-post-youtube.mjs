@@ -13,7 +13,7 @@ let meta = {};
 try { meta = JSON.parse(fs.readFileSync(file + ".json", "utf8")); } catch {}
 const hook = meta.hook || "They said I wasn't ready. So I kept the receipt.";
 const title = ((meta.captions && meta.captions.ytTitle) || (meta.day ? `Day ${meta.day}: ${hook}` : hook)).slice(0, 100);
-const caption = ((meta.captions && meta.captions.youtube) || meta.caption || `${hook}\n\nOne receipt, one measurable standard, thirty days of evidence. The 30-day Receipts system — link in bio ($29).\n\n#provethemwrong #selfimprovement #motivation #30daychallenge #receipts`).slice(0, 4900);
+const caption = ((meta.captions && meta.captions.youtube) || meta.caption || `${hook}\n\nOne receipt, one measurable standard, thirty days of evidence. The 30-day Receipts system — link in the description ($29).\n\n#provethemwrong #selfimprovement #motivation #30daychallenge #receipts`).slice(0, 4900);
 
 if (!KEY) { console.log("BUFFER_API_KEY not set — skip"); process.exit(0); }
 const gql = async (query) => { const r = await fetch("https://api.buffer.com", { method: "POST", headers: { "Content-Type": "application/json", Authorization: `Bearer ${KEY}` }, body: JSON.stringify({ query }) }); const j = await r.json(); if (j.errors) throw new Error(JSON.stringify(j.errors)); return j.data; };
