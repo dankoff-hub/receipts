@@ -26,3 +26,10 @@ The buy link currently makes every buyer (1) pick a currency with a 4% conversio
 
 ## Security housekeeping — 5 minutes
 Instagram and Google (tryuderzhi@gmail.com) passwords were pasted into chat at some point — rotate both. Regenerate the NVIDIA API key (also pasted) and update the `NVIDIA_API_KEY` repo secret. Still pending on third parties, nothing for you to do: Reddit API approval, Lemmy, Mailjet ticket #4331805.
+
+## Partner programme — 10 minutes, then 5 minutes a day
+1. Approve (or edit) the DM/email wording in `docs/partner-offer.md` §5 and say who sends: you from the Instagram app (safest for IG-only creators) and/or the swarm from tryuderzhi@gmail.com for newsletter writers with an email. Until then nothing is sent.
+2. Each morning open the newest "Partner outreach queue" issue (first one: https://github.com/dankoff-hub/receipts/issues/26), paste up to 10 messages, mark `status: contacted`.
+3. On a yes: reply with the free pack and the link `receiptspack.vercel.app/p/<code>` (code = their handle, letters/digits only), set `status: partner`, add the code to `content/partners.json`.
+4. Stripe: Developers → API keys → the restricted key → enable "Charges and Refunds: Read" so the ledger can remove refunds/disputes automatically. Otherwise glance at the dashboard before each payout.
+5. Monthly (1st–5th): the "Partner payouts YYYY-MM" issue lists who is owed what; pay by PayPal (goods & services) or Wise, tick, close.
