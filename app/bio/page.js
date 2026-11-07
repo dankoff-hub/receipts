@@ -43,7 +43,7 @@ return <main style={{maxWidth:420,margin:"0 auto",padding:16}}>
 
 <div style={card}>
 <b>Watch me do it</b>
-<p style={{color:"#bbb",margin:"8px 0 0 0"}}>I am on the same 30 days, in public, one receipt a day. <a href="https://instagram.com/danrossi2026" style={{color:"#fff"}}>Instagram</a> · <a href="https://www.youtube.com/channel/UC_Io87isTmHUvzIAs-RwiFw" style={{color:"#fff"}}>YouTube</a> · <a href="https://bsky.app/profile/danrossi2026.bsky.social" style={{color:"#fff"}}>Bluesky</a></p>
+<p style={{color:"#bbb",margin:"8px 0 0 0"}}>I am on the same 30 days, in public, one receipt a day. <a href="https://instagram.com/danrossi2026" style={{color:"#fff"}}>Instagram</a> · <a href="https://www.youtube.com/@DanRosa-u5v" style={{color:"#fff"}}>YouTube</a> · <a href="https://bsky.app/profile/danrossi2026.bsky.social" style={{color:"#fff"}}>Bluesky</a></p>
 </div>
 
 <a href={free} style={btn}>Start with the free template →</a>
