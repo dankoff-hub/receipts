@@ -20,7 +20,7 @@ const repliedAuthors = new Set(log.replies.map(r => r.author));
 const MTOK = process.env.MASTODON_TOKEN; // mastodon.social @danrossi2026 (write:statuses)
 const platformOf = l => l.src.includes("bluesky") ? "bluesky" : (l.src.includes("mastodon") && /^masto:\d+$/.test(l.id) ? "mastodon" : null);
 const fresh = leads.leads.filter(l => platformOf(l) && l.status === "new" && l.at && Date.now() - new Date(l.at) < 48 * 3600e3 && !repliedAuthors.has(l.sub)
-  && !/https?:\/\/|\$\d|\b(etsy|gumroad|app store|apps\.apple|play\.google|democrat|republican|trump|election)\b/i.test(l.text)) // skip sellers/apps/politics
+  && !/https?:\/\/|\w+\.(io|com|app|co|net|org)\b|\$\d|\b(etsy|gumroad|app store|apps\.apple|play\.google|see the code|democrat|republican|trump|election|giveaway|promo)\b/i.test(l.text)) // skip sellers/apps/politics
   .sort((a, b) => a.tier - b.tier || new Date(b.at) - new Date(a.at)).slice(0, Number(process.env.CLOSER_CONSIDER || 25));
 console.log(`closer: ${fresh.length} fresh bluesky/mastodon leads, ${sentToday}/${CAP} replies sent today, mode ${SEND && HANDLE && APP_PW ? "SEND (founder-enabled)" : "DRAFT-ONLY"}`);
 // pace: founder cap per UTC day (CLOSER_DAILY_CAP) spread over the cycles of the day (CLOSER_PER_CYCLE) so the account never bursts
@@ -39,17 +39,18 @@ for (const lead of fresh) {
   if (budget <= 0) { console.log("closer: daily cap reached"); break; }
   const mark = (status, why, extra = {}) => { lead.status = status; (status === "sent" ? log.replies : log.skipped).push({ at: new Date().toISOString(), id: lead.id, url: lead.url, author: lead.sub, tier: lead.tier, why, ...extra }); };
   // 1) relevance re-check — LLM must confirm a real, personal, current goal (rule regex over-matches idioms like "30 days to prove them wrong")
-  const chk = await chat(`A post: """${lead.text}""" Is the author personally, currently working on (or asking for help with) a habit, streak, 30-day challenge, discipline or accountability goal of their own? Reply JSON {"relevant":true|false,"wants_template":true|false,"why":"<10 words"}. wants_template=true only if they explicitly ask for a tracker/template/planner/pdf/system/link.`, { system: "Strict classifier. JSON only.", maxTokens: 120 });
+  const chk = await chat(`A post: """${lead.text}""" Is the author personally, currently working on (or asking for help with) a habit, streak, 30-day challenge, discipline or accountability goal of their own? Not relevant: creative/art posting series, product or portfolio promotion, news, politics, jokes without a real goal. Reply JSON {"relevant":true|false,"wants_template":true|false,"why":"<10 words"}. wants_template=true only if they explicitly ask for a tracker/template/planner/pdf/system/link.`, { system: "Strict classifier. JSON only.", maxTokens: 120 });
   const c = parseJSON(chk.text);
   if (!c) { mark("skipped", "no classifier available"); continue; }
   if (!c.relevant) { mark("skipped", "not a personal goal: " + (c.why || "")); continue; }
   // 2) draft — helpful first, product last, link only on explicit ask
   const askLink = lead.tier === 1 && c.wants_template;
-  const d = await chat(`Write a Bluesky reply (max 240 chars, plain text, no hashtags, no emojis, no quotes around it) to this post: """${lead.text}""". You are Dan, a regular guy who logs one honest line a day for 30 days ("receipts") to prove doubters wrong. Be specific to their post, give one concrete tactic, warm and brief, no sales language.${askLink ? ` End with: "Free one-page template if useful: ${FREE}"` : " Do NOT include any link or product mention."} Return JSON {"reply":"..."}.`, { system: "You write short, human, non-promotional replies. JSON only. " + skillHint("social-reply-and-comment-writer", 600) + " " + skillHint("openclaudia-bluesky", 300), maxTokens: 200 });
+  const d = await chat(`Write a Bluesky reply (max 240 chars, plain text, no hashtags, no emojis, no quotes around it) to this post: """${lead.text}""". You are Dan, a regular guy who logs one honest line a day for 30 days ("receipts") to prove doubters wrong. Reply like a friend who has been there: one specific, useful or lightly funny line about THEIR goal, then one concrete tactic they can use tomorrow. Never introduce yourself, never say "I'm Dan", never pitch, never mention receipts/30 days unless it answers their question.${askLink ? ` End with: "Free one-page template if useful: ${FREE}"` : " Do NOT include any link or product mention."} Return JSON {"reply":"..."}.`, { system: "You write short, human, non-promotional replies. JSON only. " + skillHint("social-reply-and-comment-writer", 600) + " " + skillHint("openclaudia-bluesky", 300), maxTokens: 200 });
   let reply = parseJSON(d.text)?.reply?.trim();
   if (!reply) { mark("skipped", "no draft"); continue; }
   // 3) self-check (DIRECTIVE §5 high-risk self-check): length, banned claims, no link unless allowed, no @-spam
   if (reply.length > 290) reply = reply.slice(0, 287).replace(/\s+\S*$/, "") + "…";
+  if (/^(hey|hi)?[,!\s]*(i'?m|i am|this is) dan\b/i.test(reply) || /prove them wrong, one/i.test(reply)) { mark("skipped", "self-check failed: self-intro/template", { draft: reply }); continue; }
   if (bad.test(reply) || (!askLink && /https?:\/\/|\.vercel\.app|\.com\b/i.test(reply)) || /@\w/.test(reply)) { mark("skipped", "self-check failed", { draft: reply }); continue; }
   const platform = platformOf(lead);
   if (!SEND || (platform === "bluesky" ? !(HANDLE && APP_PW) : !MTOK)) { mark("drafted", SEND ? "no creds" : "draft-only (set repo var CLOSER_SEND=1 to enable sending)", { draft: reply }); budget--; continue; }
