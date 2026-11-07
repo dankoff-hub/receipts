@@ -797,9 +797,33 @@
   "at://did:plc:2eahnnxuxearplzhxbwzjauz/app.bsky.feed.post/3mzqhj5npbc2g",
   "masto:117576372810536440",
   "masto:117576699809121331",
-  "masto:117576433058405742"
+  "masto:117576433058405742",
+  "at://did:plc:4gtbqv25kwjrvec7uvlezkhs/app.bsky.feed.post/3mzqqnrxd7k2i",
+  "lemmy:54115261",
+  "at://did:plc:klbgqgrlfq5ftay5viq5egpc/app.bsky.feed.post/3mzqrwvo6a22c",
+  "at://did:plc:t7iu44zzlg7istecjcjenpow/app.bsky.feed.post/3mzqnaghgtk2z",
+  "at://did:plc:ogyb6rgwozch4phnhqu7riqo/app.bsky.feed.post/3mzqpub3pgs25",
+  "at://did:plc:7imqavnxuxiijhyi2v7leftk/app.bsky.feed.post/3mzqrbwc4bz2q",
+  "at://did:plc:boh2ff5w277d672hkjabl3ug/app.bsky.feed.post/3mzqql62ebc22",
+  "at://did:plc:24fygc4bzcnqfqep33zsu4qr/app.bsky.feed.post/3mzqqjr4bpk2v",
+  "at://did:plc:hjjxqlbu23gd5wyiqbb5gyhz/app.bsky.feed.post/3mzqpfgvs6n2s",
+  "at://did:plc:ttlyg75cufhgzdbhy45g6gdu/app.bsky.feed.post/3mzqozsmnin2y",
+  "at://did:plc:fyhpq3dldft26foexvzs5onr/app.bsky.feed.post/3mzqmasd5zs2c",
+  "masto:117577169166150357",
+  "masto:117576885549021051"
  ],
  "leads": [
+  {
+   "src": "bluesky",
+   "id": "at://did:plc:ogyb6rgwozch4phnhqu7riqo/app.bsky.feed.post/3mzqpub3pgs25",
+   "url": "https://bsky.app/profile/hammelcamel.bsky.social/post/3mzqpub3pgs25",
+   "text": "Thanks! I want to make a #ttrpg - inspired to do / habit tracker app with some light combat mechanics and character leveling with some small skill trees 😁",
+   "sub": "hammelcamel.bsky.social",
+   "at": "2026-11-07T20:20:07.535Z",
+   "tier": 2,
+   "found": "2026-11-07T21:04:56.093Z",
+   "status": "skipped"
+  },
   {
    "src": "bluesky",
    "id": "at://did:plc:go4vpsisexwag2fpfm276hxg/app.bsky.feed.post/3mzqku3wfjc2d",

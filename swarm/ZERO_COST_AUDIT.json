@@ -1,5 +1,5 @@
 {
- "at": "2026-11-07T19:14:50.476Z",
+ "at": "2026-11-07T21:04:13.841Z",
  "pass": true,
  "checks": [
   {
@@ -15,7 +15,7 @@
   {
    "check": "card_free_edge_worker",
    "pass": true,
-   "detail": "Cloudflare Workers Free: https://receipts-swarm.tryuderzhi.workers.dev health=true; last scan=2026-11-07T18:06:04.097Z tier1=0 tier2=0"
+   "detail": "Cloudflare Workers Free: https://receipts-swarm.tryuderzhi.workers.dev health=true; last scan=2026-11-07T20:05:55.296Z tier1=0 tier2=0"
   },
   {
    "check": "card_free_posting",
