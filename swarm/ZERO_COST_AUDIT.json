@@ -1,5 +1,5 @@
 {
- "at": "2026-11-07T17:05:14.357Z",
+ "at": "2026-11-07T19:14:50.476Z",
  "pass": true,
  "checks": [
   {
@@ -15,7 +15,7 @@
   {
    "check": "card_free_edge_worker",
    "pass": true,
-   "detail": "Cloudflare Workers Free: https://receipts-swarm.tryuderzhi.workers.dev health=true; last scan=2026-11-07T16:05:56.230Z tier1=0 tier2=0"
+   "detail": "Cloudflare Workers Free: https://receipts-swarm.tryuderzhi.workers.dev health=true; last scan=2026-11-07T18:06:04.097Z tier1=0 tier2=0"
   },
   {
    "check": "card_free_posting",
@@ -36,6 +36,11 @@
    "check": "local_fallback_exists",
    "pass": true,
    "detail": "ollama_local on-demand install=enabled"
+  },
+  {
+   "check": "core_prompt_budget",
+   "pass": true,
+   "detail": "swarm/CORE.md ≈ 465 tokens (budget 500 soft / 700 hard)"
   }
  ]
 }

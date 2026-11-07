@@ -780,9 +780,37 @@
   "at://did:plc:u7h4if7d2caozvzgv4m5zrgj/app.bsky.feed.post/3mzq6hrgz622j",
   "at://did:plc:jxuq4wg675y3lf5kd7smzi44/app.bsky.feed.post/3mzqe5dvsde2l",
   "masto:117576224101939933",
-  "masto:117575890961588056"
+  "masto:117575890961588056",
+  "at://did:plc:2ktrio47vcx5j2ye54l2yij4/app.bsky.feed.post/3mzqhkauroc24",
+  "lemmy:54110232",
+  "lemmy:54112958",
+  "at://did:plc:tbbxejipwpp34ow6pb2wbaek/app.bsky.feed.post/3mzqh7jsjn72a",
+  "at://did:plc:alj36mvwwn2embjclem72sne/app.bsky.feed.post/3mzqgnndgqb2l",
+  "at://did:plc:p6kklue3q2ymkqulfliciuvv/app.bsky.feed.post/3mzqg3rtjv22d",
+  "at://did:plc:yrfiyvuzzny6j7uy2srrjdfw/app.bsky.feed.post/3mzqfgd46ir2h",
+  "at://did:plc:7imqavnxuxiijhyi2v7leftk/app.bsky.feed.post/3mzqlfrlclt2s",
+  "at://did:plc:wfmh3rgcvvah7drp3wd3rmmd/app.bsky.feed.post/3mzqilslvfpu2",
+  "at://did:plc:h3t5rqlvuaorq42yckpijirj/app.bsky.feed.post/3mzqgacerx22d",
+  "at://did:plc:q6wxondw54uzxr2ipz25x3wq/app.bsky.feed.post/3mzqfkxhq3s2m",
+  "at://did:plc:d4uffmque57w5y7qmjzxciud/app.bsky.feed.post/3mzqlog7uzk2l",
+  "at://did:plc:go4vpsisexwag2fpfm276hxg/app.bsky.feed.post/3mzqku3wfjc2d",
+  "at://did:plc:2eahnnxuxearplzhxbwzjauz/app.bsky.feed.post/3mzqhj5npbc2g",
+  "masto:117576372810536440",
+  "masto:117576699809121331",
+  "masto:117576433058405742"
  ],
  "leads": [
+  {
+   "src": "bluesky",
+   "id": "at://did:plc:go4vpsisexwag2fpfm276hxg/app.bsky.feed.post/3mzqku3wfjc2d",
+   "url": "https://bsky.app/profile/gsuter031.bsky.social/post/3mzqku3wfjc2d",
+   "text": "It's about damn time!! Females aren't lesser people, unless your a republican \"man\". They believe females should obey them and worship them. It's time to prove them wrong!!",
+   "sub": "gsuter031.bsky.social",
+   "at": "2026-11-07T18:50:33.408Z",
+   "tier": 2,
+   "found": "2026-11-07T19:16:12.357Z",
+   "status": "new"
+  },
   {
    "src": "bluesky",
    "id": "at://did:plc:nj5kjurpohbq4hlgnrz6rqqz/app.bsky.feed.post/3mzpvsqurtc2m",
