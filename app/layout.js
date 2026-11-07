@@ -1,7 +1,7 @@
-import { Fraunces, Inter } from "next/font/google";
+import localFont from "next/font/local"; // self-hosted (OFL) — CI no longer depends on fonts.googleapis.com
 import { C } from "./theme";
-const head = Fraunces({ subsets: ["latin"], weight: ["600", "700"], variable: "--font-head", display: "swap" });
-const body = Inter({ subsets: ["latin"], weight: ["400", "600", "700"], variable: "--font-body", display: "swap" });
+const head = localFont({ src: "./fonts/fraunces-var.woff2", weight: "100 900", variable: "--font-head", display: "swap" });
+const body = localFont({ src: "./fonts/inter-var.woff2", weight: "100 900", variable: "--font-body", display: "swap" });
 export const metadata = { title: "Receipts — Turn doubt into a standard", description: "A private system that turns rejection into a 30-day standard." };
 export const viewport = { themeColor: "#F6F1E8" };
 export default function L({ children }) {
