@@ -10,7 +10,7 @@
 | Mastodon posts/replies | mastodon.social account @danrossi2026 + app token (`MASTODON_TOKEN`) | `scripts/post-social.mjs`, `swarm/closer.mjs` | live |
 | Bluesky original posts | app password | `scripts/post-social.mjs` (slot a text, slot c photo) | live |
 | Publishing | Buffer Free (3 channels: TikTok, Instagram, YouTube) | `daily-tiktok.yml` slots 08/12/16/20 UTC | live |
-| Site + checkout | Vercel Hobby + Stripe (fees on sales only) | https://receipts-blond.vercel.app, payment link → `/pack?session_id=…` | live |
+| Site + checkout | Vercel Hobby + Stripe (fees on sales only) | https://receiptspack.vercel.app, payment link → `/pack?session_id=…` | live |
 | Postflare | — | skipped: Buffer already holds all channels; Postflare needs per-platform OAuth developer apps | n/a |
 
 Accounts created with the founder's Google login (tryuderzhi@gmail.com): Cloudflare, Groq, NVIDIA (key set 2026-11-06), Reddit u/danrossi2026 (API app blocked — see below). Secrets live only in GitHub Actions secrets; never in files or chat.

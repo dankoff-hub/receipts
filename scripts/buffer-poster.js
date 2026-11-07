@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Buffer → TikTok publisher. Free Buffer plan. Always shareNow. Strips # for TikTok captions.
 const fs = require("fs");
-const SITE = "https://receipts-blond.vercel.app";
+const SITE = "https://receiptspack.vercel.app";
 const KEY = process.env.BUFFER_API_KEY;
 if (!KEY) { console.log("BUFFER_API_KEY not set — publish skipped"); process.exit(0); }
 const b = JSON.parse(fs.readFileSync("state/publish-queue.json", "utf8"));

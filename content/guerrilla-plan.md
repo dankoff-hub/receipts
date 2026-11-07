@@ -38,7 +38,7 @@ Get 10,000+ views on the Day 1 video ("They said I wasn't ready") in 7 days, $0 
 - TikTok prioritizes comment replies in the algorithm.
 
 ### 8. QR code guerrilla (physical)
-- Print 50 small QR code stickers linking to receipts-blond.vercel.app/bio.
+- Print 50 small QR code stickers linking to receiptspack.vercel.app/bio.
 - Place them in high-traffic areas: coffee shops, co-working spaces, gyms, university campuses.
 - Keep them small and mysterious: "They said I wasn't ready. Scan to prove them wrong."
 

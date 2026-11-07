@@ -6,7 +6,7 @@ import fs from "node:fs";
 import crypto from "node:crypto";
 import { withLinkLine } from "./first-comment.mjs";
 const KEY = process.env.BUFFER_API_KEY;
-const SITE = process.env.APP_URL || "https://receipts-blond.vercel.app";
+const SITE = process.env.APP_URL || "https://receiptspack.vercel.app";
 const LOG = "content/post-log.json", LEDGER = "content/caption-ledger.json", CH = "instagram_photo";
 const load = (p, d) => { try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch { return d; } };
 if (!KEY) { console.log("BUFFER_API_KEY not set — skip"); process.exit(0); }

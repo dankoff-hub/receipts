@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Read-only customer-journey audit: page reachability + CTA links + Stripe checkout-session config (success_url, status). Prints no secrets.
-const SITE = process.env.APP_URL || "https://receipts-blond.vercel.app";
+const SITE = process.env.APP_URL || "https://receiptspack.vercel.app";
 const PAY = "https://buy.stripe.com/dRm7sEfUs0CQbscfSx3840a";
 const pages = ["/", "/bio?src=ig", "/free?src=ig", "/free/sheet?src=ig", "/pricing", "/pack"];
 for (const p of pages) {

@@ -9,7 +9,7 @@ jobs:
       STRIPE_API_KEY: ${{ secrets.STRIPE_API_KEY }}
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
       GH_TOKEN: ${{ github.token }}
-      APP_URL: https://receipts-blond.vercel.app
+      APP_URL: https://receiptspack.vercel.app
       SECRET_OUT: /tmp/whsec
     steps:
       - uses: actions/checkout@v4

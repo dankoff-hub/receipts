@@ -12,7 +12,7 @@
 | Discipline OS / The Selfwork Club (free tier) — https://reviewmember.com/category/personal-development/ | discipline, focus, consistency |
 
 **How the founder works it (15 min/day):**
-1. Join with your real identity (Skool forbids shared/bot accounts). Profile bio: "30 days of receipts — free one-page tracker: receipts-blond.vercel.app/free?src=skool". That is the only place the link lives.
+1. Join with your real identity (Skool forbids shared/bot accounts). Profile bio: "30 days of receipts — free one-page tracker: receiptspack.vercel.app/free?src=skool". That is the only place the link lives.
 2. Daily: 2–3 comments from `content/skool-queue.md` (comment templates), adapted to the actual post. Never paste identical text twice.
 3. Weekly: one value post from the queue (story → standard → daily one-line log → question). No link, no product name.
 4. When someone asks "what tracker do you use?" answer in-thread with the method; point to the profile only if they ask for the file.

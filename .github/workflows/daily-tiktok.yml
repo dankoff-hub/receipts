@@ -27,7 +27,7 @@ jobs:
     env:
       GH_TOKEN: ${{ github.token }}
       BUFFER_API_KEY: ${{ secrets.BUFFER_API_KEY }}
-      APP_URL: https://receipts-blond.vercel.app
+      APP_URL: https://receiptspack.vercel.app
       ONLY_CHANNELS: ${{ inputs.channels }}
       STRIPE_API_KEY: ${{ secrets.STRIPE_API_KEY }}
       SWARM_WORKER_URL: ${{ vars.SWARM_WORKER_URL }}

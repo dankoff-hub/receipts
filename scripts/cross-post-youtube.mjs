@@ -5,7 +5,7 @@
 import fs from "node:fs";
 import crypto from "node:crypto";
 const KEY = process.env.BUFFER_API_KEY;
-const SITE = process.env.APP_URL || "https://receipts-blond.vercel.app";
+const SITE = process.env.APP_URL || "https://receiptspack.vercel.app";
 const file = process.argv[2] || "public/videos/day-001.mp4";
 const videoUrl = `${SITE}/videos/${file.split("/").pop()}`;
 

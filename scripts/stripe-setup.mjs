@@ -3,7 +3,7 @@
 // 1) payment link after_completion -> redirect to /pack?session_id={CHECKOUT_SESSION_ID}
 // 2) webhook endpoint for checkout.session.completed + async_payment_succeeded/failed -> prints NEW_WEBHOOK_SECRET=1 and writes the secret to a file for the workflow to push into Vercel env
 import fs from "node:fs";
-const KEY = process.env.STRIPE_API_KEY, SITE = process.env.APP_URL || "https://receipts-blond.vercel.app";
+const KEY = process.env.STRIPE_API_KEY, SITE = process.env.APP_URL || "https://receiptspack.vercel.app";
 const PLINK_URL = "https://buy.stripe.com/dRm7sEfUs0CQbscfSx3840a";
 // Currency-neutral on purpose: Adaptive Pricing shows UK/EU buyers a local price (e.g. £22.59), so "$29" here would contradict the total.
 const SUBMIT_NOTE = "Instant access: your pack opens right after payment. One-time payment, no subscription.";

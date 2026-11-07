@@ -35,10 +35,10 @@ const TK = [
 ];
 const URL = "receiptspack.vercel.app/free";
 const IG = [
-  (h, c, t) => `${h}\n\n${c}\n\n30 days. One standard. Proof you can hold.\n\n${t}`,
-  (h, c, t) => `${h}\n\nOne receipt, one measurable standard, thirty days of evidence.\n${c}\n\n${t}`,
-  (h, c, t) => `${h}\n\n${c}\nSave this. Start tomorrow: ${URL}\n\n${t}`,
-  (h, c, t) => `${h}\n\n${c}\n\nFollow for day ${day + 1}.\n\n${t}`,
+  (h, c, t) => `${h}\n\n${c}\n\n${t}`,
+  (h, c, t) => `${h}\n\n${c}\n\n${t}`,
+  (h, c, t) => `${h}\n\n${c}\n\n${t}`,
+  (h, c, t) => `${h}\n\n${c}\n\n${t}`,
 ];
 const YT = [
   (h, c, t) => `${h}\n\n${c}\nFree Step 1 template: https://${URL}\n\n${t} #shorts`,
@@ -56,9 +56,11 @@ function build(bank, tagsKey, seed) {
     // Tappable-path rule: a URL on screen or in an IG/TikTok caption is not tappable. Say only what the thumb can hit on THIS platform.
     if (tagsKey === "tiktok" && bank === TK) caption = caption.replace(/link in bio\.?/gi, `free Step 1 at ${URL} (also in the first comment).`).replace(/link in my profile\.?/gi, `free Step 1 at ${URL} (also in the first comment).`);
     if (bank === YT) caption = caption.replace(/link in bio\.?/gi, `link in the description: https://${URL}`).replace(/link in my profile\.?/gi, `link in the description: https://${URL}`);
-    if (bank === IG) caption = caption.replace(/link in my profile\.?/gi, "link in bio.");
+    if (bank === IG) { caption = caption.replace(/link in my profile\.?/gi, "link in bio.");
+      // ONE ask per caption: if the CTA already points to the bio, a follow line competes with it
+      if (/bio/i.test(caption)) caption = caption.replace(/\n*Follow for day \d+( tomorrow)?\.?/gi, ""); }
     if (attempt > 8) caption += `\n\nDay ${day}.`; // last-resort uniqueness marker
-    if (!/follow/i.test(caption)) caption = caption.replace(/\n\n(#[^\n]*)$/, `\n\nFollow for day ${day + 1} tomorrow.\n\n$1`); // followers first
+    // 2026-11-07: no auto-appended follow line — the CTA bank line is the single ask
     if (meta.avatar) caption += `\n\n${AI_NOTE} #aiavatar`;
     if (!ledger.used.includes(md5(caption))) return caption;
   }
@@ -71,7 +73,7 @@ function build(bank, tagsKey, seed) {
 const tiktok = build(TK, "tiktok", day);
 const instagram = build(IG, "instagram", day + 1);
 const youtube = build(YT, "tiktok", day + 2);
-const ytTitle = (meta.day ? `Day ${day}: ${hook}` : hook).slice(0, 100);
+const ytTitle = hook.slice(0, 100); // 2026-11-07: no "Day N:" prefix in titles — reads like episode 40 of a show nobody has seen
 
 meta.captions = { tiktok, instagram, youtube, ytTitle };
 meta.caption = tiktok; // backward compat for any single-caption consumer

@@ -25,6 +25,8 @@ and replies.
 | Bluesky / Mastodon | API, GitHub swarm | no outreach (no prospects there) | — | posted by revenue-swarm; no DM sweep |
 
 Route order per prospect: Instagram → Substack (newsletter kinds) → email (if public address) → TikTok → YouTube comment.
+
+**First message rule (2026-11-07, after the Substack suspension): the first message NEVER contains a link or an offer.** It is a 1-2 line, specific compliment plus a question ("do you take partner collabs?"). The full offer + partner link goes only in the second message, after they reply. No links in cold YouTube/TikTok comments either — links get held and accounts flagged. `drafts.dm_opener` is the first message; `drafts.dm_followup` (formerly `dm`) is the reply copy.
 One route per prospect; never two platforms for the same person on the same day.
 
 ## Per-window procedure

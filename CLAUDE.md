@@ -6,10 +6,10 @@ Handover context for Claude (Code or chat). Read this first; it is the full oper
 
 **Receipts Pack** — $29 one-time digital product (B2C). A 30-day system that turns rejection/spite into a measurable standard: receipt → standard → 30-day proof plan → Arrival Check → 7-day bridge.
 
-- Landing: https://receipts-blond.vercel.app
-- Bio page (TikTok/Instagram bio link): https://receipts-blond.vercel.app/bio
+- Landing: https://receiptspack.vercel.app
+- Bio page (TikTok/Instagram bio link): https://receiptspack.vercel.app/bio
 - Stripe payment link ($29, live): https://buy.stripe.com/dRm7sEfUs0CQbscfSx3840a
-- Delivery: Stripe redirect → https://receipts-blond.vercel.app/pack?session_id={CHECKOUT_SESSION_ID} (verified paid via Stripe API; fallback /pack email form). Content lives in PRIVATE repo dankoff-hub/receipts-pack, bundled at deploy time (deploy.yml, PACK_DEPLOY_KEY) into lib/pack-bundle.json (placeholder in git). Old unlisted /pack/tkkgjvizitzg removed 2026-11-06 (leaked when repo went public).
+- Delivery: Stripe redirect → https://receiptspack.vercel.app/pack?session_id={CHECKOUT_SESSION_ID} (verified paid via Stripe API; fallback /pack email form). Content lives in PRIVATE repo dankoff-hub/receipts-pack, bundled at deploy time (deploy.yml, PACK_DEPLOY_KEY) into lib/pack-bundle.json (placeholder in git). Old unlisted /pack/tkkgjvizitzg removed 2026-11-06 (leaked when repo went public).
 - Repo (private): https://github.com/dankoff-hub/receipts
 - TikTok: @dan.rosa71 (new account 2026-11-06; old @user6155581825874 banned; Buffer channel 6aee32c6e29c69a1718774ff) · Instagram: connected via Buffer (same video pipeline)
 
@@ -68,8 +68,8 @@ gh api repos/dankoff-hub/receipts/actions/jobs/$J/logs | sed 's/\x1b\[[0-9;]*m//
 echo '[{"video":"day-001.mp4","when":"now"}]' > state/publish-queue.json
 
 # Site checks (expect: 200 text/html, 200 video/mp4, 200 application/json)
-curl -sI https://receipts-blond.vercel.app/bio | head -1
-curl -sI https://receipts-blond.vercel.app/videos/day-001.mp4 | head -1
+curl -sI https://receiptspack.vercel.app/bio | head -1
+curl -sI https://receiptspack.vercel.app/videos/day-001.mp4 | head -1
 ```
 
 ## Constraints (user-standing)
@@ -126,7 +126,7 @@ curl -sI https://receipts-blond.vercel.app/videos/day-001.mp4 | head -1
 ## 2026-11-06 — Growth model + 4-slot pipeline
 - `scripts/growth-model.py` = Monte Carlo revenue model (benchmarks in content/growth-plan.md). Runs daily in audience-watch.yml, comments on the audience issue, writes content/growth-model.json.
 - daily-tiktok.yml now has 4 slots (08/12/16/20 UTC → suffix "", b, c, d; idx = N*4+S). publish-pending caps: TikTok 2, Instagram 4, YouTube 4.
-- Every video carries an on-screen URL (receipts-blond.vercel.app/free); YT/IG captions include the URL.
+- Every video carries an on-screen URL (receiptspack.vercel.app/free); YT/IG captions include the URL.
 - Founder-owned levers (Stripe price ladder, email service, $197 cohort, $3k creator seeding, 30 min/day community time) are in content/growth-plan.md — swarm must not do payments/legal.
 
 ## 2026-11-06 — TikTok ban
@@ -239,3 +239,4 @@ curl -sI https://receipts-blond.vercel.app/videos/day-001.mp4 | head -1
 ## 2026-11-07 — Stripe payment link simplified (founder-approved in chat)
 - `scripts/stripe-setup.mjs` steps 1b/1c (idempotent): cleared `custom_fields` (the "Immediate access" dropdown that doubled as the withdrawal-waiver consent), `submit_type: pay`, submit note; then `consent_collection[terms_of_service]=required` with `custom_text[terms_of_service_acceptance]` = waiver wording → one checkbox replaces the dropdown. Lesson: on this link the dropdown WAS the legal consent control — never remove a consent mechanism without restoring one in the same run. Adaptive Pricing has no Payment Link API field (Dashboard only). Journey check after change: all 200, mobile QA no issues, checkout = email + method + 1 checkbox + Pay.
 - 2026-11-07 evening, end-to-end channel check (all platforms, off-window test posts): Buffer free plan rejects Instagram `firstComment` ("requires a paid plan") — all IG lanes failed for one slot; fix = link line appended to the caption (`withLinkLine` in scripts/first-comment.mjs), never pass firstComment. `publish-pending` repeat guard now skips the video, not the channel. `git-push-safe.sh` uses `rebase --autostash` (a ledger push died on unstaged files and silently lost an IG post-log entry; restored by hand from the run log). TikTok first comments are posted by the 13:15 automation; for posts published after that window, add the comment manually or the caption's "(first comment)" promise is empty.
+- 2026-11-07 post-quality pass (founder "execute" on the 10 improvements): renderer — hook card ≤1.3s (was up to 2.4s), voice starts inside the first second, caption chunks never cross a clause boundary, end card 1s (was 2s), ONE on-screen ask per video (follow OR template, never both). Captions — CTA bank has no price (the page sells), no auto "follow" line, YT title has no "Day N:" prefix. Domain — everything now points at receiptspack.vercel.app (old receipts-blond kept only as a working alias). First comments now carry a question + link (firstCommentWithQuestion), and the 13:15 TikTok automation was updated to use it and to answer replies. post-social prompts are on-niche only (discipline/careers/proof) and demand a concrete receipt, not a feeling. Outreach: first message never contains a link (Substack suspension lesson) — drafts.dm_opener / dm_followup split.

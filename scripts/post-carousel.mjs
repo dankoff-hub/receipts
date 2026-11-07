@@ -5,7 +5,7 @@ import fs from "node:fs";
 import crypto from "node:crypto";
 import { withLinkLine } from "./first-comment.mjs";
 const KEY = process.env.BUFFER_API_KEY;
-const SITE = process.env.APP_URL || "https://receipts-blond.vercel.app";
+const SITE = process.env.APP_URL || "https://receiptspack.vercel.app";
 const dir = process.argv[2]; const name = dir.split("/").pop();
 const meta = JSON.parse(fs.readFileSync(dir + ".json", "utf8"));
 const urls = Array.from({ length: meta.slides }, (_, i) => `${SITE}/carousels/${name}/${i + 1}.png`);

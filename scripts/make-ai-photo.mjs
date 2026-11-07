@@ -7,7 +7,7 @@
 import fs from "node:fs";
 import crypto from "node:crypto";
 import { execSync } from "node:child_process";
-const WORKER = process.env.SWARM_WORKER_URL, KEY = process.env.SWARM_KEY, SITE = process.env.APP_URL || "https://receipts-blond.vercel.app";
+const WORKER = process.env.SWARM_WORKER_URL, KEY = process.env.SWARM_KEY, SITE = process.env.APP_URL || "https://receiptspack.vercel.app";
 const load = (p, d) => { try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch { return d; } };
 const save = (p, o) => fs.writeFileSync(p, JSON.stringify(o, null, 1));
 const today = new Date(), day = today.toISOString().slice(0, 10), ymd = day.replace(/-/g, "");

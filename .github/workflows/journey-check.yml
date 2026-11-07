@@ -12,7 +12,7 @@ jobs:
   check:
     runs-on: ubuntu-latest
     timeout-minutes: 12
-    env: { STRIPE_API_KEY: "${{ secrets.STRIPE_API_KEY }}", APP_URL: https://receipts-blond.vercel.app }
+    env: { STRIPE_API_KEY: "${{ secrets.STRIPE_API_KEY }}", APP_URL: https://receiptspack.vercel.app }
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4

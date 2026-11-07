@@ -1,6 +1,6 @@
 import fs from "node:fs";
 import { execSync } from "node:child_process";
-const SITE = "https://receipts-blond.vercel.app";
+const SITE = "https://receiptspack.vercel.app";
 let md = fs.readFileSync("content/launch-scripts.md", "utf8");
 if (fs.existsSync("content/forge-scripts.md")) md += "\n" + fs.readFileSync("content/forge-scripts.md", "utf8");
 const scripts = [...md.matchAll(/## (\d+)\. (.+)\n- Hook[^\n]*\n(?:- Say: (.+)\n)?- Body: (.+)\n- CTA: (.+)/g)].map(m => ({ n: +m[1], hook: m[2], body: m[4], cta: m[5], say: m[3] }));

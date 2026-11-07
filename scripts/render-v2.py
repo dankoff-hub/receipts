@@ -68,7 +68,7 @@ async def tts(text, mp3):
 
 def render(hook, speech, url, day, out, seed=0, variant=None):
     variant = dict({"voice": "on", "music": "off", "bg": "gradient"}, **(variant or {}))
-    HOOK_T = min(2.4, max(1.4, 0.26 * len(hook.split()) + 0.5))  # time to read the hook card at ~4 words/s
+    HOOK_T = min(1.3, max(0.6, 0.18 * len(hook.split()) + 0.3))  # 2026-11-07: hook card max 1.3s; voice must be speaking within the first second (retention fix)
     MIN_SHOW = 1.1  # a caption phrase never stays on screen less than this
     rng = random.Random(seed * 7919 + 17)
     os.makedirs("/tmp/vid", exist_ok=True); mp3 = "/tmp/vid/voice.mp3"
@@ -85,7 +85,7 @@ def render(hook, speech, url, day, out, seed=0, variant=None):
     else:
         variant["music"] = "on"  # never a silent video
         adur = max(9.0, min(26.0, len(speech.split()) / 2.0))  # reading pace ≈ 2.0 words/s (comfortable)
-    dur = HOOK_T + adur + 2.0
+    dur = HOOK_T + adur + 1.0  # 2026-11-07: 1s end card (2s killed completion on 15s videos)
     # ---- music
     music = pick_music(rng) if variant["music"] == "on" else None
     if music: meta["music"] = {"id": music["id"], "mood": music.get("mood"), "title": music.get("title")}
@@ -127,9 +127,11 @@ def render(hook, speech, url, day, out, seed=0, variant=None):
         if cur: clauses.append(cur)
         phrases = []  # (words, is_clause_end)
         for cl in clauses:
-            chars = len(" ".join(x[2] for x in cl)); n = max(1, math.ceil(len(cl) / 5), math.ceil(chars / 24))
-            size = math.ceil(len(cl) / n)
-            chunks = [cl[a:a + size] for a in range(0, len(cl), size)]
+            # 2026-11-07: a chunk must never cross a sentence/clause end — chunk only INSIDE the clause
+            chunks = [cl]
+            while any(len(" ".join(w[2] for w in ch)) > 30 or len(ch) > 6 for ch in chunks):
+                chunks = [c for ch in chunks for c in (ch if len(ch) == 1 else [ch[:len(ch)//2], ch[len(ch)//2:]])]
+                # never re-split at a position that would break a comma run — clauses are already short; halves stay on the same sentence
             for ci, ch in enumerate(chunks): phrases.append((ch, ci == len(chunks) - 1))
         # merge a phrase that would flash by (< MIN_SHOW) into the previous one, never across a clause end
         merged = []
@@ -142,7 +144,7 @@ def render(hook, speech, url, day, out, seed=0, variant=None):
         for li, ph in enumerate(merged):
             st = max(ph[0][0] + HOOK_T, prev_end)
             nat_en = (merged[li + 1][0][0] + HOOK_T) if li + 1 < len(merged) else adur + HOOK_T + 0.6
-            en = min(max(nat_en, st + MIN_SHOW), dur - 2.0); st = min(st, en - 0.3); times.append((st, en)); prev_end = en  # never run into the end card
+            en = min(max(nat_en, st + MIN_SHOW), dur - 1.0); st = min(st, en - 0.3); times.append((st, en)); prev_end = en  # never run into the end card
         for li, ph in enumerate(merged):
             st, en = times[li]
             txt = " ".join(w[2] for w in ph)
@@ -164,18 +166,18 @@ def render(hook, speech, url, day, out, seed=0, variant=None):
                 f.append(f"drawtext=fontfile={FONT}:textfile={p}:fontcolor=white:fontsize=64:borderw=6:bordercolor=black@0.7:x=(w-text_w)/2:y=(h-{tot})/2+{j*lh}:enable='between(t,{t0:.2f},{t0+seg:.2f})'")
             t0 += seg
     # persistent brand + URL, end card
-    f.append(f"drawtext=fontfile={FONT}:text='RECEIPTS  ·  DAY {day}':fontcolor=0xcccccc:fontsize=34:x=(w-text_w)/2:y=h-230:enable='lt(t,{dur-2:.2f})'")
-    f.append(f"drawtext=fontfile={FONT}:text='{esc(url)}':fontcolor=0xf2c94c:fontsize=42:borderw=4:bordercolor=black@0.6:x=(w-text_w)/2:y=h-170:enable='lt(t,{dur-2:.2f})'")
+    f.append(f"drawtext=fontfile={FONT}:text='RECEIPTS  ·  DAY {day}':fontcolor=0xcccccc:fontsize=34:x=(w-text_w)/2:y=h-230:enable='lt(t,{dur-1:.2f})'")
+    f.append(f"drawtext=fontfile={FONT}:text='{esc(url)}':fontcolor=0xf2c94c:fontsize=42:borderw=4:bordercolor=black@0.6:x=(w-text_w)/2:y=h-170:enable='lt(t,{dur-1:.2f})'")
     if variant.get("cta") == "follow":  # follow-first end card
-        f.append(f"drawtext=fontfile={FONT}:text='FOLLOW':fontcolor=0xf2c94c:fontsize=120:borderw=6:bordercolor=black@0.5:x=(w-text_w)/2:y=h/2-200:enable='gte(t,{dur-2:.2f})'")
-        f.append(f"drawtext=fontfile={FONT}:text='for day {day+1} tomorrow':fontcolor=white:fontsize=64:x=(w-text_w)/2:y=h/2-40:enable='gte(t,{dur-2:.2f})'")
-        f.append(f"drawtext=fontfile={FONT}:text='Free Step 1 template \\: link in my profile':fontcolor=0xcccccc:fontsize=38:x=(w-text_w)/2:y=h/2+90:enable='gte(t,{dur-2:.2f})'")
-        f.append(f"drawtext=fontfile={FONT}:text='or type {esc(url)}':fontcolor=0x999999:fontsize=32:x=(w-text_w)/2:y=h/2+145:enable='gte(t,{dur-2:.2f})'")
+        f.append(f"drawtext=fontfile={FONT}:text='FOLLOW':fontcolor=0xf2c94c:fontsize=120:borderw=6:bordercolor=black@0.5:x=(w-text_w)/2:y=h/2-200:enable='gte(t,{dur-1:.2f})'")
+        f.append(f"drawtext=fontfile={FONT}:text='for day {day+1} tomorrow':fontcolor=white:fontsize=64:x=(w-text_w)/2:y=h/2-40:enable='gte(t,{dur-1:.2f})'")
+        # 2026-11-07: ONE ask per video (this variant = follow; the template CTA variant keeps the URL card only)
+        f.append(f"drawtext=fontfile={FONT}:text='or type {esc(url)}':fontcolor=0x999999:fontsize=32:x=(w-text_w)/2:y=h/2+90:enable='gte(t,{dur-1:.2f})'")
     else:
-        f.append(f"drawtext=fontfile={FONT}:text='Free Step 1 template':fontcolor=white:fontsize=68:x=(w-text_w)/2:y=h/2-200:enable='gte(t,{dur-2:.2f})'")
-        f.append(f"drawtext=fontfile={FONT}:text='LINK IN MY PROFILE':fontcolor=0xf2c94c:fontsize=76:borderw=6:bordercolor=black@0.5:x=(w-text_w)/2:y=h/2-90:enable='gte(t,{dur-2:.2f})'")
-        f.append(f"drawtext=fontfile={FONT}:text='or type {esc(url)}':fontcolor=0x999999:fontsize=32:x=(w-text_w)/2:y=h/2+30:enable='gte(t,{dur-2:.2f})'")
-        f.append(f"drawtext=fontfile={FONT}:text='Follow for day {day+1}':fontcolor=0xcccccc:fontsize=48:x=(w-text_w)/2:y=h/2+120:enable='gte(t,{dur-2:.2f})'")
+        # 2026-11-07: ONE ask per video (this variant = free template); no competing "follow" line
+        f.append(f"drawtext=fontfile={FONT}:text='Free Step 1 template':fontcolor=white:fontsize=68:x=(w-text_w)/2:y=h/2-200:enable='gte(t,{dur-1:.2f})'")
+        f.append(f"drawtext=fontfile={FONT}:text='LINK IN MY PROFILE':fontcolor=0xf2c94c:fontsize=76:borderw=6:bordercolor=black@0.5:x=(w-text_w)/2:y=h/2-90:enable='gte(t,{dur-1:.2f})'")
+        f.append(f"drawtext=fontfile={FONT}:text='or type {esc(url)}':fontcolor=0x999999:fontsize=32:x=(w-text_w)/2:y=h/2+30:enable='gte(t,{dur-1:.2f})'")
     f.append("vignette=PI/4")
     vf = ",".join(f)
     # ---- inputs: 0 = background, then audio inputs
@@ -189,7 +191,7 @@ def render(hook, speech, url, day, out, seed=0, variant=None):
     if music:
         gain = -16 if variant["voice"] == "on" else -7
         cmd += ["-stream_loop", "-1", "-i", music["file"]]
-        fc.append(f"[{ai}:a]atrim=0:{dur:.2f},volume={gain}dB,afade=t=in:st=0:d=0.8,afade=t=out:st={dur-1.5:.2f}:d=1.5,aformat=sample_rates=44100:channel_layouts=stereo[ma]"); mixes.append("[ma]"); ai += 1
+        fc.append(f"[{ai}:a]atrim=0:{dur:.2f},volume={gain}dB,afade=t=in:st=0:d=0.8,afade=t=out:st={dur-1.0:.2f}:d=1.0,aformat=sample_rates=44100:channel_layouts=stereo[ma]"); mixes.append("[ma]"); ai += 1
     if len(mixes) == 2: fc.append(f"{mixes[0]}{mixes[1]}amix=inputs=2:duration=first:dropout_transition=0:normalize=0[a]")
     else: fc.append(f"{mixes[0]}acopy[a]")
     cmd += ["-filter_complex", ";".join(fc), "-map", "[v]", "-map", "[a]", "-c:v", "libx264", "-preset", "veryfast", "-pix_fmt", "yuv420p",

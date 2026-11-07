@@ -1,7 +1,7 @@
 // Schedules today's video to TikTok via Buffer (free plan) GraphQL API. Needs BUFFER_API_KEY.
 import fs from "node:fs";
 import crypto from "node:crypto";
-const KEY = process.env.BUFFER_API_KEY; const SITE = process.env.APP_URL || "https://receipts-blond.vercel.app";
+const KEY = process.env.BUFFER_API_KEY; const SITE = process.env.APP_URL || "https://receiptspack.vercel.app";
 const file = process.argv[2];
 const meta = JSON.parse(fs.readFileSync(file + ".json", "utf8"));
 const videoUrl = `${SITE}/videos/${file.split("/").pop()}`;

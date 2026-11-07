@@ -7,7 +7,7 @@ import fs from "node:fs";
 import crypto from "node:crypto";
 import { withLinkLine } from "./first-comment.mjs";
 const KEY = process.env.BUFFER_API_KEY;
-const SITE = process.env.APP_URL || "https://receipts-blond.vercel.app";
+const SITE = process.env.APP_URL || "https://receiptspack.vercel.app";
 const file = process.argv[2] || "public/videos/day-001.mp4";
 const videoUrl = `${SITE}/videos/${file.split("/").pop()}`;
 let caption = "They said I wasn't ready. So I kept the receipt.\n\nNot to send them. To prove it.\n\nOne receipt, one measurable standard, thirty days of evidence.\n\nThat is the whole system.\n\n$29 · link in bio\n\n#provethemwrong #selfimprovement #careertok #motivation #discipline #30daychallenge #receipts";

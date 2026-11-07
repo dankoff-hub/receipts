@@ -3,7 +3,7 @@
 // Runs comment hijacking, Reddit seeding, cross-posting, trend monitoring
 import fs from "node:fs";
 const KEY = process.env.BUFFER_API_KEY;
-const SITE = "https://receipts-blond.vercel.app";
+const SITE = "https://receiptspack.vercel.app";
 const log = (m) => console.log(`[guerrilla] ${m}`);
 
 // 1. Generate comment templates for hijacking
