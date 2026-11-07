@@ -371,5 +371,33 @@
   "why": null,
   "captionHash": "73ef99de2ced76308382492bc5343c66",
   "video": "ai-20261107-receipt-notebook.jpg"
+ },
+ {
+  "ts": "2026-11-07T16:30:10.145Z",
+  "channel": "tiktok",
+  "postId": "6aef520751492b796ee9cf08",
+  "dueAt": "2026-11-07T16:29:59.473Z",
+  "status": "sent",
+  "video": "day-003.mp4",
+  "day": 3,
+  "captionHash": "5fbff81c4fced8ad3e637aecd0b991f6"
+ },
+ {
+  "ts": "2026-11-07T16:30:11.207Z",
+  "channel": "instagram",
+  "postId": null,
+  "status": "failed",
+  "video": "day-005c.mp4",
+  "day": 5,
+  "captionHash": "85cd0d98d1e247b2f415fd6c7762179f"
+ },
+ {
+  "ts": "2026-11-07T16:30:14.663Z",
+  "channel": "youtube",
+  "postId": "6aef5214004e4879a76914d5",
+  "status": "sent",
+  "video": "day-005c.mp4",
+  "day": 5,
+  "captionHash": "27bf8f7f77ef1d6f371ce56bd92ca057"
  }
 ]
