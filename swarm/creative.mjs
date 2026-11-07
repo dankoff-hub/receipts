@@ -29,7 +29,11 @@ if (!Array.isArray(concepts) || concepts.length < 3) { // deterministic fallback
 // brand guard: concepts must be about the product's world (doubt → one standard → 30 days of proof) and never creator-economy filler
 const ON = /(proof|prove|30[- ]day|doubt|streak|one standard|said (i|you) couldn|accountab|discipline|habit|excuse|consisten|daily line|showed up)/i;
 const OFF = /(ad spend|subscriber|follower|algorithm|influencer|monetiz|\bviews\b|youtube|tiktok|\breels?\b|content creator|brand deal|toolkit|growth hack|refurbish|\bpc\b|\bdell\b|laptop|gadget|unboxing|coupon|\$(?!29\b)\d+)/i;
-concepts = concepts.filter(c => c.hook && c.say && !ledger.has(md5(c.hook + "|" + c.say)) && !/^they said/i.test(c.hook) && ON.test(c.hook + " " + c.say + " " + c.body) && !OFF.test(c.hook + " " + c.say + " " + c.body)).slice(0, 9);
+const rejected = [];
+concepts = concepts.filter(c => { const all = `${c.hook} ${c.say} ${c.body} ${c.cta || ""}`, core = `${c.hook} ${c.say} ${c.body}`;
+  const why = !c.hook || !c.say ? "empty" : ledger.has(md5(c.hook + "|" + c.say)) ? "dup" : /^they said/i.test(c.hook) ? "they-said" : !ON.test(all) ? "off-world" : OFF.test(core) ? "off-brand:" + core.match(OFF)[0] : null;
+  if (why) rejected.push(`${why} ← ${c.hook}`); return !why; }).slice(0, 9);
+if (rejected.length) console.log("creative rejected:\n  " + rejected.join("\n  "));
 if (concepts.length < 3) { console.log(`creative: only ${concepts.length} on-brand concepts from ${r.provider} — keeping queue as is`); process.exit(0); }
 if (replacingTemplates && r.provider === "template") { console.log("creative: still template — keeping existing"); process.exit(0); }
 if (replacingTemplates) { const old = new Set(todays.map(c => c.id)); C.hooks = C.hooks.filter(h => !old.has(h)); }
