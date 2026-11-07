@@ -12,23 +12,25 @@
    "auth": "GROQ_API_KEY secret (optional)",
    "limit": "14,400 req/day",
    "cooldown_until": 0,
-   "calls": 43,
-   "fails": 1
+   "calls": 48,
+   "fails": 2,
+   "last_error": "400 {\"error\":{\"message\":\"'messages' must contain the word 'json' in some form, to use 'response_format' of type 'json_object'.\",\"type\":\"invalid_request_error\"}}\n"
   },
   "nvidia_nim": {
    "card": false,
    "auth": "NVIDIA_API_KEY secret (set 2026-11-06); model google/gemma-4-31b-it (llama-3.x EOL on NIM)",
    "limit": "~40 RPM",
-   "cooldown_until": 0,
+   "cooldown_until": 1794014383069,
    "calls": 0,
-   "fails": 1
+   "fails": 2,
+   "last_error": "This operation was aborted"
   },
   "pollinations": {
    "card": false,
    "auth": "none (anonymous)",
    "limit": "rate-limited anonymous",
    "cooldown_until": 0,
-   "calls": 18,
+   "calls": 19,
    "fails": 7
   },
   "ollama_local": {
@@ -54,6 +56,6 @@
   "qwen": "device-code OAuth — founder-only login",
   "puter": "browser session — founder-only login"
  },
- "rotation_offset": 3,
- "updated": "2026-11-07T00:58:16.539Z"
+ "rotation_offset": 0,
+ "updated": "2026-11-07T01:06:11.265Z"
 }

@@ -711,9 +711,22 @@
   "at://did:plc:fg7td6bsf7eby3onwl63et4q/app.bsky.feed.post/3mzlz366ejk2g",
   "at://did:plc:7tsjm2sw3ib5se5r66modfb4/app.bsky.feed.post/3mzoie2fkdc2g",
   "at://did:plc:nspncuxik6xw67jckhqgw5en/app.bsky.feed.post/3mznk7qdimn2e",
-  "lemmy:54083919"
+  "lemmy:54083919",
+  "at://did:plc:wbykovtf454zxg2tnpgcqli7/app.bsky.feed.post/3mzoownvnow24",
+  "at://did:plc:dc6nwhjqq227tpbqjlmkihka/app.bsky.feed.post/3mzop2d7c262e"
  ],
  "leads": [
+  {
+   "src": "bluesky",
+   "id": "at://did:plc:wbykovtf454zxg2tnpgcqli7/app.bsky.feed.post/3mzoownvnow24",
+   "url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mzoownvnow24",
+   "text": "I’m Dan, logging one honest line a day for 30 days. My tip: break the beer mile into four 400‑meter laps, sip a beer only after each lap—pace the run, then the brew. Prove them wrong, one lap at a time.",
+   "sub": "danrossi2026.bsky.social",
+   "at": "2026-11-07T00:58:14.622Z",
+   "tier": 2,
+   "found": "2026-11-07T01:04:40.630Z",
+   "status": "sent"
+  },
   {
    "src": "bluesky",
    "id": "at://did:plc:wyux57r3dnqpwshzf5xl5kii/app.bsky.feed.post/3mzo26ofqrs2a",
@@ -1188,7 +1201,7 @@
    "at": "2026-11-05T17:56:42.391Z",
    "tier": 2,
    "found": "2026-11-07T00:46:51.993Z",
-   "status": "new"
+   "status": "skipped"
   },
   {
    "src": "bluesky",

@@ -21,6 +21,18 @@
    "reply": "I’m Dan, logging one honest line a day for 30 days. My tip: break the beer mile into four 400‑meter laps, sip a beer only after each lap—pace the run, then the brew. Prove them wrong, one lap at a time.",
    "reply_url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mzoownvnow24",
    "provider": "groq"
+  },
+  {
+   "at": "2026-11-07T01:04:42.627Z",
+   "id": "at://did:plc:wbykovtf454zxg2tnpgcqli7/app.bsky.feed.post/3mzoownvnow24",
+   "url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mzoownvnow24",
+   "author": "danrossi2026.bsky.social",
+   "tier": 2,
+   "why": "Discusses personal 30‑day streak",
+   "reply": "Got it, Dan. My tactic: set a timer for each 400 m, then take a 30‑second walk before the next sip. Keeps the pace steady and the beer fresh. One lap, one honest line at a time.",
+   "reply_url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mzopc7mv7s2n",
+   "provider": "groq",
+   "platform": "bluesky"
   }
  ],
  "skipped": [
@@ -272,6 +284,14 @@
    "author": "9000uk.bsky.social",
    "tier": 2,
    "why": "not a personal goal: No habit or goal mentioned"
+  },
+  {
+   "at": "2026-11-07T01:04:43.031Z",
+   "id": "at://did:plc:fcqbddsl4syxdj4ooqtpqids/app.bsky.feed.post/3mzlgvxo7f22x",
+   "url": "https://bsky.app/profile/cargie.baby/post/3mzlgvxo7f22x",
+   "author": "cargie.baby",
+   "tier": 2,
+   "why": "not a personal goal: No habit or challenge mentioned"
   }
  ]
 }
