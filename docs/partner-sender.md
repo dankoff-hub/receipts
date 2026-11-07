@@ -35,3 +35,5 @@ Each window:
 ## Day 1 (2026-11-07)
 IG DMs: @Myelia_irl (17:37), @Forged4Future, @officialconnerspencer. Email: The Soft Stoic Letter (17:38).
 `@discipline7q` IG link is dead (page not available) — needs YouTube comment/email route instead.
+
+Evening window (18:0x–18:2x, run manually on request): IG DMs to @MissionSideHustle (Corey Collins, 5k IG), @KeyToDiscipline_, @ChadEveryday, @lettersbyari. `pathsofstoicism` IG dead; `tom.hu23` private (no DM) → YouTube/Skool route. Reply sweep: IG Primary/General/Requests + Gmail — no replies yet. Day total 8/20.
