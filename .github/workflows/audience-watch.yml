@@ -33,4 +33,4 @@ jobs:
         run: |
           git config user.name dankoff-hub; git config user.email 345066702+dankoff-hub@users.noreply.github.com
           git add content/audience-history.json content/audience-config.json content/strategy-brief.json content/post-log.json content/growth-model.json content/post-metrics.json content/audience-scoreboard.json content/variant-policy.json
-          git diff --cached --quiet || { git commit -m "Audience watch: daily stats + strategy brief"; git pull --rebase -q && git push -q; }
+          bash scripts/git-push-safe.sh "Audience watch: daily stats + strategy brief"

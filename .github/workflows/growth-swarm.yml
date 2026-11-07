@@ -22,4 +22,4 @@ jobs:
           git add content/
           # Guard: never allow this workflow to change app code or workflows
           git diff --cached --name-only | grep -vE '^content/' && { echo "GUARD TRIPPED: non-content change blocked"; git reset -q; exit 1; } || true
-          git diff --cached --quiet || (git commit -m "Growth swarm: CTA/lab/watch/guard outputs" && git pull --rebase -q && git push -q)
+          bash scripts/git-push-safe.sh "Growth swarm: CTA/lab/watch/guard outputs"

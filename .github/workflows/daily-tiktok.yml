@@ -79,8 +79,7 @@ jobs:
         run: |
           git config user.name dankoff-hub; git config user.email 345066702+dankoff-hub@users.noreply.github.com
           git add public/videos public/carousels content/caption-ledger.json content/script-ledger.json
-          git diff --cached --quiet || git commit -m "Daily video ${{ steps.day.outputs.slot }} (day ${{ steps.day.outputs.label }})"
-          git pull --rebase -q && git push -q
+          bash scripts/git-push-safe.sh "Daily video ${{ steps.day.outputs.slot }} (day ${{ steps.day.outputs.label }})"
       - name: Deploy (dispatch the proven deploy workflow; no in-job Vercel CLI to hang)
         run: gh workflow run deploy.yml --ref main
       - name: Publish oldest pending video to TikTok (cap 2/day), Instagram (4), YouTube (4)
@@ -106,7 +105,7 @@ jobs:
         run: |
           git config user.name dankoff-hub; git config user.email 345066702+dankoff-hub@users.noreply.github.com
           git add content/post-log.json content/caption-ledger.json public/videos public/photos
-          git diff --cached --quiet || { git commit -m "Post log (${{ steps.day.outputs.slot }})"; git pull --rebase --autostash -q && git push -q; }
+          bash scripts/git-push-safe.sh "Post log (${{ steps.day.outputs.slot }})"   # ledger push must never fail silently: a lost post-log = repeated posts
       - if: steps.day.outputs.slot == 'a'
         name: Daily brief issue
         run: node scripts/daily-brief.mjs

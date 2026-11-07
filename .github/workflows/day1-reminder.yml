@@ -12,5 +12,7 @@ jobs:
         run: |
           [ -n "$CRON_SECRET" ] || { echo "CRON_SECRET not set; skipping"; exit 0; }
           R=$(curl -s -m 70 -w '\n%{http_code}' -X POST -H "x-cron-key: $CRON_SECRET" https://receiptspack.vercel.app/api/reminders/run)
-          echo "$R" | tail -1 | grep -q '^200$' || { echo "http $(echo "$R" | tail -1): $(echo "$R" | head -1)"; exit 1; }
+          CODE=$(echo "$R" | tail -1)
+          if [ "$CODE" = "503" ]; then echo "reminders not configured yet (Mailjet pending): $(echo "$R" | head -1)"; exit 0; fi
+          [ "$CODE" = "200" ] || { echo "http $CODE: $(echo "$R" | head -1)"; exit 1; }
           echo "$R" | head -1 | tee -a $GITHUB_STEP_SUMMARY

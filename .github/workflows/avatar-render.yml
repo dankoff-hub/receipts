@@ -138,8 +138,7 @@ jobs:
           git config user.name dankoff-hub; git config user.email 345066702+dankoff-hub@users.noreply.github.com
           node -e 'const fs=require("fs");const p="content/avatar-ledger.json";let l={used:[]};try{l=JSON.parse(fs.readFileSync(p,"utf8"))}catch(e){};if(!l.used.includes("${{ steps.pick.outputs.slug }}"))l.used.push("${{ steps.pick.outputs.slug }}");fs.writeFileSync(p,JSON.stringify(l,null,1))'
           git add public/videos avatar-out content/avatar-ledger.json content/caption-ledger.json
-          git commit -m "Avatar video: ${{ steps.pick.outputs.slug }} (SadTalker CPU render)"
-          git pull --rebase -q && git push -q
+          bash scripts/git-push-safe.sh "Avatar video: ${{ steps.pick.outputs.slug }} (SadTalker CPU render)"
       - if: steps.pick.outputs.skip != 'true' && (github.event_name == 'schedule' || inputs.publish)
         name: Publish to TikTok
         run: node scripts/publish-buffer.mjs public/videos/avatar-${{ steps.pick.outputs.slug }}.mp4
