@@ -22,7 +22,7 @@ export default async function Pack({ searchParams }) {
   return <main>
     <p style={{ color: "#8f8" }}>Payment received. Thank you.</p>
     <h1>Your Receipts Pack</h1>
-    <p>Bookmark this page. To come back later, open <b>receipts-blond.vercel.app/pack</b> and enter the email you paid with.</p>
+    <p>Bookmark this page. To come back later, open <b>receiptspack.vercel.app/pack</b> and enter the email you paid with.</p>
     <div style={box}><b>Printables</b><br />
       <a href={`/pack/file/log${q}`} style={btn}>30-day proof log (PDF)</a>
       <a href={`/pack/file/worksheets${q}`} style={btn}>Steps 1–5 worksheets (PDF)</a>

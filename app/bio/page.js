@@ -16,7 +16,7 @@ return <main style={{maxWidth:420,margin:"0 auto",padding:16}}>
 <a href={free} style={btn}>Get the free receipt template →</a>
 <p style={{fontSize:13,color:"#888",textAlign:"center",margin:"0 0 8px 0"}}>Free · no sign-up · takes 10 minutes</p>
 <a href={pay} style={btn2}>Get the full 30-day pack — $29</a>
-<p style={{fontSize:13,color:"#888",textAlign:"center",marginBottom:28}}>One-time payment · instant access</p>
+<p style={{fontSize:13,color:"#888",textAlign:"center",marginBottom:28}}>One-time payment · no subscription · Stripe checkout → your pack opens instantly, no account</p>
 
 <div style={card}>
 <b>Free vs full pack</b>
@@ -39,6 +39,11 @@ return <main style={{maxWidth:420,margin:"0 auto",padding:16}}>
 <div style={card}>
 <b>Why it works</b>
 <p style={{color:"#bbb",margin:"8px 0 0 0"}}>Doubt gets you started. A standard keeps you going. Most people stall right after proving them wrong. Receipts plans for that part too.</p>
+</div>
+
+<div style={card}>
+<b>Watch me do it</b>
+<p style={{color:"#bbb",margin:"8px 0 0 0"}}>I am on the same 30 days, in public, one receipt a day. <a href="https://instagram.com/danrossi2026" style={{color:"#fff"}}>Instagram</a> · <a href="https://www.youtube.com/channel/UC_Io87isTmHUvzIAs-RwiFw" style={{color:"#fff"}}>YouTube</a> · <a href="https://bsky.app/profile/danrossi2026.bsky.social" style={{color:"#fff"}}>Bluesky</a></p>
 </div>
 
 <a href={free} style={btn}>Start with the free template →</a>
