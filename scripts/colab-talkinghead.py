@@ -50,18 +50,31 @@ def main() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
 
     # 1. SadTalker + deps (torch with CUDA is preinstalled on Colab).
-    #    SadTalker's own requirements.txt pins numpy 1.23/scipy 1.10 — no wheels
-    #    on Colab's Python 3.12/3.13 images. Install a compatible set instead.
+    #    SadTalker's requirements.txt pins numpy 1.23/scipy 1.10 — no wheels on
+    #    Colab's Python 3.13 image. Install a numpy-2-compatible set instead;
+    #    SadTalker's inference path itself is numpy-2 safe (see patch below).
     if not ST.exists():
         sh(f"git clone --depth 1 https://github.com/OpenTalker/SadTalker {ST}")
     os.chdir(ST)
-    sh("pip install -q 'numpy==1.26.4' edge-tts")
+    sh("pip install -q edge-tts")
     sh(
-        "pip install -q face_alignment==1.3.5 imageio imageio-ffmpeg 'librosa>=0.10' "
-        "resampy==0.4.2 pydub 'scipy>=1.11' 'kornia>=0.7,<0.8' tqdm yacs pyyaml joblib "
-        "'scikit-image>=0.22' facexlib==0.3.0 gfpgan av safetensors addict future lmdb requests yapf"
+        "pip install -q face_alignment==1.3.5 imageio imageio-ffmpeg 'librosa>=0.11' "
+        "resampy==0.4.2 pydub 'scipy>=1.14' 'kornia>=0.7.7' tqdm yacs pyyaml joblib "
+        "'scikit-image>=0.25' facexlib==0.3.0 gfpgan av safetensors addict future lmdb requests yapf"
     )
     sh("pip install -q --no-deps basicsr==1.4.2")
+    # numpy>=1.24: one-element arrays must be normalized before np.array(...)
+    # (same fix the maintained HF Spaces carry).
+    pp = ST / "src" / "face3d" / "util" / "preprocess.py"
+    src = pp.read_text()
+    legacy = "trans_params = np.array([w0, h0, s, t[0], t[1]])"
+    fixed = (
+        "trans_params = np.array([w0, h0, float(np.asarray(s).reshape(-1)[0]), "
+        "float(np.asarray(t[0]).reshape(-1)[0]), float(np.asarray(t[1]).reshape(-1)[0])])"
+    )
+    if legacy in src:
+        pp.write_text(src.replace(legacy, fixed))
+        print("patched preprocess.py for numpy>=1.24")
     sh("bash scripts/download_models.sh")
 
     # 2. Compat shims (2026 Colab images)
