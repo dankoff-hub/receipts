@@ -4,7 +4,7 @@ const Q=["What was said or done? Write it exactly, once.","When did it happen?",
 export default function Sheet({searchParams}){
 const src=String(searchParams?.src||"sheet").replace(/[^a-z0-9_-]/gi,"").slice(0,40);
 return <main style={{background:"#fff",color:"#111",maxWidth:680,margin:"0 auto",borderRadius:12,border:"1px solid #E3DBCD",padding:"32px 28px",fontFamily:"system-ui"}}>
-<p style={{letterSpacing:3,fontSize:11,color:"#666",margin:0}}>RECEIPTS · STEP 1 OF 5 · THE RECEIPT</p>
+<p style={{letterSpacing:3,fontSize:12,color:"#5F5A52",margin:0}}>RECEIPTS · STEP 1 OF 5 · THE RECEIPT</p>
 <h1 style={{fontSize:26,margin:"6px 0 4px 0"}}>Write it once. Then close it.</h1>
 <p style={{color:"#555",margin:"0 0 20px 0",fontSize:14}}>Private. About your standard, not about them. Never contact, name publicly or target the person.</p>
 {Q.map((q,i)=><div key={i} style={{margin:"0 0 18px 0"}}><b style={{fontSize:15}}>{i+1}. {q}</b>
