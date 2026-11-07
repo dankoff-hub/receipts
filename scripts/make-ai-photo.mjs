@@ -20,23 +20,23 @@ if (aiq.queue.some(q => q.day === day)) { console.log("AI image already made tod
 
 // Scene bank: no faces, no text in image (models garble text). Rotates; never reuses a scene while unused ones remain.
 const scenes = [
-  ["receipt-notebook", "a worn pocket notebook open on a wooden desk, a single handwritten line and a date, a paper receipt tucked in as a bookmark, soft morning window light"],
+  ["receipt-notebook", "a worn pocket notebook closed on a wooden desk, a pen resting on top, a folded paper receipt tucked under the elastic band, soft morning window light"],
   ["gym-floor", "empty gym at 6am, one dumbbell on the rubber floor, towel and water bottle on a bench, long shadows from tall windows"],
   ["rainy-window", "rain streaking a bus window at dawn, blurred city lights, a phone with a notes app glowing in a hand, moody cinematic"],
   ["kitchen-calculator", "kitchen table at night, a calculator, a stack of paper bills, a mug of tea, one lamp, documentary photo"],
   ["coffee-receipt", "a paper receipt and a takeaway coffee cup on a cafe counter, card reader in soft focus, warm light"],
-  ["desk-30-days", "a wall calendar with thirty days crossed off in pen, a pencil on a clean desk, minimal, high detail"],
+  ["desk-30-days", "thirty small black pebbles lined up in a row on a clean white desk, one pencil beside them, minimal, high detail"],
   ["running-shoes", "running shoes on a wet pavement at sunrise, autumn leaves, empty street, cinematic"],
-  ["laptop-log", "a laptop on a shared office desk showing a plain text log, a cold coffee beside it, early evening light"],
+  ["laptop-log", "a closed laptop on a shared office desk, a cold coffee and a pocket notebook beside it, early evening light"],
   ["barber-chair", "an empty vintage barber chair facing a mirror, clippers on the counter, warm tungsten light"],
-  ["groceries-receipt", "a long supermarket receipt curling on a kitchen counter next to paper bags, overhead shot"],
-  ["notebook-rain", "a notebook under a jacket in the rain, pen clipped to the page, close-up, water droplets"],
+  ["groceries-receipt", "a long blank-looking thermal receipt curling on a kitchen counter next to paper grocery bags, overhead shot, receipt out of focus"],
+  ["notebook-rain", "a closed notebook under a jacket in the rain, pen clipped to the cover, close-up, water droplets"],
   ["stairwell", "a concrete stairwell lit by one window, a single pair of shoes mid-step, motion blur, high contrast"],
 ];
 const usedScenes = new Set(aiq.queue.map(q => q.scene));
 const [scene, desc] = scenes.find(([s]) => !usedScenes.has(s)) || scenes[aiq.queue.length % scenes.length];
 const styles = ["shot on 35mm film, natural grain", "iphone candid, slightly imperfect framing", "editorial photograph, shallow depth of field", "documentary realism, muted colours"];
-const prompt = `${desc}, ${styles[aiq.queue.length % styles.length]}, photorealistic, no people, no text, no watermark, 4k detail`;
+const prompt = `${desc}, ${styles[aiq.queue.length % styles.length]}, photorealistic, no people, no visible writing, no letters, no text, no watermark, 4k detail`;
 
 const callImage = async (model) => {
   const r = await fetch(`${WORKER}/image`, { method: "POST", headers: { "content-type": "application/json", "x-swarm-key": KEY }, body: JSON.stringify({ prompt, model, width: 1024, height: 1280, daily_cap: 6 }) });
