@@ -76,7 +76,7 @@ async def tts(text, mp3):
     return words
 
 def render(hook, speech, url, day, out, seed=0, variant=None):
-    variant = dict({"voice": "on", "music": "off", "bg": "gradient"}, **(variant or {}))
+    variant = dict({"voice": "on", "music": "off", "bg": "persona"}, **(variant or {}))
     HOOK_T = min(1.3, max(0.6, 0.18 * len(hook.split()) + 0.3))  # 2026-11-07: hook card max 1.3s; voice must be speaking within the first second (retention fix)
     MIN_SHOW = 1.1  # a caption phrase never stays on screen less than this
     rng = random.Random(seed * 7919 + 17)
@@ -101,10 +101,14 @@ def render(hook, speech, url, day, out, seed=0, variant=None):
     else: variant["music"] = "off"
     # ---- background
     # 2026-11-07: persona photo background by default (the daily run IS the content); Mixkit b-roll only for explicit themes
-    persona = pick_persona(rng) if variant.get("bg") in (None, "persona", "gradient") else None
-    broll = pick_broll(variant["bg"], rng) if variant.get("bg") in ("city", "nature", "other") else None
+    persona = pick_persona(rng)
+    if persona is None:
+        # no persona pool (missing file) — fall back to b-roll, then gradient
+        broll = pick_broll(variant.get("bg") if variant.get("bg") in ("city", "nature", "other") else "city", rng)
+    else:
+        broll = None
     if broll: meta["broll"] = {"id": broll["id"], "theme": broll["theme"], "title": broll.get("title"), "vertical": broll.get("vertical")}
-    else: variant["bg"] = "gradient"
+    else: variant["bg"] = "persona" if persona else "gradient"
     c0, c1 = PALETTES[seed % len(PALETTES)]
     f = []
     if broll:  # cover-scale, center-crop to 9:16, slow push-in, darken for text legibility
@@ -121,6 +125,11 @@ def render(hook, speech, url, day, out, seed=0, variant=None):
     # phrase captions: 3–5 spoken words per card, shown whole (no per-word flicker), minimum hold time, synced to speech
     if words:
         # align TTS word boundaries with the script tokens to find clause/sentence ends (punctuation)
+        # 2026-11-07: the hook is already on its own card — never karaoke it again (drop leading hook words)
+        _hw = hook.lower().split()
+        while words and _hw and words[0][2].lower().strip(".,!?;:'\"()") == _hw[0]:
+            _hw = _hw[1:]; words = words[1:]
+        if not _hw and words: words = words[1:]  # also drop the sentence period word if it survived
         toks = speech.split(); k = 0; ends = []
         for w in words:
             kk = k; hit = False

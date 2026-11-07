@@ -19,15 +19,26 @@ try: _led = json.load(open(_led_p))
 except Exception: _led = {"used": []}
 def _sh(x): return _hl.md5((x["hook"] + "|" + x["say"]).encode()).hexdigest()
 s = None
-# Revenue-swarm priority: unused scripts in content/swarm-scripts.md (written by swarm/creative.mjs) publish first.
-if _os.path.exists("content/swarm-scripts.md"):
+# 2026-11-07 founder directive: the 30-day run is the spine — script # = run day (argv[3] label), in order.
+# Only if the day's script is somehow already used do we fall back to swarm scripts, then rotation.
+_RUN = []
+if _os.path.exists("content/daily-run-scripts.md"):
+    _RUN = [dict(n=int(m[0]), hook=_clean_hook(m[1]), say=m[2], body=m[3], cta=m[4]) for m in re.findall(r"## (\d+)\. (.+)\n- Hook[^\n]*\n- Say: (.+)\n- Body: (.+)\n- CTA: (.+)", open("content/daily-run-scripts.md").read())]
+_spine_day = int(sys.argv[3]) if len(sys.argv) > 3 else None
+if _spine_day and 1 <= _spine_day <= len(_RUN):
+    s = _RUN[_spine_day - 1]          # exact order: run day 1 = script 1
+    if _sh(s) in _led["used"]:
+        _alt = [x for x in _RUN if _sh(x) not in _led["used"]]
+        s = _alt[0] if _alt else s    # never repeat, but keep the spine
+if s is None and _os.path.exists("content/swarm-scripts.md"):
     _SW = [dict(n=int(m[0]), hook=_clean_hook(m[1]), say=m[2], body=m[3], cta=m[4]) for m in re.findall(r"## (\d+)\. (.+)\n- Hook[^\n]*\n- Say: (.+)\n- Body: (.+)\n- CTA: (.+)", open("content/swarm-scripts.md").read())]
     for _c in _SW:
         if _sh(_c) not in _led["used"]: s = _c; break
-for _i in range(len(S)):
-    if s is not None: break
-    _c = S[(day + _i) % len(S)]
-    if _sh(_c) not in _led["used"]: s = _c; break
+if s is None:
+    for _i in range(len(S)):
+        if s is not None: break
+        _c = S[(day + _i) % len(S)]
+        if _sh(_c) not in _led["used"]: s = _c; break
 if s is None:
     s = S[day % len(S)]  # pool exhausted — fall back to rotation (forge adds 10/week)
 else:

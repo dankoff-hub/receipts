@@ -1,20 +1,20 @@
 {
  "updated": "2026-11-07T10:29:37.330Z",
- "note": "Weights for the daily video experiment. Priors from published evidence (Emplifi 10k-Reels study: speech in first 3s +25% 10s-retention vs music-only; Reels expect a quiet music bed under narration; b-roll + voiceover beats static). scripts/post-metrics.mjs re-weights from our own per-post views/avg-watch once each level has >= 6 settled posts; floor 10% keeps exploring. Factor cta: 'follow' = spoken + end-card ask to follow for the next day (followers are the leading metric); 'template' = free Step 1 template ask.",
+ "note": "2026-11-07 founder directive: 30-day run spine — persona photos (assets/persona) are the default background, voice ON by default (voice-off + music was the uncanny \"talking photograph\" look), music off by default. post-metrics re-weights after >=6 settled posts per level.",
  "weights": {
   "voice": {
-   "on": 0.85,
-   "off": 0.15
+   "on": 0.95,
+   "off": 0.05
   },
   "music": {
-   "on": 0.7,
-   "off": 0.3
+   "off": 0.8,
+   "on": 0.2
   },
   "bg": {
-   "city": 0.3,
-   "nature": 0.3,
-   "gradient": 0.25,
-   "other": 0.15
+   "persona": 0.9,
+   "city": 0.05,
+   "nature": 0.03,
+   "gradient": 0.02
   },
   "cta": {
    "follow": 0.6,

@@ -56,12 +56,13 @@ jobs:
           H=$(date -u +%H)
           if [ -z "$SLOT" ]; then if [ "$H" -lt 14 ]; then SLOT=a; else SLOT=c; fi; fi   # 2 slots: a=09:00 (video+carousel), c=19:00 (video+photo)
           case "$SLOT" in b) SLOT=a;; d) SLOT=c;; am) SLOT=a;; pm) SLOT=c;; esac
-          N=$(( ( $(date +%s) - $(date -d 2026-11-03 +%s) ) / 86400 ))
+          N=$(( ( $(date +%s) - $(date -d 2026-11-03 +%s) ) / 86400 ))   # file epoch (unique filenames)
+          D=$(( ( $(date +%s) - $(date -d 2026-11-08 +%s) ) / 86400 ))   # run-spine day: Nov 8 = day 1
           case "$SLOT" in a) S=0; SUF="";; *) S=1; SUF=c;; esac
           F="public/videos/day-$(printf %03d $(( N + 1 )))${SUF}.mp4"
           echo "slot=$SLOT" >> $GITHUB_OUTPUT
           echo "idx=$(( N * 2 + S ))" >> $GITHUB_OUTPUT
-          echo "label=$(( N + 1 ))" >> $GITHUB_OUTPUT
+          echo "label=$(( D + 1 ))" >> $GITHUB_OUTPUT   # on-screen "DAY n" = the real 30-day run day
           echo "f=$F" >> $GITHUB_OUTPUT
           if [ -f "$F" ]; then echo "new=false" >> $GITHUB_OUTPUT; else echo "new=true" >> $GITHUB_OUTPUT; fi
       - if: steps.day.outputs.new == 'true'
