@@ -12,7 +12,7 @@
    "auth": "GROQ_API_KEY secret (optional)",
    "limit": "14,400 req/day",
    "cooldown_until": 0,
-   "calls": 1,
+   "calls": 15,
    "fails": 1
   },
   "nvidia_nim": {
@@ -54,6 +54,6 @@
   "qwen": "device-code OAuth — founder-only login",
   "puter": "browser session — founder-only login"
  },
- "rotation_offset": 1,
- "updated": "2026-11-07T00:43:00.414Z"
+ "rotation_offset": 2,
+ "updated": "2026-11-07T00:46:54.918Z"
 }

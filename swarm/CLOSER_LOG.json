@@ -1,4 +1,69 @@
 {
  "replies": [],
- "skipped": []
+ "skipped": [
+  {
+   "at": "2026-11-07T00:46:52.462Z",
+   "id": "at://did:plc:q6i7ehwtua6poivqvyw6x2uq/app.bsky.feed.post/3mzonvebed22m",
+   "url": "https://bsky.app/profile/july2022.bsky.social/post/3mzonvebed22m",
+   "author": "july2022.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: No habit or goal mentioned"
+  },
+  {
+   "at": "2026-11-07T00:46:52.910Z",
+   "id": "at://did:plc:hdnhvtvqk6nhgt6elsktkbwl/app.bsky.feed.post/3mzolamy6vk2j",
+   "url": "https://bsky.app/profile/skyla50.bsky.social/post/3mzolamy6vk2j",
+   "author": "skyla50.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: No habit or goal mentioned"
+  },
+  {
+   "at": "2026-11-07T00:46:53.267Z",
+   "id": "at://did:plc:lpocfzcfb626v53j7rnaq5cv/app.bsky.feed.post/3mzokckve6s2z",
+   "url": "https://bsky.app/profile/dogdisorder.bsky.social/post/3mzokckve6s2z",
+   "author": "dogdisorder.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: No request for habit tracking"
+  },
+  {
+   "at": "2026-11-07T00:46:53.724Z",
+   "id": "at://did:plc:bqqmoom6eiznml3kcln47ftd/app.bsky.feed.post/3mzojdwdnbk2k",
+   "url": "https://bsky.app/profile/rwruedii.bsky.social/post/3mzojdwdnbk2k",
+   "author": "rwruedii.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: No habit or challenge mentioned"
+  },
+  {
+   "at": "2026-11-07T00:46:54.102Z",
+   "id": "at://did:plc:35sjkr52gladwqtulpxx4w2v/app.bsky.feed.post/3mzoem24cbk2b",
+   "url": "https://bsky.app/profile/silversagehealing.bsky.social/post/3mzoem24cbk2b",
+   "author": "silversagehealing.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: No habit or goal mentioned"
+  },
+  {
+   "at": "2026-11-07T00:46:54.362Z",
+   "id": "at://did:plc:6mnyssygmynn5pwlmn3wsas6/app.bsky.feed.post/3mzo7x5j74d2q",
+   "url": "https://bsky.app/profile/aitoolsdir.bsky.social/post/3mzo7x5j74d2q",
+   "author": "aitoolsdir.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: No request for help or template"
+  },
+  {
+   "at": "2026-11-07T00:46:54.682Z",
+   "id": "at://did:plc:plyuhhsw5a3ukmeqo2dkjxb2/app.bsky.feed.post/3mzo4d27p5c2i",
+   "url": "https://bsky.app/profile/mlamb.bsky.social/post/3mzo4d27p5c2i",
+   "author": "mlamb.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: No habit or challenge mentioned"
+  },
+  {
+   "at": "2026-11-07T00:46:54.875Z",
+   "id": "at://did:plc:3q2cbcxzg2ybhim2txgfu7wz/app.bsky.feed.post/3mzo27q226s25",
+   "url": "https://bsky.app/profile/timsmedley.bsky.social/post/3mzo27q226s25",
+   "author": "timsmedley.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: No habit or challenge mentioned"
+  }
+ ]
 }
