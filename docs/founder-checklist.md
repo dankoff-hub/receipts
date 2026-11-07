@@ -9,8 +9,8 @@ Security: the Instagram password was pasted into chat — change it, and note lo
 
 ## TikTok (@dan.rosa71) — Business account since 2026-11-07; 5 minutes in the phone app
 Confirmed on web: "Business tools unlocked" (advanced analytics, comment management, Business Page URL/email). Web still cannot save the bio or add the Website field (tested twice on 2026-11-07: the update call returns 200 with an empty body and nothing changes), and auto-messages are app-only, so these are yours — all text is ready to paste in `content/profile.json`:
-1. Edit profile → **Website**: `https://receiptspack.vercel.app/bio?src=tt`. Then set `tiktok_bio_link_live: true` in `content/audience-config.json` (or tell the swarm) so captions switch to "tap the link in my bio". The first-comment link keeps running regardless.
-2. Edit profile → **Bio**: `Doubted? Keep the receipt. 30 days. Proof. Free Step 1 template: tap the link` (77 chars). If the Website field is refused (some regions still want 1,000 followers), use the `tiktok_bio` variant pointing to the first comment.
+1. ~~Website~~ DONE 2026-11-07: tappable `receiptspack.vercel.app/bio?src=tt` verified on the profile; `tiktok_bio_link_live: true`, captions now say "tap the link in my bio". First-comment link keeps running.
+2. ~~Bio~~ DONE 2026-11-07 ("Doubted? Keep the receipt. 30 days. Proof. Free Step 1 template: tap the link").
 3. Edit profile → **Category**: Personal blog. Business Page email: the ops Gmail. Add the Instagram and YouTube buttons.
 4. Settings and privacy → Privacy → Direct messages → **Everyone** (required for auto-messages).
 5. Menu → **Business suite → Message center**: turn on Welcome message, Keyword reply, Suggested questions; paste `tiktok_welcome_message`, the three `tiktok_keyword_replies` and `tiktok_suggested_questions` from `content/profile.json`. Each goes to TikTok moderation (usually under 24h).

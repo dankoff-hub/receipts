@@ -5,6 +5,7 @@
  "paused": {},
  "youtube_handle": "@DanRosa-u5v",
  "tiktok_account_type": "business",
- "tiktok_bio_link_live": false,
- "tiktok_website": "https://receiptspack.vercel.app/bio?src=tt"
+ "tiktok_bio_link_live": true,
+ "tiktok_website": "https://receiptspack.vercel.app/bio?src=tt",
+ "tiktok_bio_link_verified": "2026-11-07"
 }
