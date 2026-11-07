@@ -89,8 +89,13 @@ def main() -> None:
         "float(np.asarray(t[0]).reshape(-1)[0]), float(np.asarray(t[1]).reshape(-1)[0])])"
     )
     if legacy in src:
-        pp.write_text(src.replace(legacy, fixed))
-        print("patched preprocess.py for numpy>=1.24")
+        src = src.replace(legacy, fixed)
+    # numpy 2 removed np.VisibleDeprecationWarning
+    if "np.VisibleDeprecationWarning" in src:
+        src = src.replace("np.VisibleDeprecationWarning", "DeprecationWarning")
+    if src != pp.read_text():
+        pp.write_text(src)
+        print("patched preprocess.py for numpy>=1.24 / numpy 2")
     sh("bash scripts/download_models.sh")
 
     # 2. Compat shims (2026 Colab images)
