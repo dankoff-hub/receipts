@@ -30,7 +30,7 @@ function ensureOllama() {
 }
 
 export async function chat(prompt, { system = "Output compact JSON only.", maxTokens = 150, json = true } = {}) {
-  if (json && !/json/i.test(prompt + " " + system)) system += " Respond with JSON only.";
+  if (json) system = "Respond with JSON only. " + system; // Groq json_object mode requires the word "json" — keep it at the front so compress() never drops it
   const now = Date.now(), order = Q.cascade.filter(p => p !== "template");
   // groq first (14.4k req/day, fastest); rotate only among the fallbacks so a single rate-limited provider is not hammered every cycle
   const rest = order.filter(p => p !== "groq" && p !== "ollama_local"), rot = Q.rotation_offset % Math.max(1, rest.length);

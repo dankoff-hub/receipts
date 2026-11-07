@@ -27,8 +27,8 @@ if (!Array.isArray(concepts) || concepts.length < 3) { // deterministic fallback
   concepts = seeds.map((s, i) => ({ platform: ["instagram", "youtube", "tiktok"][i % 3], format: formats[i], hook: `${s}. I kept the receipt.`, say: `I stopped arguing and started measuring. One standard, written down, checked daily. Day ${7 + i * 3} the streak said more than I ever could. Nobody debates a streak.`, body: "Turn one moment of doubt into one measurable standard and collect daily proof for 30 days.", cta: "The 30-day Receipts system is $29 — link in bio." }));
 }
 // brand guard: concepts must be about the product's world (doubt → one standard → 30 days of proof) and never creator-economy filler
-const ON = /(receipt|proof|prove|30[- ]day|day \d+|doubt|streak|standard|said (i|you) couldn|accountab|discipline|habit|excuse|quiet|consisten)/i;
-const OFF = /(ad spend|subscriber|follower|algorithm|influencer|monetiz|\bviews\b|youtube|tiktok|\breels?\b|content creator|brand deal|toolkit|growth hack)/i;
+const ON = /(proof|prove|30[- ]day|doubt|streak|one standard|said (i|you) couldn|accountab|discipline|habit|excuse|consisten|daily line|showed up)/i;
+const OFF = /(ad spend|subscriber|follower|algorithm|influencer|monetiz|\bviews\b|youtube|tiktok|\breels?\b|content creator|brand deal|toolkit|growth hack|refurbish|\bpc\b|\bdell\b|laptop|gadget|unboxing|coupon|\$(?!29\b)\d+)/i;
 concepts = concepts.filter(c => c.hook && c.say && !ledger.has(md5(c.hook + "|" + c.say)) && !/^they said/i.test(c.hook) && ON.test(c.hook + " " + c.say + " " + c.body) && !OFF.test(c.hook + " " + c.say + " " + c.body)).slice(0, 9);
 if (concepts.length < 3) { console.log(`creative: only ${concepts.length} on-brand concepts from ${r.provider} — keeping queue as is`); process.exit(0); }
 if (replacingTemplates && r.provider === "template") { console.log("creative: still template — keeping existing"); process.exit(0); }
