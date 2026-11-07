@@ -1,0 +1,19 @@
+name: Profile sync (Bluesky + Mastodon bios)
+on:
+  workflow_dispatch:
+  push:
+    paths: [content/profile.json]
+permissions: { contents: read }
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env:
+      BLUESKY_HANDLE: ${{ vars.BLUESKY_HANDLE }}
+      BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+      MASTODON_TOKEN: ${{ secrets.MASTODON_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: node scripts/profile-sync.mjs
