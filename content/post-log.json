@@ -276,5 +276,52 @@
   "day": 5,
   "captionHash": "3a96733d895d2f6ef67853692cd59983",
   "sentAt": "2026-11-07T08:45:32.269Z"
+ },
+ {
+  "ts": "2026-11-07T12:31:28.303Z",
+  "channel": "instagram",
+  "postId": "6aef1a169214322f68ef67ba",
+  "status": "sent",
+  "video": "day-005b.mp4",
+  "day": 5,
+  "captionHash": "1bef7629532a47c33e7a11b6aad19ca1"
+ },
+ {
+  "ts": "2026-11-07T12:31:31.349Z",
+  "channel": "youtube",
+  "postId": "6aef1a219214322f68ef695a",
+  "status": "sent",
+  "video": "day-005b.mp4",
+  "day": 5,
+  "captionHash": "703dffd932a78f52fd09f2f4b19b4893"
+ },
+ {
+  "ts": "2026-11-07T12:31:31.402Z",
+  "channel": "bluesky",
+  "kind": "video",
+  "status": "skipped",
+  "url": null,
+  "why": "bluesky video not implemented",
+  "captionHash": "893d92d49667d977f38751579309504e",
+  "video": "day-005b.mp4"
+ },
+ {
+  "ts": "2026-11-07T12:31:37.942Z",
+  "channel": "mastodon",
+  "kind": "video",
+  "status": "sent",
+  "url": "https://mastodon.social/@danrossi2026/117575168675833531",
+  "why": null,
+  "captionHash": "893d92d49667d977f38751579309504e",
+  "video": "day-005b.mp4"
+ },
+ {
+  "ts": "2026-11-07T12:31:48.925Z",
+  "channel": "instagram_carousel",
+  "postId": "6aef1a2ad6bbae6fa187a282",
+  "status": "sent",
+  "video": "car-005",
+  "day": 5,
+  "captionHash": "fcde65c0eaeabfed22ab9715e07750af"
  }
 ]
