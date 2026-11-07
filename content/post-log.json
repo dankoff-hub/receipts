@@ -409,5 +409,25 @@
   "day": 5,
   "captionHash": "d3c8ad9e06574f2bd7d6b940856be158",
   "note": "restored from run 42408755491 log: ledger push failed (unstaged changes); git-push-safe now autostashes"
+ },
+ {
+  "ts": "2026-11-07T20:01:56.685Z",
+  "channel": "bluesky",
+  "kind": "text",
+  "status": "sent",
+  "url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mzqotqpojt27",
+  "why": null,
+  "captionHash": "d7c4e92e9a469b137522e1cff2ed2d31",
+  "video": null
+ },
+ {
+  "ts": "2026-11-07T20:01:57.710Z",
+  "channel": "mastodon",
+  "kind": "text",
+  "status": "sent",
+  "url": "https://mastodon.social/@danrossi2026/117576939429573416",
+  "why": null,
+  "captionHash": "d7c4e92e9a469b137522e1cff2ed2d31",
+  "video": null
  }
 ]
