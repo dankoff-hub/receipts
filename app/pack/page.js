@@ -18,9 +18,9 @@ export default async function Pack({ searchParams }) {
     <p style={{ color: C.muted, fontSize: 14 }}>Haven’t bought it yet? <a href="/bio?src=pack" style={link}>Start with the free Step 1 →</a></p>
   </main>;
   const b = loadBundle();
-  const q = `?${v.key}=${encodeURIComponent(v.val)}`;
+  const q = `?${v.key}=${encodeURIComponent(v.val)}${v.extra || ""}`;
   return <main>
-    <p style={{ color: C.success, fontWeight: 600 }}>Payment received. Thank you.</p>
+    <p style={{ color: C.success, fontWeight: 600 }}>{v.key === "partner" ? "Partner copy — yours to read and try before you recommend it." : "Payment received. Thank you."}</p>
     <h1>Your Receipts Pack</h1>
     <p>Bookmark this page. To come back later, open <b>receiptspack.vercel.app/pack</b> and enter the email you paid with.</p>
     <div style={box}><b>Printables</b><br />

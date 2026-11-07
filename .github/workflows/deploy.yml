@@ -13,6 +13,7 @@ jobs:
       MAILJET_API_KEY: ${{ secrets.MAILJET_API_KEY }}
       MAILJET_SECRET_KEY: ${{ secrets.MAILJET_SECRET_KEY }}
       CRON_SECRET: ${{ secrets.CRON_SECRET }}
+      PARTNER_PACK_SECRET: ${{ secrets.PARTNER_PACK_SECRET }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -42,7 +43,7 @@ jobs:
           # Email reminder env (Mailjet keys + cron secret), added once, values never printed
           timeout 60 vercel link --yes --project receipts --token "$VERCEL_TOKEN" >/dev/null 2>&1 || true
           ENVS=$(timeout 60 vercel env ls production --token "$VERCEL_TOKEN" 2>/dev/null || true)
-          for V in MAILJET_API_KEY MAILJET_SECRET_KEY CRON_SECRET; do
+          for V in MAILJET_API_KEY MAILJET_SECRET_KEY CRON_SECRET PARTNER_PACK_SECRET; do
             VAL="${!V}"; [ -n "$VAL" ] || continue
             if ! echo "$ENVS" | grep -q "^ *$V "; then printf '%s' "$VAL" | timeout 60 vercel env add "$V" production --token "$VERCEL_TOKEN" >/dev/null && echo "$V env added"; else echo "$V env present"; fi
           done

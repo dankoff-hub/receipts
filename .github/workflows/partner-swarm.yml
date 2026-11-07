@@ -18,8 +18,11 @@ jobs:
         run: node scripts/affiliate-ledger.mjs
       - name: Partner scout (public YouTube pages, no key; drafts outreach for human send)
         run: python3 scripts/partner-scout.py
+      - name: Unique outreach drafts (zero-cost LLM cascade; rules-checked)
+        env: {GROQ_API_KEY: "${{ secrets.GROQ_API_KEY }}", NVIDIA_API_KEY: "${{ secrets.NVIDIA_API_KEY }}"}
+        run: node scripts/partner-drafts.mjs
       - name: Commit content only
         run: |
-          git add content/affiliate-ledger.json content/partner-prospects.json
-          git diff --cached --name-only | grep -vE '^content/' && { echo "GUARD TRIPPED"; git reset -q; exit 1; } || true
+          git add content/affiliate-ledger.json content/partner-prospects.json swarm/QUOTA_STATE.json
+          git diff --cached --name-only | grep -vE '^(content/|swarm/QUOTA_STATE.json)' && { echo "GUARD TRIPPED"; git reset -q; exit 1; } || true
           bash scripts/git-push-safe.sh "Partner swarm: ledger + prospects"

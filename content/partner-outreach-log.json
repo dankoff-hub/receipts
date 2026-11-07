@@ -1,0 +1,1 @@
+{"note": "One entry per message sent by the swarm (channel, handle, date, sha1 of text). Daily cap 20 across channels; spread over 3 windows.", "cap_per_day": 20, "sent": []}

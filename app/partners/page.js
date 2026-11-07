@@ -1,15 +1,15 @@
 import Apply from "./Apply";
 import prog from "../../content/partner-program.json";
 import { C, card, eyebrow, h1, h2, sub, small, link } from "../theme";
-export const metadata = { title: "Partner programme · Receipts", description: "Earn $15 for every Receipts Pack your audience buys. Free pack, tracked link, monthly PayPal payout." };
+export const metadata = { title: "Partner programme · Receipts", description: "Earn 50% ($14.50) on every Receipts Pack your audience buys. Free pack, tracked link, monthly PayPal payout." };
 const Row = ({ k, v }) => <div style={{ display: "flex", gap: 12, justifyContent: "space-between", padding: "10px 0", borderBottom: `1px solid ${C.border}` }}><span style={{ color: C.muted }}>{k}</span><span style={{ color: C.ink, fontWeight: 600, textAlign: "right" }}>{v}</span></div>;
 export default function Partners() {
   return <main style={{ maxWidth: 560, margin: "0 auto", padding: 16 }}>
     <p style={eyebrow}>Receipts · Partner programme</p>
-    <h1 style={{ ...h1, fontSize: 34, margin: "6px 0 10px" }}>Your audience keeps receipts. You keep ${prog.commission_usd_per_sale} a sale.</h1>
-    <p style={sub}>Receipts is a $29, 30-day proof system for people who were told they were not ready. Step 1 is free, so your followers can try it before they pay anything. You get a tracked link, the full pack for free, and a flat ${prog.commission_usd_per_sale} for every sale it produces.</p>
+    <h1 style={{ ...h1, fontSize: 34, margin: "6px 0 10px" }}>Your audience keeps receipts. You keep half of every sale.</h1>
+    <p style={sub}>Receipts is a $29, 30-day proof system for people who were told they were not ready. Step 1 is free, so your followers can try it before they pay anything. You get a tracked link, the full pack for free, and 50% of every sale it produces ($14.50 of $29).</p>
     <div style={{ ...card, padding: 22, borderColor: C.primary }}>
-      <Row k="Commission" v={`$${prog.commission_usd_per_sale} per $29 sale (${Math.round(prog.commission_usd_per_sale / prog.product_price_usd * 1000) / 10}%)`} />
+      <Row k="Commission" v={`${prog.commission_pct}% — $${prog.commission_usd_per_sale.toFixed(2)} per $29 sale`} />
       <Row k="Founding rate" v="locked 12 months for partners joining before 31 Jan 2027" />
       <Row k="Attribution" v={`${prog.attribution_window_days} days, last partner link wins`} />
       <Row k="Payout" v="monthly by the 5th · PayPal or Wise" />

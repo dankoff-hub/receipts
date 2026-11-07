@@ -6,7 +6,7 @@ Version 2026-11-07. Public page: https://receiptspack.vercel.app/partners · Ter
 
 | Item | Value |
 |---|---|
-| Commission | **Flat $15 per completed $29 sale (51.7%)** |
+| Commission | **50% of each completed sale = $14.50 on the $29 pack** |
 | Founding rate | Locked 12 months for partners who join before 31 Jan 2027 |
 | Attribution | 60 days, first-party cookie set by `receiptspack.vercel.app/p/<code>`, last partner link wins, partner beats organic source |
 | Payout | Monthly by the 5th for the previous month, PayPal or Wise, minimum $30, 14-day hold, roll-over below minimum |
@@ -14,17 +14,17 @@ Version 2026-11-07. Public page: https://receiptspack.vercel.app/partners · Ter
 | Cost / exclusivity / quota | None |
 | Disclosure | Required: "#ad" / "affiliate link" up front (FTC Endorsement Guides; UK CAP Code) |
 
-## 2. Why $15 flat (commission rationale)
+## 2. Why 50% (commission rationale)
 
 - Digital products have zero marginal cost, so sharing 30–50% is normal; **50% is the recommended rate for products priced $10–$30 and for launches** where partners need a reason to put real effort behind it ([SendOwl](https://www.sendowl.com/blog/tips-and-advice/affiliate-program-digital-products)).
 - Info products typically pay 30–50%; low-priced products need **higher** percentages because affiliates judge the dollar amount per sale and earnings-per-click, not the percentage ("10% on a $20 product = $2 per sale is not enough to motivate someone to send their list") ([Matt McWilliams](https://www.mattmcwilliams.com/what-is-a-good-affiliate-commission-rate/)).
 - Gumroad direct affiliates are set by sellers anywhere from 1–75%, so a 50%+ founding rate is inside market norms and easy to explain ([Gumroad help](https://gumroad.com/help/article/333-affiliates-on-gumroad)).
-- Flat $15 is simpler than "50%" for a creator to repeat on camera and absorbs Stripe's fee on our side (we net about $27.70 per sale; after commission $12.70, still positive on a zero-cost product).
+- 50% is a clean, memorable promise ("we split it") and scales automatically if the price changes; we net about $27.70 per sale after Stripe, $13.20 after commission, still positive on a zero-cost product.
 - Cookie: 30 days is the most common window (45% of programmes), but 60–90 is advised for products people think about for a while and for one-off newsletter mentions ([systeme.io](https://systeme.io/learn/start-an-affiliate-program), [SendOwl](https://www.sendowl.com/blog/tips-and-advice/affiliate-program-digital-products)). We use 60.
 - Payout: monthly on a fixed day with a $25–$50 minimum is the modern norm for digital products ([SendOwl](https://www.sendowl.com/blog/tips-and-advice/affiliate-program-digital-products)).
 - Micro creators (10k–100k) convert affiliate traffic at 1.5–4% versus 0.5–2% for macro accounts, so the partner list deliberately targets 1k–200k and fit over size ([InfluencerFee](https://influencerfee.com/blog/instagram-influencer-statistics-2025/)); a 2,000-reader niche newsletter typically outsells a general 200k account ([SendOwl](https://www.sendowl.com/blog/tips-and-advice/affiliate-program-digital-products)).
 
-**Expected economics per partner (honest):** a creator with median 1,000 views/video posting 1 tagged video/week → ~4,000 views/month → 1–3% click to link ≈ 40–120 clicks → 3–5% buy on a warm, trusted referral ≈ 1–6 sales ≈ $15–$90/month to the partner, $14–$76 to us. Newsletters do better per reader. 40 active partners ≈ 60–240 sales/month. That is a real contribution, not the whole target; it compounds with the content swarm and the email list.
+**Expected economics per partner (honest):** a creator with median 1,000 views/video posting 1 tagged video/week → ~4,000 views/month → 1–3% click to link ≈ 40–120 clicks → 3–5% buy on a warm, trusted referral ≈ 1–6 sales ≈ $14–$87/month to the partner, about the same to us. Newsletters do better per reader. 40 active partners ≈ 60–240 sales/month. That is a real contribution, not the whole target; it compounds with the content swarm and the email list.
 
 ## 3. Payback (payout) channel — zero fixed cost
 
@@ -45,11 +45,11 @@ Rules: short (≤3 paragraphs), individual first line that proves we watched/rea
 
 ### Instagram / YouTube DM (≤ 500 chars)
 <!-- DM -->
-Hi {first} — I watched your recent videos on staying disciplined when nobody is cheering; that is exactly who Receipts is for. It is a $29, 30-day "keep the receipt" system (Step 1 is free: receiptspack.vercel.app/free). I would like to send you the full pack free and, if you think it fits, give you a partner link receiptspack.vercel.app/p/{code} that pays a flat $15 per sale, monthly by PayPal, no quota, no exclusivity. Want me to send it over? — Dan, Receipts
+Hi {first} — I watched your recent videos on staying disciplined when nobody is cheering; that is exactly who Receipts is for. It is a $29, 30-day "keep the receipt" system (Step 1 is free: receiptspack.vercel.app/free). I would like to send you the full pack free and, if you think it fits, give you a partner link receiptspack.vercel.app/p/{code} that pays you 50% of every sale ($14.50), monthly by PayPal, no quota, no exclusivity. Want me to send it over? — Dan, Receipts
 <!-- /DM -->
 
 ### Email (creators and newsletter writers)
-Subject: $15 a sale for a 30-day "receipts" system your readers would use
+Subject: 50% per sale on a 30-day "receipts" system your readers would use
 
 Hi {first},
 
@@ -57,7 +57,7 @@ Hi {first},
 
 I run Receipts, a $29, 30-day proof system for people who were underestimated: write the receipt once, then log one honest line a day until it is irrelevant. Step 1 is free (receiptspack.vercel.app/free), so your readers can try it before paying anything.
 
-Partner terms, one page: flat $15 per completed sale (51.7%), 60-day attribution, monthly PayPal/Wise payout by the 5th, no quota, no exclusivity, rate locked 12 months. I would send you the full pack free first so you can decide honestly. If yes, your link would be receiptspack.vercel.app/p/{code}. Terms: receiptspack.vercel.app/partners/terms
+Partner terms, one page: 50% of every completed sale ($14.50 on $29), 60-day attribution, monthly PayPal/Wise payout by the 5th, no quota, no exclusivity, rate locked 12 months. I would send you the full pack free first so you can decide honestly. If yes, your link would be receiptspack.vercel.app/p/{code}. Terms: receiptspack.vercel.app/partners/terms
 
 Dan Rossi — Receipts (Tealstone Consulting Ltd, 61 Bridge Street, Kington, Herefordshire, HR5 3DJ)
 
