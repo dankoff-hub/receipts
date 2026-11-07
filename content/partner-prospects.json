@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-07T17:50:19.488Z",
+ "updated": "2026-11-07T18:17:22.635Z",
  "prospects": {
   "@Myelia_irl": {
    "title": "Myelia /Self Improvement",
@@ -33,7 +33,11 @@
     "generated": "2026-11-07T17:35:30.540Z"
    },
    "contacted": "2026-11-07",
-   "contact_channel": "ig"
+   "contact_channel": "ig",
+   "latest_video": null,
+   "threads": null,
+   "substack": null,
+   "has_email": false
   },
   "@Forged4Future": {
    "title": "F4F",
@@ -66,7 +70,11 @@
     "generated": "2026-11-07T17:35:31.419Z"
    },
    "contacted": "2026-11-07",
-   "contact_channel": "ig"
+   "contact_channel": "ig",
+   "latest_video": null,
+   "threads": "threads.com/@forged4future",
+   "substack": null,
+   "has_email": false
   },
   "@coachronnie": {
    "title": "Coach Ronnie",
@@ -322,7 +330,7 @@
    "handle": "@discipline7q",
    "subs": 22100,
    "median_views": 116000,
-   "max_views": 549000,
+   "max_views": 553000,
    "links": [
     "instagram.com/only_elite_men_7?igsi=cXBmbWxmMWY2MHRi"
    ],
@@ -336,15 +344,20 @@
    "kind": "youtube",
    "latest": null,
    "tt": null,
-   "drafts_provider": "pollinations",
+   "drafts_provider": "groq",
    "drafts": {
     "code": "discipline7q",
     "dm": "I love how your channel turns Discipline into a practical roadmap for young men. We’re offering you a free full copy of our 30‑day ‘Proof’ system at receiptspack.vercel.app/free. If you link to your audience with receiptspack.vercel.app/p/discipline7q, you’ll earn 50% ($14.50) of every sale, paid monthly via PayPal—no quota, no exclusivity. Ready to start? — Dan, Receipts",
     "email_subject": "Partner with Receipts: 50% Revenue Share on Your Channel",
     "email": "Hey,\n\nYour focus on discipline as a key to success aligns perfectly with our 30‑day proof system. We’re giving you a free full pack to check out at receiptspack.vercel.app/free, then offer a partner link (receiptspack.vercel.app/p/discipline7q) that pays 50% of each purchase ($14.50) every month through PayPal—no limits, no exclusivity.\n\nReview the partnership details at receiptspack.vercel.app/partners/terms. Let me know if you’re interested.\n\nDan Rossi — Receipts",
-    "generated": "2026-11-07T17:31:44.772Z"
+    "generated": "2026-11-07T18:16:00.724Z",
+    "short": "Your “Discipline = Success” focus tip is spot on. I’d like to send you our 30‑day proof pack free and talk about a partner link – look for “Receipts partners” or just reply. — Dan"
    },
-   "ig_dead": true
+   "ig_dead": true,
+   "latest_video": null,
+   "threads": null,
+   "substack": null,
+   "has_email": false
   },
   "@ChadEveryday": {
    "title": "Chadeveryday",
@@ -377,7 +390,11 @@
     "generated": "2026-11-07T17:50:18.578Z"
    },
    "contacted": "2026-11-07",
-   "contact_channel": "ig"
+   "contact_channel": "ig",
+   "latest_video": null,
+   "threads": null,
+   "substack": null,
+   "has_email": false
   },
   "@Disciplined_dads": {
    "title": "Disciplined Dads ",
@@ -429,7 +446,11 @@
     "generated": "2026-11-07T17:50:10.985Z"
    },
    "contacted": "2026-11-07",
-   "contact_channel": "ig"
+   "contact_channel": "ig",
+   "latest_video": null,
+   "threads": null,
+   "substack": null,
+   "has_email": false
   },
   "@StoiccDiary": {
    "title": "Stoic Diary",
@@ -476,7 +497,11 @@
     "email": "Hey Tom,\n\nYour channel’s focus on actionable life advice aligns perfectly with Receipts, a $29, 30‑day proof system that turns “not ready” into a clear path forward. We’d love to give you the full pack for free – just grab it at receiptspack.vercel.app/free.\n\nIf you share the partner link receiptspack.vercel.app/p/tomhurls with your audience, you’ll receive 50% of every sale ($14.50) paid monthly through PayPal, with no sales quota and no exclusivity required.\n\nTerms are simple: receiptspack.vercel.app/partners/terms. Let me know if you’d like to get started.\n\nDan Rossi — Receipts",
     "generated": "2026-11-07T17:50:19.488Z"
    },
-   "ig_private": true
+   "ig_private": true,
+   "latest_video": null,
+   "threads": null,
+   "substack": null,
+   "has_email": false
   },
   "@dominichartt": {
    "title": "Dominic Hart",
@@ -531,7 +556,11 @@
     "generated": "2026-11-07T17:35:33.373Z"
    },
    "contacted": "2026-11-07",
-   "contact_channel": "ig"
+   "contact_channel": "ig",
+   "latest_video": null,
+   "threads": null,
+   "substack": null,
+   "has_email": false
   },
   "@DailyStoicWisdom-15": {
    "title": "Daily Stoic Wisdom ",
@@ -654,7 +683,8 @@
     "dm": "Your latest piece on disciplined action in \"The Improvement Journal\" really hits the core of turning intent into results. We’d love to give you the full Receipts pack free at receiptspack.vercel.app/free so you can test it with your readers. If you share the partner link receiptspack.vercel.app/p/improvebypathsof, you’ll earn 50% of each sale ($14.50) via monthly PayPal payouts—no quotas, no exclusivity. Interested? — Dan, Receipts",
     "email_subject": "Free Receipts Pack for The Improvement Journal",
     "email": "Hey there,\n\nI was struck by your focus on discipline and actionable steps in The Improvement Journal. I think our Receipts system—a $29, 30‑day proof that lets people keep the receipt and then make it irrelevant—could be a perfect fit for your audience.\n\nWe’ll send you the full pack for free (receiptspack.vercel.app/free). If you’d like to partner, use receiptspack.vercel.app/p/improvebypathsof and you’ll receive 50% of each sale ($14.50), paid monthly via PayPal, with no quota or exclusivity requirements.\n\nTerms are simple: receiptspack.vercel.app/partners/terms. Let me know what you think.\n\nDan Rossi — Receipts",
-    "generated": "2026-11-07T17:35:35.074Z"
+    "generated": "2026-11-07T18:16:02.876Z",
+    "short": "Your piece on discipline and action nails the challenge of turning intent into results. I’d love to send you our 30‑day proof pack free and discuss a partner link – look for \"Receipts partners\" or just reply. — Dan"
    },
    "ig_dead": true
   },
@@ -729,7 +759,8 @@
     "dm": "Your newsletter “Own Your Ambition” calls out the workplace barriers that keep ambitious women from moving forward, and that’s exactly the friction our $29, 30‑day proof system solves – keep the receipt, then make it irrelevant. We’ll send you the full pack free at receiptspack.vercel.app/free and give you a unique partner link receiptspack.vercel.app/p/bonniemarcus1 that pays you 50% of every sale ($14.50) monthly via PayPal, with no quota or exclusivity. Interested in testing it out? — Dan, Receipts",
     "email_subject": "Free Receipts pack for Own Your Ambition readers",
     "email": "Hey Bonnie,\n\nYour “Own Your Ambition” newsletter spotlights the exact hurdles women face in the workplace, and our $29, 30‑day proof system – keep the receipt, then make it irrelevant – is built to knock those down. We’ll ship you the full pack free at receiptspack.vercel.app/free so you can see the value firsthand.\n\nIf it clicks, you can share a partner link receiptspack.vercel.app/p/bonniemarcus1 that returns 50% of every sale ($14.50) straight to you each month via PayPal, with no sales quota or exclusivity clause. All terms are laid out at receiptspack.vercel.app/partners/terms.\n\nWould you like to give it a try and see how it fits your audience?\n\nDan Rossi — Receipts",
-    "generated": "2026-11-07T17:35:37.877Z"
+    "generated": "2026-11-07T18:16:04.933Z",
+    "short": "Your note on workplace barriers struck a chord—let’s send you our 30‑day proof pack free and discuss a partner link. Look for \"Receipts partners\" or reply. — Dan"
    }
   },
   "https://mattskura.substack.com": {
@@ -753,7 +784,8 @@
     "dm": "Your focus on resilience and mental health in Matt Skura's Newsletter aligns with our goal of helping people prove they’re ready. We’d love to send you the full Receipts pack free at receiptspack.vercel.app/free. Partner link receiptspack.vercel.app/p/mattskura pays 50% of each $29 sale ($14.50) monthly via PayPal, no quota, no exclusivity. Interested? — Dan, Receipts",
     "email_subject": "Partner opportunity: 50% revenue share for Receipts",
     "email": "I noticed your newsletter’s emphasis on resilience and leadership, which matches the mindset we support with Receipts. We can give you the full 30‑day proof system free – just visit receiptspack.vercel.app/free.\n\nIf you share the partner link receiptspack.vercel.app/p/mattskura, you’ll earn 50% of every $29 sale ($14.50) paid monthly through PayPal, with no sales quota or exclusivity requirements.\n\nTerms are simple: see receiptspack.vercel.app/partners/terms. Let me know if you’d like to discuss next steps.\n\nDan Rossi — Receipts",
-    "generated": "2026-11-07T17:35:38.675Z"
+    "generated": "2026-11-07T18:16:06.126Z",
+    "short": "Your note on turning setbacks into growth stuck with me. I'd like to send you our free 30‑day proof pack and chat about a partner link—look for \"Receipts partners\" or reply. — Dan"
    }
   },
   "https://xtreme007.beehiiv.com": {
@@ -801,7 +833,8 @@
     "dm": "Your focus on turning mediocrity into mastery and discipline in The FitMind Newsletter aligns with what Receipts helps people prove they’re ready. We’d like to give you the full 30‑day proof pack free at receiptspack.vercel.app/free. Partner with us via receiptspack.vercel.app/p/fitmind and earn 50% of each $29 sale ($14.50) paid monthly through PayPal—no sales quota, no exclusivity. Interested in testing it out? — Dan, Receipts",
     "email_subject": "Free Receipts proof pack for The FitMind readers",
     "email": "Hey Shan,\n\nYour newsletter’s drive from mediocrity to mastery caught my eye, and I think Receipts can give your audience a concrete way to prove they’re ready for change. We’re offering the complete 30‑day proof system free at receiptspack.vercel.app/free.\n\nIf you share the partner link receiptspack.vercel.app/p/fitmind, you’ll receive 50% of every $29 sale ($14.50) deposited monthly via PayPal—no minimums, no exclusive commitments. It’s a straightforward way to add value for your readers and earn alongside them.\n\nFull terms are listed at receiptspack.vercel.app/partners/terms. Let me know if you’d like to move forward.\n\nDan Rossi — Receipts",
-    "generated": "2026-11-07T17:50:12.060Z"
+    "generated": "2026-11-07T18:16:08.262Z",
+    "short": "Your take on discipline as a path to mastery resonates – we’d like to send you our full 30‑day proof pack free and discuss a partner link; look for \"Receipts partners\" or just reply. — Dan"
    }
   },
   "https://wisewordsnewsletter.beehiiv.com": {
@@ -825,7 +858,8 @@
     "dm": "Grant, your focus on mindset, grit and consistency in Wise Words Weekly aligns perfectly with our $29, 30‑day proof system that turns “not ready” into proof. We’d love to send you the full Receipts pack free at receiptspack.vercel.app/free and set you up with a partner link receiptspack.vercel.app/p/wisewordsnewslet that pays you 50% of each sale ($14.50) via monthly PayPal, with no quotas or exclusivity. Interested in a quick chat? — Dan, Receipts",
     "email_subject": "Partner opportunity for Wise Words Weekly",
     "email": "Hey Grant,\n\nYour newsletter’s emphasis on mindset, grit and consistency is a perfect match for Receipts, our $29, 30‑day proof system that helps people prove they’re ready. We’d like to give you the full pack for free – just grab it at receiptspack.vercel.app/free.\n\nIf you like it, we can set up a partner link (receiptspack.vercel.app/p/wisewordsnewslet) that pays you 50% of each sale ($14.50) via monthly PayPal, with no sales quotas or exclusivity required.\n\nTerms are simple: receiptspack.vercel.app/partners/terms. Let me know if you’d like to explore this partnership.\n\nDan Rossi — Receipts",
-    "generated": "2026-11-07T17:50:13.053Z"
+    "generated": "2026-11-07T18:16:09.845Z",
+    "short": "Your tip on using daily mindset drills to boost grit is spot on. I'd like to send you our 30‑day proof pack free and discuss a partner link—look for “Receipts partners” or just reply. — Dan"
    }
   },
   "https://vitalcore-newsletter.beehiiv.com": {
@@ -849,7 +883,8 @@
     "dm": "Your VitalCore Newsletter focuses on daily self‑improvement, and our $29, 30‑day proof system fits that mindset—keep the receipt, then make it irrelevant. We’ll give you the full pack free at receiptspack.vercel.app/free, and you can earn 50% of every sale ($14.50) through a partner link receiptspack.vercel.app/p/vitalcorenewslet, paid monthly via PayPal, with no quota or exclusivity. Interested? — Dan, Receipts",
     "email_subject": "Earn 50% on Receipts’ $29 Self‑Improvement Pack",
     "email": "Hey VitalCore team,\n\nYour daily self‑improvement focus aligns perfectly with Receipts—a $29, 30‑day proof system that lets people keep the receipt and then make it irrelevant. We’ll send you the full pack for free (receiptspack.vercel.app/free) so you can test it yourself.\n\nIf you like it, you can share a partner link receiptspack.vercel.app/p/vitalcorenewslet and earn 50% of each sale ($14.50), paid monthly through PayPal, with no sales quota or exclusivity requirements. Terms are listed at receiptspack.vercel.app/partners/terms.\n\nLet me know if you’d like to get started.\n\nDan Rossi — Receipts",
-    "generated": "2026-11-07T17:50:14.071Z"
+    "generated": "2026-11-07T18:16:10.987Z",
+    "short": "Your daily self‑improvement content matches our proof system vibe. We’d love to send you the full 30‑day pack free and chat about a partner link – look for “Receipts partners” or reply. — Dan"
    }
   },
   "https://daniellenewnham.substack.com": {
@@ -867,13 +902,14 @@
    "found": "2026-11-07",
    "checked": "2026-11-07",
    "kind": "newsletter",
-   "drafts_provider": "groq",
+   "drafts_provider": "pollinations",
    "drafts": {
     "code": "daniellenewnham",
     "dm": "Your focus on discipline as the bridge between goals and accomplishment resonates with our approach—turning “not ready” into proof. We’re offering the full Receipts pack free at receiptspack.vercel.app/free, and you can earn 50% of each $29 sale ($14.50) via receiptspack.vercel.app/p/daniellenewnham, paid monthly through PayPal, no quota, no exclusivity. Interested in a quick chat? — Dan, Receipts",
     "email_subject": "Turn Discipline into Proof – Free Receipts Pack",
     "email": "Hey Danielle,\n\nYour newsletter’s take on discipline as the bridge between goals and accomplishment aligns with what we do at Receipts – we help people prove they’re ready with a 30‑day system. You can try the full pack for free at receiptspack.vercel.app/free.\n\nIf you like it, you can partner with us at receiptspack.vercel.app/p/daniellenewnham and earn 50% of every $29 sale ($14.50), paid monthly via PayPal, with no sales quota or exclusivity. Terms are outlined here: receiptspack.vercel.app/partners/terms.\n\nWould you be open to discussing how this could fit your audience?\n\nDan Rossi — Receipts",
-    "generated": "2026-11-07T17:50:14.931Z"
+    "generated": "2026-11-07T18:16:22.812Z",
+    "short": "Your discipline‑focused content is spot on. We’d love to send your audience our full 30‑day proof pack free and chat about a partner link. Looking for \"Receipts partners\" or reply? — Dan"
    }
   },
   "https://insightsjournal.substack.com": {
@@ -891,13 +927,14 @@
    "found": "2026-11-07",
    "checked": "2026-11-07",
    "kind": "newsletter",
-   "drafts_provider": "groq",
+   "drafts_provider": "pollinations",
    "drafts": {
     "code": "insightsjournal",
     "dm": "Your piece on the \"10‑minute comeback\" nails the quick‑action mindset we champion. We’d love to send you the full Receipts pack free at receiptspack.vercel.app/free. Partner link receiptspack.vercel.app/p/insightsjournal earns you 50% of each $29 sale ($14.50) paid monthly via PayPal, with no quota or exclusivity. Interested? — Dan, Receipts",
     "email_subject": "Free Receipts Pack + 50% Referral for Insights Journal",
     "email": "Hey Insights Journal team,\n\nYour focus on personal growth and disciplined habits, especially the \"10‑minute comeback,\" aligns perfectly with Receipts – a $29, 30‑day proof system that turns “not ready” into “ready.” We’re offering the full pack free at receiptspack.vercel.app/free so you can experience it firsthand.\n\nIf you join as a partner through receiptspack.vercel.app/p/insightsjournal, you’ll earn 50% of every sale ($14.50) on a monthly PayPal payout, with no sales quota or exclusivity required. All terms are outlined at receiptspack.vercel.app/partners/terms.\n\nLet me know if you’d like to discuss next steps.\n\nDan Rossi — Receipts",
-    "generated": "2026-11-07T17:50:15.866Z"
+    "generated": "2026-11-07T18:17:22.635Z",
+    "short": "Your 10‑minute comeback tactics are spot on. We’d love to send you our free 30‑day proof pack and discuss a partner link. Reply or look for “Receipts partners”. — Dan"
    }
   },
   "@kathyhampton_wellness": {
@@ -940,19 +977,24 @@
    "found": "2026-11-07",
    "url": "https://www.youtube.com/@Growingwithjenna",
    "checked": "2026-11-07",
-   "drafts_provider": "pollinations",
+   "drafts_provider": "groq",
    "drafts": {
     "code": "growingwithjenna",
     "dm": "Hey Jenna, I saw you focus on \"Real Life Growth\" for your channel. We’d love to partner on Receipts – a $29, 30‑day proof system. First, you can get the full pack free at receiptspack.vercel.app/free. Then, with the partner link receiptspack.vercel.app/p/growingwithjenna you’ll earn 50% of every sale ($14.50), paid monthly via PayPal, no quotas, no exclusivity. Interested in giving it a try? — Dan, Receipts",
     "email_subject": "Partner offer for Growing with Jenna",
     "email": "Hey Jenna,\n\nI’ve been following Growing with Jenna and your focus on real‑life growth for women. Receipts is a straightforward $29, 30‑day proof system that helps people prove they’re ready, and we’d love to offer you the full pack for free at receiptspack.vercel.app/free.\n\nWith your unique partner link, receiptspack.vercel.app/p/growingwithjenna, you’ll earn 50 % of each sale—$14.50—paid monthly through PayPal. There are no quotas or exclusivity agreements, and you can pause or stop at any time. Terms are detailed at receiptspack.vercel.app/partners/terms.\n\nLet me know if you’d like to set this up or have any questions. — Dan Rossi — Receipts",
-    "generated": "2026-11-07T17:32:38.674Z"
-   }
+    "generated": "2026-11-07T18:16:01.865Z",
+    "short": "Your “mindset shifts for busy moms” video hits the nail on daily confidence. We’d like to send the free 30‑day Receipts pack and chat about a partner link – look for “Receipts partners” or reply. — Dan"
+   },
+   "latest_video": null,
+   "threads": null,
+   "substack": null,
+   "has_email": false
   },
   "@growthhub11-e9f": {
    "channel_id": "UCIv8q7D2xeBfxDpI1TFheBQ",
    "title": "growthhub11 ",
-   "subs": 90700,
+   "subs": 91000,
    "handle": "@growthhub11-e9f",
    "desc": "Welcome to ( growthhub11 ) Daily Dose of: Dark Psychology Shorts Mindset Hacks Powerful Motivation ...",
    "latest": null,
@@ -974,7 +1016,11 @@
     "email_subject": "Earn 50% on Receipts – Free Pack for GrowthHub11",
     "email": "Hey GrowthHub11 team,\n\nI was impressed by your \"Mindset Hacks\" short on overcoming mental barriers – the practical tips really hit home. I’d love to give you free access to our 30‑day Receipts proof system (normally $29) so you can test it yourself; just grab it at receiptspack.vercel.app/free.\n\nIf you like it, you can join our partner program with a unique link receiptspack.vercel.app/p/growthhub11e9f that pays you $14.50 for every sale, monthly via PayPal, with no minimums or exclusivity. All the details are in the terms page: receiptspack.vercel.app/partners/terms.\n\nLet me know if you’d like to get started.\n\nDan Rossi — Receipts",
     "generated": "2026-11-07T17:50:16.749Z"
-   }
+   },
+   "latest_video": null,
+   "threads": null,
+   "substack": null,
+   "has_email": false
   },
   "@ashleyldalton": {
    "channel_id": "UCmDADkm7CG7uyZBqKHnLxNQ",
@@ -995,6 +1041,164 @@
    "status": "low-fit",
    "found": "2026-11-07",
    "url": "https://www.youtube.com/@ashleyldalton"
+  },
+  "@Havenhaania": {
+   "channel_id": "UCB9z5MemzbQKVlcwEeCxfww",
+   "title": "Haania shaikh",
+   "subs": 19600,
+   "handle": "@Havenhaania",
+   "desc": "Assalamu Alaikum! ✨   I'm Haania Shaikh, a niqabi content creator and university student in Jamia Millia Islamia. Here ...",
+   "latest": null,
+   "latest_video": null,
+   "median_views": 6100,
+   "max_views": 33000,
+   "links": [
+    "instagram.com/havenhaania?igsh=ODA1NTc5OTg5Nw==\\u0026utm_source=qr",
+    "pin.it/1armMax"
+   ],
+   "ig": "instagram.com/havenhaania?igsh=ODA1NTc5OTg5Nw==\\u0026utm_source=qr",
+   "tt": null,
+   "threads": null,
+   "substack": null,
+   "has_email": false,
+   "site": "pin.it/1armMax",
+   "score": 40,
+   "status": "prospect",
+   "found": "2026-11-07",
+   "url": "https://www.youtube.com/@Havenhaania",
+   "checked": "2026-11-07"
+  },
+  "@DrQuindelJones": {
+   "channel_id": "UCoac8oO8Bh9RvYxanZIGyJw",
+   "title": "Life With Dr Quin",
+   "subs": 2009,
+   "handle": "@DrQuindelJones",
+   "desc": "intentional living meets applied mathematics — systems in life, practice, & theory I'm Dr. Quin, applied mathematician, Systems ...",
+   "latest": null,
+   "latest_video": null,
+   "median_views": 572,
+   "max_views": 1571,
+   "links": [
+    "open.substack.com/pub/drjonesdailycolumn",
+    "open.substack.com/pub/drquindeljones",
+    "patreon.com/drquin",
+    "quindeldjones.wixsite.com/drquinjones"
+   ],
+   "ig": null,
+   "tt": null,
+   "threads": null,
+   "substack": "open.substack.com/pub/drjonesdailycolumn",
+   "has_email": false,
+   "site": "patreon.com/drquin",
+   "score": 20,
+   "status": "low-fit",
+   "found": "2026-11-07",
+   "url": "https://www.youtube.com/@DrQuindelJones"
+  },
+  "@TrishBlackwell": {
+   "channel_id": "UC8OqF-56KwI7A56L8PprY4w",
+   "title": "Trish Blackwell",
+   "subs": 12700,
+   "handle": "@TrishBlackwell",
+   "desc": "I've helped millions of people use journaling to build confidence, follow through, and change the way they think—and I'm here to ...",
+   "latest": null,
+   "latest_video": null,
+   "median_views": 1600,
+   "max_views": 6000,
+   "links": [
+    "collegeofconfidence.com",
+    "facebook.com/trishblackwellcoaching",
+    "instagram.com/trish_blackwell",
+    "linkedin.com/in/trishblackwell",
+    "pinterest.com/trishblackwellcoaching",
+    "trishblackwell.com/TheConfidencePodcast",
+    "trishblackwell.com/coaching",
+    "trishblackwell.thrivecart.com/24-for-24-instagram-youtube"
+   ],
+   "ig": "instagram.com/trish_blackwell",
+   "tt": null,
+   "threads": null,
+   "substack": null,
+   "has_email": false,
+   "site": "collegeofconfidence.com",
+   "score": 55,
+   "status": "prospect",
+   "found": "2026-11-07",
+   "url": "https://www.youtube.com/@TrishBlackwell",
+   "checked": "2026-11-07"
+  },
+  "@onecraftydolo": {
+   "channel_id": "UCXc6R_63hlbqRq9Yhc4cnIQ",
+   "title": "One Crafty Dolo | Faith, Journaling, Planning",
+   "subs": 4930,
+   "handle": "@onecraftydolo",
+   "desc": "Welcome! I'm Dolo, I help Christian women grow closer to God through faith-based journaling, reflection, planning, and ...",
+   "latest": null,
+   "latest_video": null,
+   "median_views": 386,
+   "max_views": 1100,
+   "links": [
+    "linktr.ee/OneCraftyDolo"
+   ],
+   "ig": null,
+   "tt": null,
+   "threads": null,
+   "substack": null,
+   "has_email": false,
+   "site": null,
+   "score": 25,
+   "status": "low-fit",
+   "found": "2026-11-07",
+   "url": "https://www.youtube.com/@onecraftydolo"
+  },
+  "@thatgirlzeen": {
+   "channel_id": "UCs3GIKQEvkG39N4vjO7ya4w",
+   "title": "thatgirlzeen🎀",
+   "subs": 7340,
+   "handle": "@thatgirlzeen",
+   "desc": "Assalamu Alaikum Welcome to thatgirlzeen! A 25 years old girl and a boy mom . A space for Muslim girls and women who want ...",
+   "latest": null,
+   "latest_video": null,
+   "median_views": 740,
+   "max_views": 18000,
+   "links": [
+    "facebook.com/share/1Ak6XHy2hb",
+    "instagram.com/thatgirlzeen?igsh=OG1vNzAzbGE0aXF4",
+    "thatgirlzee8@gmail.com"
+   ],
+   "ig": "instagram.com/thatgirlzeen?igsh=OG1vNzAzbGE0aXF4",
+   "tt": null,
+   "threads": null,
+   "substack": null,
+   "has_email": false,
+   "site": "thatgirlzee8@gmail.com",
+   "score": 30,
+   "status": "low-fit",
+   "found": "2026-11-07",
+   "url": "https://www.youtube.com/@thatgirlzeen"
+  },
+  "@Aristocrat.Looksmaxing": {
+   "channel_id": "UClIzi5dgwogb-ZahPSyVpmw",
+   "title": "Aristocrat - Looksmaxing",
+   "subs": 2880,
+   "handle": "@Aristocrat.Looksmaxing",
+   "desc": "Welcome to a self-improvement channel focused on helping you become the most attractive, disciplined, and high-value version ...",
+   "latest": null,
+   "latest_video": null,
+   "median_views": 580,
+   "max_views": 1500,
+   "links": [],
+   "ig": null,
+   "tt": null,
+   "threads": null,
+   "substack": null,
+   "has_email": false,
+   "site": null,
+   "score": 55,
+   "status": "prospect",
+   "found": "2026-11-07",
+   "url": "https://www.youtube.com/@Aristocrat.Looksmaxing",
+   "checked": "2026-11-07"
   }
  }
 }

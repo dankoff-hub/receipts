@@ -11,10 +11,10 @@
    "card": false,
    "auth": "GROQ_API_KEY secret (optional)",
    "limit": "14,400 req/day",
-   "cooldown_until": 0,
-   "calls": 129,
-   "fails": 3,
-   "last_error": "400 {\"error\":{\"message\":\"'messages' must contain the word 'json' in some form, to use 'response_format' of type 'json_object'.\",\"type\":\"invalid_request_error\"}}\n"
+   "cooldown_until": 1794078970987,
+   "calls": 140,
+   "fails": 4,
+   "last_error": "429"
   },
   "nvidia_nim": {
    "card": false,
@@ -30,8 +30,8 @@
    "auth": "none (anonymous)",
    "limit": "rate-limited anonymous",
    "cooldown_until": 0,
-   "calls": 20,
-   "fails": 7
+   "calls": 23,
+   "fails": 8
   },
   "ollama_local": {
    "card": false,
@@ -57,5 +57,5 @@
   "puter": "browser session — founder-only login"
  },
  "rotation_offset": 3,
- "updated": "2026-11-07T17:50:19.489Z"
+ "updated": "2026-11-07T18:17:22.636Z"
 }
