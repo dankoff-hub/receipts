@@ -25,7 +25,7 @@ You received this because you asked for a reminder at ${SITE}/free (source: ${sr
   const html = `<div style="font-family:system-ui,Arial,sans-serif;max-width:560px;margin:0 auto;color:#111;line-height:1.5">
 <p style="font-size:22px;font-weight:700;margin:0 0 12px">Day 1.</p>
 <p>Yesterday you grabbed the Step 1 template. Today is the only day it matters: write the receipt once, exactly as it happened, then close the page.</p>
-<p><a href="${sheet}" style="display:inline-block;background:#111;color:#fff;padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:700">Open the printable sheet</a></p>
+<p><a href="${sheet}" style="display:inline-block;background:#0F4C3A;color:#fff;padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:700">Open the printable sheet</a></p>
 <p>Your progress bar (Step 1 → Step 2): <a href="${free}">${free.replace("https://", "")}</a></p>
 <p>Step 2 turns the receipt into a standard you can check every morning. It is $29, one-time, inside the <a href="${pricing}">Receipts Pack</a>.</p>
 <p>That is the only email you will get from me.<br>— Dan</p>

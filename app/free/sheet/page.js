@@ -3,7 +3,7 @@ export const metadata={title:"Step 1 sheet · Receipts",robots:{index:false}};
 const Q=["What was said or done? Write it exactly, once.","When did it happen?","What did it make you feel? (dismissed, compared, rejected, underestimated, angry)","What does this make you want to prove?","What would make this irrelevant in 90 days?"];
 export default function Sheet({searchParams}){
 const src=String(searchParams?.src||"sheet").replace(/[^a-z0-9_-]/gi,"").slice(0,40);
-return <main style={{background:"#fff",color:"#111",maxWidth:680,margin:"-24px auto 0",padding:"32px 28px",minHeight:"100vh",fontFamily:"system-ui"}}>
+return <main style={{background:"#fff",color:"#111",maxWidth:680,margin:"0 auto",borderRadius:12,border:"1px solid #E3DBCD",padding:"32px 28px",fontFamily:"system-ui"}}>
 <p style={{letterSpacing:3,fontSize:11,color:"#666",margin:0}}>RECEIPTS · STEP 1 OF 5 · THE RECEIPT</p>
 <h1 style={{fontSize:26,margin:"6px 0 4px 0"}}>Write it once. Then close it.</h1>
 <p style={{color:"#555",margin:"0 0 20px 0",fontSize:14}}>Private. About your standard, not about them. Never contact, name publicly or target the person.</p>

@@ -1,11 +1,12 @@
 // Privacy notice — plain language, covers exactly what the site does: Stripe checkout, optional reminder email, basic analytics-free hosting.
+import { C, eyebrow, link } from "../theme";
 export const metadata = { title: "Privacy · Receipts" };
 const H = ({ children }) => <h2 style={{ fontSize: 18, margin: "22px 0 6px" }}>{children}</h2>;
 export default function Privacy() {
   return <main style={{ maxWidth: 640, margin: "0 auto", padding: "24px 20px", lineHeight: 1.55 }}>
-    <p style={{ letterSpacing: 3, fontSize: 11, color: "#999", margin: 0 }}>RECEIPTS PACK</p>
+    <p style={{ ...eyebrow, margin: 0 }}>Receipts Pack</p>
     <h1 style={{ fontSize: 28, margin: "6px 0 10px" }}>Privacy</h1>
-    <p style={{ color: "#bbb" }}>Last updated 7 November 2026. Short version: we collect the least we can, and we never sell or share your data for marketing.</p>
+    <p style={{ color: C.body }}>Last updated 7 November 2026. Short version: we collect the least we can, and we never sell or share your data for marketing.</p>
     <H>Who we are</H>
     <p>Receipts Pack is operated by Tealstone Consulting Ltd (Companies House 15180506), 61 Bridge Street, Kington, Herefordshire, HR5 3DJ, United Kingdom. Contact: tryuderzhi@gmail.com.</p>
     <H>What we collect and why</H>
@@ -23,6 +24,6 @@ export default function Privacy() {
     <p>You can ask what we hold about you, ask us to correct or delete it, or object to processing. Email tryuderzhi@gmail.com. If you are in the UK or EU you can also complain to your data protection authority (UK: the ICO).</p>
     <H>Third parties we rely on</H>
     <p>Stripe (payments), Vercel (hosting and storage), Mailjet (email delivery). Each processes data under its own terms; we only pass them what is needed for the step above.</p>
-    <p style={{ marginTop: 28 }}><a href="/" style={{ color: "#fff" }}>← Home</a> · <a href="/free" style={{ color: "#fff" }}>Free Step 1 template</a></p>
+    <p style={{ marginTop: 28 }}><a href="/" style={link}>← Home</a> · <a href="/free" style={link}>Free Step 1 template</a></p>
   </main>;
 }
