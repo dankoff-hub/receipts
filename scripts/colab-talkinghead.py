@@ -96,7 +96,11 @@ def main() -> None:
     if src != pp.read_text():
         pp.write_text(src)
         print("patched preprocess.py for numpy>=1.24 / numpy 2")
-    sh("bash scripts/download_models.sh")
+    # download_models.sh isn't idempotent (mkdir fails on rerun) — tolerate and verify
+    subprocess.run("bash scripts/download_models.sh", shell=True, capture_output=True)
+    need = ST / "checkpoints" / "SadTalker_V0.0.2_512.safetensors"
+    if not need.exists() or need.stat().st_size < 1_000_000:
+        raise SystemExit("SadTalker 512 checkpoint missing after download_models.sh")
 
     # 2. Compat shims (2026 Colab images)
     # basicsr 1.4.2 imports torchvision.transforms.functional_tensor (removed)
