@@ -713,9 +713,22 @@
   "at://did:plc:nspncuxik6xw67jckhqgw5en/app.bsky.feed.post/3mznk7qdimn2e",
   "lemmy:54083919",
   "at://did:plc:wbykovtf454zxg2tnpgcqli7/app.bsky.feed.post/3mzoownvnow24",
-  "at://did:plc:dc6nwhjqq227tpbqjlmkihka/app.bsky.feed.post/3mzop2d7c262e"
+  "at://did:plc:dc6nwhjqq227tpbqjlmkihka/app.bsky.feed.post/3mzop2d7c262e",
+  "at://did:plc:ttlyg75cufhgzdbhy45g6gdu/app.bsky.feed.post/3mzopcnz3bc2h"
  ],
  "leads": [
+  {
+   "src": "bluesky",
+   "id": "at://did:plc:ttlyg75cufhgzdbhy45g6gdu/app.bsky.feed.post/3mzopcnz3bc2h",
+   "url": "https://bsky.app/profile/racksniper.com/post/3mzopcnz3bc2h",
+   "text": "$89 Dell OptiPlex 7060 USFF | i5-8500 | 8GB RAM | 256GB NVMe | LINUX | READ\n57% under the 30 day median of $209\nhttps://www.ebay.com/itm/237168331145?mkcid=1&mkrid=711-53200-19255-0&siteid=0&campid=5339206298&customid=&toolid=10001&mkevt=1",
+   "sub": "racksniper.com",
+   "at": "2026-11-07T01:04:57.491967Z",
+   "llm": "groq",
+   "tier": 2,
+   "found": "2026-11-07T01:08:41.715Z",
+   "status": "new"
+  },
   {
    "src": "bluesky",
    "id": "at://did:plc:wbykovtf454zxg2tnpgcqli7/app.bsky.feed.post/3mzoownvnow24",
