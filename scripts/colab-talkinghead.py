@@ -60,9 +60,12 @@ def main() -> None:
     sh(
         "pip install -q face_alignment==1.3.5 imageio imageio-ffmpeg 'librosa>=0.11' "
         "resampy==0.4.2 pydub 'scipy>=1.14' 'kornia>=0.7.7' tqdm yacs pyyaml joblib "
-        "'scikit-image>=0.25' facexlib==0.3.0 gfpgan av safetensors addict future lmdb requests yapf"
+        "'scikit-image>=0.25' facexlib==0.3.0 av safetensors addict future lmdb requests yapf"
     )
-    sh("pip install -q --no-deps basicsr==1.4.2")
+    # basicsr's sdist needs torch at build time (isolated builds fail);
+    # gfpgan would pull basicsr as a dep — install both dep-free.
+    sh("pip install -q --no-deps --no-build-isolation basicsr==1.4.2")
+    sh("pip install -q --no-deps gfpgan")
     # numpy>=1.24: one-element arrays must be normalized before np.array(...)
     # (same fix the maintained HF Spaces carry).
     pp = ST / "src" / "face3d" / "util" / "preprocess.py"
