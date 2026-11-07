@@ -17,3 +17,6 @@ Channel links now: 1) Free Step 1 template → receiptspack.vercel.app/free?src=
 ## Day-1 reminder emails — waiting on Mailjet, not you
 Mailjet free account (tryuderzhi@gmail.com) is verified; business-verification ticket #4331805 is under review. Sending and the API secret key unlock when they approve; the code, cron job and privacy page are already live. Footer address: Tealstone Consulting Ltd, 61 Bridge Street, Kington, Herefordshire, HR5 3DJ (Companies House 15180506).
 Fallback if Mailjet declines: Brevo account exists on the same email but needs an SMS phone verification before it issues an API key — that step is yours (Settings → SMTP & API → Generate API key → "Add a phone number").
+
+## TikTok first comment (automated)
+A daily job (13:15 London) comments the free link under every new TikTok video. Pinning the comment is hover-only on web; in the TikTok app, long-press the creator comment → Pin. Optional, it is already the only comment.
