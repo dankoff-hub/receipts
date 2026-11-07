@@ -12,7 +12,7 @@ export default function H(){return <main>
 <h1 style={{fontSize:40,lineHeight:1.1}}>Turn getting underestimated into a standard you keep.</h1>
 <p style={{fontSize:18,color:"#ccc"}}>Passed over. Compared. Told you weren’t ready. Keep the receipt — then spend 30 days making it irrelevant.</p>
 <a href={PAY} style={btn}>Get the Receipts Pack — $29</a>
-<p style={{fontSize:13,color:"#888"}}>One-time payment · instant access</p>
+<p style={{fontSize:13,color:"#888"}}>One-time payment · instant access · <span style={{color:"#f2c94c"}}>30-day money-back guarantee</span></p>
 <p style={{fontSize:14}}><a href="/free?src=home" style={{color:"#fff"}}>Not ready? Start with the free receipt template →</a></p>
 
 <h2 style={{marginTop:40}}>How it works</h2>
