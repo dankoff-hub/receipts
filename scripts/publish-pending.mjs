@@ -32,11 +32,12 @@ for (const channel of Object.keys(SCRIPTS)) {
   const pending = videos.find(v => {
     const entries = mine.filter(p => p.video === v);
     if (entries.some(p => p.status !== "failed")) return false;      // posted, queued or intentionally skipped
-    return entries.length < 2;                                          // failed < 2 times
+    if (entries.length >= 2) return false;                               // failed twice: give up on it
+    // Repeat guard: a video already dispatched to this channel today (any status) is not retried today — move on to the next one
+    if (entries.some(p => p.ts?.slice(0, 10) === today)) { console.log(`${channel}: ${v} already dispatched today — trying the next video (repeat guard)`); return false; }
+    return true;
   });
   if (!pending) { console.log(`${channel}: no pending video`); continue; }
-  // Repeat guard: if this exact video was already dispatched to this channel today (any status), never send it again.
-  if (mine.some(p => p.video === pending && p.ts?.slice(0, 10) === today)) { console.log(`${channel}: ${pending} already dispatched today — skipping (repeat guard)`); continue; }
   const file = `public/videos/${pending}`;
   const meta = load(file + ".json", {});
   if (!meta.captions) { // make sure every channel gets its own unique caption
