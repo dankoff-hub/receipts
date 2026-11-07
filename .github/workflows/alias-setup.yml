@@ -1,0 +1,26 @@
+name: Short alias setup (idempotent)
+on:
+  workflow_dispatch:
+    inputs:
+      alias:
+        description: "*.vercel.app alias to attach to the receipts project"
+        default: receiptspack.vercel.app
+permissions: { contents: read }
+jobs:
+  alias:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    env: { VERCEL_TOKEN: "${{ secrets.VERCEL_TOKEN }}", ALIAS: "${{ inputs.alias }}" }
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: |
+          npm i -g vercel@65.11.0 >/dev/null 2>&1
+          timeout 60 vercel link --yes --project receipts --token "$VERCEL_TOKEN" >/dev/null 2>&1
+          PID=$(python3 -c 'import json;print(json.load(open(".vercel/project.json"))["projectId"])')
+          OID=$(python3 -c 'import json;print(json.load(open(".vercel/project.json"))["orgId"])')
+          Q=""; case "$OID" in team_*) Q="?teamId=$OID";; esac
+          R=$(curl -s -w '\n%{http_code}' -H "Authorization: Bearer $VERCEL_TOKEN" -H 'content-type: application/json' -X POST "https://api.vercel.com/v10/projects/$PID/domains$Q" -d "{\"name\":\"$ALIAS\"}")
+          echo "$R" | tail -1 | sed 's/^/http /'; echo "$R" | head -1 | python3 -c 'import sys,json;d=json.load(sys.stdin);print({k:d.get(k) for k in ("name","verified","error")})'
+          curl -s -H "Authorization: Bearer $VERCEL_TOKEN" "https://api.vercel.com/v9/projects/$PID/domains$Q" | python3 -c 'import sys,json;print("domains:",[d["name"] for d in json.load(sys.stdin)["domains"]])'
