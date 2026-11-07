@@ -91,6 +91,98 @@
     "provider": "pollinations",
     "id": "dbf406742882507f65a09af657e3c030"
    }
+  ],
+  "2026-11-07": [
+   {
+    "platform": "instagram",
+    "format": "POV Story",
+    "hook": "I found a secret way to double my followers overnight",
+    "say": "I was stuck at 5k. I tried this one tactic. My bio changed. Overnight my reach exploded.",
+    "body": "A single, well‑placed CTA can skyrocket your engagement.",
+    "cta": "Want the exact copy? Grab it for $29 – link in bio!",
+    "provider": "pollinations",
+    "id": "95ba13ab2e6dee08d53b6c0e14f9b1b5"
+   },
+   {
+    "platform": "instagram",
+    "format": "List",
+    "hook": "3 overlooked hacks to cut ad spend in half",
+    "say": "First, split test creatives. Second, target lookalike audiences. Third, use retargeting delays.",
+    "body": "Smart targeting beats high budgets any day.",
+    "cta": "Download the full cheat sheet for just $29 – link in bio!",
+    "provider": "pollinations",
+    "id": "9711d9b9c81d647b3e69ccbc8c804f94"
+   },
+   {
+    "platform": "instagram",
+    "format": "Challenge",
+    "hook": "Take my 48‑hour video hack challenge",
+    "say": "Day 1: Record a quick reel in 5 mins. Day 2: Add a trending music track. Day 3: Duplicate the format with a new angle.",
+    "body": "Consistency + trend surfing creates viral momentum.",
+    "cta": "Learn the framework for $29 – link in bio!",
+    "provider": "pollinations",
+    "id": "80e9e78eca365678afe6d812f954f82f"
+   },
+   {
+    "platform": "youtube",
+    "format": "Myth-Bust",
+    "hook": "YouTube drops pay for views? False! Here’s why.",
+    "say": "Myth: Ads pay you back instantly. Reality: It takes H2O to hydrate your channel. The trick is CRO in descriptions.",
+    "body": "Optimizing your channel page is cheaper than buying views.",
+    "cta": "Get the full guide for $29 – link in bio!",
+    "provider": "pollinations",
+    "id": "49cba282270a49f692bba49f27891bd7"
+   },
+   {
+    "platform": "youtube",
+    "format": "How‑to Tutorial",
+    "hook": "Build a 5‑minute TikTok‑style montage in 10 minutes",
+    "say": "Step 1: Gather clips. Step 2: Add transitions. Step 3: Sync to music. Step 4: Export fast.",
+    "body": "Speed editing is key for consistent content flow.",
+    "cta": "Unlock the masterclass for $29 – link in bio!",
+    "provider": "pollinations",
+    "id": "9260798ac132d96e08430792e3cca430"
+   },
+   {
+    "platform": "youtube",
+    "format": "Storytime",
+    "hook": "I lost 30k subscribers, then I found this game changer",
+    "say": "I was panicking. I paused. I analyzed metrics. I pivoted with a niche topic.",
+    "body": "Listening to your analytics can revive a dying channel.",
+    "cta": "Watch the full reveal for $29 – link in bio!",
+    "provider": "pollinations",
+    "id": "178af63aff2e7d1d25ffed0f4f3a225a"
+   },
+   {
+    "platform": "tiktok",
+    "format": "Confession",
+    "hook": "Why I paid $1,000 for a small influencer partnership",
+    "say": "I thought it was a waste. It was a $10,000 ROI. I learned to trade reach for relevance.",
+    "body": "Authentic collaborations outshine big budgets.",
+    "cta": "See the contract template for $29 – link in bio!",
+    "provider": "pollinations",
+    "id": "16c3a9acd0ed2e9506053adb2dfd71d0"
+   },
+   {
+    "platform": "tiktok",
+    "format": "Receipt Reveal",
+    "hook": "This $29 toolkit saved me $2,500 in ad spend",
+    "say": "I went from paying for ads to creating organic loops. My revenue doubled. My budget stayed tight.",
+    "body": "Investing in skills beats spending on ads.",
+    "cta": "Grab the toolkit for $29 – link in bio!",
+    "provider": "pollinations",
+    "id": "a7c04651dce4ce0533c82b0f71e518ae"
+   },
+   {
+    "platform": "tiktok",
+    "format": "Myth-Bust",
+    "hook": "I debunked the 'TikTok algorithm is a black box' myth",
+    "say": "It’s actually about watch time and interaction. Focus on those signals. Create reels that keep scrolling.",
+    "body": "Understanding algorithm signals unlocks growth.",
+    "cta": "Get the full breakdown for $29 – link in bio!",
+    "provider": "pollinations",
+    "id": "99dc1fb3748d5fabaf73124222317ddb"
+   }
   ]
  },
  "hooks": [
@@ -102,6 +194,15 @@
   "93eb836ad488929492a512fcb763fcc6",
   "2d0405cc9e6f27774e162049aef33568",
   "b5efbf34bb86fa271049b50129155cc8",
-  "dbf406742882507f65a09af657e3c030"
+  "dbf406742882507f65a09af657e3c030",
+  "95ba13ab2e6dee08d53b6c0e14f9b1b5",
+  "9711d9b9c81d647b3e69ccbc8c804f94",
+  "80e9e78eca365678afe6d812f954f82f",
+  "49cba282270a49f692bba49f27891bd7",
+  "9260798ac132d96e08430792e3cca430",
+  "178af63aff2e7d1d25ffed0f4f3a225a",
+  "16c3a9acd0ed2e9506053adb2dfd71d0",
+  "a7c04651dce4ce0533c82b0f71e518ae",
+  "99dc1fb3748d5fabaf73124222317ddb"
  ]
 }

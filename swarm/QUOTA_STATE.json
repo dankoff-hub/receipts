@@ -12,23 +12,23 @@
    "auth": "GROQ_API_KEY secret (optional)",
    "limit": "14,400 req/day",
    "cooldown_until": 0,
-   "calls": 0,
-   "fails": 0
+   "calls": 1,
+   "fails": 1
   },
   "nvidia_nim": {
    "card": false,
    "auth": "NVIDIA_API_KEY secret (set 2026-11-06); model google/gemma-4-31b-it (llama-3.x EOL on NIM)",
    "limit": "~40 RPM",
-   "cooldown_until": 0,
+   "cooldown_until": 1794012460964,
    "calls": 0,
-   "fails": 0
+   "fails": 1
   },
   "pollinations": {
    "card": false,
    "auth": "none (anonymous)",
    "limit": "rate-limited anonymous",
    "cooldown_until": 0,
-   "calls": 7,
+   "calls": 8,
    "fails": 3
   },
   "ollama_local": {
@@ -49,11 +49,11 @@
   }
  },
  "not_configured": {
-  "iflow": "browser OAuth \u2014 founder-only login",
-  "kiro": "AWS Builder ID OAuth \u2014 founder-only login",
-  "qwen": "device-code OAuth \u2014 founder-only login",
-  "puter": "browser session \u2014 founder-only login"
+  "iflow": "browser OAuth — founder-only login",
+  "kiro": "AWS Builder ID OAuth — founder-only login",
+  "qwen": "device-code OAuth — founder-only login",
+  "puter": "browser session — founder-only login"
  },
- "rotation_offset": 3,
- "updated": "2026-11-06T23:41:02.650Z"
+ "rotation_offset": 0,
+ "updated": "2026-11-07T00:34:02.931Z"
 }
