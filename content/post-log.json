@@ -399,5 +399,15 @@
   "video": "day-005c.mp4",
   "day": 5,
   "captionHash": "27bf8f7f77ef1d6f371ce56bd92ca057"
+ },
+ {
+  "ts": "2026-11-07T20:00:39.556Z",
+  "channel": "instagram",
+  "postId": "6aef835d9214322f6812971c",
+  "status": "sent",
+  "video": "day-005d.mp4",
+  "day": 5,
+  "captionHash": "d3c8ad9e06574f2bd7d6b940856be158",
+  "note": "restored from run 42408755491 log: ledger push failed (unstaged changes); git-push-safe now autostashes"
  }
 ]

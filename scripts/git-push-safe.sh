@@ -7,7 +7,7 @@ git config user.name dankoff-hub; git config user.email 345066702+dankoff-hub@us
 git commit -qm "$MSG" || { echo "nothing to commit"; exit 0; }
 for i in 1 2 3 4 5; do
   git fetch -q origin main
-  if git rebase origin/main; then :; else
+  if git rebase --autostash origin/main; then :; else
     for f in $(git diff --name-only --diff-filter=U); do
       case "$f" in *.json)
         node -e '
