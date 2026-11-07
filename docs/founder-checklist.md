@@ -7,14 +7,12 @@ Instagram allows link edits only in the mobile app (web says "Editing your links
 Also in the app: display name has a typo ("Reciepts") — fix to "Dan Rossi • Receipts | 30-Day Proof System" once the 14-day name-change lock expires (Instagram blocked it on 2026-11-07: "changed twice within 14 days").
 Security: the Instagram password was pasted into chat — change it, and note login codes go to your d*****f@gmail.com inbox, so any future web login by the swarm needs you to forward the code.
 
-## TikTok (@dan.rosa71) — 3 minutes
-1. Edit profile → Bio: "30 days of receipts. Free Step 1 template: receiptspack.vercel.app/free" (text is not tappable, but it is copyable).
-2. Edit profile → Links → add **Instagram** (@danrossi2026) and **YouTube** (channel). These need no follower minimum; captions already say "tap Instagram".
-3. Settings → Account → Switch to Business account → Business verification (unlocks the Website field below 1,000 followers; may need a business document).
+## TikTok (@dan.rosa71) — partly done 2026-11-07
+Done on web: profile photo, bio ("They said you weren't ready. Keep the receipt. 30 days. One standard. Proof."), 4 duplicate uploads deleted (restorable 30 days via Activity centre → Recently deleted).
+Phone-app only (TikTok hides these on web): Settings → Account → Switch to Business account (free) → Edit profile → Website: `https://receiptspack.vercel.app/free?src=tt`; add the Instagram and YouTube buttons. Username change to danrossi2026 was refused ("not available") — leave it.
 
-## YouTube (channel UC_Io87isTmHUvzIAs-RwiFw) — 3 minutes
-1. YouTube Studio → Customisation → Basic info → Links → `https://receiptspack.vercel.app/free?src=yt` ("Free Step 1 template").
-2. For each Short: open comments → write "Free Step 1 template: https://receiptspack.vercel.app/free?src=yt" → Pin. (Links in YouTube comments are tappable; the description on Shorts is hidden behind a tap.)
+## YouTube (@DanRosa-u5v) — done by the swarm 2026-11-07
+Channel links now: 1) Free Step 1 template → receiptspack.vercel.app/free?src=yt, 2) Instagram, 3) Full 30-day pack $29 → /pricing?src=yt. Description carries both URLs. Every Short (10) has a creator comment with the free link. Pinning is locked by YouTube until the channel has "more history" — re-try pinning in a few weeks (watch page → comment ⋮ → Pin).
 
 ## Day-1 reminder emails — waiting on Mailjet, not you
 Mailjet free account (tryuderzhi@gmail.com) is verified; business-verification ticket #4331805 is under review. Sending and the API secret key unlock when they approve; the code, cron job and privacy page are already live. Footer address: Tealstone Consulting Ltd, 61 Bridge Street, Kington, Herefordshire, HR5 3DJ (Companies House 15180506).
