@@ -120,6 +120,25 @@ def main() -> None:
         )
         p2.write_text(s2)
         print("normalized POS s/t scalars in align_img")
+    # with s a python float, resize_n_crop_img's .astype(np.int32) breaks
+    s2 = p2.read_text()
+    for old, new in [
+        ("w = (w0*s).astype(np.int32)", "w = int(w0*s)"),
+        ("h = (h0*s).astype(np.int32)", "h = int(h0*s)"),
+        (
+            "left = (w/2 - target_size/2 + float((t[0] - w0/2)*s)).astype(np.int32)",
+            "left = int(w/2 - target_size/2 + float((t[0] - w0/2)*s))",
+        ),
+        (
+            "up = (h/2 - target_size/2 + float((h0/2 - t[1])*s)).astype(np.int32)",
+            "up = int(h/2 - target_size/2 + float((h0/2 - t[1])*s))",
+        ),
+    ]:
+        if old in s2:
+            s2 = s2.replace(old, new)
+    if s2 != p2.read_text():
+        p2.write_text(s2)
+        print("patched resize_n_crop_img int casts")
     # numpy>=1.24 removed np.float/np.int/np.bool aliases (used on the
     # inference path in src/face3d/util/my_awing_arch.py; \b keeps np.float64
     # etc. untouched)
