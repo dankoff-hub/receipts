@@ -31,6 +31,6 @@ export default async function Pack({ searchParams }) {
       {s.paras.map((p, j) => <p key={j} style={{ color: j ? "#aaa" : "#eee" }}>{p}</p>)}
       {s.items.length > 0 && <ol>{s.items.map((it, j) => <li key={j}>{it}</li>)}</ol>}
     </div></section>) : <p style={{ color: "#f88" }}>Content bundle missing in this deployment — reply to your Stripe receipt and we will send it directly.</p>}
-    <p style={{ fontSize: 12, color: "#888", marginTop: 40 }}>Receipts is a self-reflection and goal tool, not therapy or medical advice. Questions or a refund within 30 days (no questions asked): reply to your Stripe receipt email.</p>
+    <p style={{ fontSize: 12, color: "#888", marginTop: 40 }}>Receipts is a self-reflection and goal tool, not therapy or medical advice. Questions: reply to your Stripe receipt email.</p>
   </main>;
 }

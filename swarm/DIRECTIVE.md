@@ -127,5 +127,5 @@ Followers lead to revenue. Medium-tier autonomous: follow-back new followers (Bl
 ## Amendment 2026-11-07 — Tappable path
 No CTA may point at something the viewer cannot tap on that platform. Videos/carousels say "link in my profile"; captions are platform-specific (see CLAUDE.md). Founder-only steps: TikTok profile links (Instagram, YouTube) and Business switch; Instagram bio link → receiptspack.vercel.app/free?src=ig; YouTube channel link + pinned comment with URL; a free email sender for the day-1 reminder. Refund guarantee = Critical tier (founder decision).
 
-## Founder decision 2026-11-07 — Guarantee
-30-day money-back guarantee is live on /, /bio, /free, /pack ("reply to your Stripe receipt"). Issuing the refund itself stays Critical tier: a human does it in Stripe; agents never touch refunds.
+## Founder decision 2026-11-07 — No guarantee
+Founder declined a money-back guarantee. Do not add refund/guarantee language anywhere. Refunds remain Critical tier (human only).

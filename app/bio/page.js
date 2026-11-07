@@ -16,8 +16,7 @@ return <main style={{maxWidth:420,margin:"0 auto",padding:16}}>
 <a href={free} style={btn}>Get the free receipt template →</a>
 <p style={{fontSize:13,color:"#888",textAlign:"center",margin:"0 0 8px 0"}}>Free · no sign-up · takes 10 minutes</p>
 <a href={pay} style={btn2}>Get the full 30-day pack — $29</a>
-<p style={{fontSize:13,color:"#888",textAlign:"center",marginBottom:6}}>One-time payment · no subscription · Stripe checkout → your pack opens instantly, no account</p>
-<p style={{fontSize:13,color:"#f2c94c",textAlign:"center",marginBottom:28}}>30-day money-back guarantee: not for you? Reply to your Stripe receipt within 30 days and you get a full refund, no questions.</p>
+<p style={{fontSize:13,color:"#888",textAlign:"center",marginBottom:28}}>One-time payment · no subscription · Stripe checkout → your pack opens instantly, no account</p>
 
 <div style={card}>
 <b>Free vs full pack</b>

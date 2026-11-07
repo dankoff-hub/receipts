@@ -47,7 +47,6 @@ return <main style={{maxWidth:520,margin:"0 auto",padding:16}}>
 
 <a href={pay} style={btn}>Turn your receipt into a 30-day plan — $29</a>
 <p style={{fontSize:13,color:"#888",textAlign:"center",margin:"0 0 4px 0"}}>One-time payment · no subscription · instant access</p>
-<p style={{fontSize:13,color:"#f2c94c",textAlign:"center",margin:"0 0 6px 0"}}>30-day money-back guarantee: not for you? Reply to your Stripe receipt within 30 days and you get a full refund, no questions.</p>
 <p style={{fontSize:13,color:"#888",textAlign:"center"}}>What happens next: secure Stripe checkout (card, Apple Pay, Google Pay) → your pack page opens immediately with all five steps and the PDFs. No account to create. Come back any time with the email you paid with.</p>
 
 <div style={{...box,marginTop:28}}>
