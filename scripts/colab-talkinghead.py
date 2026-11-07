@@ -62,9 +62,21 @@ def main() -> None:
         "resampy==0.4.2 pydub 'scipy>=1.14' 'kornia>=0.7.7' tqdm yacs pyyaml joblib "
         "'scikit-image>=0.25' facexlib==0.3.0 av safetensors addict future lmdb requests yapf"
     )
-    # basicsr's sdist needs torch at build time (isolated builds fail);
-    # gfpgan would pull basicsr as a dep — install both dep-free.
-    sh("pip install -q --no-deps --no-build-isolation basicsr==1.4.2")
+    # basicsr 1.4.2's sdist cannot build on Python 3.13 (exec-into-locals
+    # version lookup + removed torchvision.transforms.functional_tensor).
+    # Patch the sdist and install from source; gfpgan dep-free.
+    sh(
+        "cd /tmp && rm -rf bs-src && mkdir bs-src && cd bs-src && "
+        "python -c \"import json,urllib.request; d=json.load(urllib.request."
+        "urlopen('https://pypi.org/pypi/basicsr/1.4.2/json')); "
+        "print([u['url'] for u in d['urls'] if u['packagetype']=='sdist'][0])\" "
+        "> url.txt && curl -sL $(cat url.txt) -o bs.tar.gz && tar xf bs.tar.gz && "
+        "cd basicsr-1.4.2 && "
+        "sed -i \"s/return locals()['__version__']/return '1.4.2'/\" setup.py && "
+        "grep -rl functional_tensor basicsr/ | xargs -r sed -i "
+        "'s/torchvision.transforms.functional_tensor/torchvision.transforms.functional/' && "
+        "pip install -q --no-deps --no-build-isolation ."
+    )
     sh("pip install -q --no-deps gfpgan")
     # numpy>=1.24: one-element arrays must be normalized before np.array(...)
     # (same fix the maintained HF Spaces carry).
