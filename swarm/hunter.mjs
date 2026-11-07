@@ -17,6 +17,12 @@ for (const q of QUERIES) {
   try { const r = await fetch(`https://lemmy.world/api/v3/search?q=${encodeURIComponent(q)}&type_=Posts&limit=20&sort=New`, { headers: UA }); if (!r.ok) console.error(`lemmy HTTP ${r.status}`); const j = await r.json();
     for (const p of j?.posts || []) { const d = p.post; push({ src: "lemmy", id: "lemmy:" + d.id, url: d.ap_id, text: `${d.name} ${d.body || ""}`.slice(0, 600), sub: p.community?.name, at: d.published }); } } catch (e) { console.error("lemmy err", e.message); }
 }
+// Bluesky freshness pass: broad terms restricted to the last 48h (searchPosts `since`), so the Closer always sees recent, replyable posts.
+const since = new Date(Date.now() - 48 * 3600e3).toISOString();
+for (const q of ["30 day challenge", "habit tracker", "day 1 of 30", "accountability partner", "prove them wrong", "starting tomorrow challenge", "new habit day one"]) {
+  try { const r = await fetch(`https://api.bsky.app/xrpc/app.bsky.feed.searchPosts?q=${encodeURIComponent(q)}&limit=50&sort=latest&since=${encodeURIComponent(since)}`, { headers: UA }); if (!r.ok) console.error(`bluesky(since) HTTP ${r.status}`); const j = await r.json();
+    for (const p of j?.posts || []) { const hnd = p.author?.handle, rk = p.uri?.split("/").pop(); push({ src: "bluesky", id: p.uri, url: `https://bsky.app/profile/${hnd}/post/${rk}`, text: String(p.record?.text || "").slice(0, 600), sub: hnd, at: p.record?.createdAt }); } } catch (e) { console.error("bluesky(since) err", e.message); }
+}
 for (const tag of ["habittracker", "30daychallenge", "selfimprovement", "discipline", "journaling", "provethemwrong"]) {
   try { const r = await fetch(`https://mastodon.social/api/v1/timelines/tag/${tag}?limit=40`, { headers: UA }); if (!r.ok) console.error(`mastodon HTTP ${r.status}`); const j = await r.json();
     for (const p of Array.isArray(j) ? j : []) push({ src: "mastodon", id: "masto:" + p.id, url: p.url, text: String(p.content || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").slice(0, 600), sub: p.account?.acct, at: p.created_at }); } catch (e) { console.error("mastodon err", e.message); }

@@ -31,8 +31,9 @@ function ensureOllama() {
 
 export async function chat(prompt, { system = "Output compact JSON only.", maxTokens = 150, json = true } = {}) {
   const now = Date.now(), order = Q.cascade.filter(p => p !== "template");
-  const rot = Q.rotation_offset % Math.max(1, order.length - 1);
-  const tryOrder = [...order.slice(rot, order.length - 1), ...order.slice(0, rot), "ollama_local"].filter((v, i, a) => a.indexOf(v) === i);
+  // groq first (14.4k req/day, fastest); rotate only among the fallbacks so a single rate-limited provider is not hammered every cycle
+  const rest = order.filter(p => p !== "groq" && p !== "ollama_local"), rot = Q.rotation_offset % Math.max(1, rest.length);
+  const tryOrder = ["groq", ...rest.slice(rot), ...rest.slice(0, rot), "ollama_local"].filter((v, i, a) => a.indexOf(v) === i);
   for (const name of tryOrder) {
     const p = PROV[name], st = Q.providers[name]; if (!p || !st) continue;
     if (st.cooldown_until > now) continue;

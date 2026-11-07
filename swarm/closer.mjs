@@ -17,7 +17,8 @@ const log = load(LOG_P, { replies: [], skipped: [] }), leads = load(LEADS_P, { l
 const today = new Date().toISOString().slice(0, 10);
 const sentToday = log.replies.filter(r => r.at.slice(0, 10) === today && r.status === "sent").length;
 const repliedAuthors = new Set(log.replies.map(r => r.author));
-const fresh = leads.leads.filter(l => l.src.includes("bluesky") && l.status === "new" && l.at && Date.now() - new Date(l.at) < 48 * 3600e3 && !repliedAuthors.has(l.sub))
+const fresh = leads.leads.filter(l => l.src.includes("bluesky") && l.status === "new" && l.at && Date.now() - new Date(l.at) < 48 * 3600e3 && !repliedAuthors.has(l.sub)
+  && !/https?:\/\/|\$\d|\b(etsy|gumroad|app store|apps\.apple|play\.google|democrat|republican|trump|election)\b/i.test(l.text)) // skip sellers/apps/politics
   .sort((a, b) => a.tier - b.tier || new Date(b.at) - new Date(a.at)).slice(0, 8);
 console.log(`closer: ${fresh.length} fresh bluesky leads, ${sentToday}/${CAP} replies sent today, mode ${SEND && HANDLE && APP_PW ? "SEND (founder-enabled)" : "DRAFT-ONLY"}`);
 let budget = CAP - sentToday, session = null;
