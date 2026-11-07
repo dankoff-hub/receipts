@@ -64,10 +64,10 @@ const caps = load("content/photo-captions.json", { captions: {} });
 const ledger = load("content/caption-ledger.json", {});
 let caption = null;
 try {
-  const { chat } = await import("../swarm/llm.mjs");
+  const { chat, parseJSON, saveQuota } = await import("../swarm/llm.mjs");
   const prev = Object.values(caps.captions).slice(-6).map(c => c.split("\n")[0]).join(" | ");
   const r = await chat(`Write an Instagram caption (70-110 words, 4 short paragraphs, then 5 hashtags including #receipts) for a photo of: ${desc}. Voice: first person, calm, a man proving doubters wrong by logging one line of proof a day for 30 days ("receipts"). Mention "Free Step 1 template, link in bio." once. No emojis. Must not reuse these openers: ${prev}. Return JSON {"caption": "..."}.`, { system: "You write terse, honest Instagram captions. JSON only.", maxTokens: 320 });
-  caption = r?.caption && String(r.caption).trim();
+  const j = parseJSON(r?.text); caption = j?.caption && String(j.caption).trim(); saveQuota(); console.log("caption provider:", r?.provider);
 } catch (e) { console.log("caption llm failed:", e.message); }
 if (!caption) caption = `${desc.split(",")[0].replace(/^a |^an /, "").replace(/^\w/, c => c.toUpperCase())}. No face in this one, on purpose.\n\nThe receipt isn't the photo. It's the line I wrote before taking it: what they said, what I did about it, today's date.\n\nDay ${aiq.queue.length + 11} of showing up without an audience.\n\nFree Step 1 template, link in bio.\n\n#receipts #consistency #30daychallenge #provethemwrong #dailyhabits`;
 const hash = crypto.createHash("md5").update(caption).digest("hex");

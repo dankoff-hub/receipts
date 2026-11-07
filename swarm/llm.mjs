@@ -43,7 +43,7 @@ export async function chat(prompt, { system = "Output compact JSON only.", maxTo
     const ctrl = new AbortController(); const t = setTimeout(() => ctrl.abort(), p.local ? 120000 : 60000);
     try {
       const r = await fetch(p.url, { method: "POST", signal: ctrl.signal, headers: { "Content-Type": "application/json", Authorization: `Bearer ${key}` },
-        body: JSON.stringify({ model: p.model, max_tokens: name === "pollinations" ? maxTokens + 1500 : maxTokens, temperature: 0.9, ...(name === "pollinations" ? { reasoning_effort: "low" } : {}), messages: [{ role: "system", content: compress(system, 600) }, { role: "user", content: compress(prompt) }], ...(json && name !== "pollinations" && name !== "ollama_local" ? { response_format: { type: "json_object" } } : {}) }) });
+        body: JSON.stringify({ model: p.model, max_tokens: (name === "pollinations" || /gpt-oss|o[1-9]-|reason|think/i.test(p.model)) ? maxTokens + 1500 : maxTokens, temperature: 0.9, ...((name === "pollinations" || /gpt-oss/i.test(p.model)) ? { reasoning_effort: "low" } : {}), messages: [{ role: "system", content: compress(system, 600) }, { role: "user", content: compress(prompt) }], ...(json && name !== "pollinations" && name !== "ollama_local" ? { response_format: { type: "json_object" } } : {}) }) });
       clearTimeout(t); st.calls++; if (!r.ok) console.error(`llm ${name} HTTP ${r.status}: ${(await r.clone().text()).slice(0,160).replace(/\s+/g," ")}`);
       if (name === "pollinations" && (r.status === 402 || r.status === 429)) { st.fails++; continue; } // per-IP pacing, retry after wait
       if (r.status === 429 || r.status === 402 || r.status === 403) { st.fails++; st.cooldown_until = now + (r.status === 429 ? 3600e3 : 24 * 3600e3); break; }
