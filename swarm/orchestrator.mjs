@@ -1,4 +1,4 @@
-// Orchestrator — one cron cycle: audit → quota → hunter → closer (draft-only unless CLOSER_SEND=1) → creative → attribution → report → memory. Checkpoints to swarm/CHECKPOINT.json.
+// Orchestrator — one cron cycle: audit → quota → hunter → closer (draft-only unless CLOSER_SEND=1) → community (follow-back, reply to mentions, capped follows) → creative → attribution → report → memory. Checkpoints to swarm/CHECKPOINT.json.
 import fs from "node:fs";
 import { execSync } from "node:child_process";
 import { Q, saveQuota, reloadQuota } from "./llm.mjs";
@@ -23,6 +23,7 @@ if (live === 0) { console.log("all providers cooling down — exhausted; resume 
 // 2) hunter  3) creative
 stage("hunter"); try { process.stdout.write(sh("node swarm/hunter.mjs")); } catch (e) { console.log("hunter error", e.message); }
 stage("closer"); try { process.stdout.write(sh("node swarm/closer.mjs")); } catch (e) { console.log("closer error", e.message); }
+stage("community"); try { process.stdout.write(sh("node swarm/community.mjs")); } catch (e) { console.log("community error", e.message); }
 stage("creative"); try { sh("node swarm/creative.mjs"); } catch (e) { console.log("creative error", e.message); }
 stage("skool"); try { process.stdout.write(sh("node swarm/skool.mjs")); } catch (e) { console.log("skool error", e.message); }
 reloadQuota(); saveQuota();

@@ -119,3 +119,7 @@ This is an absolutely zero-cost autonomous revenue operation. Execute.
 ## Skool gate (founder request 2026-11-07 "Target skool platform")
 - Skool platform policy bans bots posting/commenting/messaging, scraping and automation requests; Terms §4 ban automated access and commercial solicitation of users; no public API; owning a community needs a card. → **Critical tier**: no agent may log in to, read programmatically, post to or message on skool.com. No cookie/extension/headless workarounds.
 - Compliant path: `swarm/skool.mjs` prepares daily human-published material (`content/skool-queue.md`, surfaced in the daily brief); the Creative agent targets the 30-day-challenge audience on channels we do own. Playbook: `docs/skool-playbook.md`.
+
+
+## Amendment 2026-11-07 — Followers first
+Followers lead to revenue. Medium-tier autonomous: follow-back new followers (Bluesky, Mastodon), reply to every mention/reply/quote as Dan (non-promotional, ends with a question, ≤COMMUNITY_REPLY_CAP=20/day), follow ≤FOLLOW_DAILY_CAP=20/day/platform Tier ≤2 lead authors. Forbidden: unfollow churn, follow/unfollow automation, bought followers, engagement pods. Instagram/TikTok/YouTube have no free engagement API → growth there is via content only (follow CTA variant, caption follow lines, carousels).

@@ -78,7 +78,14 @@ async function stripeBySrc() {
   try { const r = await fetch("https://api.stripe.com/v1/checkout/sessions?limit=100", { headers: { Authorization: `Bearer ${K}` } }); const j = await r.json(); const by = {}; for (const s of (j.data || []).filter(x => x.payment_status === "paid")) { const src = (s.client_reference_id || "direct").split("_")[0]; by[src] = (by[src] || 0) + 1; } return by; } catch { return null; }
 }
 
-const row = { date: today, ...(await ytStats()), ...(await ttStats()), ...(await igStats()), stripe_paid_by_src: await stripeBySrc() };
+// --- Bluesky + Mastodon: public profile APIs (no auth) ---------------------------
+async function fediStats() {
+  const o = { bluesky_followers: null, mastodon_followers: null };
+  try { const h = process.env.BLUESKY_HANDLE || "danrossi2026.bsky.social"; const j = await (await fetch(`https://public.api.bsky.app/xrpc/app.bsky.actor.getProfile?actor=${h}`)).json(); if (j.followersCount != null) o.bluesky_followers = j.followersCount; } catch {}
+  try { const j = await (await fetch("https://mastodon.social/api/v1/accounts/lookup?acct=danrossi2026")).json(); if (j.followers_count != null) o.mastodon_followers = j.followers_count; } catch {}
+  return o;
+}
+const row = { date: today, ...(await ytStats()), ...(await ttStats()), ...(await igStats()), ...(await fediStats()), stripe_paid_by_src: await stripeBySrc() };
 hist.days = hist.days.filter(d => d.date !== today); hist.days.push(row); hist.days.sort((a, b) => a.date < b.date ? -1 : 1);
 save(histPath, hist);
 save("content/audience-config.json", { ...cfg, youtube_channel_id: row.youtube_channel_id || cfg.youtube_channel_id || null });
@@ -86,11 +93,13 @@ save("content/audience-config.json", { ...cfg, youtube_channel_id: row.youtube_c
 // --- strategy brief: honest signals only --------------------------------------
 const last7 = hist.days.slice(-7);
 const delta = k => { const a = last7.map(d => d[k]).filter(v => v != null); return a.length >= 2 ? a[a.length - 1] - a[0] : null; };
-const d7 = { youtube_subs: delta("youtube_subs"), tiktok_followers: delta("tiktok_followers"), instagram_followers: delta("instagram_followers") };
+const d7 = { youtube_subs: delta("youtube_subs"), tiktok_followers: delta("tiktok_followers"), instagram_followers: delta("instagram_followers"), bluesky_followers: delta("bluesky_followers"), mastodon_followers: delta("mastodon_followers") };
+const followersTotal = ["youtube_subs", "tiktok_followers", "instagram_followers", "bluesky_followers", "mastodon_followers"].reduce((a, k) => a + (row[k] || 0), 0);
 const totalGrowth = Object.values(d7).reduce((s, v) => s + (v || 0), 0);
 const brief = {
   generated: today,
   deltas_7d: d7,
+  followers_total_known: followersTotal,
   posts_logged: postLog.length,
   post_issues: postIssues,
   best_cta_index: null,      // activates once growth data exists (see notes)
@@ -121,7 +130,10 @@ if (process.env.GH_TOKEN && process.env.GITHUB_REPOSITORY) {
   const body = `## Audience watch — ${today}\n\n| channel | today | 7-day delta |\n|---|---|---|\n` +
     `| YouTube subs | ${f(row.youtube_subs)} | ${fmtDelta(d7.youtube_subs)} |\n` +
     `| TikTok followers | ${f(row.tiktok_followers)} | ${fmtDelta(d7.tiktok_followers)} |\n` +
-    `| Instagram followers | ${f(row.instagram_followers)} | ${fmtDelta(d7.instagram_followers)} |\n\n` +
+    `| Instagram followers | ${f(row.instagram_followers)} | ${fmtDelta(d7.instagram_followers)} |\n` +
+    `| Bluesky followers | ${f(row.bluesky_followers)} | ${fmtDelta(d7.bluesky_followers)} |\n` +
+    `| Mastodon followers | ${f(row.mastodon_followers)} | ${fmtDelta(d7.mastodon_followers)} |\n` +
+    `| **All platforms (known)** | **${followersTotal}** | **${fmtDelta(totalGrowth)}** |\n\n` +
     `posts logged: ${postLog.length}${postIssues.length ? "\n\nISSUES: " + postIssues.join("; ") : ""}\n\n` +
     `strategy: ${brief.notes.join(" · ")}\n\n<sub>audience-watch.mjs · free public sources only · nulls mean the platform blocked the fetch, not zero</sub>`;
   try {

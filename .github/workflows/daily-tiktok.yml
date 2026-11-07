@@ -95,8 +95,7 @@ jobs:
             echo "waiting for Vercel to serve the new photo"; sleep 90
           fi
           node scripts/post-photo.mjs || true
-      - if: steps.day.outputs.slot == 'a' || steps.day.outputs.slot == 'c'
-        name: Bluesky + Mastodon original post (slot a text, slot c photo+link; never repeated)
+      - name: Bluesky + Mastodon original post (slot a text, slot c photo+link, slots b/d video → Mastodon; never repeated)
         run: node scripts/post-social.mjs --slot=${{ steps.day.outputs.slot }} || true
       - if: steps.day.outputs.slot == 'b' && env.car != ''
         name: Post carousel to Instagram (1/day)

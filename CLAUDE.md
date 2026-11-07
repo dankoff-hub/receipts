@@ -165,3 +165,10 @@ curl -sI https://receipts-blond.vercel.app/videos/day-001.mp4 | head -1
 - Pexels API key issuance is paused; Pixabay signup blocks non-human form fill — both skipped. Mixkit needs neither.
 - 03:5x — Caption pacing fixed for humans (user: "text is moving too rapidly"): phrase cards (3–5 words, split at punctuation into balanced chunks, ≤24 chars) shown whole instead of word-by-word pops; min hold 1.1s; cards never overlap (next waits); hook card lasts 1.4–2.4s by length (speech still starts inside first 3s); voice-off sentence cards at 2.0 words/s, ≥1.8s each. Voice rate/pitch unchanged (+10%, −5Hz Brian).
 - 04:0x — Carousel pacing matched to the videos (`scripts/make-carousel.py`): one complete thought per slide, ≤11 words; sentences longer than that split at the clause break nearest the middle (comma/dash/semicolon, "…" continuation) else balanced halves; fragments ≤3 words merge into the next thought; short scripts pull body sentences; up to 6 points (8 slides max); min headline font 56px. Ledgers unchanged.
+
+## 2026-11-07 — Followers first
+- `swarm/community.mjs` (stage after closer): follow-back + mention replies + capped targeted follows on Bluesky/Mastodon. Caps via repo vars `COMMUNITY_REPLY_CAP` (20) / `FOLLOW_DAILY_CAP` (20). Log `swarm/COMMUNITY_LOG.json`. Mastodon token now has `write:follows`.
+- Follow CTA variant (`cta: follow|template`, weights .6/.4) in `content/variant-policy.json`; spoken "Follow for day N+1" + gold FOLLOW end card in render-v2; captions/carousels carry a follow line.
+- audience-watch tracks `bluesky_followers`, `mastodon_followers`, `followers_total_known` (+d7).
+- post-social slots b/d now push the newest rendered video to Mastodon (`/api/v2/media`, polled). Bluesky video not implemented.
+- Captions never run into the 2 s end card (clamped in render-v2).

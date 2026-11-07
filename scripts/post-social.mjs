@@ -18,13 +18,21 @@ const load = (p, d) => { try { return JSON.parse(fs.readFileSync(p, "utf8")); } 
 const log = load(LOG, []), ledger = load(LEDGER, { used: [] }); ledger.social ??= [];
 const md5 = s => crypto.createHash("md5").update(s).digest("hex");
 const HANDLE = process.env.BLUESKY_HANDLE, APP_PW = process.env.BLUESKY_APP_PASSWORD, MTOK = process.env.MASTODON_TOKEN;
-const kind = slot === "c" ? "photo" : slot === "a" ? "text" : null;
+const kind = slot === "c" ? "photo" : slot === "a" ? "text" : (slot === "b" || slot === "d") ? "video" : null;
 if (!kind) { console.log("post-social: nothing scheduled for slot", slot); process.exit(0); }
 const already = ch => log.some(p => p.channel === ch && p.ts.slice(0, 10) === today && p.kind === kind && p.status === "sent");
 
 // ---------- content ----------
-let text, imagePath, alt, link;
-if (kind === "photo") {
+let text, imagePath, alt, link, videoPath;
+if (kind === "video") {  // slots b/d: today's newest rendered video → Mastodon (video ≤ 40 MB). Bluesky video needs the video service flow — not yet.
+  const vids = fs.readdirSync("public/videos").filter(f => /^day-\d+[a-d]?\.mp4$/.test(f)).map(f => ({ f, t: fs.statSync("public/videos/" + f).mtimeMs })).sort((a, b) => b.t - a.t);
+  const postedVideos = new Set(log.filter(p => p.kind === "video" && p.status === "sent").map(p => p.video));
+  const pick = vids.find(v => !postedVideos.has(v.f)); if (!pick) { console.log("post-social: no unposted video"); process.exit(0); }
+  videoPath = "public/videos/" + pick.f; if (fs.statSync(videoPath).size > 39e6) { console.log("post-social: video too large for Mastodon"); process.exit(0); }
+  const meta = load(videoPath + ".json", {}); const cap = (meta.captions?.instagram || meta.caption || meta.hook || "").replace(/#\w+/g, "").replace(/link in bio\.?/gi, "").replace(/\n{3,}/g, "\n\n").trim();
+  text = (cap.length > 300 ? cap.slice(0, 297).replace(/\s+\S*$/, "") + "…" : cap) + `\n\nDay ${meta.day || "?"} of 30. Follow for tomorrow's line.`;
+  alt = `Short video: ${meta.hook || "daily receipt"}`; link = "receipts-blond.vercel.app/free";
+} else if (kind === "photo") {
   const ig = [...log].reverse().find(p => p.channel === "instagram_photo" && p.status === "sent" && p.ts.slice(0, 10) === today);
   const caps = load("content/photo-captions.json", { captions: {} }).captions;
   if (!ig || !caps[ig.slug]) { console.log("post-social: no Instagram photo today yet — skipping"); process.exit(0); }
@@ -37,7 +45,7 @@ if (kind === "photo") {
   const days = Object.keys(C.days).sort(); const pool = (C.days[days.at(-1)] || []).concat(C.days[days.at(-2)] || []);
   const seed = pool.find(c => !ledger.social.includes(md5("seed|" + c.id))) || pool[0];
   const hint = skillHint("social-hook-writer", 350);
-  const r = await chat(`Write ONE original short text post (max 260 chars, 2-4 lines, plain text, no hashtags, no emojis, no links, no quotes) for Bluesky/Mastodon in the voice of Dan: a regular guy doing 30 days of "receipts" — one honest line a day proving the people who doubted him wrong. Calm, specific, a little dry. Base it on this idea but do not copy it: hook "${seed?.hook || "day one is the loudest day"}", lesson "${seed?.body || "nobody debates a streak"}". ${hint ? "Hook craft: " + hint.slice(0, 300) : ""} Return JSON {"post":"..."}.`, { system: "Output compact JSON only.", maxTokens: 220 });
+  const r = await chat(`Write ONE original short text post (max 260 chars, 2-4 lines, plain text, no hashtags, no emojis, no links, no quotes; the LAST line is a casual, non-pushy invitation to follow along for tomorrow's line, worded differently each time) for Bluesky/Mastodon in the voice of Dan: a regular guy doing 30 days of "receipts" — one honest line a day proving the people who doubted him wrong. Calm, specific, a little dry. Base it on this idea but do not copy it: hook "${seed?.hook || "day one is the loudest day"}", lesson "${seed?.body || "nobody debates a streak"}". ${hint ? "Hook craft: " + hint.slice(0, 300) : ""} Return JSON {"post":"..."}.`, { system: "Output compact JSON only.", maxTokens: 220 });
   text = parseJSON(r.text)?.post?.trim();
   if (!text) text = `Day ${(new Date().getUTCDate() % 28) + 1}. ${seed?.hook || "Still here."}\n\nOne line in the notebook. No speech. The streak does the talking.`;
   text = text.replace(/https?:\/\/\S+/g, "").replace(/#\w+/g, "").trim();
@@ -58,6 +66,7 @@ if (imagePath) {
 
 // ---------- senders ----------
 async function bluesky() {
+  if (kind === "video") return { status: "skipped", why: "bluesky video not implemented" };
   if (!HANDLE || !APP_PW) return { status: "skipped", why: "no creds" };
   const s = await (await fetch("https://bsky.social/xrpc/com.atproto.server.createSession", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ identifier: HANDLE, password: APP_PW }) })).json();
   if (!s.accessJwt) return { status: "failed", why: "login" };
@@ -74,6 +83,13 @@ async function mastodon() {
   if (!MTOK) return { status: "skipped", why: "no creds" };
   const auth = { authorization: "Bearer " + MTOK };
   let media_ids = [];
+  if (videoPath) {
+    const fd = new FormData(); fd.append("file", new Blob([fs.readFileSync(videoPath)], { type: "video/mp4" }), "clip.mp4"); fd.append("description", alt);
+    const up = await fetch("https://mastodon.social/api/v2/media", { method: "POST", headers: auth, body: fd }); const m = await up.json();
+    if (!m.id) return { status: "failed", why: "media " + JSON.stringify(m).slice(0, 120) };
+    media_ids = [m.id];
+    for (let i = 0; i < 20; i++) { const c = await fetch(`https://mastodon.social/api/v1/media/${m.id}`, { headers: auth }); if (c.status === 200) break; await new Promise(r => setTimeout(r, 4000)); }
+  }
   if (imgBuf) {
     const fd = new FormData(); fd.append("file", new Blob([imgBuf], { type: "image/jpeg" }), "photo.jpg"); fd.append("description", alt);
     const up = await fetch("https://mastodon.social/api/v2/media", { method: "POST", headers: auth, body: fd }); const m = await up.json();
@@ -90,7 +106,7 @@ let sentAny = false;
 for (const [ch, fn] of [["bluesky", bluesky], ["mastodon", mastodon]]) {
   if (already(ch) && !FORCE) { console.log(`post-social: ${ch} ${kind} already posted today`); continue; }
   let res; try { res = await fn(); } catch (e) { res = { status: "failed", why: e.message.slice(0, 160) }; }
-  log.push({ ts: new Date().toISOString(), channel: ch, kind, status: res.status, url: res.url || null, why: res.why || null, captionHash: h, video: imagePath ? imagePath.split("/").pop() : null });
+  log.push({ ts: new Date().toISOString(), channel: ch, kind, status: res.status, url: res.url || null, why: res.why || null, captionHash: h, video: videoPath ? videoPath.split("/").pop() : imagePath ? imagePath.split("/").pop() : null });
   console.log(`post-social: ${ch} ${kind} → ${res.status} ${res.url || res.why || ""}`);
   if (res.status === "sent") sentAny = true;
 }

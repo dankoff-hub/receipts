@@ -37,8 +37,6 @@ _r = import_module("render-v2".replace("-", "_")) if False else None
 import importlib.util as _ilu
 _spec = _ilu.spec_from_file_location("render_v2", "scripts/render-v2.py"); _rv = _ilu.module_from_spec(_spec); _spec.loader.exec_module(_rv)
 _label = int(sys.argv[3]) if len(sys.argv) > 3 else day + 1
-_cta_spoken = re.sub(r"\$?29[^.]*link in bio\.?", "Free step one template, link on screen.", s["cta"]).replace("link in bio", "link on screen")
-speech = f"{s['hook']} {s['say']} {_cta_spoken}"
 # --- tracked experiment: pick voice / music / background per video from content/variant-policy.json (weights learned by post-metrics.mjs)
 import random as _rnd
 _pol = {}
@@ -49,11 +47,14 @@ _rg = _rnd.Random(_slot_seed)
 def _pick(factor, default):
     w = _pol.get(factor) or {default: 1}
     return _rg.choices(list(w.keys()), weights=list(w.values()))[0]
-_variant = {"voice": _pick("voice", "on"), "music": _pick("music", "off"), "bg": _pick("bg", "gradient")}
+_variant = {"voice": _pick("voice", "on"), "music": _pick("music", "off"), "bg": _pick("bg", "gradient"), "cta": _pick("cta", "template")}
 _force = _os.environ.get("VIDEO_VARIANT")
 if _force:
     try: _variant.update(json.loads(_force))
     except Exception: pass
+_cta_spoken = re.sub(r"\$?29[^.]*link in bio\.?", "Free step one template, link on screen.", s["cta"]).replace("link in bio", "link on screen")
+if _variant.get("cta") == "follow": _cta_spoken = f"Follow for day {_label + 1}."
+speech = f"{s['hook']} {s['say']} {_cta_spoken}"
 dur, _meta = _rv.render(s["hook"], speech, "receipts-blond.vercel.app/free", _label, out, seed=_slot_seed, variant=_variant)
 print("variant:", json.dumps(_meta))
 _tags = ["provethemwrong","receipts","30daychallenge","fyp","careertok","motivation","selfimprovement"]

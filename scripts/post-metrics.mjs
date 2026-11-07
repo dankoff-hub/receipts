@@ -35,7 +35,7 @@ const polP = "content/variant-policy.json"; const pol = load(polP, { weights: {}
 const chMed = Object.fromEntries(Object.entries(perf).map(([c, p]) => [c, Math.max(p.medianViews || 0, 1)]));
 const settled = rows.filter(x => x.video && x.views != null && x.sentAt && Date.now() - Date.parse(x.sentAt) > 12 * 3600e3 && chMed[x.channel]);
 const exp = {}; const applied = [];
-for (const factor of ["voice", "music", "bg"]) {
+for (const factor of ["voice", "music", "bg", "cta"]) {
   const lv = {};
   for (const r of settled) { const v = load(`public/videos/${r.video}.json`, {}).variant; const l = v && v[factor]; if (!l) continue;
     (lv[l] = lv[l] || { n: 0, idx: [], watch: [] }); lv[l].n++; lv[l].idx.push(r.views / chMed[r.channel]); if (r.avgWatch != null) lv[l].watch.push(r.avgWatch); }

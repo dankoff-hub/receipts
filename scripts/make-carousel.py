@@ -118,9 +118,9 @@ try:
     tags = (mix.get("instagram") or mix.get("tiktok") or tags)[:8]
 except Exception: pass
 tpls = [
-    lambda: f"{s['hook']}\n\nSwipe: {len(pts)} points, one standard, thirty days of evidence.\n\nSave this for the day you want to quit.\n\nFree Step 1 template in bio.\n\n" + " ".join("#" + t for t in tags),
-    lambda: f"{s['hook']}\n\n{pts[0]}\n\nThe rest is in the slides. Save it, then start day one.\n\nFree Step 1 template in bio.\n\n" + " ".join("#" + t for t in tags),
-    lambda: f"Day {label} of 30.\n\n{s['hook']}\n\nSwipe for the standard. Comment 'receipt' if you're starting this week.\n\n" + " ".join("#" + t for t in tags),
+    lambda: f"{s['hook']}\n\nSwipe: {len(pts)} points, one standard, thirty days of evidence.\n\nSave this for the day you want to quit.\n\nFree Step 1 template in bio. Follow for day {label + 1}.\n\n" + " ".join("#" + t for t in tags),
+    lambda: f"{s['hook']}\n\n{pts[0]}\n\nThe rest is in the slides. Save it, then start day one. Follow for day {label + 1} tomorrow.\n\nFree Step 1 template in bio.\n\n" + " ".join("#" + t for t in tags),
+    lambda: f"Day {label} of 30.\n\n{s['hook']}\n\nSwipe for the standard. Comment 'receipt' if you're starting this week, and follow for day {label + 1}.\n\n" + " ".join("#" + t for t in tags),
 ]
 caption = None
 for a in range(len(tpls) * 2):

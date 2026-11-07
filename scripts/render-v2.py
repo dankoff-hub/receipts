@@ -142,7 +142,7 @@ def render(hook, speech, url, day, out, seed=0, variant=None):
         for li, ph in enumerate(merged):
             st = max(ph[0][0] + HOOK_T, prev_end)
             nat_en = (merged[li + 1][0][0] + HOOK_T) if li + 1 < len(merged) else adur + HOOK_T + 0.6
-            en = max(nat_en, st + MIN_SHOW); times.append((st, en)); prev_end = en
+            en = min(max(nat_en, st + MIN_SHOW), dur - 2.0); st = min(st, en - 0.3); times.append((st, en)); prev_end = en  # never run into the end card
         for li, ph in enumerate(merged):
             st, en = times[li]
             txt = " ".join(w[2] for w in ph)
@@ -166,9 +166,15 @@ def render(hook, speech, url, day, out, seed=0, variant=None):
     # persistent brand + URL, end card
     f.append(f"drawtext=fontfile={FONT}:text='RECEIPTS  ·  DAY {day}':fontcolor=0xcccccc:fontsize=34:x=(w-text_w)/2:y=h-230:enable='lt(t,{dur-2:.2f})'")
     f.append(f"drawtext=fontfile={FONT}:text='{esc(url)}':fontcolor=0xf2c94c:fontsize=42:borderw=4:bordercolor=black@0.6:x=(w-text_w)/2:y=h-170:enable='lt(t,{dur-2:.2f})'")
-    f.append(f"drawtext=fontfile={FONT}:text='Free Step 1 template':fontcolor=white:fontsize=72:x=(w-text_w)/2:y=h/2-160:enable='gte(t,{dur-2:.2f})'")
-    f.append(f"drawtext=fontfile={FONT}:text='{esc(url)}':fontcolor=0xf2c94c:fontsize=56:x=(w-text_w)/2:y=h/2-40:enable='gte(t,{dur-2:.2f})'")
-    f.append(f"drawtext=fontfile={FONT}:text='Follow for day {day+1}':fontcolor=0xcccccc:fontsize=48:x=(w-text_w)/2:y=h/2+80:enable='gte(t,{dur-2:.2f})'")
+    if variant.get("cta") == "follow":  # follow-first end card
+        f.append(f"drawtext=fontfile={FONT}:text='FOLLOW':fontcolor=0xf2c94c:fontsize=120:borderw=6:bordercolor=black@0.5:x=(w-text_w)/2:y=h/2-200:enable='gte(t,{dur-2:.2f})'")
+        f.append(f"drawtext=fontfile={FONT}:text='for day {day+1} tomorrow':fontcolor=white:fontsize=64:x=(w-text_w)/2:y=h/2-40:enable='gte(t,{dur-2:.2f})'")
+        f.append(f"drawtext=fontfile={FONT}:text='Free Step 1 template':fontcolor=0xcccccc:fontsize=38:x=(w-text_w)/2:y=h/2+90:enable='gte(t,{dur-2:.2f})'")
+        f.append(f"drawtext=fontfile={FONT}:text='{esc(url)}':fontcolor=0xf2c94c:fontsize=40:x=(w-text_w)/2:y=h/2+145:enable='gte(t,{dur-2:.2f})'")
+    else:
+        f.append(f"drawtext=fontfile={FONT}:text='Free Step 1 template':fontcolor=white:fontsize=72:x=(w-text_w)/2:y=h/2-160:enable='gte(t,{dur-2:.2f})'")
+        f.append(f"drawtext=fontfile={FONT}:text='{esc(url)}':fontcolor=0xf2c94c:fontsize=56:x=(w-text_w)/2:y=h/2-40:enable='gte(t,{dur-2:.2f})'")
+        f.append(f"drawtext=fontfile={FONT}:text='Follow for day {day+1}':fontcolor=0xcccccc:fontsize=48:x=(w-text_w)/2:y=h/2+80:enable='gte(t,{dur-2:.2f})'")
     f.append("vignette=PI/4")
     vf = ",".join(f)
     # ---- inputs: 0 = background, then audio inputs

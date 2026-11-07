@@ -54,6 +54,7 @@ function build(bank, tagsKey, seed) {
     const cta = ctaLines[(seed + attempt + ctaOffset) % ctaLines.length];
     let caption = tpl(hook, cta, tagstr(mix[tagsKey] || mix.tiktok || []));
     if (attempt > 8) caption += `\n\nDay ${day}.`; // last-resort uniqueness marker
+    if (!/follow/i.test(caption)) caption = caption.replace(/\n\n(#[^\n]*)$/, `\n\nFollow for day ${day + 1} tomorrow.\n\n$1`); // followers first
     if (meta.avatar) caption += `\n\n${AI_NOTE} #aiavatar`;
     if (!ledger.used.includes(md5(caption))) return caption;
   }
