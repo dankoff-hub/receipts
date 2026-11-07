@@ -1,4 +1,4 @@
-name: Daily videos (4 slots) + IG carousel + photo → TikTok + Instagram + YouTube
+name: Daily videos (4 slots) + IG carousel + photo → TikTok + Instagram + YouTube + Bluesky/Mastodon posts
 # Four slots per day: 08/12/16/20 UTC (a/b/c/d). Each slot generates one new video
 # (unique script, per-channel captions) and posts the OLDEST not-yet-posted video to every
 # channel — max 1 per channel per run; daily caps: TikTok 2 (Buffer free), Instagram 4, YouTube 4.
@@ -34,6 +34,9 @@ jobs:
       SWARM_KEY: ${{ secrets.SWARM_KEY }}
       GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
       NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+      BLUESKY_HANDLE: ${{ vars.BLUESKY_HANDLE }}
+      BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+      MASTODON_TOKEN: ${{ secrets.MASTODON_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -92,6 +95,9 @@ jobs:
             echo "waiting for Vercel to serve the new photo"; sleep 90
           fi
           node scripts/post-photo.mjs || true
+      - if: steps.day.outputs.slot == 'a' || steps.day.outputs.slot == 'c'
+        name: Bluesky + Mastodon original post (slot a text, slot c photo+link; never repeated)
+        run: node scripts/post-social.mjs --slot=${{ steps.day.outputs.slot }} || true
       - if: steps.day.outputs.slot == 'b' && env.car != ''
         name: Post carousel to Instagram (1/day)
         run: |

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Closer — replies on Bluesky to fresh Tier-1/2 leads as the founder persona (@danrossi2026.bsky.social).
+// Closer — replies on Bluesky and Mastodon to fresh Tier-1/2 leads as the founder persona (@danrossi2026.bsky.social).
 // Sending requires repo var CLOSER_SEND=1 — set by the founder on 2026-11-07 ("40/day. do posts and replies on other platforms as well") with
 // CLOSER_DAILY_CAP=40. Without it the stage is DRAFT-ONLY (drafts land in swarm/CLOSER_LOG.json). Hard daily cap + per-cycle pacing, every reply logged.
 // Guardrails: lead < 48h old · Bluesky only · LLM relevance re-check (must be a person personally working on a habit/30-day/accountability goal)
@@ -17,10 +17,12 @@ const log = load(LOG_P, { replies: [], skipped: [] }), leads = load(LEADS_P, { l
 const today = new Date().toISOString().slice(0, 10);
 const sentToday = log.replies.filter(r => r.at.slice(0, 10) === today && r.status === "sent").length;
 const repliedAuthors = new Set(log.replies.map(r => r.author));
-const fresh = leads.leads.filter(l => l.src.includes("bluesky") && l.status === "new" && l.at && Date.now() - new Date(l.at) < 48 * 3600e3 && !repliedAuthors.has(l.sub)
+const MTOK = process.env.MASTODON_TOKEN; // mastodon.social @danrossi2026 (write:statuses)
+const platformOf = l => l.src.includes("bluesky") ? "bluesky" : (l.src.includes("mastodon") && /^masto:\d+$/.test(l.id) ? "mastodon" : null);
+const fresh = leads.leads.filter(l => platformOf(l) && l.status === "new" && l.at && Date.now() - new Date(l.at) < 48 * 3600e3 && !repliedAuthors.has(l.sub)
   && !/https?:\/\/|\$\d|\b(etsy|gumroad|app store|apps\.apple|play\.google|democrat|republican|trump|election)\b/i.test(l.text)) // skip sellers/apps/politics
   .sort((a, b) => a.tier - b.tier || new Date(b.at) - new Date(a.at)).slice(0, Number(process.env.CLOSER_CONSIDER || 25));
-console.log(`closer: ${fresh.length} fresh bluesky leads, ${sentToday}/${CAP} replies sent today, mode ${SEND && HANDLE && APP_PW ? "SEND (founder-enabled)" : "DRAFT-ONLY"}`);
+console.log(`closer: ${fresh.length} fresh bluesky/mastodon leads, ${sentToday}/${CAP} replies sent today, mode ${SEND && HANDLE && APP_PW ? "SEND (founder-enabled)" : "DRAFT-ONLY"}`);
 // pace: founder cap per UTC day (CLOSER_DAILY_CAP) spread over the cycles of the day (CLOSER_PER_CYCLE) so the account never bursts
 let budget = Math.min(CAP - sentToday, Number(process.env.CLOSER_PER_CYCLE || Math.ceil(CAP / 6) + 1)), session = null;
 const bad = /\b(guarantee|guaranteed|cure|therapy|diagnos|depress|anxiety disorder|invest|returns|earn \$|make money|limited time|buy now|only \$|discount|act fast)\b/i;
@@ -49,8 +51,19 @@ for (const lead of fresh) {
   // 3) self-check (DIRECTIVE §5 high-risk self-check): length, banned claims, no link unless allowed, no @-spam
   if (reply.length > 290) reply = reply.slice(0, 287).replace(/\s+\S*$/, "") + "…";
   if (bad.test(reply) || (!askLink && /https?:\/\/|\.vercel\.app|\.com\b/i.test(reply)) || /@\w/.test(reply)) { mark("skipped", "self-check failed", { draft: reply }); continue; }
-  if (!SEND || !HANDLE || !APP_PW) { mark("drafted", SEND ? "no creds" : "draft-only (set repo var CLOSER_SEND=1 to enable sending)", { draft: reply }); budget--; continue; }
-  // 4) send
+  const platform = platformOf(lead);
+  if (!SEND || (platform === "bluesky" ? !(HANDLE && APP_PW) : !MTOK)) { mark("drafted", SEND ? "no creds" : "draft-only (set repo var CLOSER_SEND=1 to enable sending)", { draft: reply }); budget--; continue; }
+  // 4) send — Mastodon: public reply with the @mention (how replies notify on the fediverse)
+  if (platform === "mastodon") {
+    try {
+      const acct = lead.sub ? "@" + lead.sub + " " : "";
+      const r = await fetch("https://mastodon.social/api/v1/statuses", { method: "POST", headers: { "content-type": "application/json", authorization: "Bearer " + MTOK, "Idempotency-Key": lead.id }, body: JSON.stringify({ status: acct + reply, in_reply_to_id: lead.id.slice(6), visibility: "public", language: "en" }) });
+      const j = await r.json(); if (!r.ok) throw new Error(JSON.stringify(j).slice(0, 200));
+      mark("sent", c.why || "", { reply, reply_url: j.url, provider: d.provider, platform });
+      repliedAuthors.add(lead.sub); budget--; console.log("closer: replied (mastodon) →", lead.url);
+    } catch (e) { mark("failed", e.message.slice(0, 200), { draft: reply, platform }); }
+    continue;
+  }
   try {
     session ??= await login();
     const ref = await postRef(lead.id); if (!ref) { mark("skipped", "post gone"); continue; }
@@ -61,7 +74,7 @@ for (const lead of fresh) {
     const r = await fetch("https://bsky.social/xrpc/com.atproto.repo.createRecord", { method: "POST", headers: { "content-type": "application/json", authorization: "Bearer " + session.accessJwt }, body: JSON.stringify({ repo: session.did, collection: "app.bsky.feed.post", record: rec }) });
     const j = await r.json(); if (!r.ok) throw new Error(JSON.stringify(j).slice(0, 200));
     const rk = j.uri.split("/").pop();
-    mark("sent", c.why || "", { reply, reply_url: `https://bsky.app/profile/${HANDLE}/post/${rk}`, provider: d.provider });
+    mark("sent", c.why || "", { reply, reply_url: `https://bsky.app/profile/${HANDLE}/post/${rk}`, provider: d.provider, platform: "bluesky" });
     repliedAuthors.add(ref.author); budget--; console.log("closer: replied →", lead.url);
   } catch (e) { mark("failed", e.message.slice(0, 200), { draft: reply }); }
 }

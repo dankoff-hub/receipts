@@ -24,6 +24,7 @@ jobs:
       BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
       CLOSER_SEND: ${{ vars.CLOSER_SEND }}
       CLOSER_DAILY_CAP: ${{ vars.CLOSER_DAILY_CAP }}
+      MASTODON_TOKEN: ${{ secrets.MASTODON_TOKEN }}
       SWARM_ALLOW_OLLAMA_INSTALL: ${{ (github.event_name == 'schedule' || inputs.allow_ollama_install == true) && '1' || '0' }}
     steps:
       - uses: actions/checkout@v4

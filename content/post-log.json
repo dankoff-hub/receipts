@@ -200,5 +200,25 @@
   "video": "photo-01-dinner.jpg",
   "slug": "dinner",
   "captionHash": "c877ac525fbc240d26305af38f2f1272"
+ },
+ {
+  "ts": "2026-11-07T01:02:29.636Z",
+  "channel": "bluesky",
+  "kind": "text",
+  "status": "skipped",
+  "url": null,
+  "why": "no creds",
+  "captionHash": "6c4a5453e2f2a774b18ee351f1a7120b",
+  "video": null
+ },
+ {
+  "ts": "2026-11-07T01:02:29.914Z",
+  "channel": "mastodon",
+  "kind": "text",
+  "status": "sent",
+  "url": "https://mastodon.social/@danrossi2026/117572458864192701",
+  "why": null,
+  "captionHash": "6c4a5453e2f2a774b18ee351f1a7120b",
+  "video": null
  }
 ]

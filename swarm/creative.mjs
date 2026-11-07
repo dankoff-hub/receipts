@@ -15,8 +15,8 @@ const hunter = (() => { try { return JSON.parse(fs.readFileSync("swarm/_hunter_c
 const pains = (hunter.top || []).map(t => t.text).slice(0, 4).join(" | ");
 const md5 = s => crypto.createHash("md5").update(s).digest("hex");
 const ledger = new Set([...(JSON.parse(fs.readFileSync("content/script-ledger.json", "utf8")).used || []), ...C.hooks]);
-const hookSkill = skillHint("social-hook-writer", 700), humanize = skillHint("humanizer", 500);
-const sys = (hookSkill ? "Hook craft (from the hook-writer skill): " + hookSkill + "\nWriting hygiene (humanizer skill): " + humanize + "\n" : "") + "You write platform-native short-form concepts for Receipts Pack: a $29 one-time 30-day system that turns a moment of doubt ('they said you couldn't') into one measurable standard and 30 days of proof. Dark-motivation, calm, no hype. JSON only.";
+const hookSkill = skillHint("social-hook-writer", 450), humanize = skillHint("humanizer", 350);
+const sys = (hookSkill ? "Hook craft (from the hook-writer skill): " + hookSkill + "\nWriting hygiene (humanizer skill): " + humanize + "\n" : "") + "You write platform-native short-form concepts for Receipts Pack: a $29 one-time 30-day system that turns a moment of doubt ('they said you couldn't') into one measurable standard and 30 days of proof. Dark-motivation, calm, no hype. JSON only. Stay inside this world (doubt, one standard, daily proof, 30 days, receipts); never write about ad spend, followers, algorithms or creator income.";
 const prompt = `Date ${today}. Platforms: instagram, youtube, tiktok. For EACH platform give 3 DIVERGENT concepts (different format: e.g. POV story, list, confession, challenge, myth-bust, receipt reveal). Avoid formats: ${black.join("; ") || "none"}. Real audience pains seen today: ${pains || "n/a"}.
 Return {"concepts":[{"platform":"instagram","format":"...","hook":"<=12 words, first 2s","say":"3-4 short spoken sentences","body":"1 sentence lesson","cta":"end line mentioning $29 link in bio"}]} with exactly 9 items. Every hook must be unique and not start with 'They said'.`;
 const r = await chat(prompt, { system: sys, maxTokens: 1400 });
@@ -26,7 +26,11 @@ if (!Array.isArray(concepts) || concepts.length < 3) { // deterministic fallback
   const formats = ["POV story", "receipt reveal", "3-rule list", "confession", "myth-bust", "day-7 check-in", "challenge", "before/after", "quiet flex"];
   concepts = seeds.map((s, i) => ({ platform: ["instagram", "youtube", "tiktok"][i % 3], format: formats[i], hook: `${s}. I kept the receipt.`, say: `I stopped arguing and started measuring. One standard, written down, checked daily. Day ${7 + i * 3} the streak said more than I ever could. Nobody debates a streak.`, body: "Turn one moment of doubt into one measurable standard and collect daily proof for 30 days.", cta: "The 30-day Receipts system is $29 — link in bio." }));
 }
-concepts = concepts.filter(c => c.hook && c.say && !ledger.has(md5(c.hook + "|" + c.say)) && !/^they said/i.test(c.hook)).slice(0, 9);
+// brand guard: concepts must be about the product's world (doubt → one standard → 30 days of proof) and never creator-economy filler
+const ON = /(receipt|proof|prove|30[- ]day|day \d+|doubt|streak|standard|said (i|you) couldn|accountab|discipline|habit|excuse|quiet|consisten)/i;
+const OFF = /(ad spend|subscriber|follower|algorithm|influencer|monetiz|\bviews\b|youtube|tiktok|\breels?\b|content creator|brand deal|toolkit|growth hack)/i;
+concepts = concepts.filter(c => c.hook && c.say && !ledger.has(md5(c.hook + "|" + c.say)) && !/^they said/i.test(c.hook) && ON.test(c.hook + " " + c.say + " " + c.body) && !OFF.test(c.hook + " " + c.say + " " + c.body)).slice(0, 9);
+if (concepts.length < 3) { console.log(`creative: only ${concepts.length} on-brand concepts from ${r.provider} — keeping queue as is`); process.exit(0); }
 if (replacingTemplates && r.provider === "template") { console.log("creative: still template — keeping existing"); process.exit(0); }
 if (replacingTemplates) { const old = new Set(todays.map(c => c.id)); C.hooks = C.hooks.filter(h => !old.has(h)); }
 C.days[today] = concepts.map(c => ({ ...c, provider: r.provider, id: md5(c.hook + "|" + c.say) }));
