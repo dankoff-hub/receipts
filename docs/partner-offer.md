@@ -68,8 +68,8 @@ P.S. If someone told you that you weren't ready this year: Receipts is a 30-day 
 
 1. `scripts/partner-scout.py` — 4 rotating YouTube channel searches (public pages, no key), filter 1k–200k subs, score fit, refresh 12 stale prospects, write `content/partner-prospects.json` (public data only), open "Partner outreach queue <date>" issue with ready-to-paste DMs for the top 10 uncontacted.
 2. `scripts/affiliate-ledger.mjs` — Stripe → ledger → monthly payout statement issue.
-3. Founder/approved sender posts the DMs (cap 10/day, High tier), marks `status: contacted`; on a yes, replies with code + free pack, sets `status: partner` and adds the code to `content/partners.json`.
-4. Instagram-only prospects: DM from @danrossi2026 in the app (web DMs risk the account). Newsletter prospects: email.
+3. `scripts/partner-drafts.mjs` — one unique DM + email per prospect from the zero-cost LLM cascade (Groq → NVIDIA → Pollinations), rules-checked (50%/$14.50, free pack, partner link, no banned words).
+4. Sender (approved 2026-11-07, swarm-operated): three Perplexity automations at 10:20 / 14:45 / 19:10 London send ≤20/day total via Instagram web DM (@danrossi2026) or Gmail, log each send in `content/partner-outreach-log.json` (`scripts/partner-log.mjs` enforces the cap), sweep replies, and on a yes issue the partner pack copy (`/pack?partner=<code>&k=<HMAC>`, `scripts/partner-grant.mjs`). Runbook: `docs/partner-sender.md`.
 
 ## 7. Critical-tier items (human only)
-Agreeing terms with a partner, changing the commission, paying out, ending a partnership, any paid placement.
+Changing the commission or terms, paying out, ending a partnership, any paid placement, answering money/legal questions (`status: needs_founder`). Accepting a partner on the published standard terms is delegated to the swarm (approved 2026-11-07).
