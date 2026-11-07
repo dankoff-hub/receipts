@@ -332,5 +332,44 @@
   "video": "avatar-01-intro.mp4",
   "day": null,
   "note": "backfilled: publish-buffer.mjs ReferenceError hid the sent record; video was posted 5x (duplicates deleted 2026-11-07)"
+ },
+ {
+  "ts": "2026-11-07T15:45:43.148Z",
+  "channel": "tiktok",
+  "postId": "6aef479c004e4879a765f19b",
+  "dueAt": "2026-11-07T15:45:32.861Z",
+  "status": "sent",
+  "video": "day-002.mp4",
+  "day": 2,
+  "captionHash": "5b4c93e6b6f2fae352f5f40155c9acf0"
+ },
+ {
+  "ts": "2026-11-07T15:45:54.129Z",
+  "channel": "instagram_photo",
+  "postId": "6aef47a9562f2e6de9677c11",
+  "status": "sent",
+  "video": "ai-20261107-receipt-notebook.jpg",
+  "slug": "ai-20261107-receipt-notebook",
+  "captionHash": "a0951fd41fa92342658ab81c11da6bee"
+ },
+ {
+  "ts": "2026-11-07T15:45:56.433Z",
+  "channel": "bluesky",
+  "kind": "photo",
+  "status": "sent",
+  "url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mzqajxg4452u",
+  "why": null,
+  "captionHash": "73ef99de2ced76308382492bc5343c66",
+  "video": "ai-20261107-receipt-notebook.jpg"
+ },
+ {
+  "ts": "2026-11-07T15:45:59.149Z",
+  "channel": "mastodon",
+  "kind": "photo",
+  "status": "sent",
+  "url": "https://mastodon.social/@danrossi2026/117575932870546642",
+  "why": null,
+  "captionHash": "73ef99de2ced76308382492bc5343c66",
+  "video": "ai-20261107-receipt-notebook.jpg"
  }
 ]

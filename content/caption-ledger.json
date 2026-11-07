@@ -34,12 +34,19 @@
   "fcde65c0eaeabfed22ab9715e07750af",
   "8be30785cdaeb29a87676b539f1d281c",
   "85cd0d98d1e247b2f415fd6c7762179f",
-  "27bf8f7f77ef1d6f371ce56bd92ca057"
+  "27bf8f7f77ef1d6f371ce56bd92ca057",
+  "5b4c93e6b6f2fae352f5f40155c9acf0",
+  "3067f041e69a93f4fd8697147edb91b0",
+  "41a334b51f0cf2ed9c1827c4fddf9dde"
  ],
  "photos": {
   "dinner": {
    "hash": "c877ac525fbc240d26305af38f2f1272",
    "ts": "2026-11-06T21:52:40.375Z"
+  },
+  "ai-20261107-receipt-notebook": {
+   "hash": "a0951fd41fa92342658ab81c11da6bee",
+   "ts": "2026-11-07T15:45:54.130Z"
   }
  },
  "social": [
@@ -49,6 +56,7 @@
   "54237ee0fb94433d61243a1b37786ed5",
   "5e2215d426e50d47ee9e2f3b27dd42f1",
   "b2c10e7d73a0388d7ceb022b079acbac",
-  "893d92d49667d977f38751579309504e"
+  "893d92d49667d977f38751579309504e",
+  "73ef99de2ced76308382492bc5343c66"
  ]
 }
