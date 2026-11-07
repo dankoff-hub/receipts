@@ -96,6 +96,13 @@ def main() -> None:
     if src != pp.read_text():
         pp.write_text(src)
         print("patched preprocess.py for numpy>=1.24 / numpy 2")
+    # numpy>=1.24 removed np.float/np.int/np.bool aliases (used on the
+    # inference path in src/face3d/util/my_awing_arch.py; \b keeps np.float64
+    # etc. untouched)
+    sh(
+        "grep -rl 'np\\.float\\b\\|np\\.int\\b\\|np\\.bool\\b' src/ | xargs -r sed -i "
+        "'s/np\\.float\\b/float/g; s/np\\.int\\b/int/g; s/np\\.bool\\b/bool/g'"
+    )
     # download_models.sh isn't idempotent (mkdir fails on rerun) — tolerate and verify
     subprocess.run("bash scripts/download_models.sh", shell=True, capture_output=True)
     need = ST / "checkpoints" / "SadTalker_V0.0.2_512.safetensors"
