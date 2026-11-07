@@ -7,17 +7,17 @@
     "hook": "What if you could prove your worth in 30 days?",
     "say": "I was told I couldn't. I decided to record every win. Now I have clear evidence of my progress.",
     "body": "Visual proof turns doubt into undeniable confidence.",
-    "cta": "Try it for $29\u2014link in bio.",
+    "cta": "Try it for $29—link in bio.",
     "provider": "pollinations",
     "id": "997cf4646e081ea63199c6fde39d2bcf"
    },
    {
     "platform": "instagram",
     "format": "Myth Bust",
-    "hook": "Your failures aren\u2019t proof you\u2019re stuck.",
+    "hook": "Your failures aren’t proof you’re stuck.",
     "say": "Everyone thinks a setback ends a journey. I captured how each set back opened a new path. Those receipts prove it.",
     "body": "Reframe setbacks as stepping stones with evidence.",
-    "cta": "See the system in $29\u2014link in bio.",
+    "cta": "See the system in $29—link in bio.",
     "provider": "pollinations",
     "id": "ff8dc151d16321ce12f175e988e50cc2"
    },
@@ -25,9 +25,9 @@
     "platform": "instagram",
     "format": "Challenge",
     "hook": "30 days, 30 receipts, no excuses.",
-    "say": "I\u2019ll document every small win. You can too. We\u2019ll meet at day 30, no hype, just results.",
+    "say": "I’ll document every small win. You can too. We’ll meet at day 30, no hype, just results.",
     "body": "Daily accountability delivers measurable success.",
-    "cta": "$29 to start\u2014link in bio.",
+    "cta": "$29 to start—link in bio.",
     "provider": "pollinations",
     "id": "e317d93df45eef4d80ab7f2df651a74f"
    },
@@ -37,14 +37,14 @@
     "hook": "Top 3 ways receipts reset your mindset.",
     "say": "First, spot patterns you miss. Second, celebrate tiny victories. Third, keep your doubts at bay with data.",
     "body": "Numbers calm the brain, proof builds momentum.",
-    "cta": "Get the $29 system\u2014link in bio.",
+    "cta": "Get the $29 system—link in bio.",
     "provider": "pollinations",
     "id": "5f95c6114b6996ca50a5f53cf8c4f797"
    },
    {
     "platform": "youtube",
     "format": "Confession",
-    "hook": "I lied about my progress once\u2014here\u2019s why.",
+    "hook": "I lied about my progress once—here’s why.",
     "say": "I claimed success, no evidence. I lost credibility. Then I started tracking receipts and the truth came out.",
     "body": "Honesty powered by proof restores trust.",
     "cta": "$29 link in bio to create yours.",
@@ -57,7 +57,7 @@
     "hook": "Watch this receipt change my whole career.",
     "say": "One line in a document, one shift in fortune. I went from doubt to decision in 30 days.",
     "body": "The right data can pivot destiny.",
-    "cta": "Grab the $29 system\u2014link in bio.",
+    "cta": "Grab the $29 system—link in bio.",
     "provider": "pollinations",
     "id": "93eb836ad488929492a512fcb763fcc6"
    },
@@ -67,7 +67,7 @@
     "hook": "Ever felt like nobody believes you?",
     "say": "I had that feeling. Then I started capturing moments. Now my future looks different.",
     "body": "Proof silences skeptics.",
-    "cta": "$29\u2014link in bio.",
+    "cta": "$29—link in bio.",
     "provider": "pollinations",
     "id": "2d0405cc9e6f27774e162049aef33568"
    },
@@ -77,7 +77,7 @@
     "hook": "Think proof is a luxury? Think again.",
     "say": "I thought it cost too much. I spent $29 and the receipts spoke louder than words.",
     "body": "Small investment yields massive confidence.",
-    "cta": "Get it for $29\u2014link in bio.",
+    "cta": "Get it for $29—link in bio.",
     "provider": "pollinations",
     "id": "b5efbf34bb86fa271049b50129155cc8"
    },
@@ -87,12 +87,103 @@
     "hook": "3 receipts that changed my life instantly.",
     "say": "Receipt one: I turned a doubt into a plan. Receipt two: I decided to act. Receipt three: I proved it.",
     "body": "Track today to master tomorrow.",
-    "cta": "Buy at $29\u2014link in bio.",
+    "cta": "Buy at $29—link in bio.",
     "provider": "pollinations",
     "id": "dbf406742882507f65a09af657e3c030"
    }
   ],
-  "2026-11-07": []
+  "2026-11-07": [
+   {
+    "platform": "instagram",
+    "format": "POV story",
+    "hook": "When your boss laughed at your plan...",
+    "say": "I wrote it down, measured every metric. Day 1, I hit the target. Day 2, I doubled it. Day 30? Proof on screen.",
+    "body": "A single standard turns doubt into data.",
+    "cta": "Grab the $29 system, link in bio",
+    "provider": "groq",
+    "id": "78fdbdfeeda52581a40d0327875b95ee"
+   },
+   {
+    "platform": "instagram",
+    "format": "myth-bust",
+    "hook": "They claimed consistency is a myth...",
+    "say": "I set one measurable goal. Each morning I logged results. 30 days later the numbers speak.",
+    "body": "Consistent proof beats empty promises.",
+    "cta": "Start your 30‑day proof for $29, link in bio",
+    "provider": "groq",
+    "id": "1167abb347c68112fd38e5bf6a56adcd"
+   },
+   {
+    "platform": "instagram",
+    "format": "receipt reveal",
+    "hook": "Your friend said you couldn't track progress...",
+    "say": "Day 1: 0.5% up. Day 15: 12% up. Day 30: 27% up. See the receipt.",
+    "body": "One standard, thirty days of evidence.",
+    "cta": "Get the proof system for $29, link in bio",
+    "provider": "groq",
+    "id": "499d5794277678d89ccba9ea243406f9"
+   },
+   {
+    "platform": "youtube",
+    "format": "confession",
+    "hook": "I once believed I was average...",
+    "say": "A doubter set a single benchmark. I recorded daily wins. After 30 days the scoreboard changed.",
+    "body": "Define a standard, watch doubt disappear.",
+    "cta": "Unlock the $29 proof kit, link in bio",
+    "provider": "groq",
+    "id": "41f1e000054ff44574a755b305d9bea9"
+   },
+   {
+    "platform": "youtube",
+    "format": "challenge",
+    "hook": "Bet you can't prove growth in a month...",
+    "say": "I took the challenge, logged one metric each day, and the graph exploded by day 30.",
+    "body": "One metric, thirty proofs, undeniable results.",
+    "cta": "Join the $29 challenge, link in bio",
+    "provider": "groq",
+    "id": "85c04f137cfcd9ac05bbcea84cff2825"
+   },
+   {
+    "platform": "youtube",
+    "format": "list",
+    "hook": "5 ways skeptics get silenced...",
+    "say": "1. Pick one clear standard. 2. Capture daily data. 3. Share the receipt. 4. Repeat for 30 days. 5. Let numbers speak.",
+    "body": "A simple list turns doubt into proof.",
+    "cta": "Buy the $29 system, link in bio",
+    "provider": "groq",
+    "id": "9ed623907dece73acdd16c15649b1346"
+   },
+   {
+    "platform": "tiktok",
+    "format": "POV",
+    "hook": "When your teammate said it was impossible...",
+    "say": "I set a single KPI, filmed each day's result, and by day 30 the proof was viral.",
+    "body": "One KPI, 30 days, undeniable receipt.",
+    "cta": "Get the $29 receipt pack, link in bio",
+    "provider": "groq",
+    "id": "b0e09bf6b0349373cf0f7bcf13fb2143"
+   },
+   {
+    "platform": "tiktok",
+    "format": "myth-bust",
+    "hook": "People think progress needs big plans...",
+    "say": "I stripped it to one measurable target, recorded daily, and 30 days later the data proved it.",
+    "body": "Small standard, big proof.",
+    "cta": "Start the $29 30‑day proof, link in bio",
+    "provider": "groq",
+    "id": "b3184e3e70617377cd4d4d93b65bfb80"
+   },
+   {
+    "platform": "tiktok",
+    "format": "receipt reveal",
+    "hook": "Your critic claimed you couldn't quantify success...",
+    "say": "Day 1 screenshot, day 15 screenshot, day 30 screenshot. The numbers never lie.",
+    "body": "Turn doubt into a daily receipt.",
+    "cta": "Grab the $29 system, link in bio",
+    "provider": "groq",
+    "id": "bea8759ef9373c9238f54b6038e7d622"
+   }
+  ]
  },
  "hooks": [
   "997cf4646e081ea63199c6fde39d2bcf",
@@ -116,6 +207,15 @@
   "dc277b5d3a2239aa567f23ed3c9bac23",
   "6ea54b567ba7aadaa9b4e398d2018661",
   "efbd78109579580e126959d757f665f1",
-  "eb422b8f4ba693e636874a6df20ab8c5"
+  "eb422b8f4ba693e636874a6df20ab8c5",
+  "78fdbdfeeda52581a40d0327875b95ee",
+  "1167abb347c68112fd38e5bf6a56adcd",
+  "499d5794277678d89ccba9ea243406f9",
+  "41f1e000054ff44574a755b305d9bea9",
+  "85c04f137cfcd9ac05bbcea84cff2825",
+  "9ed623907dece73acdd16c15649b1346",
+  "b0e09bf6b0349373cf0f7bcf13fb2143",
+  "b3184e3e70617377cd4d4d93b65bfb80",
+  "bea8759ef9373c9238f54b6038e7d622"
  ]
 }
