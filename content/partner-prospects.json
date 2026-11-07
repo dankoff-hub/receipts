@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-07T17:17:31.518945Z",
+ "updated": "2026-11-07T17:21:59.258765Z",
  "prospects": {
   "@Myelia_irl": {
    "title": "Myelia /Self Improvement",
@@ -9,9 +9,9 @@
    "median_views": 1000,
    "max_views": 9600,
    "links": [
-    "linktr.ee/Myelia_irl",
     "facebook.com/myelia",
     "instagram.com/myelia_irl",
+    "linktr.ee/Myelia_irl",
     "tiktok.com/@myelia_irl?lang=en"
    ],
    "ig": "instagram.com/myelia_irl",
@@ -21,7 +21,9 @@
    "status": "prospect",
    "found": "2026-11-07",
    "checked": "2026-11-07",
-   "kind": "youtube"
+   "kind": "youtube",
+   "latest": null,
+   "tt": "tiktok.com/@myelia_irl?lang=en"
   },
   "@Forged4Future": {
    "title": "F4F",
@@ -42,7 +44,9 @@
    "status": "prospect",
    "found": "2026-11-07",
    "checked": "2026-11-07",
-   "kind": "youtube"
+   "kind": "youtube",
+   "latest": null,
+   "tt": null
   },
   "@coachronnie": {
    "title": "Coach Ronnie",
@@ -184,8 +188,8 @@
    "max_views": 18000,
    "links": [
     "instagram.com/lettersby.arii",
-    "tiktok.com/@lettersby.arii",
-    "linktr.ee/lettersby.arii"
+    "linktr.ee/lettersby.arii",
+    "tiktok.com/@lettersby.arii"
    ],
    "ig": "instagram.com/lettersby.arii",
    "site": null,
@@ -194,7 +198,9 @@
    "status": "prospect",
    "found": "2026-11-07",
    "checked": "2026-11-07",
-   "kind": "youtube"
+   "kind": "youtube",
+   "latest": null,
+   "tt": "tiktok.com/@lettersby.arii"
   },
   "@OllieDhd": {
    "title": "ODHD.",
@@ -249,7 +255,9 @@
    "status": "prospect",
    "found": "2026-11-07",
    "checked": "2026-11-07",
-   "kind": "youtube"
+   "kind": "youtube",
+   "latest": null,
+   "tt": null
   },
   "@JalenLeeShow": {
    "title": "Coach J. Lee",
@@ -274,7 +282,7 @@
    "handle": "@discipline7q",
    "subs": 22100,
    "median_views": 116000,
-   "max_views": 544000,
+   "max_views": 545000,
    "links": [
     "instagram.com/only_elite_men_7?igsi=cXBmbWxmMWY2MHRi"
    ],
@@ -285,7 +293,9 @@
    "status": "prospect",
    "found": "2026-11-07",
    "checked": "2026-11-07",
-   "kind": "youtube"
+   "kind": "youtube",
+   "latest": null,
+   "tt": null
   },
   "@ChadEveryday": {
    "title": "Chadeveryday",
@@ -295,18 +305,20 @@
    "median_views": 1300,
    "max_views": 5000,
    "links": [
+    "chadeveryday.com",
     "chadeveryday.kit.com/5e85118ad5",
-    "instagram.com/chadeveryday",
-    "chadeveryday.com"
+    "instagram.com/chadeveryday"
    ],
    "ig": "instagram.com/chadeveryday",
-   "site": "chadeveryday.kit.com/5e85118ad5",
+   "site": "chadeveryday.com",
    "desc": "I'm Chad, an elder millennial trying to figure out who I actually am in an era of constant noise. Li",
    "score": 40,
    "status": "prospect",
    "found": "2026-11-07",
    "checked": "2026-11-07",
-   "kind": "youtube"
+   "kind": "youtube",
+   "latest": null,
+   "tt": null
   },
   "@Disciplined_dads": {
    "title": "Disciplined Dads ",
@@ -336,8 +348,8 @@
    "max_views": 3300000,
    "links": [
     "instagram.com/keytodiscipline_",
-    "tiktok.com/@keytodiscipline_",
-    "linktr.ee/keytodiscipline"
+    "linktr.ee/keytodiscipline",
+    "tiktok.com/@keytodiscipline_"
    ],
    "ig": "instagram.com/keytodiscipline_",
    "site": null,
@@ -346,7 +358,9 @@
    "status": "prospect",
    "found": "2026-11-07",
    "checked": "2026-11-07",
-   "kind": "youtube"
+   "kind": "youtube",
+   "latest": null,
+   "tt": "tiktok.com/@keytodiscipline_"
   },
   "@StoiccDiary": {
    "title": "Stoic Diary",
@@ -370,7 +384,7 @@
    "url": "https://www.youtube.com/@TomHurls",
    "handle": "@TomHurls",
    "subs": 75700,
-   "median_views": 0,
+   "median_views": null,
    "max_views": null,
    "links": [
     "instagram.com/tom.hu23"
@@ -382,7 +396,9 @@
    "status": "prospect",
    "found": "2026-11-07",
    "checked": "2026-11-07",
-   "kind": "youtube"
+   "kind": "youtube",
+   "latest": null,
+   "tt": null
   },
   "@dominichartt": {
    "title": "Dominic Hart",
@@ -413,19 +429,21 @@
    "median_views": 2800,
    "max_views": 11000,
    "links": [
-    "nicheriches.co",
-    "nicheriches.beehiiv.com",
     "instagram.com/missionsidehustle/?hl=en",
+    "nicheriches.beehiiv.com",
+    "nicheriches.co",
     "twitter.com/CoreywithMSH"
    ],
    "ig": "instagram.com/missionsidehustle/?hl=en",
-   "site": "nicheriches.co",
+   "site": "nicheriches.beehiiv.com",
    "desc": "I'm Corey, and I'm turning $500 into $1000000. What started as a side hustle experiment in 2020 has ",
    "score": 55,
    "status": "prospect",
    "found": "2026-11-07",
    "checked": "2026-11-07",
-   "kind": "youtube"
+   "kind": "youtube",
+   "latest": null,
+   "tt": null
   },
   "@DailyStoicWisdom-15": {
    "title": "Daily Stoic Wisdom ",
@@ -514,7 +532,8 @@
    "status": "prospect",
    "found": "2026-11-07",
    "checked": "2026-11-07",
-   "kind": "newsletter"
+   "kind": "newsletter",
+   "error": "HTTP Error 404: Not Found"
   },
   "https://improvebypathsofstoicism.substack.com": {
    "title": "The Improvement Journal (@pathsofstoicism)",
@@ -691,6 +710,86 @@
    "found": "2026-11-07",
    "checked": "2026-11-07",
    "kind": "newsletter"
+  },
+  "@kathyhampton_wellness": {
+   "channel_id": "UC853pYj3CM6SwzFZ31uAUeg",
+   "title": "Wellness and Healing with Kathy Hampton",
+   "subs": 1470,
+   "handle": "@kathyhampton_wellness",
+   "desc": "I help women fulfill their dreams, desires and potential by focusing on and utilizing wellness and healing practices. I also create\u00a0...",
+   "latest": null,
+   "median_views": 78,
+   "max_views": 265,
+   "links": [
+    "wellsideretreats.care/retreat"
+   ],
+   "ig": null,
+   "tt": null,
+   "site": "wellsideretreats.care/retreat",
+   "score": 10,
+   "status": "low-fit",
+   "found": "2026-11-07",
+   "url": "https://www.youtube.com/@kathyhampton_wellness"
+  },
+  "@Growingwithjenna": {
+   "channel_id": "UC_4p96Ua9Wc9XMxZbSVjfdA",
+   "title": "Growing with Jenna",
+   "subs": 1270,
+   "handle": "@Growingwithjenna",
+   "desc": "Self Improvement for Women | Mindset, Glow Up & Real Life Growth I'm Jenna \u2014 35, happily married, mom of two, business\u00a0...",
+   "latest": null,
+   "median_views": 401,
+   "max_views": 466,
+   "links": [
+    "tiktok.com/@jennaonsocial"
+   ],
+   "ig": null,
+   "tt": "tiktok.com/@jennaonsocial",
+   "site": null,
+   "score": 70,
+   "status": "prospect",
+   "found": "2026-11-07",
+   "url": "https://www.youtube.com/@Growingwithjenna",
+   "checked": "2026-11-07"
+  },
+  "@growthhub11-e9f": {
+   "channel_id": "UCIv8q7D2xeBfxDpI1TFheBQ",
+   "title": "growthhub11 ",
+   "subs": 90200,
+   "handle": "@growthhub11-e9f",
+   "desc": "Welcome to ( growthhub11 ) Daily Dose of: Dark Psychology Shorts Mindset Hacks Powerful Motivation\u00a0...",
+   "latest": null,
+   "median_views": 23000,
+   "max_views": 803000,
+   "links": [],
+   "ig": null,
+   "tt": null,
+   "site": null,
+   "score": 50,
+   "status": "prospect",
+   "found": "2026-11-07",
+   "url": "https://www.youtube.com/@growthhub11-e9f",
+   "checked": "2026-11-07"
+  },
+  "@ashleyldalton": {
+   "channel_id": "UCmDADkm7CG7uyZBqKHnLxNQ",
+   "title": "Ashley L Dalton",
+   "subs": 103000,
+   "handle": "@ashleyldalton",
+   "desc": "Hey Beautiful People! Welcome to my channel My name is Ashley and all about looking your best and feeling your best from\u00a0...",
+   "latest": null,
+   "median_views": 37000,
+   "max_views": 130000,
+   "links": [
+    "ashleyldalton.com"
+   ],
+   "ig": null,
+   "tt": null,
+   "site": "ashleyldalton.com",
+   "score": 30,
+   "status": "low-fit",
+   "found": "2026-11-07",
+   "url": "https://www.youtube.com/@ashleyldalton"
   }
  }
 }
