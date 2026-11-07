@@ -264,7 +264,8 @@
   "status": "sent",
   "video": "day-005.mp4",
   "day": 5,
-  "captionHash": "cecd1b88bc4d3d8be753118364699075"
+  "captionHash": "cecd1b88bc4d3d8be753118364699075",
+  "sentAt": "2026-11-07T08:46:16.255Z"
  },
  {
   "ts": "2026-11-07T08:45:32.838Z",
@@ -273,6 +274,7 @@
   "status": "sent",
   "video": "day-005.mp4",
   "day": 5,
-  "captionHash": "3a96733d895d2f6ef67853692cd59983"
+  "captionHash": "3a96733d895d2f6ef67853692cd59983",
+  "sentAt": "2026-11-07T08:45:32.269Z"
  }
 ]

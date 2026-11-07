@@ -3,9 +3,12 @@
  "deltas_7d": {
   "youtube_subs": 0,
   "tiktok_followers": 0,
-  "instagram_followers": null
+  "instagram_followers": null,
+  "bluesky_followers": null,
+  "mastodon_followers": null
  },
- "posts_logged": 28,
+ "followers_total_known": 53,
+ "posts_logged": 30,
  "post_issues": [],
  "best_cta_index": null,
  "best_tag_mix_index": null,
@@ -14,11 +17,12 @@
   "instagram stats unavailable (login wall)"
  ],
  "variant_experiment": {
-  "updated": "2026-11-07T07:52:00.943Z",
+  "updated": "2026-11-07T10:29:37.331Z",
   "evidence": {
    "voice": {},
    "music": {},
-   "bg": {}
+   "bg": {},
+   "cta": {}
   },
   "weights": {
    "voice": {
@@ -34,14 +38,18 @@
     "nature": 0.3,
     "gradient": 0.25,
     "other": 0.15
+   },
+   "cta": {
+    "follow": 0.6,
+    "template": 0.4
    }
   },
   "applied_now": []
  },
  "performance": {
-  "updated": "2026-11-07T07:52:00.943Z",
+  "updated": "2026-11-07T10:29:37.331Z",
   "instagram": {
-   "posts": 7,
+   "posts": 12,
    "medianViews": 2,
    "medianAvgWatch": 3.89,
    "top": [
@@ -95,8 +103,8 @@
    ]
   },
   "youtube": {
-   "posts": 4,
-   "medianViews": 41,
+   "posts": 7,
+   "medianViews": 3,
    "medianAvgWatch": null,
    "top": [
     {
@@ -120,29 +128,53 @@
    ],
    "bottom": [
     {
-     "hook": "What happens after you prove them wrong?",
-     "views": 41,
-     "video": "day-003b.mp4"
+     "hook": "I hit my goal and felt empty. Here's why.",
+     "views": 0,
+     "video": "day-004c.mp4"
     },
     {
-     "hook": "They said you would not make it — keep the receipt.",
-     "views": 4,
-     "video": "avatar-intro.mp4"
+     "hook": "The minimum day rule saved my streak.",
+     "views": 0,
+     "video": "day-004b.mp4"
     },
     {
-     "hook": "I got passed over for a promotion. Here's my 30-day plan.",
-     "views": 3,
-     "video": "day-003.mp4"
+     "hook": "Rejected by 40 companies. Kept every receipt.",
+     "views": 0,
+     "video": "day-004.mp4"
     }
    ],
    "breakouts": []
   },
   "tiktok": {
-   "posts": 0,
-   "medianViews": null,
-   "medianAvgWatch": null,
-   "top": [],
-   "bottom": [],
+   "posts": 2,
+   "medianViews": 0,
+   "medianAvgWatch": 0,
+   "top": [
+    {
+     "hook": null,
+     "views": 0,
+     "avgWatch": 0,
+     "video": null
+    },
+    {
+     "hook": null,
+     "views": 0,
+     "avgWatch": 0,
+     "video": null
+    }
+   ],
+   "bottom": [
+    {
+     "hook": null,
+     "views": 0,
+     "video": null
+    },
+    {
+     "hook": null,
+     "views": 0,
+     "video": null
+    }
+   ],
    "breakouts": []
   }
  },

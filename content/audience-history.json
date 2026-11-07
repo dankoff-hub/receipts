@@ -34,6 +34,8 @@
    "youtube_views": null,
    "tiktok_followers": 0,
    "instagram_followers": null,
+   "bluesky_followers": 0,
+   "mastodon_followers": 0,
    "stripe_paid_by_src": {}
   }
  ]
