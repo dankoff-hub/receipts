@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-07T17:30:20.191Z",
+ "updated": "2026-11-07T17:32:38.674Z",
  "prospects": {
   "@Myelia_irl": {
    "title": "Myelia /Self Improvement",
@@ -295,7 +295,15 @@
    "checked": "2026-11-07",
    "kind": "youtube",
    "latest": null,
-   "tt": null
+   "tt": null,
+   "drafts_provider": "pollinations",
+   "drafts": {
+    "code": "discipline7q",
+    "dm": "I love how your channel turns Discipline into a practical roadmap for young men. We’re offering you a free full copy of our 30‑day ‘Proof’ system at receiptspack.vercel.app/free. If you link to your audience with receiptspack.vercel.app/p/discipline7q, you’ll earn 50% ($14.50) of every sale, paid monthly via PayPal—no quota, no exclusivity. Ready to start? — Dan, Receipts",
+    "email_subject": "Partner with Receipts: 50% Revenue Share on Your Channel",
+    "email": "Hey,\n\nYour focus on discipline as a key to success aligns perfectly with our 30‑day proof system. We’re giving you a free full pack to check out at receiptspack.vercel.app/free, then offer a partner link (receiptspack.vercel.app/p/discipline7q) that pays 50% of each purchase ($14.50) every month through PayPal—no limits, no exclusivity.\n\nReview the partnership details at receiptspack.vercel.app/partners/terms. Let me know if you’re interested.\n\nDan Rossi — Receipts",
+    "generated": "2026-11-07T17:31:44.772Z"
+   }
   },
   "@ChadEveryday": {
    "title": "Chadeveryday",
@@ -750,7 +758,15 @@
    "status": "prospect",
    "found": "2026-11-07",
    "url": "https://www.youtube.com/@Growingwithjenna",
-   "checked": "2026-11-07"
+   "checked": "2026-11-07",
+   "drafts_provider": "pollinations",
+   "drafts": {
+    "code": "growingwithjenna",
+    "dm": "Hey Jenna, I saw you focus on \"Real Life Growth\" for your channel. We’d love to partner on Receipts – a $29, 30‑day proof system. First, you can get the full pack free at receiptspack.vercel.app/free. Then, with the partner link receiptspack.vercel.app/p/growingwithjenna you’ll earn 50% of every sale ($14.50), paid monthly via PayPal, no quotas, no exclusivity. Interested in giving it a try? — Dan, Receipts",
+    "email_subject": "Partner offer for Growing with Jenna",
+    "email": "Hey Jenna,\n\nI’ve been following Growing with Jenna and your focus on real‑life growth for women. Receipts is a straightforward $29, 30‑day proof system that helps people prove they’re ready, and we’d love to offer you the full pack for free at receiptspack.vercel.app/free.\n\nWith your unique partner link, receiptspack.vercel.app/p/growingwithjenna, you’ll earn 50 % of each sale—$14.50—paid monthly through PayPal. There are no quotas or exclusivity agreements, and you can pause or stop at any time. Terms are detailed at receiptspack.vercel.app/partners/terms.\n\nLet me know if you’d like to set this up or have any questions. — Dan Rossi — Receipts",
+    "generated": "2026-11-07T17:32:38.674Z"
+   }
   },
   "@growthhub11-e9f": {
    "channel_id": "UCIv8q7D2xeBfxDpI1TFheBQ",

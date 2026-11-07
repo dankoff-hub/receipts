@@ -16,8 +16,9 @@ Prospect: ${p.kind === "newsletter" ? "newsletter" : "YouTube channel"} "${p.tit
 Write JSON {"dm": string, "email_subject": string, "email": string}.
 dm: max 480 chars, first sentence must reference something specific from their title/about (no flattery words like amazing/love), then: we send the full pack free first; partner link receiptspack.vercel.app/p/${c} pays 50% of every sale ($14.50), monthly by PayPal, no quota, no exclusivity; end with one short question. Sign "— Dan, Receipts".
 email: 3 short paragraphs, same facts plus "Terms: receiptspack.vercel.app/partners/terms", sign "Dan Rossi — Receipts". Vary sentence rhythm; do not reuse stock phrases like "I came across" or "I hope this finds you". Never promise income, never mention refunds or guarantees.`;
-  const r = parseJSON(await chat(prompt, { system: "Output compact JSON only.", maxTokens: 700 }));
-  if (!r?.dm || !r?.email) { console.log("no draft for", p.handle); continue; }
+  const out = await chat(prompt, { system: "Output compact JSON only.", maxTokens: 700 }); const r = parseJSON(out.text);
+  if (!r?.dm || !r?.email) { console.log("no draft for", p.handle, "provider", out.provider); continue; }
+  r.dm = String(r.dm); r.email = String(r.email); p.drafts_provider = out.provider;
   const ok = !BAN.test(r.dm + r.email) && r.dm.length <= 520 && r.dm.includes(`/p/${c}`) && /\$14\.50|50%/.test(r.dm);
   if (!ok) { console.log("draft rejected by rules:", p.handle); continue; }
   p.drafts = { code: c, dm: r.dm.trim(), email_subject: String(r.email_subject || "A partner idea for your audience").slice(0, 90), email: r.email.trim(), generated: new Date().toISOString() }; n++;
