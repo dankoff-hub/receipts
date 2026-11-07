@@ -9,8 +9,11 @@ const H = { Authorization: `Bearer ${K}` }, since = Math.floor(Date.parse("2026-
 async function page(path) { const out = []; let url = `https://api.stripe.com/v1/${path}&limit=100&created[gte]=${since}`;
   while (url) { const j = await (await fetch(url, { headers: H })).json(); if (j.error) throw new Error(j.error.message); out.push(...(j.data || [])); url = j.has_more ? `${url.split("&starting_after=")[0]}&starting_after=${j.data.at(-1).id}` : null; } return out; }
 const sessions = (await page("checkout/sessions?status=complete")).filter(s => s.payment_status === "paid");
-const refunded = new Set((await page("refunds?")).map(r => r.payment_intent).filter(Boolean));
-const disputed = new Set((await page("disputes?")).map(d => d.payment_intent).filter(Boolean));
+// Refund/dispute reversal needs "Charges and Refunds: read" on the restricted key. Until the founder grants it, the
+// ledger still runs and flags the gap (reversals then get applied at payout time by the human reading the Stripe dashboard).
+let reversalsKnown = true; const safe = async p => { try { return await page(p); } catch (e) { reversalsKnown = false; console.log(`note: ${p.split("?")[0]} not readable with this key (${e.message.slice(0, 60)}…) — reversals must be checked by hand before payout`); return []; } };
+const refunded = new Set((await safe("refunds?")).map(r => r.payment_intent).filter(Boolean));
+const disputed = new Set((await safe("disputes?")).map(d => d.payment_intent).filter(Boolean));
 const now = Date.now(), hold = prog.payout.hold_days * 86400e3;
 const by = {}, months = {};
 for (const s of sessions) {
@@ -24,7 +27,7 @@ for (const s of sessions) {
   r.first_sale ||= when.toISOString().slice(0, 10); r.last_sale = when.toISOString().slice(0, 10);
   const mm = (months[month] ||= {}); const mc = (mm[code] ||= { sales: 0, commission_usd: 0 }); mc.sales++; mc.commission_usd += prog.commission_usd_per_sale;
 }
-const ledger = { updated: new Date().toISOString(), commission_usd_per_sale: prog.commission_usd_per_sale, partners: by, months, total_partner_sales: Object.values(by).reduce((a, b) => a + b.sales, 0) };
+const ledger = { updated: new Date().toISOString(), reversals_checked: reversalsKnown, commission_usd_per_sale: prog.commission_usd_per_sale, partners: by, months, total_partner_sales: Object.values(by).reduce((a, b) => a + b.sales, 0) };
 fs.writeFileSync("content/affiliate-ledger.json", JSON.stringify(ledger, null, 1));
 console.log(`partner sales: ${ledger.total_partner_sales} across ${Object.keys(by).length} partners`);
 // Monthly statement issue (1st–5th), for the previous month.
