@@ -1,0 +1,28 @@
+name: Social post (Bluesky + Mastodon, manual)
+on:
+  workflow_dispatch:
+    inputs:
+      slot: { description: "a = text post, c = photo post", default: "a" }
+      force: { description: "ignore once-per-day guard (true/false)", default: "false" }
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    permissions: { contents: write }
+    env:
+      BLUESKY_HANDLE: ${{ vars.BLUESKY_HANDLE }}
+      BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+      MASTODON_TOKEN: ${{ secrets.MASTODON_TOKEN }}
+      GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+      NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 20}
+      - run: pip install -q pillow
+      - run: node scripts/post-social.mjs --slot=${{ inputs.slot }} ${{ inputs.force == 'true' && '--force' || '' }}
+      - name: Commit log
+        run: |
+          git config user.name dankoff-hub; git config user.email 345066702+dankoff-hub@users.noreply.github.com
+          git add content/post-log.json content/caption-ledger.json swarm/QUOTA_STATE.json
+          git diff --cached --quiet || { git commit -qm "Social post log [skip ci]"; git pull -q --rebase --autostash && git push -q; }
