@@ -12,7 +12,7 @@
    "auth": "GROQ_API_KEY secret (optional)",
    "limit": "14,400 req/day",
    "cooldown_until": 0,
-   "calls": 95,
+   "calls": 107,
    "fails": 3,
    "last_error": "400 {\"error\":{\"message\":\"'messages' must contain the word 'json' in some form, to use 'response_format' of type 'json_object'.\",\"type\":\"invalid_request_error\"}}\n"
   },
@@ -57,5 +57,5 @@
   "puter": "browser session — founder-only login"
  },
  "rotation_offset": 3,
- "updated": "2026-11-07T17:06:01.168Z"
+ "updated": "2026-11-07T17:30:20.192Z"
 }
