@@ -28,8 +28,8 @@
    "auth": "none (anonymous)",
    "limit": "rate-limited anonymous",
    "cooldown_until": 0,
-   "calls": 8,
-   "fails": 3
+   "calls": 18,
+   "fails": 7
   },
   "ollama_local": {
    "card": false,
@@ -54,6 +54,6 @@
   "qwen": "device-code OAuth — founder-only login",
   "puter": "browser session — founder-only login"
  },
- "rotation_offset": 0,
- "updated": "2026-11-07T00:34:02.931Z"
+ "rotation_offset": 1,
+ "updated": "2026-11-07T00:43:00.414Z"
 }
