@@ -15,7 +15,7 @@ import asyncio, json, os, random, subprocess, sys, textwrap, urllib.request
 FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
 PALETTES = [("0x0f172a", "0x312e81"), ("0x1a1a1a", "0x7c2d12"), ("0x042f2e", "0x0f172a"), ("0x3b0764", "0x0c0a09"), ("0x111827", "0x065f46")]
 UA = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/124 Safari/537.36"
-HOOK_T = 1.0
+HOOK_T = 1.0  # default; render() sets it from hook length (1.4–2.4s)
 
 def esc(t):  # ffmpeg drawtext escaping
     return t.replace("\\", "\\\\").replace("'", "\u2019").replace(":", "\\:").replace("%", "\\%").replace(",", "\\,")
@@ -68,6 +68,8 @@ async def tts(text, mp3):
 
 def render(hook, speech, url, day, out, seed=0, variant=None):
     variant = dict({"voice": "on", "music": "off", "bg": "gradient"}, **(variant or {}))
+    HOOK_T = min(2.4, max(1.4, 0.26 * len(hook.split()) + 0.5))  # time to read the hook card at ~4 words/s
+    MIN_SHOW = 1.1  # a caption phrase never stays on screen less than this
     rng = random.Random(seed * 7919 + 17)
     os.makedirs("/tmp/vid", exist_ok=True); mp3 = "/tmp/vid/voice.mp3"
     words = []; meta = {"variant": variant, "broll": None, "music": None}
@@ -82,7 +84,7 @@ def render(hook, speech, url, day, out, seed=0, variant=None):
         adur = float(subprocess.check_output(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", mp3]).decode())
     else:
         variant["music"] = "on"  # never a silent video
-        adur = max(8.0, min(24.0, len(speech.split()) / 2.6))  # reading pace ≈ 2.6 words/s
+        adur = max(9.0, min(26.0, len(speech.split()) / 2.0))  # reading pace ≈ 2.0 words/s (comfortable)
     dur = HOOK_T + adur + 2.0
     # ---- music
     music = pick_music(rng) if variant["music"] == "on" else None
@@ -105,28 +107,57 @@ def render(hook, speech, url, day, out, seed=0, variant=None):
     for j, ln in enumerate(hl):
         p = f"/tmp/vid/h{j}.txt"; open(p, "w").write(ln)
         f.append(f"drawtext=fontfile={FONT}:textfile={p}:fontcolor=white:fontsize={size}:borderw=6:bordercolor=black@0.6:x=(w-text_w)/2:y=(h-{tot})/2+{j*lh}:enable='lt(t,{HOOK_T})'")
-    # karaoke captions: lines of <=3 words, words pop in as spoken
+    # phrase captions: 3–5 spoken words per card, shown whole (no per-word flicker), minimum hold time, synced to speech
     if words:
-        lines, cur = [], []
-        for w in words:  # char budget per line so nothing overflows 1080px
-            if cur and (len(" ".join(x[2] for x in cur)) + len(w[2]) + 1 > 14 or len(cur) == 3): lines.append(cur); cur = []
+        # align TTS word boundaries with the script tokens to find clause/sentence ends (punctuation)
+        toks = speech.split(); k = 0; ends = []
+        for w in words:
+            kk = k; hit = False
+            while kk < min(len(toks), k + 4):
+                if toks[kk].strip(".,!?;:\"'()").lower() == w[2].strip(".,!?;:\"'()").lower(): hit = True; break
+                kk += 1
+            if hit: ends.append(toks[kk].rstrip("\"')")[-1:] in ".,!?;:"); k = kk + 1
+            else: ends.append(False)
+        # clauses = runs of words ending at punctuation; each clause is split into balanced chunks of <=5 words / <=24 chars
+        import math
+        clauses, cur = [], []
+        for w, e in zip(words, ends):
             cur.append(w)
-        if cur: lines.append(cur)
-        for li, ln in enumerate(lines):
-            l_end = lines[li + 1][0][0] if li + 1 < len(lines) else adur + 0.4
-            for k in range(len(ln)):
-                txt = " ".join(w[2] for w in ln[:k + 1]).upper()
-                p = f"/tmp/vid/w{li}_{k}.txt"; open(p, "w").write(txt)
-                st = ln[k][0] + HOOK_T; en = (ln[k + 1][0] if k + 1 < len(ln) else l_end) + HOOK_T
-                fs = 84 if len(txt) <= 12 else (70 if len(txt) <= 15 else 58)
-                f.append(f"drawtext=fontfile={FONT}:textfile={p}:fontcolor=white:fontsize={fs}:borderw=8:bordercolor=black@0.75:x=(w-text_w)/2:y=h/2-40:enable='between(t,{st:.2f},{en:.2f})'")
+            if e: clauses.append(cur); cur = []
+        if cur: clauses.append(cur)
+        phrases = []  # (words, is_clause_end)
+        for cl in clauses:
+            chars = len(" ".join(x[2] for x in cl)); n = max(1, math.ceil(len(cl) / 5), math.ceil(chars / 24))
+            size = math.ceil(len(cl) / n)
+            chunks = [cl[a:a + size] for a in range(0, len(cl), size)]
+            for ci, ch in enumerate(chunks): phrases.append((ch, ci == len(chunks) - 1))
+        # merge a phrase that would flash by (< MIN_SHOW) into the previous one, never across a clause end
+        merged = []
+        for ph, e in phrases:
+            if merged and not merged[-1][1] and (ph[0][0] - merged[-1][0][0][0]) < MIN_SHOW and len(" ".join(x[2] for x in merged[-1][0] + ph)) <= 36: merged[-1] = (merged[-1][0] + ph, e)
+            else: merged.append((ph, e))
+        merged = [m[0] for m in merged]
+        # timing: natural start = first spoken word; hold at least MIN_SHOW; never overlap (next card waits)
+        times = []; prev_end = HOOK_T
+        for li, ph in enumerate(merged):
+            st = max(ph[0][0] + HOOK_T, prev_end)
+            nat_en = (merged[li + 1][0][0] + HOOK_T) if li + 1 < len(merged) else adur + HOOK_T + 0.6
+            en = max(nat_en, st + MIN_SHOW); times.append((st, en)); prev_end = en
+        for li, ph in enumerate(merged):
+            st, en = times[li]
+            txt = " ".join(w[2] for w in ph)
+            wl = textwrap.wrap(txt, 16) if len(txt) > 16 else [txt]
+            fs = 80 if len(txt) <= 12 else 68; lh = int(fs * 1.25); tot = lh * len(wl)
+            for j, ln in enumerate(wl):
+                p = f"/tmp/vid/w{li}_{j}.txt"; open(p, "w").write(ln.upper())
+                f.append(f"drawtext=fontfile={FONT}:textfile={p}:fontcolor=white:fontsize={fs}:borderw=8:bordercolor=black@0.75:x=(w-text_w)/2:y=h/2-{tot//2}+{j*lh}:enable='between(t,{st:.2f},{en:.2f})'")
     else:  # sentence cards (voice off, or TTS without word boundaries)
         sents = [x for x in speech.replace("...", ".").split(". ") if x.strip()]
         if len(sents) > 1 and sents[0].strip(" .?!").lower() == hook.strip(" .?!").lower(): sents = sents[1:]  # hook card already showed it
         wc = [max(3, len(s_.split())) for s_ in sents]; tw = sum(wc)
         t0 = HOOK_T
         for i, s_ in enumerate(sents):
-            seg = adur * wc[i] / tw
+            seg = max(1.8, adur * wc[i] / tw)
             wl = textwrap.wrap(s_, 22); lh = 78; tot = lh * len(wl)
             for j, ln in enumerate(wl):
                 p = f"/tmp/vid/s{i}_{j}.txt"; open(p, "w").write(ln)
