@@ -1,0 +1,122 @@
+#!/usr/bin/env python3
+"""
+Batch-render the 15 spine-day hook talking-head clips with SadTalker 512 + GFPGAN.
+
+Runs on a FREE Google Colab T4 (Runtime > Change runtime type > T4 GPU).
+Zero cost, no card. Output: /content/talkingheads/talking-head-<day>.mp4
+(plus the hook .mp3 audio used to drive each render, for exact-sync reuse
+in the daily pipeline) and a zip at /content/talkingheads.zip for download.
+
+Usage in a Colab cell:
+    !git clone --depth 1 https://github.com/dankoff-hub/receipts /content/receipts
+    %run /content/receipts/scripts/colab-talkinghead.py
+"""
+import json
+import os
+import re
+import shutil
+import site
+import subprocess
+import sys
+import zipfile
+from pathlib import Path
+
+REPO = Path("/content/receipts")
+ST = Path("/content/sadtalker")
+OUT = Path("/content/talkingheads")
+HOST = REPO / "assets" / "host.png"
+VOICE = "en-US-BrianMultilingualNeural"
+TTS_RATE = "+10%"
+TTS_PITCH = "-5Hz"
+
+
+def sh(cmd: str) -> str:
+    print("+", cmd, flush=True)
+    r = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+    if r.stdout:
+        print(r.stdout[-3000:], flush=True)
+    if r.returncode != 0:
+        print(r.stderr[-3000:], flush=True)
+        raise SystemExit(f"FAILED ({r.returncode}): {cmd}")
+
+
+def load_hooks() -> dict:
+    md = (REPO / "content" / "daily-run-scripts.md").read_text()
+    days = re.findall(r"## (\d+)\. .+?\n- Hook: (.+?)\n", md)
+    return {int(d): h.strip() for d, h in days}
+
+
+def main() -> None:
+    OUT.mkdir(parents=True, exist_ok=True)
+
+    # 1. SadTalker + deps (torch with CUDA is preinstalled on Colab)
+    if not ST.exists():
+        sh(f"git clone --depth 1 https://github.com/OpenTalker/SadTalker {ST}")
+    os.chdir(ST)
+    sh("pip install -q 'numpy<2' edge-tts")
+    sh("pip install -q -r requirements.txt")
+    sh("bash scripts/download_models.sh")
+
+    # 2. Compat shims (2026 Colab images)
+    # basicsr 1.4.2 imports torchvision.transforms.functional_tensor (removed)
+    sp = Path(site.getsitepackages()[0])
+    ft = sp / "torchvision" / "transforms" / "functional_tensor.py"
+    if not ft.exists():
+        ft.write_text("from torchvision.transforms.functional import *\n")
+        print("wrote functional_tensor shim:", ft)
+    # torch>=2.6 defaults weights_only=True; SadTalker's legacy checkpoints need False.
+    (ST / "_run.py").write_text(
+        "import runpy, sys, torch\n"
+        "_orig = torch.load\n"
+        "def _load(*a, **k):\n"
+        "    k.setdefault('weights_only', False)\n"
+        "    return _orig(*a, **k)\n"
+        "torch.load = _load\n"
+        "sys.argv = ['inference.py'] + sys.argv[1:]\n"
+        "runpy.run_path('inference.py', run_name='__main__')\n"
+    )
+
+    # 3. Hook audio via edge-tts (same voice params as scripts/render-v2.py)
+    hooks = load_hooks()
+    for day, hook in sorted(hooks.items()):
+        mp3 = OUT / f"hook-{day:02d}.mp3"
+        if not mp3.exists():
+            sh(
+                f'edge-tts --voice {VOICE} --rate={TTS_RATE} --pitch={TTS_PITCH} '
+                f'--text {json.dumps(hook)} --write-media {mp3}'
+            )
+        print(f"day {day}: {mp3.name} {(mp3.stat().st_size/1024):.0f} KB")
+
+    # 4. Render each hook: 512 model + GFPGAN enhancer (the config the CPU
+    #    pipeline could not run: full head motion + blinks + restored face)
+    for day, hook in sorted(hooks.items()):
+        final = OUT / f"talking-head-{day:02d}.mp4"
+        if final.exists() and final.stat().st_size > 100_000:
+            print(f"day {day}: already rendered, skip")
+            continue
+        mp3 = OUT / f"hook-{day:02d}.mp3"
+        tmp = Path("/content/st-out")
+        if tmp.exists():
+            shutil.rmtree(tmp)
+        tmp.mkdir()
+        sh(
+            f"python _run.py --driven_audio {mp3} --source_image {HOST} "
+            f"--result_dir {tmp} --preprocess crop --size 512 --enhancer gfpgan"
+        )
+        made = sorted(tmp.glob("*.mp4"))
+        if not made:
+            raise SystemExit(f"day {day}: no output video")
+        shutil.copy(made[-1], final)
+        print(f"day {day}: rendered {final.name} {(final.stat().st_size/1024/1024):.1f} MB")
+
+    # 5. Zip for download
+    zpath = Path("/content/talkingheads.zip")
+    with zipfile.ZipFile(zpath, "w", zipfile.ZIP_STORED) as z:
+        for p in sorted(OUT.iterdir()):
+            z.write(p, p.name)
+    print("DONE", zpath, f"{zpath.stat().st_size/1024/1024:.1f} MB")
+    print("Next: download talkingheads.zip from the Colab Files sidebar.")
+
+
+if __name__ == "__main__":
+    main()
