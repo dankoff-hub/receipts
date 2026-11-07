@@ -26,4 +26,11 @@ export function firstComment(platform, seed = new Date()) {
   const day = Math.floor(seed.getTime() / 86400000);
   return bank[day % bank.length];
 }
+// Buffer free plan rejects Instagram `firstComment` ("First comment requires a paid plan", seen 2026-11-07 16:30 UTC),
+// so on Instagram the same rotating line goes at the END of the caption instead (plus the bio link). Never pass firstComment to Buffer.
+export function withLinkLine(caption, platform = "instagram", seed = new Date()) {
+  const c = String(caption || "").trimEnd();
+  if (c.includes(URL)) return c;
+  return c + "\n\n" + firstComment(platform, seed);
+}
 export { URL as SYSTEM_URL };

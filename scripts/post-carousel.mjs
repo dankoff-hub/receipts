@@ -3,8 +3,7 @@
 // Usage: node scripts/post-carousel.mjs public/carousels/<name>
 import fs from "node:fs";
 import crypto from "node:crypto";
-import { firstComment } from "./first-comment.mjs";
-const FIRST = firstComment("instagram");
+import { withLinkLine } from "./first-comment.mjs";
 const KEY = process.env.BUFFER_API_KEY;
 const SITE = process.env.APP_URL || "https://receipts-blond.vercel.app";
 const dir = process.argv[2]; const name = dir.split("/").pop();
@@ -19,10 +18,10 @@ const orgs = (await gql(`{account{organizations{id}}}`)).account.organizations;
 let channel; for (const o of orgs) { channel = (await gql(`{channels(input:{organizationId:"${o.id}"}){id service}}`)).channels.find(c => c.service.toLowerCase() === "instagram"); if (channel) break; }
 if (!channel) { console.log("no instagram channel"); process.exit(0); }
 const assets = urls.map(u => `{image:{url:"${u}"}}`).join(",");
-const text = JSON.stringify(meta.caption);
+const text = JSON.stringify(withLinkLine(meta.caption)); // Buffer free: no first comment, link line in caption
 let res;
 try {
-  res = await gql(`mutation{createPost(input:{text:${text},channelId:"${channel.id}",schedulingType:automatic,mode:shareNow,assets:[${assets}],metadata:{instagram:{type:post,shouldShareToFeed:true,firstComment:${JSON.stringify(FIRST)}}}}){... on PostActionSuccess{post{id}} ... on MutationError{message}}}`);
+  res = await gql(`mutation{createPost(input:{text:${text},channelId:"${channel.id}",schedulingType:automatic,mode:shareNow,assets:[${assets}],metadata:{instagram:{type:post,shouldShareToFeed:true}}}){... on PostActionSuccess{post{id}} ... on MutationError{message}}}`);
 } catch (e) {
   console.log("retry without instagram metadata:", e.message.slice(0, 300));
   res = await gql(`mutation{createPost(input:{text:${text},channelId:"${channel.id}",schedulingType:automatic,mode:shareNow,assets:[${assets}]}){... on PostActionSuccess{post{id}} ... on MutationError{message}}}`);
