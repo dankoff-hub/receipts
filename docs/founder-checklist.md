@@ -2,8 +2,10 @@
 
 Everything below is on accounts only you can log into. Each one turns a dead end into a one-tap path to receiptspack.vercel.app/free.
 
-## Instagram (@danrossi2026) — 1 minute
-Edit profile → Links → Add external link → `https://receiptspack.vercel.app/free?src=ig` (title: "Free Step 1 template"). Keep /bio as a second link if you like; the free page must be first.
+## Instagram (@danrossi2026) — 1 minute, phone app only
+Instagram allows link edits only in the mobile app (web says "Editing your links is only available on mobile"; the web edit endpoint ignores the field — tested 2026-11-07). In the app: Edit profile → Links → Add external link → `https://receiptspack.vercel.app/free?src=ig`, title "Free Step 1 template". Until then the current link `/bio?src=ig` works: its first button is the free template and attribution is kept — one extra tap.
+Also in the app: display name has a typo ("Reciepts") — fix to "Dan Rossi • Receipts | 30-Day Proof System" once the 14-day name-change lock expires (Instagram blocked it on 2026-11-07: "changed twice within 14 days").
+Security: the Instagram password was pasted into chat — change it, and note login codes go to your d*****f@gmail.com inbox, so any future web login by the swarm needs you to forward the code.
 
 ## TikTok (@dan.rosa71) — 3 minutes
 1. Edit profile → Bio: "30 days of receipts. Free Step 1 template: receiptspack.vercel.app/free" (text is not tappable, but it is copyable).

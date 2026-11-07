@@ -186,3 +186,6 @@ curl -sI https://receipts-blond.vercel.app/videos/day-001.mp4 | head -1
 - `/privacy` page (operator, data, rights, Stripe/Vercel/Mailjet) linked from / and /free; URL given to Mailjet as privacy policy.
 - `docs/founder-checklist.md`: founder-only steps (IG bio link, TikTok Instagram/YouTube buttons + Business switch, YouTube channel link + pinned comments). Instagram and YouTube live on the founder's own logins, not the swarm Google account (Studio returns "no permission").
 - No guarantee/refund language anywhere (founder decision 2026-11-07) — reminder email copy follows it.
+
+## 2026-11-07 — Instagram web access
+- Web login for @danrossi2026 works but every new login emails a 6-digit code to the founder's own inbox (d*****f@gmail.com), not tryuderzhi — founder must relay it. Bio text is editable on web; **link field is mobile-app only** (web edit endpoint `/api/v1/web/accounts/edit/` returns ok but ignores `external_url`; mobile-app endpoints via web cookies invalidate the session → do not retry, risk of checkpoint). Display-name change blocked by 14-day lock. Current link /bio?src=ig keeps attribution and leads to /free in one tap. Founder sets the link in-app (docs/founder-checklist.md). Founder was asked to rotate the IG password (pasted in chat).
