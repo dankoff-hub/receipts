@@ -256,5 +256,23 @@
   "day": 4,
   "captionHash": "0388f446f7de8ae6d92679dbb0888f31",
   "sentAt": "2026-11-07T01:42:07.311Z"
+ },
+ {
+  "ts": "2026-11-07T08:45:29.786Z",
+  "channel": "instagram",
+  "postId": "6aeee51f229bf05daf3a1389",
+  "status": "sent",
+  "video": "day-005.mp4",
+  "day": 5,
+  "captionHash": "cecd1b88bc4d3d8be753118364699075"
+ },
+ {
+  "ts": "2026-11-07T08:45:32.838Z",
+  "channel": "youtube",
+  "postId": "6aeee52aa7751de7c9d6b7e1",
+  "status": "sent",
+  "video": "day-005.mp4",
+  "day": 5,
+  "captionHash": "3a96733d895d2f6ef67853692cd59983"
  }
 ]
