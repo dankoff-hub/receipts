@@ -26,8 +26,9 @@ Fallback if Mailjet declines: Brevo account exists on the same email but needs a
 ## TikTok first comment (automated)
 A daily job (13:15 London) comments the free link under every new TikTok video. Pinning the comment is hover-only on web; in the TikTok app, long-press the creator comment → Pin. Optional, it is already the only comment.
 
-## Stripe checkout — 2 minutes, your decision
-The buy link currently makes every buyer (1) pick a currency with a 4% conversion fee shown, (2) answer a required dropdown "Immediate access (see note below)", and (3) tick "I agree and accept the loss of my cancellation right". The waiver is legal text, so the swarm left it alone. If you want fewer drop-offs: Stripe Dashboard → Payment links → this link → Edit → remove the custom dropdown, keep the consent checkbox, and consider turning adaptive pricing off (USD only, no fee line).
+## Stripe checkout — simplified 2026-11-07 (founder-approved)
+Done via the API: the required "Immediate access" dropdown is gone, replaced by Stripe's single consent checkbox carrying the same 14-day cancellation-waiver wording (express consent kept); submit button reads "Pay"; note under it: "Instant access: your pack opens right after payment. One-time $29, no subscription." Verified live: email → payment method → one checkbox → Pay. The waiver wording itself is legal text — change it only yourself.
+Still Dashboard-only (no API field): **Adaptive Pricing** shows non-US visitors a local-currency price with a conversion-fee line. To show USD only: Dashboard → Settings → Payments → Adaptive Pricing → off (or the link's Edit → Advanced options). Your call — it is a trade-off between familiarity and the fee line.
 
 ## Security housekeeping — 5 minutes
 Instagram and Google (tryuderzhi@gmail.com) passwords were pasted into chat at some point — rotate both. Regenerate the NVIDIA API key (also pasted) and update the `NVIDIA_API_KEY` repo secret. Still pending on third parties, nothing for you to do: Reddit API approval, Lemmy, Mailjet ticket #4331805.
