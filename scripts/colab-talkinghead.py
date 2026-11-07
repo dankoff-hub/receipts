@@ -99,11 +99,27 @@ def main() -> None:
     # numpy>=1.24: POS() returns s (and sometimes t entries) as one-element
     # arrays; float(one_element_array) is an error now. Normalize both at the
     # source in align_img — this also fixes trans_params construction below.
-    sh(
-        "grep -q 's = float(np.asarray(s)' src/face3d/util/preprocess.py || "
-        "sed -i '/s = rescale_factor\\/s/a s = float(np.asarray(s).reshape(-1)[0]); "
-        "t = np.asarray(t, dtype=np.float64).reshape(-1)' src/face3d/util/preprocess.py"
+    # (Pure-python patch: a sed append lost indentation on the first attempt;
+    # strip any broken append first, then insert correctly.)
+    p2 = ST / "src" / "face3d" / "util" / "preprocess.py"
+    s2 = p2.read_text()
+    s2 = s2.replace(
+        "\ns = float(np.asarray(s).reshape(-1)[0]); "
+        "t = np.asarray(t, dtype=np.float64).reshape(-1)\n",
+        "\n",
     )
+    if "s = float(np.asarray(s)" not in s2:
+        anchor = "    s = rescale_factor/s"
+        if anchor not in s2:
+            raise SystemExit("align_img anchor not found in preprocess.py")
+        s2 = s2.replace(
+            anchor,
+            anchor
+            + "\n    s = float(np.asarray(s).reshape(-1)[0]); "
+            + "t = np.asarray(t, dtype=np.float64).reshape(-1)",
+        )
+        p2.write_text(s2)
+        print("normalized POS s/t scalars in align_img")
     # numpy>=1.24 removed np.float/np.int/np.bool aliases (used on the
     # inference path in src/face3d/util/my_awing_arch.py; \b keeps np.float64
     # etc. untouched)
