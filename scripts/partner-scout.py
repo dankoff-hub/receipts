@@ -31,13 +31,17 @@ def detail(handle):
     m = re.search(r'"([\d.,]+[KM]?) subscribers"', html); r["subs"] = num(m.group(1)) if m else None
     vs = [num(x) for x in re.findall(r'"simpleText":"([\d.,]+[KM]?) views"', html)][:15]
     pubs = re.findall(r'"publishedTimeText":\{"simpleText":"([^"]+)"\}', html); r["latest"] = pubs[0] if pubs else None
+    vid = re.search(r'"videoRenderer":\{"videoId":"([A-Za-z0-9_-]{11})"', html); r["latest_video"] = f"https://www.youtube.com/watch?v={vid.group(1)}" if vid else None
     if len(vs) < 3:
         html2 = get(f"https://www.youtube.com/{handle}/shorts"); vs += [num(x) for x in re.findall(r'"([\d.,]+[KM]?) views"', html2)][:15]
     vs = [v for v in vs if v]; r["median_views"] = int(statistics.median(vs)) if vs else None; r["max_views"] = max(vs) if vs else None
     about = get(f"https://www.youtube.com/{handle}/about")
     r["links"] = sorted(set(re.findall(r'"channelExternalLinkViewModel":\{"title":\{"content":"[^"]*"\},"link":\{"content":"([^"]+)"', about)))[:8]
     r["ig"] = next((l for l in r["links"] if "instagram.com/" in l), None); r["tt"] = next((l for l in r["links"] if "tiktok.com/" in l), None)
-    r["site"] = next((l for l in r["links"] if not re.search(r"instagram|tiktok|facebook|twitter|x\.com|threads|t\.me|linktr|youtube", l)), None)
+    r["threads"] = next((l for l in r["links"] if "threads.net/" in l or "threads.com/" in l), None)
+    r["substack"] = next((l for l in r["links"] if "substack.com" in l), None)
+    r["has_email"] = bool(re.search(r'"businessEmailLabel"|"businessEmailRevealButton"', about))  # email exists but sits behind a human check (founder-only)
+    r["site"] = next((l for l in r["links"] if not re.search(r"instagram|tiktok|facebook|twitter|x\.com|threads|t\.me|linktr|youtube|substack", l)), None)
     return r
 def score(p):
     text = (p.get("title", "") + " " + p.get("desc", "")).lower()

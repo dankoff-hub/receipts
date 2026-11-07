@@ -1,5 +1,5 @@
 {
- "note": "One entry per message sent by the swarm (channel, handle, date, sha1 of text). Daily cap 20 across channels; spread over 3 windows.",
+ "note": "One entry per message sent by the swarm (channel, handle, date, sha1 of text). Daily cap 20 across channels, 8 per platform; 4 windows a day.",
  "cap_per_day": 20,
  "sent": [
   {
@@ -57,6 +57,14 @@
    "to": "lettersby.arii",
    "date": "2026-11-07T17:52:02.254Z",
    "sha1": "4425e8944cba"
+  },
+  {
+   "handle": "https://7percentbetter.substack.com",
+   "channel": "substack",
+   "to": "7percentbetter",
+   "date": "2026-11-07T18:14:22.354Z",
+   "sha1": "4d2ec3192772"
   }
- ]
+ ],
+ "cap_per_platform": 8
 }

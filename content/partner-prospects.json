@@ -617,7 +617,7 @@
    ],
    "desc": "Personal growth through small consistent habits",
    "score": 55,
-   "status": "prospect",
+   "status": "contacted",
    "found": "2026-11-07",
    "checked": "2026-11-07",
    "kind": "newsletter",
@@ -629,7 +629,9 @@
     "email_subject": "Partner opportunity for 7% Better",
     "email": "Hey Carson,\n\nI noticed your newsletter zeroes in on small, consistent habits—exactly the mindset we target with Receipts, a $29, 30‑day proof system that helps people prove they're ready. We’d love to give you the full pack for free; you can grab it at receiptspack.vercel.app/free.\n\nIf you share the partner link receiptspack.vercel.app/p/7percentbetter, you’ll receive 50% of each sale ($14.50) paid monthly through PayPal, with no sales quota or exclusivity required. All terms are outlined at receiptspack.vercel.app/partners/terms.\n\nWhat do you think about giving it a try?\n\nDan Rossi — Receipts",
     "generated": "2026-11-07T17:35:34.176Z"
-   }
+   },
+   "contacted": "2026-11-07",
+   "contact_channel": "substack"
   },
   "https://improvebypathsofstoicism.substack.com": {
    "title": "The Improvement Journal (@pathsofstoicism)",

@@ -1,39 +1,48 @@
-# Partner sender runbook (swarm-operated, approved 2026-11-07)
+# Partner sender runbook (swarm-operated, cross-platform; approved 2026-11-07)
 
-Approval on record: the swarm sends partner outreach itself — Instagram DMs from the logged-in @danrossi2026 web
-session and emails from the ops Gmail — with **varied timing across the day, non-identical messages, and at most 20
-messages per day** across all channels. Commission is fixed at **50% = $14.50** per completed $29 sale.
+Approval on record: the swarm sends partner outreach itself with **varied timing, one unique text per prospect, max 20
+messages per day in total and max 8 per platform**, across every platform where the ops accounts are logged in. Commission
+is fixed at **50% = $14.50** per completed $29 sale. Four windows a day; each window sends and then sweeps every inbox
+and replies.
 
-## Daily loop (3 windows, Europe/London)
-| Window | Who runs it | What it does |
+## Windows (Europe/London) — Perplexity automations, source thread (browser logins live there)
+| Window | Sends | Also |
 |---|---|---|
-| 10:20 | Perplexity automation "Partner outreach — morning" | up to 7 sends |
-| 14:45 | "Partner outreach — afternoon" | up to 7 sends |
-| 19:10 | "Partner outreach — evening" | up to 6 sends + reply sweep |
+| 09:40 | ≤5 | sweep + replies |
+| 13:20 | ≤5 | sweep + replies |
+| 16:50 | ≤5 | sweep + replies |
+| 20:30 | ≤5 | sweep + replies, daily tally commit |
 
-Each window:
-1. `git pull`, then `node scripts/partner-log.mjs x y --check` → stop if `remaining` is 0.
-2. Pick prospects with `status: "prospect"` **and** a `drafts.dm` / `drafts.email` (written by `scripts/partner-drafts.mjs`
-   in the 09:00 UTC partner-swarm run — one unique text per prospect, rules-checked; never reuse a text).
-3. Channel order: Instagram DM if the prospect has a working `ig` link (open profile → Message → paste `drafts.dm` → Send;
-   dismiss the "Turn on notifications" dialog with Not Now); otherwise email if a public address is known (Gmail web,
-   subject = `drafts.email_subject`, body = `drafts.email`); otherwise Substack "Message" where the author enables it.
-   Email addresses stay out of the public repo — the log stores a role label such as `substack-author`, not the address.
-4. After each confirmed send: `node scripts/partner-log.mjs "<handle>" <ig|email|substack>` (sets `status: contacted`, counts the cap).
-5. Reply sweep (every window): Instagram inbox + Gmail inbox. On a positive reply: build the partner copy link with
-   `PARTNER_PACK_SECRET=$(cat ~/.config/receipts/partner.key) node scripts/partner-grant.mjs <code>`, send it with the partner
-   link and terms, set `status: partner`, append `{code, handle, since}` to `content/partners.json`. On a "no": `status: declined`.
-   Questions about money, legal terms or anything outside docs/partner-offer.md → `status: needs_founder` and stop (Critical).
+## Platforms and routes
+| Platform | Account | Outreach action | Text used | Sweep |
+|---|---|---|---|---|
+| Instagram | @danrossi2026 (web) | profile → Message → paste → Send | `drafts.dm` | direct/inbox Primary, General, Requests |
+| Gmail | ops mailbox | compose to a **public** author address (never stored in repo) | `drafts.email_subject` + `drafts.email` | inbox, newer_than:1d |
+| Substack | ops account "Dan Rossi" | `substack.com/@<pub>` → Message → paste → send arrow | `drafts.dm` | substack.com/inbox (Direct) |
+| YouTube | @DanRosa-u5v (Google) | comment on the prospect's `latest_video` (no links; links get held) | `drafts.short` | comments on our own videos (Studio → Comments) — reply to every real comment |
+| TikTok | @dan.rosa71 (Business Suite) | comment on the prospect's latest video (`tt`) | `drafts.short` | business-suite/messages + comments on our videos |
+| Threads | not logged in yet | — | — | — |
+| Bluesky / Mastodon | API, GitHub swarm | no outreach (no prospects there) | — | posted by revenue-swarm; no DM sweep |
+
+Route order per prospect: Instagram → Substack (newsletter kinds) → email (if public address) → TikTok → YouTube comment.
+One route per prospect; never two platforms for the same person on the same day.
+
+## Per-window procedure
+1. `cd /home/user/workspace/receipts && git checkout -q -- . && git pull -q --rebase`; `node scripts/partner-log.mjs x y --check`
+   → stop sending if `remaining` is 0; skip any platform whose `platform_remaining` is 0.
+2. Pick `status: "prospect"` entries with drafts, highest score first, skipping `ig_dead`, `ig_private`, `needs_founder`.
+3. Send with the route table. Verify every send in the page (text visible in thread/comment list, box empty).
+4. Log immediately: `node scripts/partner-log.mjs "<prospect key>" <ig|email|substack|yt|tiktok> <label>` (exit 2 = cap → stop).
+5. Sweep all inboxes/comment feeds. Positive reply → run `PARTNER_PACK_SECRET=$(cat ~/.config/receipts/partner.key) node scripts/partner-grant.mjs <drafts.code>`
+   (never print the secret), reply with pack copy link + partner link + terms URL, set `status: partner`, append to `content/partners.json`.
+   "No" → `status: declined`. Money/legal/anything not covered by docs/partner-offer.md → `status: needs_founder`, no answer.
+   Comments on our own videos: reply briefly and specifically (no links, no sales push); these do not count toward the 20.
 6. Commit `content/partner-prospects.json content/partner-outreach-log.json content/partners.json` via `scripts/git-push-safe.sh`.
 
 ## Hard rules
-- Max 20 sends/day (enforced by `partner-log.mjs`, exit 2). Never two identical texts. No earnings claims, no refund or
-  guarantee wording, no follow-up more than once per prospect (one nudge after 7 days, then stop).
-- Instagram: stop the window immediately if any "action blocked / try again later" notice appears; mark `ig_blocked: <date>`.
-- Never send the HMAC pack link in cold outreach — only after a yes.
+- 20/day total, 8/platform (enforced by `partner-log.mjs`). Never the same text twice. No refund/guarantee/earnings wording.
+- One nudge after 7 days, then stop. Stop a platform for the day on any "action blocked / try again / unusual activity" notice (`<platform>_blocked: <date>` on the prospect).
+- Never send the HMAC pack link cold. Never create payments, accept legal terms, or change the commission.
 
-## Day 1 (2026-11-07)
-IG DMs: @Myelia_irl (17:37), @Forged4Future, @officialconnerspencer. Email: The Soft Stoic Letter (17:38).
-`@discipline7q` IG link is dead (page not available) — needs YouTube comment/email route instead.
-
-Evening window (18:0x–18:2x, run manually on request): IG DMs to @MissionSideHustle (Corey Collins, 5k IG), @KeyToDiscipline_, @ChadEveryday, @lettersbyari. `pathsofstoicism` IG dead; `tom.hu23` private (no DM) → YouTube/Skool route. Reply sweep: IG Primary/General/Requests + Gmail — no replies yet. Day total 8/20.
+## Log
+- 2026-11-07 day 1: IG DMs @Myelia_irl, @Forged4Future, @officialconnerspencer, @MissionSideHustle, @KeyToDiscipline_, @ChadEveryday, @lettersbyari; email The Soft Stoic Letter; Substack DM 7% Better (route validated 18:13). Dead/blocked: @discipline7q IG link dead; pathsofstoicism IG dead; tom.hu23 private. Sweeps: no replies yet. 9/20.
