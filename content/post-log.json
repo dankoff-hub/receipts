@@ -429,5 +429,15 @@
   "why": null,
   "captionHash": "d7c4e92e9a469b137522e1cff2ed2d31",
   "video": null
+ },
+ {
+  "ts": "2026-11-07T20:26:35.904Z",
+  "channel": "bluesky",
+  "kind": "video",
+  "status": "skipped",
+  "url": null,
+  "why": "bluesky video not implemented",
+  "captionHash": "c49a133aa8cb98b929f30e19d2f51353",
+  "video": "day-005d.mp4"
  }
 ]
