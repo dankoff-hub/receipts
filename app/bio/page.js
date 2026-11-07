@@ -1,5 +1,5 @@
 const PAY="https://buy.stripe.com/dRm7sEfUs0CQbscfSx3840a";
-import { C, btnBlock as btn, btnGhost as btn2, card, eyebrow, h1, link } from "../theme";
+import { C, btnBlock as btn, btnGhost as btn2, card, eyebrow, h1, link, chip } from "../theme";
 const clean=s=>String(s||"").toLowerCase().replace(/[^a-z0-9_-]/g,"").slice(0,40);
 export const metadata={title:"Receipts by Rosa",description:"They said you weren't ready. Keep the receipt. A private 30-day system that turns being underestimated into proof."};
 export default function Bio({searchParams}){
@@ -41,7 +41,7 @@ return <main style={{maxWidth:420,margin:"0 auto",padding:16}}>
 
 <div style={card}>
 <b>Watch me do it</b>
-<p style={{color:C.body,margin:"8px 0 0 0"}}>I am on the same 30 days, in public, one receipt a day. <a href="https://instagram.com/danrossi2026" style={link}>Instagram</a> · <a href="https://www.youtube.com/@DanRosa-u5v" style={link}>YouTube</a> · <a href="https://bsky.app/profile/danrossi2026.bsky.social" style={link}>Bluesky</a></p>
+<p style={{color:C.body,margin:"8px 0 4px 0"}}>I am on the same 30 days, in public, one receipt a day.</p><div><a href="https://instagram.com/danrossi2026" style={chip}>Instagram</a><a href="https://www.youtube.com/@DanRosa-u5v" style={chip}>YouTube</a><a href="https://bsky.app/profile/danrossi2026.bsky.social" style={chip}>Bluesky</a></div>
 </div>
 
 <a href={free} style={btn}>Start with the free template →</a>

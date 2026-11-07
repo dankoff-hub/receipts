@@ -11,6 +11,6 @@ return <main style={{background:"#fff",color:"#111",maxWidth:680,margin:"0 auto"
 <div style={{height:i===0?110:i===3||i===4?96:52,border:"1px solid #999",borderRadius:6,marginTop:6}} /></div>)}
 <div style={{borderTop:"1px solid #ccc",paddingTop:12,display:"flex",justifyContent:"space-between",fontSize:12,color:"#666"}}>
 <span>Date: ____________</span><span>Step 2 (standard converter) is in the pack: receiptspack.vercel.app/free</span></div>
-<p className="np" style={{marginTop:24,fontSize:14}}><a href={"/free?src="+src} style={{color:"#111"}}>← Back</a> · Use your browser’s Print or “Save as PDF”.</p>
+<p className="np" style={{marginTop:24,fontSize:14}}><a href={"/free?src="+src} style={{color:"#111",display:"inline-block",padding:"10px 0"}}>← Back</a> · Use your browser’s Print or “Save as PDF”.</p>
 <style>{`@media print{.np{display:none}body{background:#fff!important;padding:0!important}}`}</style>
 </main>}

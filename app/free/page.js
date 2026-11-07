@@ -1,7 +1,7 @@
 import Capture from "./Capture";
 import { Bar, Tick } from "./Progress";
 const PAY="https://buy.stripe.com/dRm7sEfUs0CQbscfSx3840a";
-import { C, btnBlock as btn, card as box, eyebrow, h1, link } from "../theme";
+import { C, btnBlock as btn, btnGhost, card as box, eyebrow, h1, link, chip } from "../theme";
 const clean=s=>String(s||"").toLowerCase().replace(/[^a-z0-9_-]/g,"").slice(0,40);
 // Where the visitor came from decides the first line they read (message match: the video they just watched → the page).
 const FROM={ig:"Instagram",instagram:"Instagram",tt:"TikTok",tiktok:"TikTok",yt:"YouTube",youtube:"YouTube",bsky:"Bluesky",masto:"Mastodon",skool:"Skool",bio:""};
@@ -24,7 +24,7 @@ return <main style={{maxWidth:520,margin:"0 auto",padding:16}}>
 <li>What would make this irrelevant in 90 days?</li>
 </ol>
 <p style={{color:C.muted,marginBottom:0}}>Rule: the receipt is about your standard, not about them. Never contact, name publicly or target the person.</p>
-<a href={"/free/sheet?src="+src} style={{display:"inline-block",marginTop:12,color:C.primary,fontWeight:700,textDecoration:"underline",textUnderlineOffset:3}}>Open the printable Step 1 sheet →</a>
+<a href={"/free/sheet?src="+src} style={{...btnGhost,marginTop:14}}>Open the printable sheet →</a>
 </div>
 
 <Tick pay={pay} />
@@ -50,7 +50,7 @@ return <main style={{maxWidth:520,margin:"0 auto",padding:16}}>
 
 <div style={{...box,marginTop:28}}>
 <b>I am doing the 30 days in public.</b>
-<p style={{color:C.body,margin:"8px 0 0 0"}}>One receipt a day, same system. Watch it hold or break: <a href="https://instagram.com/danrossi2026" style={link}>Instagram</a> · <a href="https://www.youtube.com/@DanRosa-u5v" style={link}>YouTube</a> · <a href="https://bsky.app/profile/danrossi2026.bsky.social" style={link}>Bluesky</a></p>
+<p style={{color:C.body,margin:"8px 0 4px 0"}}>One receipt a day, same system. Watch it hold or break:</p><div><a href="https://instagram.com/danrossi2026" style={chip}>Instagram</a><a href="https://www.youtube.com/@DanRosa-u5v" style={chip}>YouTube</a><a href="https://bsky.app/profile/danrossi2026.bsky.social" style={chip}>Bluesky</a></div>
 </div>
-<p style={{fontSize:12,color:C.faint,marginTop:24}}>Receipts is a self-reflection and goal tool, not therapy or medical advice. <a href="/privacy" style={{color:C.muted}}>Privacy</a></p>
+<p style={{fontSize:13,color:C.muted,marginTop:24}}>Receipts is a self-reflection and goal tool, not therapy or medical advice. <a href="/privacy" style={{color:C.muted}}>Privacy</a></p>
 </main>}

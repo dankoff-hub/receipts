@@ -24,6 +24,6 @@ export default function Privacy() {
     <p>You can ask what we hold about you, ask us to correct or delete it, or object to processing. Email tryuderzhi@gmail.com. If you are in the UK or EU you can also complain to your data protection authority (UK: the ICO).</p>
     <H>Third parties we rely on</H>
     <p>Stripe (payments), Vercel (hosting and storage), Mailjet (email delivery). Each processes data under its own terms; we only pass them what is needed for the step above.</p>
-    <p style={{ marginTop: 28 }}><a href="/" style={link}>← Home</a> · <a href="/free" style={link}>Free Step 1 template</a></p>
+    <p style={{ marginTop: 28 }}><a href="/" style={{ ...link, display: "inline-block", padding: "10px 0" }}>← Home</a> &nbsp;·&nbsp; <a href="/free" style={{ ...link, display: "inline-block", padding: "10px 0" }}>Free Step 1 template</a></p>
   </main>;
 }
