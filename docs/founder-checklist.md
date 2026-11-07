@@ -20,3 +20,9 @@ Fallback if Mailjet declines: Brevo account exists on the same email but needs a
 
 ## TikTok first comment (automated)
 A daily job (13:15 London) comments the free link under every new TikTok video. Pinning the comment is hover-only on web; in the TikTok app, long-press the creator comment → Pin. Optional, it is already the only comment.
+
+## Stripe checkout — 2 minutes, your decision
+The buy link currently makes every buyer (1) pick a currency with a 4% conversion fee shown, (2) answer a required dropdown "Immediate access (see note below)", and (3) tick "I agree and accept the loss of my cancellation right". The waiver is legal text, so the swarm left it alone. If you want fewer drop-offs: Stripe Dashboard → Payment links → this link → Edit → remove the custom dropdown, keep the consent checkbox, and consider turning adaptive pricing off (USD only, no fee line).
+
+## Security housekeeping — 5 minutes
+Instagram and Google (tryuderzhi@gmail.com) passwords were pasted into chat at some point — rotate both. Regenerate the NVIDIA API key (also pasted) and update the `NVIDIA_API_KEY` repo secret. Still pending on third parties, nothing for you to do: Reddit API approval, Lemmy, Mailjet ticket #4331805.

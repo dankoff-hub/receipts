@@ -28,14 +28,21 @@ Handover context for Claude (Code or chat). Read this first; it is the full oper
 
 ## Workflows (`.github/workflows/`)
 
-| Workflow | Trigger | Does |
+| Workflow | Trigger (UTC) | Does |
 |---|---|---|
-| `daily-tiktok.yml` | cron `0 6 * * *` (06:00 UTC) + dispatch | Make new day's video → commit → TikTok queue + Instagram Reel → daily brief issue (with swarm verdict) |
-| `virality-swarm.yml` | cron `0 5 * * *` + dispatch | Scout/Alchemist/Curator trend hooks + tag-scout hashtag refresh |
-| `growth-swarm.yml` | cron `30 5 * * *` + dispatch | Competitor watch → CTA lab → objection lab → pool guard (content-only, guard blocks non-content commits) |
-| `guerrilla-bot.yml` | cron `0 12 * * *` + dispatch | Generate guerrilla content, daily issue |
-| `deploy.yml` | push | Vercel deploy |
-| `ci.yml` | push/PR | Build check |
+| `daily-tiktok.yml` | cron 08/12/16/20 + dispatch | Generate the slot's unique video/carousel → commit → Buffer queue (TikTok cap 2/day, Instagram, YouTube) → post-log ledger |
+| `virality-swarm.yml` | cron 05:00 | Scout/Alchemist/Curator trend hooks + hashtag refresh |
+| `growth-swarm.yml` | cron 05:30 | Competitor watch → CTA lab → objection lab → pool guard |
+| `audience-watch.yml` | cron 07:00 | Follower/engagement snapshot per channel → audience-history.json |
+| `journey-check.yml` | cron 07:30 + dispatch | Read-only customer journey: all pages, Stripe link, subscribe API, **Playwright iPhone QA** (`scripts/mobile-qa.mjs`, fails on overflow / <44px taps / <12px text / <4.5 contrast) |
+| `guerrilla-bot.yml` | cron 12:00 | Guerrilla content + daily issue |
+| `revenue-swarm.yml` | cron every 2h at :30 | Lead discovery → creative → attribution ledger |
+| `day1-reminder.yml` | cron hourly :15 | Day-1 reminder send (exit 0 / skip while Mailjet is unconfigured → API 503) |
+| `content-forge.yml` | cron Sun 04:00 | Weekly script/caption bank refresh |
+| `avatar-render.yml` | cron Fri 08:00 | Weekly avatar video rotation (long CPU render) |
+| `deploy.yml` / `ci.yml` | push | Vercel deploy / build check |
+
+All committing workflows push through `scripts/git-push-safe.sh` (rebase, union-merge of JSON ledgers, retries) so concurrent runs no longer fail on push races.
 
 Day counter: `N = (now - 2026-11-03)/86400`, video file `public/videos/day-%03d(N+1).mp4`. Idempotent: skips when the day's file exists.
 
@@ -201,3 +208,10 @@ curl -sI https://receipts-blond.vercel.app/videos/day-001.mp4 | head -1
 - **First-comment rule:** every post on a platform without a tappable link carries ONE creator comment with the typeable URL `receiptspack.vercel.app/free`. Instagram: native Buffer `firstComment` in cross-post-instagram / post-photo / post-carousel (wording bank `scripts/first-comment.mjs`). TikTok: Buffer has no first-comment field → posted via the logged-in browser; a daily Perplexity automation ("TikTok first comment with link", 13:15 London, runs in the source conversation) comments on every new video and logs to `content/first-comments.json`. YouTube already has creator comments + description links.
 - TikTok captions/end card/spoken CTA now say "free Step 1 at receiptspack.vercel.app/free (also in the first comment)" instead of "tap Instagram"; make-video.py end card = "Free Step 1 → first comment".
 - **Redesign:** black theme dropped. Tokens in `app/theme.js`: paper `#F6F1E8`, ink `#17161A`, deep-green CTA `#0F4C3A`, amber progress `#C77A00`; fonts Fraunces (headings) + Inter (body) via next/font/google. All pages use the shared tokens; /pricing rebuilt as a real price card. Rationale: positive-polarity reading performance (Piepenbrock et al. 2013) and a single high-contrast CTA colour.
+
+## 2026-11-07 — End-to-end audit (bugs, journey, clickability)
+- **Mobile QA (Playwright, iPhone 13) found & fixed:** email forms overflowed cards on narrow screens (`form` grid token), printable-sheet link below 44px tap target, footer disclaimer contrast 3.11:1 → ≥4.5:1, social links 20px → 44px, 11px eyebrows → 12px (incl. `/free/sheet`). Production re-check 16:56Z: **No issues**.
+- **Pipeline hardening:** `scripts/git-push-safe.sh` in daily-tiktok, avatar-render, audience-watch, content-forge, growth-swarm, revenue-swarm, virality-swarm (fixes the weekly avatar-render "Commit video" failures and the Nov-3 daily-brief push failures). `journey-check.yml` gained a daily cron (07:30 UTC) + the mobile QA step. `day1-reminder.yml` treats Mailjet 503 as a clean skip instead of a red run.
+- **Scheduled swarms status:** growth, virality, guerrilla, revenue, audience-watch, daily-tiktok, journey-check all green. Supply: 13 unique videos on disk; post-log Nov 7 — TikTok 4 sent / 9 pending (cap 2/day, backlog is intentional), Instagram 11 / 2 pending, YouTube 11 / 2 pending; 0 duplicate captions, 0 repeated videos.
+- **Stripe checkout friction (Critical — founder decision, not changed):** the payment link shows a required dropdown "Immediate access (see note below) — Select…", a checkbox "I agree and accept the loss of my cancellation right", and adaptive currency "£22.59 | $29.00 (includes 4% conversion fee)". Legal waiver text stays; founder may simplify in the Stripe dashboard (payment link → custom fields / adaptive pricing).
+- Debug tip: `gh run view --log` hits a 403 rate-limit path; use `gh api repos/dankoff-hub/receipts/actions/runs/<id>/attempts/1/logs > x.zip` and read it with Python `zipfile`.
