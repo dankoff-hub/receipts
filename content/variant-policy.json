@@ -1,12 +1,28 @@
 {
- "updated": "2026-11-07T03:00:00.000Z",
+ "updated": "2026-11-07T07:52:00.943Z",
  "note": "Weights for the daily video experiment. Priors from published evidence (Emplifi 10k-Reels study: speech in first 3s +25% 10s-retention vs music-only; Reels expect a quiet music bed under narration; b-roll + voiceover beats static). scripts/post-metrics.mjs re-weights from our own per-post views/avg-watch once each level has >= 6 settled posts; floor 10% keeps exploring.",
  "weights": {
-  "voice": {"on": 0.85, "off": 0.15},
-  "music": {"on": 0.7, "off": 0.3},
-  "bg": {"city": 0.3, "nature": 0.3, "gradient": 0.25, "other": 0.15}
+  "voice": {
+   "on": 0.85,
+   "off": 0.15
+  },
+  "music": {
+   "on": 0.7,
+   "off": 0.3
+  },
+  "bg": {
+   "city": 0.3,
+   "nature": 0.3,
+   "gradient": 0.25,
+   "other": 0.15
+  }
  },
  "min_posts_per_level": 6,
  "floor": 0.1,
- "history": []
+ "history": [],
+ "last_evidence": {
+  "voice": {},
+  "music": {},
+  "bg": {}
+ }
 }

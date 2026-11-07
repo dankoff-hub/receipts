@@ -1,11 +1,11 @@
 {
- "generated": "2026-11-06",
+ "generated": "2026-11-07",
  "deltas_7d": {
   "youtube_subs": 0,
   "tiktok_followers": 0,
   "instagram_followers": null
  },
- "posts_logged": 15,
+ "posts_logged": 28,
  "post_issues": [],
  "best_cta_index": null,
  "best_tag_mix_index": null,
@@ -13,126 +13,141 @@
   "audience too small for attribution — collecting daily baselines; biases activate automatically at +5 followers/7d",
   "instagram stats unavailable (login wall)"
  ],
- "performance": {
-  "updated": "2026-11-06T08:10:11.888Z",
-  "instagram": {
-   "posts": 6,
-   "medianViews": 0,
-   "medianAvgWatch": 15.1,
-   "top": [
-    {
-     "hook": "They said you would not make it — keep the receipt.",
-     "views": 0,
-     "avgWatch": 15.1,
-     "video": "avatar-intro.mp4"
-    },
-    {
-     "hook": "They said I wasn't ready. So I kept the receipt.",
-     "views": 0,
-     "avgWatch": 10.92,
-     "video": "day-001.mp4"
-    }
-   ],
-   "bottom": [
-    {
-     "hook": "They said you would not make it — keep the receipt.",
-     "views": 0,
-     "video": "avatar-intro.mp4"
-    },
-    {
-     "hook": "They said I wasn't ready. So I kept the receipt.",
-     "views": 0,
-     "video": "day-001.mp4"
-    }
-   ],
-   "breakouts": []
+ "variant_experiment": {
+  "updated": "2026-11-07T07:52:00.943Z",
+  "evidence": {
+   "voice": {},
+   "music": {},
+   "bg": {}
   },
-  "youtube": {
-   "posts": 3,
-   "medianViews": 3,
-   "medianAvgWatch": null,
+  "weights": {
+   "voice": {
+    "on": 0.85,
+    "off": 0.15
+   },
+   "music": {
+    "on": 0.7,
+    "off": 0.3
+   },
+   "bg": {
+    "city": 0.3,
+    "nature": 0.3,
+    "gradient": 0.25,
+    "other": 0.15
+   }
+  },
+  "applied_now": []
+ },
+ "performance": {
+  "updated": "2026-11-07T07:52:00.943Z",
+  "instagram": {
+   "posts": 7,
+   "medianViews": 2,
+   "medianAvgWatch": 3.89,
    "top": [
     {
      "hook": "Spite is a great start and a terrible finish.",
-     "views": 7,
-     "avgWatch": null,
+     "views": 111,
+     "avgWatch": 2.71,
      "video": "day-002.mp4"
     },
     {
-     "hook": "They said you would not make it — keep the receipt.",
-     "views": 3,
-     "avgWatch": null,
-     "video": "avatar-intro.mp4"
+     "hook": "What happens after you prove them wrong?",
+     "views": 109,
+     "avgWatch": 3.89,
+     "video": "day-003b.mp4"
     },
     {
      "hook": "I got passed over for a promotion. Here's my 30-day plan.",
-     "views": 0,
-     "avgWatch": null,
+     "views": 2,
+     "avgWatch": 0.58,
      "video": "day-003.mp4"
     }
    ],
    "bottom": [
     {
-     "hook": "Spite is a great start and a terrible finish.",
-     "views": 7,
-     "video": "day-002.mp4"
+     "hook": "I got passed over for a promotion. Here's my 30-day plan.",
+     "views": 2,
+     "video": "day-003.mp4"
     },
     {
      "hook": "They said you would not make it — keep the receipt.",
-     "views": 3,
+     "views": 0,
+     "video": "avatar-intro.mp4"
+    },
+    {
+     "hook": "They said I wasn't ready. So I kept the receipt.",
+     "views": 0,
+     "video": "day-001.mp4"
+    }
+   ],
+   "breakouts": [
+    {
+     "hook": "Spite is a great start and a terrible finish.",
+     "views": 111,
+     "video": "day-002.mp4"
+    },
+    {
+     "hook": "What happens after you prove them wrong?",
+     "views": 109,
+     "video": "day-003b.mp4"
+    }
+   ]
+  },
+  "youtube": {
+   "posts": 4,
+   "medianViews": 41,
+   "medianAvgWatch": null,
+   "top": [
+    {
+     "hook": "Spite is a great start and a terrible finish.",
+     "views": 42,
+     "avgWatch": null,
+     "video": "day-002.mp4"
+    },
+    {
+     "hook": "What happens after you prove them wrong?",
+     "views": 41,
+     "avgWatch": null,
+     "video": "day-003b.mp4"
+    },
+    {
+     "hook": "They said you would not make it — keep the receipt.",
+     "views": 4,
+     "avgWatch": null,
+     "video": "avatar-intro.mp4"
+    }
+   ],
+   "bottom": [
+    {
+     "hook": "What happens after you prove them wrong?",
+     "views": 41,
+     "video": "day-003b.mp4"
+    },
+    {
+     "hook": "They said you would not make it — keep the receipt.",
+     "views": 4,
      "video": "avatar-intro.mp4"
     },
     {
      "hook": "I got passed over for a promotion. Here's my 30-day plan.",
-     "views": 0,
+     "views": 3,
      "video": "day-003.mp4"
     }
    ],
    "breakouts": []
   },
   "tiktok": {
-   "posts": 8,
-   "medianViews": 49,
-   "medianAvgWatch": 3.86,
-   "top": [
-    {
-     "hook": null,
-     "views": 105,
-     "avgWatch": 5.44,
-     "video": null
-    },
-    {
-     "hook": null,
-     "views": 78,
-     "avgWatch": 5.18,
-     "video": null
-    },
-    {
-     "hook": null,
-     "views": 65,
-     "avgWatch": 3.86,
-     "video": null
-    }
-   ],
-   "bottom": [
-    {
-     "hook": null,
-     "views": 0,
-     "video": null
-    },
-    {
-     "hook": null,
-     "views": 0,
-     "video": null
-    },
-    {
-     "hook": null,
-     "views": 0,
-     "video": null
-    }
-   ],
+   "posts": 0,
+   "medianViews": null,
+   "medianAvgWatch": null,
+   "top": [],
+   "bottom": [],
    "breakouts": []
   }
  },
- "breakout_hooks": []
+ "breakout_hooks": [
+  "Spite is a great start and a terrible finish.",
+  "What happens after you prove them wrong?"
+ ]
 }

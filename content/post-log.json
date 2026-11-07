@@ -136,7 +136,8 @@
   "status": "sent",
   "video": "day-004.mp4",
   "day": 4,
-  "captionHash": "8e4e30c131fbb1bfeedeec254830f7a4"
+  "captionHash": "8e4e30c131fbb1bfeedeec254830f7a4",
+  "sentAt": "2026-11-06T20:24:10.178Z"
  },
  {
   "ts": "2026-11-06T20:21:24.050Z",
@@ -145,7 +146,8 @@
   "status": "sent",
   "video": "day-004.mp4",
   "day": 4,
-  "captionHash": "195f202705f0d85ef33887df44b30c29"
+  "captionHash": "195f202705f0d85ef33887df44b30c29",
+  "sentAt": "2026-11-06T20:21:23.041Z"
  },
  {
   "ts": "2026-11-06T20:21:35.189Z",
@@ -163,7 +165,8 @@
   "status": "sent",
   "video": "day-004b.mp4",
   "day": 4,
-  "captionHash": "ffd69c55ff72e5037497a18666948a21"
+  "captionHash": "ffd69c55ff72e5037497a18666948a21",
+  "sentAt": "2026-11-06T20:23:43.952Z"
  },
  {
   "ts": "2026-11-06T20:23:01.684Z",
@@ -172,7 +175,8 @@
   "status": "sent",
   "video": "day-004b.mp4",
   "day": 4,
-  "captionHash": "4627f158b6883604f6b666034c53b009"
+  "captionHash": "4627f158b6883604f6b666034c53b009",
+  "sentAt": "2026-11-06T20:23:00.684Z"
  },
  {
   "ts": "2026-11-06T20:38:51.311Z",
@@ -181,7 +185,8 @@
   "status": "sent",
   "video": "day-004c.mp4",
   "day": 4,
-  "captionHash": "f9cc45d6ad99d8b21792d82c5630d480"
+  "captionHash": "f9cc45d6ad99d8b21792d82c5630d480",
+  "sentAt": "2026-11-06T20:39:05.884Z"
  },
  {
   "ts": "2026-11-06T20:38:54.248Z",
@@ -190,7 +195,8 @@
   "status": "sent",
   "video": "day-004c.mp4",
   "day": 4,
-  "captionHash": "ba77dbd1fc4af72498a9e23c64d8cae2"
+  "captionHash": "ba77dbd1fc4af72498a9e23c64d8cae2",
+  "sentAt": "2026-11-06T20:38:53.574Z"
  },
  {
   "ts": "2026-11-06T21:52:40.374Z",
@@ -238,7 +244,8 @@
   "status": "sent",
   "video": "day-004d.mp4",
   "day": 4,
-  "captionHash": "dee9207b7bba1aacdf87742a5e7d44e7"
+  "captionHash": "dee9207b7bba1aacdf87742a5e7d44e7",
+  "sentAt": "2026-11-07T01:42:18.889Z"
  },
  {
   "ts": "2026-11-07T01:42:07.950Z",
@@ -247,6 +254,7 @@
   "status": "sent",
   "video": "day-004d.mp4",
   "day": 4,
-  "captionHash": "0388f446f7de8ae6d92679dbb0888f31"
+  "captionHash": "0388f446f7de8ae6d92679dbb0888f31",
+  "sentAt": "2026-11-07T01:42:07.311Z"
  }
 ]
