@@ -1,5 +1,10 @@
 name: Channel health (Buffer, read-only)
-on: {workflow_dispatch: {}}
+on:
+  workflow_dispatch:
+    inputs:
+      script:
+        description: "read-only script to run (channel-health | buffer-introspect)"
+        default: "channel-health"
 jobs:
   health:
     runs-on: ubuntu-latest
@@ -9,4 +14,4 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: {node-version: 20}
-      - run: node scripts/channel-health.mjs
+      - run: node scripts/${{ github.event.inputs.script || 'channel-health' }}.mjs
