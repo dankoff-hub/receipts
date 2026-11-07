@@ -15,8 +15,12 @@ jobs:
       - uses: actions/setup-node@v4
         with: {node-version: 20}
       - run: node scripts/content-forge.mjs
+      - name: Refresh free b-roll + music pools (Mixkit License, no key)
+        run: |
+          sudo apt-get install -y -qq --no-install-recommends ffmpeg >/dev/null 2>&1 || true
+          timeout 600 node scripts/broll-scout.mjs || echo "scout failed; keeping previous pools"
       - name: Commit new scripts
         run: |
           git config user.name dankoff-hub; git config user.email 345066702+dankoff-hub@users.noreply.github.com
-          git add content/forge-scripts.md
+          git add content/forge-scripts.md content/broll-pool.json content/music-pool.json
           git diff --cached --quiet || (git commit -m "Content forge: new script batch" && git pull --rebase -q && git push -q)

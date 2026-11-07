@@ -38,7 +38,23 @@ _spec = _ilu.spec_from_file_location("render_v2", "scripts/render-v2.py"); _rv =
 _label = int(sys.argv[3]) if len(sys.argv) > 3 else day + 1
 _cta_spoken = re.sub(r"\$?29[^.]*link in bio\.?", "Free step one template, link on screen.", s["cta"]).replace("link in bio", "link on screen")
 speech = f"{s['hook']} {s['say']} {_cta_spoken}"
-dur = _rv.render(s["hook"], speech, "receipts-blond.vercel.app/free", _label, out, seed=day)
+# --- tracked experiment: pick voice / music / background per video from content/variant-policy.json (weights learned by post-metrics.mjs)
+import random as _rnd
+_pol = {}
+try: _pol = json.load(open("content/variant-policy.json")).get("weights", {})
+except Exception: pass
+_slot_seed = int.from_bytes(_hl.md5(f"{day}|{out}".encode()).digest()[:4], "big")
+_rg = _rnd.Random(_slot_seed)
+def _pick(factor, default):
+    w = _pol.get(factor) or {default: 1}
+    return _rg.choices(list(w.keys()), weights=list(w.values()))[0]
+_variant = {"voice": _pick("voice", "on"), "music": _pick("music", "off"), "bg": _pick("bg", "gradient")}
+_force = _os.environ.get("VIDEO_VARIANT")
+if _force:
+    try: _variant.update(json.loads(_force))
+    except Exception: pass
+dur, _meta = _rv.render(s["hook"], speech, "receipts-blond.vercel.app/free", _label, out, seed=_slot_seed, variant=_variant)
+print("variant:", json.dumps(_meta))
 _tags = ["provethemwrong","receipts","30daychallenge","fyp","careertok","motivation","selfimprovement"]
 try:
     _tj = json.load(open("content/tags.json"))
@@ -51,5 +67,5 @@ try:
     _cb = json.load(open("content/cta-bank.json"))
     if _cb.get("lines"): _cta_line = _cb["lines"][day % len(_cb["lines"])]
 except Exception: pass
-json.dump(dict(day=(int(sys.argv[3]) if len(sys.argv)>3 else day+1), n=s["n"], hook=s["hook"], caption=f"{s['hook']} — {_cta_line}\n" + _tagstr, duration=dur), open(out+".json","w"))
+json.dump(dict(day=(int(sys.argv[3]) if len(sys.argv)>3 else day+1), n=s["n"], hook=s["hook"], caption=f"{s['hook']} — {_cta_line}\n" + _tagstr, duration=dur, **_meta), open(out+".json","w"))
 print("ok", out, round(dur,1), "s")

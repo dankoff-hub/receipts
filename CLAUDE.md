@@ -156,3 +156,10 @@ curl -sI https://receipts-blond.vercel.app/videos/day-001.mp4 | head -1
 - `swarm/skool.mjs` (orchestrator stage `skool`, after creative): once per day drafts 1 community post + 3 comment templates aimed at 30-day-challenge/habit communities → `content/skool-queue.md` (hash ledger `<!-- h:... -->`, never repeats). Human pastes by hand. Also appended to the daily brief issue.
 - Playbook: `docs/skool-playbook.md` (5 free communities, routine: 1 post/week/community, comments daily, no links, tracker in bio, `?src=skool`).
 - Owned community = $9+/mo with card → founder decision only.
+
+## 2026-11-07 03:xx — Video variant experiment (voice / music / background)
+- Question: do voice, music, and footage backgrounds (city/nature/other) beat the old recipe (voice, no music, gradient)? Our own data could not answer (every video had the same recipe; 0–7 views). Published evidence: speech in first 3s +25% 10s-retention vs music-only (Emplifi, 10k Reels); quiet music bed (−12…−16 dB) expected on Reels; b-roll + voiceover > static.
+- Applied: `scripts/render-v2.py` v3 — variants `{voice:on|off, music:on|off, bg:gradient|city|nature|other}`; footage + music from Mixkit (free licence, no key, no account) via `content/broll-pool.json` / `content/music-pool.json` (refreshed weekly by `scripts/broll-scout.mjs` in content-forge.yml). Voice now starts at 1.0s. Voice-off videos always get music + sentence cards.
+- `scripts/make-video.py` picks the variant per video from `content/variant-policy.json` weights (priors: voice 85/15, music 70/30, bg city 30 / nature 30 / gradient 25 / other 15) and writes `variant/broll/music` into the sidecar JSON. Override with env `VIDEO_VARIANT='{"bg":"city"}'`.
+- `scripts/post-metrics.mjs` (audience-watch, daily) computes relative views per level (views / channel median, pooled IG+YT+TT), and once every level of a factor has ≥6 settled posts, re-weights (50% old, 50% evidence, floor 10%) — self-applying. Evidence + changes in `strategy-brief.variant_experiment` and `variant-policy.history`.
+- Pexels API key issuance is paused; Pixabay signup blocks non-human form fill — both skipped. Mixkit needs neither.
