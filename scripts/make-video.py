@@ -6,7 +6,8 @@ import os as _os
 md = open("content/launch-scripts.md").read()
 if _os.path.exists("content/forge-scripts.md"):
     md += "\n" + open("content/forge-scripts.md").read()
-S = [dict(n=int(m[0]), hook=m[1], say=m[2], body=m[3], cta=m[4]) for m in re.findall(r"## (\d+)\. (.+)\n- Hook[^\n]*\n- Say: (.+)\n- Body: (.+)\n- CTA: (.+)", md)]
+def _clean_hook(h): return re.sub(r"\s*\[[^\]]*\]\s*$", "", h).strip()  # drop "[platform/format]" tags from creative headers
+S = [dict(n=int(m[0]), hook=_clean_hook(m[1]), say=m[2], body=m[3], cta=m[4]) for m in re.findall(r"## (\d+)\. (.+)\n- Hook[^\n]*\n- Say: (.+)\n- Body: (.+)\n- CTA: (.+)", md)]
 # no-repeat guarantee: pick the first script not yet used (content/script-ledger.json)
 import hashlib as _hl
 _led_p = "content/script-ledger.json"
@@ -16,7 +17,7 @@ def _sh(x): return _hl.md5((x["hook"] + "|" + x["say"]).encode()).hexdigest()
 s = None
 # Revenue-swarm priority: unused scripts in content/swarm-scripts.md (written by swarm/creative.mjs) publish first.
 if _os.path.exists("content/swarm-scripts.md"):
-    _SW = [dict(n=int(m[0]), hook=m[1], say=m[2], body=m[3], cta=m[4]) for m in re.findall(r"## (\d+)\. (.+)\n- Hook[^\n]*\n- Say: (.+)\n- Body: (.+)\n- CTA: (.+)", open("content/swarm-scripts.md").read())]
+    _SW = [dict(n=int(m[0]), hook=_clean_hook(m[1]), say=m[2], body=m[3], cta=m[4]) for m in re.findall(r"## (\d+)\. (.+)\n- Hook[^\n]*\n- Say: (.+)\n- Body: (.+)\n- CTA: (.+)", open("content/swarm-scripts.md").read())]
     for _c in _SW:
         if _sh(_c) not in _led["used"]: s = _c; break
 for _i in range(len(S)):
