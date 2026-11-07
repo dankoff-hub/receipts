@@ -6,7 +6,7 @@
 //             · 1 reply per author ever · max CAP replies per UTC day · no link unless Tier 1 explicitly asked for a template/tracker
 //             · brand-safety self-check on the draft (no guarantees, no medical/financial claims, no pressure, ≤ 280 chars) · dry-run without creds.
 import fs from "node:fs";
-import { chat, parseJSON, saveQuota } from "./llm.mjs";
+import { chat, parseJSON, saveQuota, skillHint } from "./llm.mjs";
 process.on("exit", () => saveQuota());
 const SEND = process.env.CLOSER_SEND === "1";
 const HANDLE = process.env.BLUESKY_HANDLE, APP_PW = process.env.BLUESKY_APP_PASSWORD, CAP = Number(process.env.CLOSER_DAILY_CAP || 3);
@@ -41,7 +41,7 @@ for (const lead of fresh) {
   if (!c.relevant) { mark("skipped", "not a personal goal: " + (c.why || "")); continue; }
   // 2) draft — helpful first, product last, link only on explicit ask
   const askLink = lead.tier === 1 && c.wants_template;
-  const d = await chat(`Write a Bluesky reply (max 240 chars, plain text, no hashtags, no emojis, no quotes around it) to this post: """${lead.text}""". You are Dan, a regular guy who logs one honest line a day for 30 days ("receipts") to prove doubters wrong. Be specific to their post, give one concrete tactic, warm and brief, no sales language.${askLink ? ` End with: "Free one-page template if useful: ${FREE}"` : " Do NOT include any link or product mention."} Return JSON {"reply":"..."}.`, { system: "You write short, human, non-promotional replies. JSON only.", maxTokens: 200 });
+  const d = await chat(`Write a Bluesky reply (max 240 chars, plain text, no hashtags, no emojis, no quotes around it) to this post: """${lead.text}""". You are Dan, a regular guy who logs one honest line a day for 30 days ("receipts") to prove doubters wrong. Be specific to their post, give one concrete tactic, warm and brief, no sales language.${askLink ? ` End with: "Free one-page template if useful: ${FREE}"` : " Do NOT include any link or product mention."} Return JSON {"reply":"..."}.`, { system: "You write short, human, non-promotional replies. JSON only. " + skillHint("social-reply-and-comment-writer", 600) + " " + skillHint("openclaudia-bluesky", 300), maxTokens: 200 });
   let reply = parseJSON(d.text)?.reply?.trim();
   if (!reply) { mark("skipped", "no draft"); continue; }
   // 3) self-check (DIRECTIVE §5 high-risk self-check): length, banned claims, no link unless allowed, no @-spam

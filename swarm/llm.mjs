@@ -58,3 +58,9 @@ export async function chat(prompt, { system = "Output compact JSON only.", maxTo
   return { provider: "template", text: null }; // caller must have a deterministic fallback
 }
 export function parseJSON(txt) { try { return JSON.parse(txt); } catch {} const m = String(txt || "").match(/\{[\s\S]*\}|\[[\s\S]*\]/); try { return m ? JSON.parse(m[0]) : null; } catch { return null; } }
+
+// Vendored agent skills (skills/<name>/SKILL.md): pull a compressed excerpt of the instruction body into a prompt. Zero-cost, offline.
+export function skillHint(name, max = 900) {
+  try { const t = fs.readFileSync(`skills/${name}/SKILL.md`, "utf8").replace(/^---[\s\S]*?---\s*/, "").replace(/```[\s\S]*?```/g, "").replace(/^#+ .*$/gm, "").replace(/\*\*/g, "");
+    return compress(t, max); } catch { return ""; }
+}
