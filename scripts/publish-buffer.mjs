@@ -2,8 +2,9 @@
 import fs from "node:fs";
 import crypto from "node:crypto";
 const KEY = process.env.BUFFER_API_KEY; const SITE = process.env.APP_URL || "https://receipts-blond.vercel.app";
-const meta = JSON.parse(fs.readFileSync(process.argv[2] + ".json", "utf8"));
-const videoUrl = `${SITE}/videos/${process.argv[2].split("/").pop()}`;
+const file = process.argv[2];
+const meta = JSON.parse(fs.readFileSync(file + ".json", "utf8"));
+const videoUrl = `${SITE}/videos/${file.split("/").pop()}`;
 if (!KEY) { console.log("BUFFER_API_KEY not set — video generated but not scheduled:", videoUrl); process.exit(0); }
 const gql = async (query) => { const r = await fetch("https://api.buffer.com", { method: "POST", headers: { "Content-Type": "application/json", Authorization: `Bearer ${KEY}` }, body: JSON.stringify({ query }) }); const j = await r.json(); if (j.errors) throw new Error(JSON.stringify(j.errors)); return j.data; };
 // wait until Vercel serves the video (deploy may lag)
@@ -20,5 +21,5 @@ try {
   const l = JSON.parse(fs.readFileSync(p, "utf8") || "[]");
   l.push({ ts: new Date().toISOString(), channel: "tiktok", postId: res.createPost.post?.id || null, dueAt: res.createPost.post?.dueAt || null, status: res.createPost.message ? "failed" : "sent", video: file.split("/").pop(), day: meta.day || null, captionHash: crypto.createHash("md5").update(JSON.parse(text)).digest("hex") });
   fs.writeFileSync(p, JSON.stringify(l, null, 1));
-} catch (e) { console.log("post-log skip:", e.message); }
+} catch (e) { console.error("post-log write FAILED (would cause repeats):", e.message); process.exit(1); }
 if (res.createPost.message) process.exit(1);

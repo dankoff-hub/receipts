@@ -323,5 +323,14 @@
   "video": "car-005",
   "day": 5,
   "captionHash": "fcde65c0eaeabfed22ab9715e07750af"
+ },
+ {
+  "ts": "2026-11-06T20:28:08Z",
+  "channel": "tiktok",
+  "postId": null,
+  "status": "sent",
+  "video": "avatar-01-intro.mp4",
+  "day": null,
+  "note": "backfilled: publish-buffer.mjs ReferenceError hid the sent record; video was posted 5x (duplicates deleted 2026-11-07)"
  }
 ]
