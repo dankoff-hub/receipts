@@ -3,7 +3,7 @@
 import fs from "node:fs";
 import { chat, parseJSON, saveQuota } from "./llm.mjs";
 process.on("exit", () => saveQuota());
-const QUERIES = ["30 day challenge tracker template", "prove them wrong 30 days", "accountability tracker printable", "someone said I couldn't", "habit tracker pdf where to buy", "daily proof journal", "spite motivation 30 days"];
+const QUERIES = ["30 day challenge tracker template", "prove them wrong 30 days", "accountability tracker printable", "someone said I couldn't", "habit tracker pdf where to buy", "daily proof journal", "spite motivation 30 days", "day 1 of 30 day challenge", "starting a 30 day challenge tomorrow", "need an accountability partner habit", "habit tracker recommendation", "75 hard day 1", "doubted me so I started"];
 const T1 = /\b(where (can|do) i (buy|get|find)( a| the)? (tracker|template|planner|journal|pdf|system)|(drop|send|share) (me )?(the|a) link|link please|is there a (template|tracker|pdf|printable)|how much (is|does|for)( a| the)? (tracker|template|planner|journal)|worth buying|recommend(ation)?s? for (a |an )?(tracker|template|planner|journal|accountability)|take my money|looking for (a |an )?(habit |accountability |30[- ]day )?(tracker|template|system|planner|journal))\b/i;
 const T2 = /\b(start(ing)? (a )?30[- ]day|accountab|track(ing)? (my )?progress|prove (them|him|her|everyone) wrong|told me i (couldn'?t|wasn'?t)|habit tracker|daily proof|streak)\b/i;
 const LEADS_P = "swarm/LEADS.json"; const leads = fs.existsSync(LEADS_P) ? JSON.parse(fs.readFileSync(LEADS_P, "utf8")) : { seen: [], leads: [] };
@@ -26,6 +26,7 @@ if (process.env.SWARM_WORKER_URL) {
   try { const r = await fetch(process.env.SWARM_WORKER_URL.replace(/\/$/, "") + "/leads", { headers: UA }); const j = await r.json();
     let m = 0; for (const l of j.leads || []) { if (!leads.seen.includes(l.id) && !items.some(x => x.id === l.id)) { items.push({ src: "cf:" + l.src, id: l.id, url: l.url, text: l.text, at: l.at }); m++; } } console.log(`worker leads merged: ${m}`); } catch (e) { console.error("worker leads err", e.message); }
 }
+console.log(`hunter: fetched ${items.length} items (seen ${leads.seen.length})`);
 const fresh = items.filter((x, i, a) => x.text && a.findIndex(y => y.id === x.id) === i && !leads.seen.includes(x.id));
 let llmCalls = 0, tiered = [];
 for (const it of fresh) {

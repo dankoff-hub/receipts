@@ -46,12 +46,12 @@ export async function chat(prompt, { system = "Output compact JSON only.", maxTo
         body: JSON.stringify({ model: p.model, max_tokens: (name === "pollinations" || /gpt-oss|o[1-9]-|reason|think/i.test(p.model)) ? maxTokens + 1500 : maxTokens, temperature: 0.9, ...((name === "pollinations" || /gpt-oss/i.test(p.model)) ? { reasoning_effort: "low" } : {}), messages: [{ role: "system", content: compress(system, 600) }, { role: "user", content: compress(prompt) }], ...(json && name !== "pollinations" && name !== "ollama_local" ? { response_format: { type: "json_object" } } : {}) }) });
       clearTimeout(t); st.calls++; if (!r.ok) console.error(`llm ${name} HTTP ${r.status}: ${(await r.clone().text()).slice(0,160).replace(/\s+/g," ")}`);
       if (name === "pollinations" && (r.status === 402 || r.status === 429)) { st.fails++; continue; } // per-IP pacing, retry after wait
-      if (r.status === 429 || r.status === 402 || r.status === 403) { st.fails++; st.cooldown_until = now + (r.status === 429 ? 3600e3 : 24 * 3600e3); break; }
-      if (!r.ok) { st.fails++; if (r.status >= 500) st.cooldown_until = now + 900e3; break; }
+      if (r.status === 429 || r.status === 402 || r.status === 403) { st.fails++; st.last_error = `${r.status}`; st.cooldown_until = now + (r.status === 429 ? 3600e3 : 24 * 3600e3); break; }
+      if (!r.ok) { st.fails++; st.last_error = `${r.status} ${(await r.text().catch(()=>"")).slice(0,160)}`; console.error(`llm ${name}: ${st.last_error}`); if (r.status >= 500) st.cooldown_until = now + 900e3; break; }
       let j; try { j = await r.json(); } catch { console.error(`llm ${name}: non-JSON 200 body (GitHub Models likely not enabled for repo)`); st.fails++; st.cooldown_until = now + 6 * 3600e3; break; }
       const txt = j.choices?.[0]?.message?.content ?? ""; if (!txt) { st.fails++; break; }
       return { provider: name, text: txt };
-    } catch (e) { clearTimeout(t); st.fails++; st.cooldown_until = now + 900e3; console.error(`llm ${name} error: ${e.message} ${e.cause?.message||""}`); break; }
+    } catch (e) { clearTimeout(t); st.fails++; st.cooldown_until = now + 900e3; st.last_error = `${e.message} ${e.cause?.message||""}`.trim(); console.error(`llm ${name} error: ${st.last_error}`); break; }
     }
   }
   Q.providers.template.calls++;

@@ -20,6 +20,9 @@ jobs:
       GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
       NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
       SWARM_WORKER_URL: ${{ vars.SWARM_WORKER_URL }}
+      BLUESKY_HANDLE: ${{ vars.BLUESKY_HANDLE }}
+      BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+      CLOSER_SEND: ${{ vars.CLOSER_SEND }}
       SWARM_ALLOW_OLLAMA_INSTALL: ${{ (github.event_name == 'schedule' || inputs.allow_ollama_install == true) && '1' || '0' }}
     steps:
       - uses: actions/checkout@v4
