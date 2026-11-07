@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Post the next lifestyle photo (content/photo-queue.json order) to Instagram via Buffer as a single-image feed post.
-// One per UTC day (founder photo on odd day-of-year, Workers-AI image on even), never the same photo twice, never a caption hash already in the ledger.
+// One per UTC day (founder photo on even day-of-year, Workers-AI image on odd), never the same photo twice, never a caption hash already in the ledger.
 // Usage: node scripts/post-photo.mjs
 import fs from "node:fs";
 import crypto from "node:crypto";

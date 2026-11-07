@@ -12,10 +12,10 @@ const load = (p, d) => { try { return JSON.parse(fs.readFileSync(p, "utf8")); } 
 const save = (p, o) => fs.writeFileSync(p, JSON.stringify(o, null, 1));
 const today = new Date(), day = today.toISOString().slice(0, 10), ymd = day.replace(/-/g, "");
 const doy = Math.floor((today - new Date(Date.UTC(today.getUTCFullYear(), 0, 0))) / 864e5);
-export const isAiDay = doy % 2 === 0; // even day-of-year → generated image, odd → founder photo
+export const isAiDay = doy % 2 === 1; // odd day-of-year → generated image, even → founder photo
 if (process.argv[2] !== "--force" && !isAiDay) { console.log("founder-photo day — no AI image"); process.exit(0); }
 if (!WORKER || !KEY) { console.log("SWARM_WORKER_URL / SWARM_KEY missing — skip"); process.exit(0); }
-const aiq = load("content/ai-photo-queue.json", { note: "Generated images (Workers AI, free). One per even UTC day-of-year.", queue: [] });
+const aiq = load("content/ai-photo-queue.json", { note: "Generated images (Workers AI, free). One per odd UTC day-of-year.", queue: [] });
 if (aiq.queue.some(q => q.day === day)) { console.log("AI image already made today"); process.exit(0); }
 
 // Scene bank: no faces, no text in image (models garble text). Rotates; never reuses a scene while unused ones remain.

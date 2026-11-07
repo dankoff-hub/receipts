@@ -1,0 +1,28 @@
+name: Image Forge (manual) — generate one AI photo now
+# Manual check of the Workers AI image path. Commits the image + caption so the next slot-c run posts it.
+on:
+  workflow_dispatch:
+    inputs:
+      force: {description: "1 = generate even on a founder-photo day", default: "1"}
+permissions: {contents: write}
+concurrency: {group: daily-videos, cancel-in-progress: false}
+jobs:
+  forge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      SWARM_WORKER_URL: ${{ vars.SWARM_WORKER_URL }}
+      SWARM_KEY: ${{ secrets.SWARM_KEY }}
+      GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+      NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 20}
+      - run: pip install -q pillow
+      - run: node scripts/make-ai-photo.mjs ${{ inputs.force == '1' && '--force' || '' }}
+      - run: |
+          git config user.name "dankoff-hub"; git config user.email "345066702+dankoff-hub@users.noreply.github.com"
+          git add public/photos content/ai-photo-queue.json content/photo-captions.json
+          git diff --cached --quiet || (git commit -qm "AI photo (manual forge) [skip ci]" && (git push -q || (git pull -q --rebase && git push -q)))
+          ls -la public/photos | tail -3
