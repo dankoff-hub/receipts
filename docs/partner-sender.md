@@ -46,3 +46,4 @@ One route per prospect; never two platforms for the same person on the same day.
 
 ## Log
 - 2026-11-07 day 1: IG DMs @Myelia_irl, @Forged4Future, @officialconnerspencer, @MissionSideHustle, @KeyToDiscipline_, @ChadEveryday, @lettersbyari; email The Soft Stoic Letter; Substack DM 7% Better (route validated 18:13). Dead/blocked: @discipline7q IG link dead; pathsofstoicism IG dead; tom.hu23 private. Sweeps: no replies yet. 9/20.
+- 2026-11-07 20:30 window: Substack DM Practical Stoic Advice (sent 20:31) → ops Substack account SUSPENDED seconds later (Spam & Phishing policy). Substack route stopped (substack_blocked on 5 newsletter prospects, channel paused in audience-config); appeal is founder-only. Window cut short by founder request. 10/20.

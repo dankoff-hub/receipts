@@ -1,11 +1,16 @@
 {
- "tiktok_username": "dan.rosa71",
- "youtube_channel_id": "UC-S1lywjoVwp0HPUv8s4TKA",
- "instagram_username": null,
- "paused": {},
- "youtube_handle": "@DanRosa-u5v",
- "tiktok_account_type": "business",
- "tiktok_bio_link_live": true,
- "tiktok_website": "https://receiptspack.vercel.app/bio?src=tt",
- "tiktok_bio_link_verified": "2026-11-07"
+  "tiktok_username": "dan.rosa71",
+  "youtube_channel_id": "UC-S1lywjoVwp0HPUv8s4TKA",
+  "instagram_username": null,
+  "paused": {
+    "substack": {
+      "until": "2026-12-31",
+      "reason": "ops Substack account suspended 2026-11-07 (Spam & Phishing policy) — founder appeal only; no DMs, no posts"
+    }
+  },
+  "youtube_handle": "@DanRosa-u5v",
+  "tiktok_account_type": "business",
+  "tiktok_bio_link_live": true,
+  "tiktok_website": "https://receiptspack.vercel.app/bio?src=tt",
+  "tiktok_bio_link_verified": "2026-11-07"
 }
