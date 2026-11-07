@@ -18,7 +18,7 @@
    "site": null,
    "desc": "7225 Helping women in their 20s & 30s reinvent themselves without pretending they have it all togeth",
    "score": 60,
-   "status": "prospect",
+   "status": "contacted",
    "found": "2026-11-07",
    "checked": "2026-11-07",
    "kind": "youtube",
@@ -31,7 +31,9 @@
     "email_subject": "Partner opportunity with Receipts",
     "email": "I noticed your channel’s mission to help women in their 20s and 30s reinvent themselves without pretending everything is perfect. That aligns well with Receipts, a $29, 30‑day proof system that turns “not ready” into proof you’re ready.\n\nWe’d like to give you the full pack for free – just visit receiptspack.vercel.app/free and see how it works for your community. If it resonates, you can join our partner program at receiptspack.vercel.app/p/myeliairl and earn 50% of every sale ($14.50) paid monthly via PayPal, with no sales quota or exclusivity.\n\nTerms are simple: see receiptspack.vercel.app/partners/terms. Let me know if you’d like to discuss further.\n\nDan Rossi — Receipts",
     "generated": "2026-11-07T17:35:30.540Z"
-   }
+   },
+   "contacted": "2026-11-07",
+   "contact_channel": "ig"
   },
   "@Forged4Future": {
    "title": "F4F",
@@ -49,7 +51,7 @@
    "site": null,
    "desc": "Forged4Future (F4F): Real comeback stories. Under a minute. Before the breakthrough came rejection, ",
    "score": 60,
-   "status": "prospect",
+   "status": "contacted",
    "found": "2026-11-07",
    "checked": "2026-11-07",
    "kind": "youtube",
@@ -62,7 +64,9 @@
     "email_subject": "Turn Rejection into Proof – Free Receipts Pack for F4F",
     "email": "Hey F4F team,\n\nYour quick comeback stories resonate with the idea of turning a \"no\" into a receipt. I’d like to give you full access to Receipts, our 30‑day proof system, absolutely free – just hop over to receiptspack.vercel.app/free.\n\nIf you like it, you can partner with us using receiptspack.vercel.app/p/forged4future, which earns you 50% of each $29 sale ($14.50) paid monthly via PayPal, with no sales quota or exclusivity constraints.\n\nTerms are simple: see receiptspack.vercel.app/partners/terms. Let me know if you’d like to try it out.\n\nDan Rossi — Receipts",
     "generated": "2026-11-07T17:35:31.419Z"
-   }
+   },
+   "contacted": "2026-11-07",
+   "contact_channel": "ig"
   },
   "@coachronnie": {
    "title": "Coach Ronnie",
@@ -268,7 +272,7 @@
    "site": null,
    "desc": "I help ambitious individuals transform their bodies and minds through proven discipline strategies. ",
    "score": 65,
-   "status": "prospect",
+   "status": "contacted",
    "found": "2026-11-07",
    "checked": "2026-11-07",
    "kind": "youtube",
@@ -281,7 +285,9 @@
     "email_subject": "Partner with Receipts – 50% commission on $29 proof system",
     "email": "Your recent video on “discipline hacks for body transformation” demonstrates a clear method for breaking mental barriers.\n\nWe’re offering the full Receipts 30‑day proof pack free at receiptspack.vercel.app/free and a partner link receiptspack.vercel.app/p/officialconnersp that pays you 50% of every $29 sale ($14.50) monthly via PayPal, with no quota or exclusivity.\n\nTerms: receiptspack.vercel.app/partners/terms\n\nDan Rossi — Receipts",
     "generated": "2026-11-07T17:35:29.540Z"
-   }
+   },
+   "contacted": "2026-11-07",
+   "contact_channel": "ig"
   },
   "@JalenLeeShow": {
    "title": "Coach J. Lee",
@@ -327,7 +333,8 @@
     "email_subject": "Partner with Receipts: 50% Revenue Share on Your Channel",
     "email": "Hey,\n\nYour focus on discipline as a key to success aligns perfectly with our 30‑day proof system. We’re giving you a free full pack to check out at receiptspack.vercel.app/free, then offer a partner link (receiptspack.vercel.app/p/discipline7q) that pays 50% of each purchase ($14.50) every month through PayPal—no limits, no exclusivity.\n\nReview the partnership details at receiptspack.vercel.app/partners/terms. Let me know if you’re interested.\n\nDan Rossi — Receipts",
     "generated": "2026-11-07T17:31:44.772Z"
-   }
+   },
+   "ig_dead": true
   },
   "@ChadEveryday": {
    "title": "Chadeveryday",
@@ -619,11 +626,20 @@
    ],
    "desc": "Stoicism + psychology for overthinkers; email on about page",
    "score": 55,
-   "status": "prospect",
+   "status": "contacted",
    "found": "2026-11-07",
    "checked": "2026-11-07",
    "kind": "newsletter",
-   "drafts_provider": "groq"
+   "drafts_provider": "groq",
+   "drafts": {
+    "code": "thesoftstoic",
+    "dm": "",
+    "email_subject": "A partner idea for The Soft Stoic Letter",
+    "email": "(hand-written, sent 2026-11-07 17:38 from ops Gmail; text kept out of repo)",
+    "generated": "2026-11-07T17:39:43.966Z"
+   },
+   "contacted": "2026-11-07",
+   "contact_channel": "email"
   },
   "https://practicalstoicadvice.substack.com": {
    "title": "Practical Stoic Advice",

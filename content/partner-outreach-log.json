@@ -1,1 +1,34 @@
-{"note": "One entry per message sent by the swarm (channel, handle, date, sha1 of text). Daily cap 20 across channels; spread over 3 windows.", "cap_per_day": 20, "sent": []}
+{
+ "note": "One entry per message sent by the swarm (channel, handle, date, sha1 of text). Daily cap 20 across channels; spread over 3 windows.",
+ "cap_per_day": 20,
+ "sent": [
+  {
+   "handle": "@Myelia_irl",
+   "channel": "ig",
+   "to": "myelia_irl",
+   "date": "2026-11-07T17:37:23.407Z",
+   "sha1": "b577e7a0a361"
+  },
+  {
+   "handle": "@Forged4Future",
+   "channel": "ig",
+   "to": "forged4future",
+   "date": "2026-11-07T17:38:09.582Z",
+   "sha1": "aca7a33c8297"
+  },
+  {
+   "handle": "@officialconnerspencer",
+   "channel": "ig",
+   "to": "officialconnerspencer",
+   "date": "2026-11-07T17:38:09.669Z",
+   "sha1": "e3ba646de8da"
+  },
+  {
+   "handle": "https://thesoftstoic.substack.com",
+   "channel": "email",
+   "to": "substack-author",
+   "date": "2026-11-07T17:39:44.052Z",
+   "sha1": "3bc6ba0d5b12"
+  }
+ ]
+}
