@@ -1,5 +1,6 @@
 import Capture from "./Capture";
 import { Bar, Tick } from "./Progress";
+import { withRef } from "../../lib/attrib";
 const PAY="https://buy.stripe.com/dRm7sEfUs0CQbscfSx3840a";
 import { C, btnBlock as btn, btnGhost, card as box, eyebrow, h1, link, chip } from "../theme";
 const clean=s=>String(s||"").toLowerCase().replace(/[^a-z0-9_-]/g,"").slice(0,40);
@@ -7,9 +8,9 @@ const clean=s=>String(s||"").toLowerCase().replace(/[^a-z0-9_-]/g,"").slice(0,40
 const FROM={ig:"Instagram",instagram:"Instagram",tt:"TikTok",tiktok:"TikTok",yt:"YouTube",youtube:"YouTube",bsky:"Bluesky",masto:"Mastodon",skool:"Skool",bio:""};
 export const metadata={title:"Free receipt template · Receipts",description:"Step 1 of the Receipts system, free. Write the receipt in 10 minutes."};
 export default function Free({searchParams}){
-const src=clean(searchParams?.src)||"free";
+const src=withRef(clean(searchParams?.src)||"free");
 const pay=PAY+"?client_reference_id=free_"+src;
-const from=FROM[src.replace(/^free_/,"")]??"";
+const from=FROM[src.replace(/^free_/,"").replace(/^aff_[a-z0-9]+-/,"")]??"";
 return <main style={{maxWidth:520,margin:"0 auto",padding:16}}>
 <p style={{...eyebrow,marginBottom:8}}>Receipts · Free Step 1</p>
 <Bar />

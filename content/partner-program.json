@@ -1,0 +1,13 @@
+{
+ "name": "Receipts Partner Programme",
+ "product_price_usd": 29,
+ "commission_usd_per_sale": 15,
+ "commission_note": "Flat $15 per completed $29 sale (51.7%). Founding-partner rate, locked for every partner who joins before 2027-01-31 for 12 months.",
+ "attribution_window_days": 60,
+ "attribution_rule": "last partner link clicked within 60 days wins; partner link beats organic source",
+ "payout": {"cadence": "monthly, by the 5th, for the previous calendar month", "minimum_usd": 30, "hold_days": 14, "channel": "PayPal (goods & services, no fee to the sender in UK; international personal transfers cap at £2.99) or Wise", "rollover": "balances under the minimum roll into the next month"},
+ "disclosure": "Partners must label content as an ad/affiliate per FTC Endorsement Guides and UK ASA/CAP Code (#ad in the first line or spoken). No earnings claims, no therapy/medical claims, no refund or guarantee language.",
+ "exclusions": ["self-purchases", "paid ads on the brand name", "coupon/cashback sites", "spam or bought traffic", "disputed or charged-back payments"],
+ "link_format": "https://receiptspack.vercel.app/p/<code>",
+ "owner_approval_required": ["adding or changing commission", "paying out", "terminating a partner", "any paid placement"]
+}

@@ -1,4 +1,5 @@
 import { C, btn, card, eyebrow, h1, h2, sub, small, link } from "./theme";
+import { withRef } from "../lib/attrib";
 const PAY="https://buy.stripe.com/dRm7sEfUs0CQbscfSx3840a";
 const faq=[
 ["Is this about revenge?","No. You never contact, name, or target anyone. The receipt is private fuel; the standard is yours."],
@@ -6,11 +7,12 @@ const faq=[
 ["Why not just use a habit tracker?","Trackers count checkmarks. Receipts starts with the reason you care — being doubted — and handles the part trackers ignore: what to do after you’ve proved it."],
 ["What happens after I prove them wrong?","That’s where most people stall. The Arrival Check and 7-day bridge turn the win into a standard you keep, without needing anyone’s doubt."],
 ["Is this therapy?","No. It’s a self-reflection and goal system, not medical or mental-health treatment."]];
-export default function H(){return <main>
+export default function H(){
+const pay=PAY+"?client_reference_id="+withRef("home");return <main>
 <p style={eyebrow}>Receipts</p>
 <h1 style={{...h1,fontSize:42,margin:"6px 0 14px"}}>Turn getting underestimated into a standard you keep.</h1>
 <p style={sub}>Passed over. Compared. Told you weren’t ready. Keep the receipt — then spend 30 days making it irrelevant.</p>
-<a href={PAY} style={btn}>Get the Receipts Pack — $29</a>
+<a href={pay} style={btn}>Get the Receipts Pack — $29</a>
 <p style={{...small,marginTop:10}}>One-time payment · instant access</p>
 <p style={{fontSize:15}}><a href="/free?src=home" style={link}>Not ready? Start with the free receipt template →</a></p>
 
@@ -26,5 +28,5 @@ export default function H(){return <main>
 <h2 style={h2}>FAQ</h2>
 {faq.map(([q,a])=><div key={q} style={card}><b>{q}</b><div style={{color:C.body}}>{a}</div></div>)}
 
-<div style={{margin:"40px 0 16px"}}><a href={PAY} style={btn}>Start your 30 days — $29</a></div>
+<div style={{margin:"40px 0 16px"}}><a href={pay} style={btn}>Start your 30 days — $29</a></div>
 <p style={small}><a href="/pricing" style={{color:C.muted}}>Pricing</a> · <a href="/privacy" style={{color:C.muted}}>Privacy</a></p></main>}

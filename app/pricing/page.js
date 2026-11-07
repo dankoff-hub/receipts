@@ -1,8 +1,9 @@
 import { C, btnBlock, card, eyebrow, h1, small, link } from "../theme";
+import { withRef } from "../../lib/attrib";
 const PAY="https://buy.stripe.com/dRm7sEfUs0CQbscfSx3840a";
 export const metadata={title:"Pricing · Receipts Pack"};
 export default function P({searchParams}){
-const src=String(searchParams?.src||"pricing").replace(/[^a-z0-9_-]/gi,"").slice(0,40);
+const src=withRef(String(searchParams?.src||"pricing").replace(/[^a-z0-9_-]/gi,"").slice(0,40));
 return <main style={{maxWidth:520,margin:"0 auto"}}>
 <p style={eyebrow}>Receipts · Pricing</p>
 <h1 style={{...h1,fontSize:34,margin:"6px 0 10px"}}>One price. One payment. The whole system.</h1>

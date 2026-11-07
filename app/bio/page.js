@@ -1,9 +1,10 @@
+import { withRef } from "../../lib/attrib";
 const PAY="https://buy.stripe.com/dRm7sEfUs0CQbscfSx3840a";
 import { C, btnBlock as btn, btnGhost as btn2, card, eyebrow, h1, link, chip } from "../theme";
 const clean=s=>String(s||"").toLowerCase().replace(/[^a-z0-9_-]/g,"").slice(0,40);
 export const metadata={title:"Receipts by Rosa",description:"They said you weren't ready. Keep the receipt. A private 30-day system that turns being underestimated into proof."};
 export default function Bio({searchParams}){
-const src=clean(searchParams?.src)||"bio";
+const src=withRef(clean(searchParams?.src)||"bio");
 const pay=PAY+"?client_reference_id="+src;
 const free="/free?src="+src;
 return <main style={{maxWidth:420,margin:"0 auto",padding:16}}>

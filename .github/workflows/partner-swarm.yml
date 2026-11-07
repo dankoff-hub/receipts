@@ -1,0 +1,25 @@
+name: Partner swarm (agent 9 — scout + ledger)
+on:
+  schedule: [{cron: "0 9 * * *"}]   # 09:00 UTC daily: find micro-creator partners, refresh the Stripe partner ledger, draft outreach
+  workflow_dispatch:
+permissions: {contents: write, issues: write}
+concurrency: {group: partner-swarm, cancel-in-progress: false}
+jobs:
+  swarm:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env: {GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}", GH_TOKEN: "${{ secrets.GITHUB_TOKEN }}"}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 20}
+      - name: Partner ledger (Stripe read-only → counts; monthly payout statement issue on the 1st–5th)
+        env: {STRIPE_API_KEY: "${{ secrets.STRIPE_API_KEY }}"}
+        run: node scripts/affiliate-ledger.mjs
+      - name: Partner scout (public YouTube pages, no key; drafts outreach for human send)
+        run: python3 scripts/partner-scout.py
+      - name: Commit content only
+        run: |
+          git add content/affiliate-ledger.json content/partner-prospects.json
+          git diff --cached --name-only | grep -vE '^content/' && { echo "GUARD TRIPPED"; git reset -q; exit 1; } || true
+          bash scripts/git-push-safe.sh "Partner swarm: ledger + prospects"
