@@ -1,0 +1,182 @@
+{
+ "replies": [],
+ "follows": [
+  {
+   "at": "2026-11-07T10:28:49.803Z",
+   "platform": "bluesky",
+   "who": "did:plc:zrby72gi5x2rbj7jonj2fj5z",
+   "handle": "bovine3dom.masto.ai.ap.brid.gy",
+   "reason": "lead tier 2",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-07T10:28:50.271Z",
+   "platform": "bluesky",
+   "who": "did:plc:ajiknyzz37fcycmlqhi6oxt2",
+   "handle": "probablestart.bsky.social",
+   "reason": "lead tier 2",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-07T10:28:50.460Z",
+   "platform": "bluesky",
+   "who": "did:plc:x5cbjsovfet4a44q7la3ucm4",
+   "handle": "215poundsonthemoon.bsky.social",
+   "reason": "lead tier 2",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-07T10:28:50.855Z",
+   "platform": "bluesky",
+   "who": "did:plc:vkl5xk67tsfnapowmk3jppie",
+   "handle": "adamantiteknight.bsky.social",
+   "reason": "lead tier 2",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-07T10:28:51.260Z",
+   "platform": "bluesky",
+   "who": "did:plc:vswzshohou3tgb5d2fkn5qxb",
+   "handle": "moviemakermoe.bsky.social",
+   "reason": "lead tier 2",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-07T10:28:51.662Z",
+   "platform": "bluesky",
+   "who": "did:plc:q6i7ehwtua6poivqvyw6x2uq",
+   "handle": "july2022.bsky.social",
+   "reason": "lead tier 2",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-07T10:28:52.052Z",
+   "platform": "bluesky",
+   "who": "did:plc:hdnhvtvqk6nhgt6elsktkbwl",
+   "handle": "skyla50.bsky.social",
+   "reason": "lead tier 2",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-07T10:28:52.452Z",
+   "platform": "bluesky",
+   "who": "did:plc:lpocfzcfb626v53j7rnaq5cv",
+   "handle": "dogdisorder.bsky.social",
+   "reason": "lead tier 2",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-07T10:28:52.836Z",
+   "platform": "bluesky",
+   "who": "did:plc:bqqmoom6eiznml3kcln47ftd",
+   "handle": "rwruedii.bsky.social",
+   "reason": "lead tier 2",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-07T10:28:53.007Z",
+   "platform": "bluesky",
+   "who": "did:plc:35sjkr52gladwqtulpxx4w2v",
+   "handle": "silversagehealing.bsky.social",
+   "reason": "lead tier 2",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-07T10:28:53.403Z",
+   "platform": "bluesky",
+   "who": "did:plc:6mnyssygmynn5pwlmn3wsas6",
+   "handle": "aitoolsdir.bsky.social",
+   "reason": "lead tier 2",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-07T10:28:53.799Z",
+   "platform": "bluesky",
+   "who": "did:plc:plyuhhsw5a3ukmeqo2dkjxb2",
+   "handle": "mlamb.bsky.social",
+   "reason": "lead tier 2",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-07T10:28:54.191Z",
+   "platform": "bluesky",
+   "who": "did:plc:i3ptsq6lx6jpvvdvepcnnglo",
+   "handle": "justmeanybody.bsky.social",
+   "reason": "lead tier 2",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-07T10:28:54.593Z",
+   "platform": "bluesky",
+   "who": "did:plc:3q2cbcxzg2ybhim2txgfu7wz",
+   "handle": "timsmedley.bsky.social",
+   "reason": "lead tier 2",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-07T10:28:55.001Z",
+   "platform": "bluesky",
+   "who": "did:plc:wyux57r3dnqpwshzf5xl5kii",
+   "handle": "cyatteau.bsky.social",
+   "reason": "lead tier 2",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-07T10:28:55.547Z",
+   "platform": "bluesky",
+   "who": "did:plc:5lcz63tba2rzgjhovtu7vpsm",
+   "handle": "mikejreid.bsky.social",
+   "reason": "lead tier 2",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-07T10:28:55.970Z",
+   "platform": "bluesky",
+   "who": "did:plc:vdbxiepcudfbvjoigaxgnovy",
+   "handle": "racheleklein.bsky.social",
+   "reason": "lead tier 2",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-07T10:28:56.388Z",
+   "platform": "bluesky",
+   "who": "did:plc:kio5vk3fjzfcnlvt6mrowkei",
+   "handle": "savageavastyles.bsky.social",
+   "reason": "lead tier 2",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-07T10:28:56.781Z",
+   "platform": "bluesky",
+   "who": "did:plc:h64fuw3laisvd7btnztrcj3f",
+   "handle": "emexdizzy.bsky.social",
+   "reason": "lead tier 2",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-07T10:28:57.193Z",
+   "platform": "bluesky",
+   "who": "did:plc:ajs44axlbhbcfeox6p25cjqs",
+   "handle": "mcduff.bsky.social",
+   "reason": "lead tier 2",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-07T10:28:58.241Z",
+   "platform": "mastodon",
+   "who": "117287216711656793",
+   "handle": "neuroticken",
+   "reason": "lead tier 2",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-07T10:28:58.794Z",
+   "platform": "mastodon",
+   "who": "109418230809493813",
+   "handle": "jimcarroll@futurist.info",
+   "reason": "lead tier 2",
+   "status": "failed"
+  }
+ ],
+ "seen": {}
+}

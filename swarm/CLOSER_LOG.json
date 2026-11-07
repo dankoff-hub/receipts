@@ -33,6 +33,18 @@
    "reply_url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mzopc7mv7s2n",
    "provider": "groq",
    "platform": "bluesky"
+  },
+  {
+   "at": "2026-11-07T10:28:48.731Z",
+   "id": "at://did:plc:zrby72gi5x2rbj7jonj2fj5z/app.bsky.feed.post/3mzpkwxinjzj2",
+   "url": "https://bsky.app/profile/bovine3dom.masto.ai.ap.brid.gy/post/3mzpkwxinjzj2",
+   "author": "bovine3dom.masto.ai.ap.brid.gy",
+   "tier": 2,
+   "why": "author is undertaking a 30-day map challenge",
+   "reply": "Try sketching the outline in 2 minutes, then spend the remaining 8 adding details – it forces you to move fast and still finish. Tomorrow set a timer for each step so you stay on track.",
+   "reply_url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mzposvsmem2c",
+   "provider": "groq",
+   "platform": "bluesky"
   }
  ],
  "skipped": [
@@ -308,6 +320,14 @@
    "author": "adamantiteknight.bsky.social",
    "tier": 2,
    "why": "not a personal goal: no goal mentioned"
+  },
+  {
+   "at": "2026-11-07T10:28:47.124Z",
+   "id": "at://did:plc:zrby72gi5x2rbj7jonj2fj5z/app.bsky.feed.post/3mzplipb6mxa2",
+   "url": "https://bsky.app/profile/bovine3dom.masto.ai.ap.brid.gy/post/3mzplipb6mxa2",
+   "author": "bovine3dom.masto.ai.ap.brid.gy",
+   "tier": 2,
+   "why": "not a personal goal: creative map challenge not personal habit"
   }
  ]
 }

@@ -738,9 +738,38 @@
   "masto:117573809672952316",
   "masto:117573781661054301",
   "at://did:plc:ryv6w7q3jyvs3ue2njfopscs/app.bsky.feed.post/3mzphsuajmk2a",
-  "at://did:plc:l43f5finrcugyqz534j5z265/app.bsky.feed.post/3mzpgaxytss23"
+  "at://did:plc:l43f5finrcugyqz534j5z265/app.bsky.feed.post/3mzpgaxytss23",
+  "at://did:plc:zrby72gi5x2rbj7jonj2fj5z/app.bsky.feed.post/3mzplipb6mxa2",
+  "at://did:plc:zrby72gi5x2rbj7jonj2fj5z/app.bsky.feed.post/3mzpkwxinjzj2",
+  "at://did:plc:thfvjgxrwxnijfcz7dfoic3m/app.bsky.feed.post/3mzpocvb6ok2r",
+  "at://did:plc:xktmd3bgo3egxbympefncfax/app.bsky.feed.post/3mzpl4kx57s2z",
+  "at://did:plc:5zo4rzr6upigwn6vmaz5wyx2/app.bsky.feed.post/3mzplx4i4622d"
  ],
  "leads": [
+  {
+   "src": "bluesky",
+   "id": "at://did:plc:zrby72gi5x2rbj7jonj2fj5z/app.bsky.feed.post/3mzplipb6mxa2",
+   "url": "https://bsky.app/profile/bovine3dom.masto.ai.ap.brid.gy/post/3mzplipb6mxa2",
+   "text": "Day 7 (?) of the 30 day map challenge - 10 minute map. A count of all the distinct GTFS route types - roughly, how much public transport variety there is, but also a measure of how granular the data is (the Swiss like to tell you exactly what kind of train you will have)\n\n#30DayMapChallenge",
+   "sub": "bovine3dom.masto.ai.ap.brid.gy",
+   "at": "2026-11-07T09:29:15.000Z",
+   "llm": "groq",
+   "tier": 2,
+   "found": "2026-11-07T10:28:45.705Z",
+   "status": "skipped"
+  },
+  {
+   "src": "bluesky",
+   "id": "at://did:plc:zrby72gi5x2rbj7jonj2fj5z/app.bsky.feed.post/3mzpkwxinjzj2",
+   "url": "https://bsky.app/profile/bovine3dom.masto.ai.ap.brid.gy/post/3mzpkwxinjzj2",
+   "text": "the theme for today's 30 day map challenge is \"10 minute map\". i considered cheating and interpreting it as 10-minute accessibility sheds but that would actually be much easier for me than making something from start to finish in 10 minutes\n\nso to make sure i actually do this i am going to start […]",
+   "sub": "bovine3dom.masto.ai.ap.brid.gy",
+   "at": "2026-11-07T09:19:27.000Z",
+   "llm": "groq",
+   "tier": 2,
+   "found": "2026-11-07T10:28:46.002Z",
+   "status": "sent"
+  },
   {
    "src": "bluesky",
    "id": "at://did:plc:ryv6w7q3jyvs3ue2njfopscs/app.bsky.feed.post/3mzphsuajmk2a",
