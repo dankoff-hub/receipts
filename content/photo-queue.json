@@ -60,6 +60,42 @@
    "file": "photo-10-office.jpg",
    "slug": "office",
    "scene": "Talking through something on a laptop at a shared office desk"
+  },
+  {
+   "n": 11,
+   "file": "photo-11-presenting.jpg",
+   "slug": "presenting",
+   "scene": "Presenting a chart on a screen to colleagues in a glass meeting room"
+  },
+  {
+   "n": 12,
+   "file": "photo-12-networking.jpg",
+   "slug": "networking",
+   "scene": "Shaking hands at a networking event, name badge on, drink in hand"
+  },
+  {
+   "n": 13,
+   "file": "photo-13-haircut.jpg",
+   "slug": "haircut",
+   "scene": "Getting a haircut at the barber, cape on, looking in the mirror"
+  },
+  {
+   "n": 14,
+   "file": "photo-14-gym.jpg",
+   "slug": "gym",
+   "scene": "Drinking water on a gym bench after a workout, towel over shoulder"
+  },
+  {
+   "n": 15,
+   "file": "photo-15-rain.jpg",
+   "slug": "rain",
+   "scene": "Running through the rain with a jacket held over the head, laughing"
+  },
+  {
+   "n": 16,
+   "file": "photo-16-kitchen-talk.jpg",
+   "slug": "kitchen-talk",
+   "scene": "Tense conversation at the kitchen counter at night, partner with arms crossed"
   }
  ]
 }

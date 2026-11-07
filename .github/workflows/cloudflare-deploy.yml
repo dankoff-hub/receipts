@@ -8,7 +8,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    env: { CLOUDFLARE_API_TOKEN: "${{ secrets.CLOUDFLARE_API_TOKEN }}", CLOUDFLARE_ACCOUNT_ID: "${{ secrets.CLOUDFLARE_ACCOUNT_ID }}" }
+    env: { CLOUDFLARE_API_TOKEN: "${{ secrets.CLOUDFLARE_API_TOKEN }}", CLOUDFLARE_ACCOUNT_ID: "${{ secrets.CLOUDFLARE_ACCOUNT_ID }}", SWARM_KEY: "${{ secrets.SWARM_KEY }}" }
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -27,8 +27,8 @@ jobs:
         working-directory: cloudflare
         run: |
           npx --yes wrangler@4 deploy 2>&1 | grep -vi "token" | tail -8
-          # SWARM_KEY secret for the manual /scan endpoint (random, never printed)
-          head -c 24 /dev/urandom | base64 | tr -d '/+=' | npx --yes wrangler@4 secret put SWARM_KEY >/dev/null 2>&1 && echo "SWARM_KEY set"
+          # SWARM_KEY gates /scan and /image. Comes from the GitHub secret of the same name (never printed); random fallback if unset.
+          { [ -n "$SWARM_KEY" ] && printf %s "$SWARM_KEY" || head -c 24 /dev/urandom | base64 | tr -d '/+='; } | npx --yes wrangler@4 secret put SWARM_KEY >/dev/null 2>&1 && echo "SWARM_KEY set"
       - name: Smoke test
         run: |
           sleep 8; curl -s -o /tmp/h -w "health %{http_code}\n" "https://receipts-swarm.$SUB.workers.dev/health"; head -c 300 /tmp/h; echo

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Post the next lifestyle photo (content/photo-queue.json order) to Instagram via Buffer as a single-image feed post.
-// One per UTC day, never the same photo twice, never a caption hash already in the ledger.
+// One per UTC day (founder photo on odd day-of-year, Workers-AI image on even), never the same photo twice, never a caption hash already in the ledger.
 // Usage: node scripts/post-photo.mjs
 import fs from "node:fs";
 import crypto from "node:crypto";
@@ -16,7 +16,9 @@ const today = new Date().toISOString().slice(0, 10);
 if (log.some(p => p.channel === CH && p.status === "sent" && p.ts?.slice(0, 10) === today)) { console.log("photo already posted today"); process.exit(0); }
 const queue = load("content/photo-queue.json", { queue: [] }).queue;
 const caps = load("content/photo-captions.json", { captions: {} }).captions;
-const next = queue.find(q => !log.some(p => p.channel === CH && p.video === q.file && p.status !== "failed") && log.filter(p => p.channel === CH && p.video === q.file).length < 2);
+// Alternating days: if scripts/make-ai-photo.mjs produced a generated image today, post that; otherwise the next founder photo.
+const aiToday = load("content/ai-photo-queue.json", { queue: [] }).queue.find(q => q.day === today && !log.some(p => p.channel === CH && p.video === q.file && p.status !== "failed"));
+const next = aiToday || queue.find(q => !log.some(p => p.channel === CH && p.video === q.file && p.status !== "failed") && log.filter(p => p.channel === CH && p.video === q.file).length < 2);
 if (!next) { console.log("photo queue exhausted — add photos to content/photo-queue.json"); process.exit(0); }
 const caption = caps[next.slug];
 if (!caption) { console.log("no caption for", next.slug); process.exit(1); }

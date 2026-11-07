@@ -46,7 +46,30 @@ export default {
     if (u.pathname === "/health") return json({ ok: true, worker: "receipts-swarm", report: JSON.parse((await env.SWARM_KV.get("report")) || "null") });
     if (u.pathname === "/leads") return json({ leads: JSON.parse((await env.SWARM_KV.get("leads")) || "[]") });
     if (u.pathname === "/report") return json(JSON.parse((await env.SWARM_KV.get("report")) || "{}"));
-    if (u.pathname === "/scan" && req.headers.get("x-swarm-key") && req.headers.get("x-swarm-key") === env.SWARM_KEY) return json(await scan(env));
-    return json({ ok: true, endpoints: ["/health", "/leads", "/report"] });
+    const authed = req.headers.get("x-swarm-key") && env.SWARM_KEY && req.headers.get("x-swarm-key") === env.SWARM_KEY;
+    if (u.pathname === "/scan" && authed) return json(await scan(env));
+    // Image Forge: Workers AI free tier (10k neurons/day, no card). POST {prompt, model?, width?, height?} → image bytes. Key-gated so the public can't burn quota.
+    if (u.pathname === "/image" && req.method === "POST") {
+      if (!authed) return json({ error: "unauthorized" }, 401);
+      if (!env.AI) return json({ error: "AI binding missing" }, 503);
+      const b = await req.json().catch(() => ({}));
+      const prompt = String(b.prompt || "").slice(0, 1500); if (!prompt) return json({ error: "prompt required" }, 400);
+      const day = new Date().toISOString().slice(0, 10), used = Number((await env.SWARM_KV.get("img:" + day)) || 0);
+      if (used >= Number(b.daily_cap || 12)) return json({ error: "daily image cap reached", used }, 429);
+      const model = b.model === "sdxl" ? "@cf/bytedance/stable-diffusion-xl-lightning" : "@cf/black-forest-labs/flux-1-schnell";
+      try {
+        let bytes, type = "image/png";
+        if (model.includes("flux")) {
+          const r = await env.AI.run(model, { prompt, steps: 8 });
+          bytes = Uint8Array.from(atob(r.image), c => c.charCodeAt(0));
+        } else {
+          const r = await env.AI.run(model, { prompt, width: Math.min(2048, b.width || 1024), height: Math.min(2048, b.height || 1280), num_steps: 20, guidance: 7.5 });
+          bytes = new Uint8Array(await new Response(r).arrayBuffer());
+        }
+        await env.SWARM_KV.put("img:" + day, String(used + 1), { expirationTtl: 172800 });
+        return new Response(bytes, { headers: { "content-type": type, "x-model": model, "x-used-today": String(used + 1) } });
+      } catch (e) { return json({ error: String(e).slice(0, 300), model }, 502); }
+    }
+    return json({ ok: true, endpoints: ["/health", "/leads", "/report", "POST /image (key)"] });
   },
 };
