@@ -5,6 +5,8 @@
 import fs from "node:fs";
 const KEY = process.env.STRIPE_API_KEY, SITE = process.env.APP_URL || "https://receipts-blond.vercel.app";
 const PLINK_URL = "https://buy.stripe.com/dRm7sEfUs0CQbscfSx3840a";
+// Currency-neutral on purpose: Adaptive Pricing shows UK/EU buyers a local price (e.g. £22.59), so "$29" here would contradict the total.
+const SUBMIT_NOTE = "Instant access: your pack opens right after payment. One-time payment, no subscription.";
 const H = { Authorization: `Bearer ${KEY}`, "Content-Type": "application/x-www-form-urlencoded" };
 const api = async (path, body) => { const r = await fetch("https://api.stripe.com/v1/" + path, { method: body ? "POST" : "GET", headers: H, body: body ? new URLSearchParams(body) : undefined }); const j = await r.json(); return j; };
 const show = (label, j) => console.log(label, j.error ? `ERROR ${j.error.type}/${j.error.code || ""}: ${j.error.message?.slice(0, 200)}` : "ok");
@@ -27,7 +29,7 @@ else {
     if (pl.phone_number_collection?.enabled) upd["phone_number_collection[enabled]"] = "false";
     if (pl.billing_address_collection !== "auto") upd["billing_address_collection"] = "auto";
     if (pl.submit_type !== "pay") upd["submit_type"] = "pay";
-    if (!pl.custom_text?.submit?.message) upd["custom_text[submit][message]"] = "Instant access: your pack opens right after payment. One-time $29, no subscription.";
+    if (pl.custom_text?.submit?.message !== SUBMIT_NOTE) upd["custom_text[submit][message]"] = SUBMIT_NOTE;
     if (Object.keys(upd).length) { const r = await api(`payment_links/${pl.id}`, upd); show("simplify checkout " + Object.keys(upd).join(","), r); if (!r.error) console.log("checkout friction after:", JSON.stringify({ custom_fields: (r.custom_fields || []).length, phone: r.phone_number_collection?.enabled, billing: r.billing_address_collection, submit_type: r.submit_type, submit_text: !!r.custom_text?.submit?.message })); }
     else console.log("checkout already simplified");
     // 1c) express consent for the digital-content withdrawal waiver (UK CCR 2013 reg 37 / EU CRD art 16(m)) must exist. Prefer Stripe's single checkbox with our wording; fall back to a one-option dropdown.
@@ -35,7 +37,7 @@ else {
     const WAIVER = "I ask for immediate access to this digital content and acknowledge that I lose my 14-day right to cancel once access begins.";
     const hasCheckbox = fresh.consent_collection?.terms_of_service === "required", hasDropdown = (fresh.custom_fields || []).length > 0;
     if (!hasCheckbox && !hasDropdown) {
-      const r1 = await api(`payment_links/${pl.id}`, { "consent_collection[terms_of_service]": "required", "custom_text[terms_of_service_acceptance][message]": WAIVER, "custom_text[submit][message]": "Instant access: your pack opens right after payment. One-time $29, no subscription." });
+      const r1 = await api(`payment_links/${pl.id}`, { "consent_collection[terms_of_service]": "required", "custom_text[terms_of_service_acceptance][message]": WAIVER, "custom_text[submit][message]": SUBMIT_NOTE });
       show("consent checkbox (terms_of_service required + waiver text)", r1);
       if (r1.error) {
         const r2 = await api(`payment_links/${pl.id}`, { "custom_fields[0][key]": "immediate_access", "custom_fields[0][type]": "dropdown", "custom_fields[0][label][type]": "custom", "custom_fields[0][label][custom]": "Immediate access (required)", "custom_fields[0][dropdown][options][0][label]": "I agree: immediate access, I waive my 14-day right to cancel", "custom_fields[0][dropdown][options][0][value]": "agree", "custom_text[submit][message]": "Your pack opens immediately after payment. By choosing 'I agree' above, you expressly ask for immediate access to this digital content and acknowledge that you lose your 14-day right to cancel once access begins." });

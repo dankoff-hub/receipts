@@ -1,9 +1,9 @@
 // Read-only QA probe: what does Stripe Checkout present to a visitor located where THIS function runs?
-// Pinned to London so the swarm can see the UK buyer's view (Adaptive Pricing is decided by Stripe from the request IP).
+// Verified 2026-11-07: Stripe picks the presentment currency from browser_locale / browser_timezone (en-GB or Europe/London → GBP, de-DE → EUR),
+// not only IP, so this probe works from any region. Use ?locale=&tz= to emulate a visitor. (Hobby deploy ignored preferredRegion=lhr1; ran in iad1.)
 // Gated by PARTNER_PACK_SECRET (?k=) so it is not a public session-spawner. Creates one open (unpaid) checkout page per call, like any visitor.
 import crypto from "node:crypto";
 export const dynamic = "force-dynamic";
-export const preferredRegion = "lhr1";
 const PLINK = "dRm7sEfUs0CQbscfSx3840a";
 export async function GET(req) {
   const u = new URL(req.url); const k = u.searchParams.get("k") || "", s = process.env.PARTNER_PACK_SECRET || "";
