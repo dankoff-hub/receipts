@@ -110,3 +110,8 @@ This is an absolutely zero-cost autonomous revenue operation. Execute.
 - Reddit's Responsible Builder Policy (Oct 2026) requires explicit approval before any Data API access and written approval for commercial use (lead research for a paid product counts). Unauthenticated `search.json` also returns 403 from GitHub runners and the sandbox.
 - Account `danrossi2026` exists (Google login); app creation at reddit.com/prefs/apps is blocked until API access is approved. Script-app credentials would be `REDDIT_CLIENT_ID` / `REDDIT_CLIENT_SECRET` secrets.
 - Risk tier: Critical (legal/ToS) → founder decides whether to submit Reddit's API access request. Until approved, both hunters (Actions + Cloudflare Worker) exclude Reddit. No workaround (scraping, proxies) is permitted.
+
+## Closer authorization (founder decision 2026-11-07 00:55 UTC)
+- Founder answer to "Should the Closer send replies on Bluesky unattended?": **"40/day. do posts and replies on other platforms as well. target is revenue."**
+- Effect: repo vars `CLOSER_SEND=1`, `CLOSER_DAILY_CAP=40`. Closer sends on Bluesky as @danrossi2026.bsky.social unattended, paced ≤8 per cycle, cycles every 2h, 1 reply/author ever, LLM relevance re-check + brand-safety self-check, link only when a template is explicitly requested; every reply logged in `swarm/CLOSER_LOG.json`. Sellers/apps/politics are skipped.
+- Scope extends to other platforms where a founder-owned account can be created and used on free, no-card infrastructure within each platform's ToS (Mastodon, Lemmy; Reddit only after API approval). Paid ads, X, and any payment/legal action remain banned.

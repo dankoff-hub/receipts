@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Closer — replies on Bluesky to fresh Tier-1/2 leads as the founder persona (@danrossi2026.bsky.social).
-// DEFAULT = DRAFT-ONLY: replies are drafted into swarm/CLOSER_LOG.json for the founder to approve/post. Sending is enabled only when the
-// repo variable CLOSER_SEND=1 is set by the founder (explicit authorization for unattended public replies). Even then: hard daily cap, logged.
+// Sending requires repo var CLOSER_SEND=1 — set by the founder on 2026-11-07 ("40/day. do posts and replies on other platforms as well") with
+// CLOSER_DAILY_CAP=40. Without it the stage is DRAFT-ONLY (drafts land in swarm/CLOSER_LOG.json). Hard daily cap + per-cycle pacing, every reply logged.
 // Guardrails: lead < 48h old · Bluesky only · LLM relevance re-check (must be a person personally working on a habit/30-day/accountability goal)
 //             · 1 reply per author ever · max CAP replies per UTC day · no link unless Tier 1 explicitly asked for a template/tracker
 //             · brand-safety self-check on the draft (no guarantees, no medical/financial claims, no pressure, ≤ 280 chars) · dry-run without creds.
@@ -19,9 +19,10 @@ const sentToday = log.replies.filter(r => r.at.slice(0, 10) === today && r.statu
 const repliedAuthors = new Set(log.replies.map(r => r.author));
 const fresh = leads.leads.filter(l => l.src.includes("bluesky") && l.status === "new" && l.at && Date.now() - new Date(l.at) < 48 * 3600e3 && !repliedAuthors.has(l.sub)
   && !/https?:\/\/|\$\d|\b(etsy|gumroad|app store|apps\.apple|play\.google|democrat|republican|trump|election)\b/i.test(l.text)) // skip sellers/apps/politics
-  .sort((a, b) => a.tier - b.tier || new Date(b.at) - new Date(a.at)).slice(0, 8);
+  .sort((a, b) => a.tier - b.tier || new Date(b.at) - new Date(a.at)).slice(0, Number(process.env.CLOSER_CONSIDER || 25));
 console.log(`closer: ${fresh.length} fresh bluesky leads, ${sentToday}/${CAP} replies sent today, mode ${SEND && HANDLE && APP_PW ? "SEND (founder-enabled)" : "DRAFT-ONLY"}`);
-let budget = CAP - sentToday, session = null;
+// pace: founder cap per UTC day (CLOSER_DAILY_CAP) spread over the cycles of the day (CLOSER_PER_CYCLE) so the account never bursts
+let budget = Math.min(CAP - sentToday, Number(process.env.CLOSER_PER_CYCLE || Math.ceil(CAP / 6) + 1)), session = null;
 const bad = /\b(guarantee|guaranteed|cure|therapy|diagnos|depress|anxiety disorder|invest|returns|earn \$|make money|limited time|buy now|only \$|discount|act fast)\b/i;
 
 async function login() {

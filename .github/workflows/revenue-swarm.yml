@@ -3,7 +3,7 @@ name: Revenue swarm (absolute zero-cost) — cron cycle
 # → content/swarm-scripts.md, published first by the daily video slots) → Stripe attribution → report → memory. $0: GitHub Actions
 # (public repo), GitHub Models/Pollinations/on-demand Ollama for LLM, Buffer free for posting, git for state.
 on:
-  schedule: [{ cron: "30 */4 * * *" }]
+  schedule: [{ cron: "30 */2 * * *" }]
   workflow_dispatch:
     inputs:
       allow_ollama_install: { description: install Ollama on the runner as last-resort LLM fallback, type: boolean, default: true }
@@ -23,6 +23,7 @@ jobs:
       BLUESKY_HANDLE: ${{ vars.BLUESKY_HANDLE }}
       BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
       CLOSER_SEND: ${{ vars.CLOSER_SEND }}
+      CLOSER_DAILY_CAP: ${{ vars.CLOSER_DAILY_CAP }}
       SWARM_ALLOW_OLLAMA_INSTALL: ${{ (github.event_name == 'schedule' || inputs.allow_ollama_install == true) && '1' || '0' }}
     steps:
       - uses: actions/checkout@v4
