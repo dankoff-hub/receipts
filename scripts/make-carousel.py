@@ -17,7 +17,7 @@ URL = "receipts-blond.vercel.app/free"
 
 md = open("content/launch-scripts.md").read()
 if os.path.exists("content/forge-scripts.md"): md += "\n" + open("content/forge-scripts.md").read()
-S = [dict(n=int(m[0]), hook=m[1], say=m[2], body=m[3], cta=m[4]) for m in re.findall(r"## (\d+)\. (.+)\n- Hook[^\n]*\n- Say: (.+)\n- Body: (.+)\n- CTA: (.+)", md)]
+S = [dict(n=int(m[0]), hook=re.sub(r"\s*\[[^\]]*\]\s*$", "", m[1]).strip(), say=m[2], body=m[3], cta=m[4]) for m in re.findall(r"## (\d+)\. (.+)\n- Hook[^\n]*\n- Say: (.+)\n- Body: (.+)\n- CTA: (.+)", md)]
 led_p = "content/script-ledger.json"
 try: led = json.load(open(led_p))
 except Exception: led = {"used": []}
