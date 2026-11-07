@@ -96,6 +96,14 @@ def main() -> None:
     if src != pp.read_text():
         pp.write_text(src)
         print("patched preprocess.py for numpy>=1.24 / numpy 2")
+    # numpy>=1.24: POS() returns s (and sometimes t entries) as one-element
+    # arrays; float(one_element_array) is an error now. Normalize both at the
+    # source in align_img — this also fixes trans_params construction below.
+    sh(
+        "grep -q 's = float(np.asarray(s)' src/face3d/util/preprocess.py || "
+        "sed -i '/s = rescale_factor\\/s/a s = float(np.asarray(s).reshape(-1)[0]); "
+        "t = np.asarray(t, dtype=np.float64).reshape(-1)' src/face3d/util/preprocess.py"
+    )
     # numpy>=1.24 removed np.float/np.int/np.bool aliases (used on the
     # inference path in src/face3d/util/my_awing_arch.py; \b keeps np.float64
     # etc. untouched)
