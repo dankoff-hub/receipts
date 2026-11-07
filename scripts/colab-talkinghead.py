@@ -139,6 +139,14 @@ def main() -> None:
     if s2 != p2.read_text():
         p2.write_text(s2)
         print("patched resize_n_crop_img int casts")
+    # src/utils/preprocess.py: np.hsplit of the 5-vector yields (1,) arrays;
+    # float() of those errors on numpy>=1.24 — take the flat values directly.
+    p3 = ST / "src" / "utils" / "preprocess.py"
+    s3 = p3.read_text()
+    old3 = "trans_params = np.array([float(item) for item in np.hsplit(trans_params, 5)]).astype(np.float32)"
+    if old3 in s3:
+        p3.write_text(s3.replace(old3, "trans_params = np.asarray(trans_params, dtype=np.float32).reshape(-1)"))
+        print("patched src/utils/preprocess.py hsplit")
     # numpy>=1.24 removed np.float/np.int/np.bool aliases (used on the
     # inference path in src/face3d/util/my_awing_arch.py; \b keeps np.float64
     # etc. untouched)
