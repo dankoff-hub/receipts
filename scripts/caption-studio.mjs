@@ -54,7 +54,7 @@ function build(bank, tagsKey, seed) {
     const cta = ctaLines[(seed + attempt + ctaOffset) % ctaLines.length];
     let caption = tpl(hook, cta, tagstr(mix[tagsKey] || mix.tiktok || []));
     // Tappable-path rule: a URL on screen or in an IG/TikTok caption is not tappable. Say only what the thumb can hit on THIS platform.
-    if (tagsKey === "tiktok" && bank === TK) caption = caption.replace(/link in bio\.?/gi, "link in my profile (tap Instagram).").replace(/link in my profile\.?/gi, "link in my profile (tap Instagram).");
+    if (tagsKey === "tiktok" && bank === TK) caption = caption.replace(/link in bio\.?/gi, `free Step 1 at ${URL} (also in the first comment).`).replace(/link in my profile\.?/gi, `free Step 1 at ${URL} (also in the first comment).`);
     if (bank === YT) caption = caption.replace(/link in bio\.?/gi, `link in the description: https://${URL}`).replace(/link in my profile\.?/gi, `link in the description: https://${URL}`);
     if (bank === IG) caption = caption.replace(/link in my profile\.?/gi, "link in bio.");
     if (attempt > 8) caption += `\n\nDay ${day}.`; // last-resort uniqueness marker
