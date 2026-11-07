@@ -12,7 +12,7 @@
    "auth": "GROQ_API_KEY secret (optional)",
    "limit": "14,400 req/day",
    "cooldown_until": 0,
-   "calls": 57,
+   "calls": 65,
    "fails": 3,
    "last_error": "400 {\"error\":{\"message\":\"'messages' must contain the word 'json' in some form, to use 'response_format' of type 'json_object'.\",\"type\":\"invalid_request_error\"}}\n"
   },
@@ -37,7 +37,7 @@
    "card": false,
    "auth": "none (installed on runner on demand)",
    "limit": "unlimited, slow",
-   "cooldown_until": 1794027862804,
+   "cooldown_until": 0,
    "calls": 0,
    "fails": 1
   },
@@ -56,6 +56,6 @@
   "qwen": "device-code OAuth — founder-only login",
   "puter": "browser session — founder-only login"
  },
- "rotation_offset": 3,
- "updated": "2026-11-07T03:16:31.501Z"
+ "rotation_offset": 0,
+ "updated": "2026-11-07T05:16:04.175Z"
 }
