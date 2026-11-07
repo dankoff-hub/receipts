@@ -41,7 +41,7 @@ def bg(seed):
     dark = Image.new("RGB", (W, H), (0, 0, 0))
     return Image.composite(im, dark, ov.point(lambda v: 90 + v * 165 // 255))
 
-def fit(draw, text, size, maxw, minsize=44):
+def fit(draw, text, size, maxw, minsize=56):
     while size > minsize:
         f = ImageFont.truetype(FONT, size)
         lines = textwrap.wrap(text, max(8, int(maxw / (size * 0.56))))
@@ -73,8 +73,35 @@ def slide(i, total, title, body=None, kicker=None, cta=False):
         d.text((80, H - 90), URL, font=tiny, fill=(160, 160, 160)); d.text((W - 80 - d.textlength(f"Day {label}", font=tiny), H - 90), f"Day {label}", font=tiny, fill=(160, 160, 160))
     return im
 
-sents = [x.strip() for x in re.split(r"(?<=[.?!])\s+", s["say"]) if x.strip()][:4]
-pts = sents if len(sents) >= 2 else [s["say"], s["body"]]
+# --- human pacing (same rules as the video captions): one complete thought per slide, <= MAX_W words,
+# long sentences split at a clause break (comma / dash / semicolon) nearest the middle, else balanced halves.
+MAX_W = 11; MAX_PTS = 6
+def chunks(sent):
+    w = sent.split()
+    if len(w) <= MAX_W: return [sent]
+    best = None
+    for m in re.finditer(r"[,;:]\s|\s[—–-]\s", sent):
+        a = sent[:m.start()].strip(); b = sent[m.end():].strip()
+        if len(a.split()) >= 3 and len(b.split()) >= 3:
+            d = abs(len(a.split()) - len(b.split()))
+            if best is None or d < best[0]: best = (d, a, b)
+    if best:
+        a, b = best[1], best[2]
+        a = a.rstrip(",;:—–- ") + "…"; b = b[0].upper() + b[1:]
+        return chunks(a) + chunks(b)
+    import math
+    n = math.ceil(len(w) / MAX_W); size = math.ceil(len(w) / n)
+    parts = [" ".join(w[i:i + size]) for i in range(0, len(w), size)]
+    return [(pp if k == len(parts) - 1 else pp.rstrip(",;:") + "…") for k, pp in enumerate(parts)]
+def sentences(t): return [x.strip() for x in re.split(r"(?<=[.?!])\s+", t) if x.strip()]
+pts = [c for sent in sentences(s["say"]) if sent.strip(" .?!").lower() != s["hook"].strip(" .?!").lower() for c in chunks(sent)]
+if len(pts) < 3:  # short script: pull from the body too
+    pts += [c for sent in sentences(s["body"]) for c in chunks(sent) if c not in pts]
+_m = []  # merge tiny fragments (<= 3 words) into the next thought when the pair still fits
+for c in pts:
+    if _m and len(_m[-1].split()) <= 3 and not _m[-1].endswith("…") and len(_m[-1].split()) + len(c.split()) <= MAX_W: _m[-1] = _m[-1] + " " + c
+    else: _m.append(c)
+pts = _m[:MAX_PTS] or [s["say"]]
 total = len(pts) + 2
 out = f"public/carousels/{name}"; os.makedirs(out, exist_ok=True)
 slide(1, total, s["hook"]).save(f"{out}/1.png")
