@@ -736,9 +736,22 @@
   "at://did:plc:mkhson555fcftivkht2vldid/app.bsky.feed.post/3mzpbyatlts2m",
   "masto:117573982454707366",
   "masto:117573809672952316",
-  "masto:117573781661054301"
+  "masto:117573781661054301",
+  "at://did:plc:ryv6w7q3jyvs3ue2njfopscs/app.bsky.feed.post/3mzphsuajmk2a",
+  "at://did:plc:l43f5finrcugyqz534j5z265/app.bsky.feed.post/3mzpgaxytss23"
  ],
  "leads": [
+  {
+   "src": "bluesky",
+   "id": "at://did:plc:ryv6w7q3jyvs3ue2njfopscs/app.bsky.feed.post/3mzphsuajmk2a",
+   "url": "https://bsky.app/profile/r-csharp.at.shendrick.net/post/3mzphsuajmk2a",
+   "text": "I spent the last few months building an identity-based habit tracker after getting burned out by generic checkbox apps. Today it's officially live on Google Play! https://www.reddit.com/r/csharp/comments/1xq1cfs/i_spent_the_last_few_months_building_an/\n\n#csharp #dotnet",
+   "sub": "r-csharp.at.shendrick.net",
+   "at": "2026-11-07T08:23:30.8156272Z",
+   "tier": 2,
+   "found": "2026-11-07T09:15:53.317Z",
+   "status": "new"
+  },
   {
    "src": "bluesky",
    "id": "at://did:plc:e6ovod7euvown5b3d7ysskkl/app.bsky.feed.post/3mzp3v6j6hp2u",
