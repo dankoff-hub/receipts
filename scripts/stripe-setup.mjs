@@ -20,6 +20,17 @@ else {
     console.log("payment link", pl.id, "current after_completion:", pl.after_completion?.type, cur || "");
     if (cur === want) console.log("redirect already correct");
     else show("update redirect", await api(`payment_links/${pl.id}`, { "after_completion[type]": "redirect", "after_completion[redirect][url]": want }));
+    // 1b) simplify checkout (founder-approved 2026-11-07): drop the required custom dropdown; keep the legal consent checkbox; no phone/billing-address friction.
+    console.log("checkout friction now:", JSON.stringify({ custom_fields: (pl.custom_fields || []).map(f => `${f.type}:${f.label?.custom || f.key}${f.optional ? "" : "*"}`), consent: pl.consent_collection, phone: pl.phone_number_collection?.enabled, billing: pl.billing_address_collection, promo: pl.allow_promotion_codes, submit_type: pl.submit_type, custom_text: pl.custom_text }));
+    const upd = {};
+    if ((pl.custom_fields || []).length) upd["custom_fields"] = "";            // empty string clears the array
+    if (pl.phone_number_collection?.enabled) upd["phone_number_collection[enabled]"] = "false";
+    if (pl.billing_address_collection !== "auto") upd["billing_address_collection"] = "auto";
+    if (pl.submit_type !== "pay") upd["submit_type"] = "pay";
+    if (!pl.custom_text?.submit?.message) upd["custom_text[submit][message]"] = "Instant access: your pack opens right after payment. One-time $29, no subscription.";
+    if (Object.keys(upd).length) { const r = await api(`payment_links/${pl.id}`, upd); show("simplify checkout " + Object.keys(upd).join(","), r); if (!r.error) console.log("checkout friction after:", JSON.stringify({ custom_fields: (r.custom_fields || []).length, phone: r.phone_number_collection?.enabled, billing: r.billing_address_collection, submit_type: r.submit_type, submit_text: !!r.custom_text?.submit?.message })); }
+    else console.log("checkout already simplified");
+    console.log("NOTE: Adaptive Pricing (currency picker + fee line) has no Payment Link API field — Dashboard only: Settings → Payments → Adaptive Pricing, or the link's Edit → Advanced options.");
   }
 }
 // --- 2) webhook endpoint
