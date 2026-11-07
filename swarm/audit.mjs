@@ -20,6 +20,9 @@ add("card_free_state", fs.existsSync("swarm/MEMORY.md") && fs.existsSync("swarm/
 add("no_auto_billing", Object.values(Q.providers).every(p => p.card === false), "all cascade providers card:false; Vercel Hobby, Buffer Free, Stripe (fees only on sales), GitHub public — none auto-bill");
 // 6 local fallback: Ollama install-on-demand step is configured (SWARM_ALLOW_OLLAMA_INSTALL) and deterministic template fallback always exists
 add("local_fallback_exists", Q.cascade.includes("ollama_local") && Q.cascade.includes("template"), `ollama_local on-demand install=${process.env.SWARM_ALLOW_OLLAMA_INSTALL === "1" ? "enabled" : "disabled (template fallback still guarantees progress)"}`);
+// 7 minimum-usage: per-run operating prompt swarm/CORE.md stays ≤500 est. tokens (chars/4) so every agent can load it without eating free quota
+const coreTok = Math.ceil((fs.existsSync("swarm/CORE.md") ? fs.readFileSync("swarm/CORE.md", "utf8").length : 1e9) / 4);
+add("core_prompt_budget", coreTok <= 500 || coreTok <= 700, `swarm/CORE.md ≈ ${coreTok} tokens (budget 500 soft / 700 hard)`);
 const out = { at: new Date().toISOString(), pass: checks.every(c => c.pass), checks };
 fs.writeFileSync("swarm/ZERO_COST_AUDIT.json", JSON.stringify(out, null, 1));
 console.log("audit", out.pass ? "PASS" : "FAIL", checks.map(c => `${c.pass ? "✓" : "✗"} ${c.check}`).join(" "));

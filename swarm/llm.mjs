@@ -61,6 +61,9 @@ export async function chat(prompt, { system = "Output compact JSON only.", maxTo
 }
 export function parseJSON(txt) { try { return JSON.parse(txt); } catch {} const m = String(txt || "").match(/\{[\s\S]*\}|\[[\s\S]*\]/); try { return m ? JSON.parse(m[0]) : null; } catch { return null; } }
 
+// Operating core (swarm/CORE.md): opt-in compressed excerpt for prompts that make judgement calls (creative, closer, partner drafts). Not auto-injected — minimum usage.
+export function coreHint(max = 700) { try { return compress(fs.readFileSync("swarm/CORE.md", "utf8").replace(/^#+ .*$/gm, "").replace(/`/g, "").replace(/^- /gm, ""), max); } catch { return ""; } }
+
 // Vendored agent skills (skills/<name>/SKILL.md): pull a compressed excerpt of the instruction body into a prompt. Zero-cost, offline.
 export function skillHint(name, max = 900) {
   try { const t = fs.readFileSync(`skills/${name}/SKILL.md`, "utf8").replace(/^---[\s\S]*?---\s*/, "").replace(/```[\s\S]*?```/g, "").replace(/^#+ .*$/gm, "").replace(/\*\*/g, "");

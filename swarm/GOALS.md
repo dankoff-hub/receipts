@@ -1,5 +1,7 @@
 # GOALS — Operation Revenue Swarm (Absolute Zero)
 - Master target: $50,000 attributed Receipts Pack revenue ($29 one-time) by 2027-01-31 (month 3 of bootstrap). Founder budget $3k is founder-only; the swarm spends $0.
+- Pace (recompute every run): remaining_sales = ceil((50000 − verified_usd)/29); required_daily = remaining_sales/days_left. 2026-11-07: 0 sales → 1,724 sales / 85 days = 20.3/day. North star £300k/30d (≈13,800 sales) is report-only.
+- Per-run operating prompt: swarm/CORE.md. Approvals and caps: swarm/AUTHORITY.md. Long-form reference: swarm/reference/MASTER_PROMPT.md.
 - Zero-cost constraint (inviolable): no card, no paid tier, no auto-billing trial anywhere in the swarm.
 - Channels: Instagram (focus), YouTube (focus), TikTok, Bluesky, Mastodon. No X. No paid ads.
 - Leading KPI (2026-11-07): followers on every platform — they are the funnel into /free → $29. Every video/carousel/caption carries a follow ask; the `community` stage follows back, answers every mention and follows ≤FOLLOW_DAILY_CAP (20/day/platform) Tier ≤2 lead authors. No unfollow churn, ever. Follower counts tracked daily by audience-watch (`followers_total_known`).
