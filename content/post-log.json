@@ -230,5 +230,23 @@
   "why": null,
   "captionHash": "54237ee0fb94433d61243a1b37786ed5",
   "video": null
+ },
+ {
+  "ts": "2026-11-07T01:42:04.328Z",
+  "channel": "instagram",
+  "postId": "6aee81e2229bf05daf1ffe8c",
+  "status": "sent",
+  "video": "day-004d.mp4",
+  "day": 4,
+  "captionHash": "dee9207b7bba1aacdf87742a5e7d44e7"
+ },
+ {
+  "ts": "2026-11-07T01:42:07.950Z",
+  "channel": "youtube",
+  "postId": "6aee81edd6bbae6fa15b7948",
+  "status": "sent",
+  "video": "day-004d.mp4",
+  "day": 4,
+  "captionHash": "0388f446f7de8ae6d92679dbb0888f31"
  }
 ]
