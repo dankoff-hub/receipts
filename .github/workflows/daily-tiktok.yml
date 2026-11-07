@@ -85,6 +85,7 @@ jobs:
       - if: steps.day.outputs.slot == 'c' || inputs.channels == 'photo'
         name: Instagram lifestyle photo (slot c only; 1/day from content/photo-queue.json)
         run: |
+          pip install -q pillow 2>/dev/null || true
           node scripts/make-ai-photo.mjs || true
           if git status --porcelain public/photos content/ai-photo-queue.json content/photo-captions.json | grep -q .; then
             git add public/photos content/ai-photo-queue.json content/photo-captions.json && git commit -qm "AI photo $(date -u +%F) [skip ci]" && git push -q || (git pull -q --rebase && git push -q) || true
