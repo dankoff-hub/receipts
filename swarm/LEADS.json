@@ -715,9 +715,22 @@
   "at://did:plc:wbykovtf454zxg2tnpgcqli7/app.bsky.feed.post/3mzoownvnow24",
   "at://did:plc:dc6nwhjqq227tpbqjlmkihka/app.bsky.feed.post/3mzop2d7c262e",
   "at://did:plc:ttlyg75cufhgzdbhy45g6gdu/app.bsky.feed.post/3mzopcnz3bc2h",
-  "at://did:plc:flxntf7zl6rmcrjjay4wjvan/app.bsky.feed.post/3mzopj5o25k2x"
+  "at://did:plc:flxntf7zl6rmcrjjay4wjvan/app.bsky.feed.post/3mzopj5o25k2x",
+  "at://did:plc:3sewvzookb4dpwg2fk56itww/app.bsky.feed.post/3mzorwjyosc2b",
+  "at://did:plc:vswzshohou3tgb5d2fkn5qxb/app.bsky.feed.post/3mzoqtpeixk2v"
  ],
  "leads": [
+  {
+   "src": "bluesky",
+   "id": "at://did:plc:vswzshohou3tgb5d2fkn5qxb/app.bsky.feed.post/3mzoqtpeixk2v",
+   "url": "https://bsky.app/profile/moviemakermoe.bsky.social/post/3mzoqtpeixk2v",
+   "text": "Democrats overwhelmingly won the Midterms this week, but two think they are part of this win. Sign this petition to prove them wrong: c.org/XXmnMKNsxd",
+   "sub": "moviemakermoe.bsky.social",
+   "at": "2026-11-07T01:32:23.213Z",
+   "tier": 2,
+   "found": "2026-11-07T03:16:31.091Z",
+   "status": "new"
+  },
   {
    "src": "bluesky",
    "id": "at://did:plc:ttlyg75cufhgzdbhy45g6gdu/app.bsky.feed.post/3mzopcnz3bc2h",
