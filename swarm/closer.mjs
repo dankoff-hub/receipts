@@ -19,7 +19,8 @@ const sentToday = log.replies.filter(r => r.at.slice(0, 10) === today && r.statu
 const repliedAuthors = new Set(log.replies.map(r => r.author));
 const MTOK = process.env.MASTODON_TOKEN; // mastodon.social @danrossi2026 (write:statuses)
 const platformOf = l => l.src.includes("bluesky") ? "bluesky" : (l.src.includes("mastodon") && /^masto:\d+$/.test(l.id) ? "mastodon" : null);
-const fresh = leads.leads.filter(l => platformOf(l) && l.status === "new" && l.at && Date.now() - new Date(l.at) < 48 * 3600e3 && !repliedAuthors.has(l.sub)
+const OWN = new Set([HANDLE, "danrossi2026.bsky.social", "danrossi2026", "danrossi2026@mastodon.social"].filter(Boolean));
+const fresh = leads.leads.filter(l => platformOf(l) && l.status === "new" && !OWN.has(l.sub) && l.at && Date.now() - new Date(l.at) < 48 * 3600e3 && !repliedAuthors.has(l.sub)
   && !/https?:\/\/|\w+\.(io|com|app|co|net|org)\b|\$\d|\b(etsy|gumroad|app store|apps\.apple|play\.google|see the code|democrat|republican|trump|election|giveaway|promo)\b/i.test(l.text)) // skip sellers/apps/politics
   .sort((a, b) => a.tier - b.tier || new Date(b.at) - new Date(a.at)).slice(0, Number(process.env.CLOSER_CONSIDER || 25));
 console.log(`closer: ${fresh.length} fresh bluesky/mastodon leads, ${sentToday}/${CAP} replies sent today, mode ${SEND && HANDLE && APP_PW ? "SEND (founder-enabled)" : "DRAFT-ONLY"}`);

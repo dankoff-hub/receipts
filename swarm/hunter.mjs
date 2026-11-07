@@ -9,7 +9,8 @@ const T2 = /\b(start(ing)? (a )?30[- ]day|accountab|track(ing)? (my )?progress|p
 const LEADS_P = "swarm/LEADS.json"; const leads = fs.existsSync(LEADS_P) ? JSON.parse(fs.readFileSync(LEADS_P, "utf8")) : { seen: [], leads: [] };
 const UA = { "User-Agent": "receipts-swarm/1.0 (read-only research)" };
 const items = [];
-const push = (o) => { if (o.text) items.push(o); };
+const OWN = new Set([process.env.BLUESKY_HANDLE, "danrossi2026.bsky.social", "danrossi2026", "danrossi2026@mastodon.social"].filter(Boolean));
+const push = (o) => { if (o.text && !OWN.has(o.sub)) items.push(o); }; // never treat our own posts/replies as leads
 // Reddit excluded: Data API needs explicit Reddit approval (written approval for commercial use) — founder-only request; see DIRECTIVE.md "Reddit gate".
 for (const q of QUERIES) {
   try { const r = await fetch(`https://api.bsky.app/xrpc/app.bsky.feed.searchPosts?q=${encodeURIComponent(q)}&limit=25&sort=latest`, { headers: UA }); if (!r.ok) console.error(`bluesky HTTP ${r.status}`); const j = await r.json();

@@ -30,6 +30,7 @@ function ensureOllama() {
 }
 
 export async function chat(prompt, { system = "Output compact JSON only.", maxTokens = 150, json = true } = {}) {
+  if (json && !/json/i.test(prompt + " " + system)) system += " Respond with JSON only.";
   const now = Date.now(), order = Q.cascade.filter(p => p !== "template");
   // groq first (14.4k req/day, fastest); rotate only among the fallbacks so a single rate-limited provider is not hammered every cycle
   const rest = order.filter(p => p !== "groq" && p !== "ollama_local"), rot = Q.rotation_offset % Math.max(1, rest.length);
@@ -41,7 +42,7 @@ export async function chat(prompt, { system = "Output compact JSON only.", maxTo
     if (p.local && !ensureOllama()) { st.fails++; st.cooldown_until = now + 6 * 3600e3; continue; }
     for (let attempt = 0; attempt < (name === "pollinations" ? 3 : 1); attempt++) {
     if (attempt) await new Promise(r => setTimeout(r, 47000)); // Pollinations anonymous: 1 reply / 45s per IP
-    const ctrl = new AbortController(); const t = setTimeout(() => ctrl.abort(), p.local ? 120000 : 60000);
+    const ctrl = new AbortController(); const t = setTimeout(() => ctrl.abort(), p.local || name === "nvidia_nim" ? 120000 : 60000);
     try {
       const r = await fetch(p.url, { method: "POST", signal: ctrl.signal, headers: { "Content-Type": "application/json", Authorization: `Bearer ${key}` },
         body: JSON.stringify({ model: p.model, max_tokens: (name === "pollinations" || /gpt-oss|o[1-9]-|reason|think/i.test(p.model)) ? maxTokens + 1500 : maxTokens, temperature: 0.9, ...((name === "pollinations" || /gpt-oss/i.test(p.model)) ? { reasoning_effort: "low" } : {}), messages: [{ role: "system", content: compress(system, 600) }, { role: "user", content: compress(prompt) }], ...(json && name !== "pollinations" && name !== "ollama_local" ? { response_format: { type: "json_object" } } : {}) }) });

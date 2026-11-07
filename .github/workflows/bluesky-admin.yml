@@ -1,0 +1,17 @@
+name: Bluesky admin (delete one of our own posts)
+on:
+  workflow_dispatch:
+    inputs:
+      post: { description: "URL or at-uri of OUR post to delete", required: true }
+jobs:
+  del:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    env:
+      BLUESKY_HANDLE: ${{ vars.BLUESKY_HANDLE }}
+      BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: 20}
+      - run: node scripts/bluesky-delete.mjs "${{ inputs.post }}"
