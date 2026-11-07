@@ -68,7 +68,8 @@ _cta_line = "the 30-day Receipts system, link in my profile."
 try:
     _cb = json.load(open("content/cta-bank.json"))
     if _cb.get("lines"): _cta_line = _cb["lines"][day % len(_cb["lines"])]
-    _cta_line = re.sub(r"link in (bio|my profile)\.?", "free Step 1 at receiptspack.vercel.app/free (also in the first comment).", _cta_line)  # TikTok: no tappable link in caption; first comment + typed URL
+    _bio_live = bool(json.load(open("content/audience-config.json")).get("tiktok_bio_link_live"))  # Business account: Website field set in the mobile app → tappable bio link
+    _cta_line = re.sub(r"link in (bio|my profile)\.?", ("free Step 1: tap the link in my bio (also in the first comment)." if _bio_live else "free Step 1 at receiptspack.vercel.app/free (also in the first comment)."), _cta_line)  # first comment carries the link either way (standing rule)
 except Exception: pass
 json.dump(dict(day=(int(sys.argv[3]) if len(sys.argv)>3 else day+1), n=s["n"], hook=s["hook"], caption=f"{s['hook']} — {_cta_line}\n" + _tagstr, duration=dur, **_meta), open(out+".json","w"))
 print("ok", out, round(dur,1), "s")

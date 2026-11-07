@@ -3,5 +3,8 @@
  "youtube_channel_id": "UC-S1lywjoVwp0HPUv8s4TKA",
  "instagram_username": null,
  "paused": {},
- "youtube_handle": "@DanRosa-u5v"
+ "youtube_handle": "@DanRosa-u5v",
+ "tiktok_account_type": "business",
+ "tiktok_bio_link_live": false,
+ "tiktok_website": "https://receiptspack.vercel.app/bio?src=tt"
 }

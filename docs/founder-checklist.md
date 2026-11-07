@@ -7,9 +7,14 @@ Instagram allows link edits only in the mobile app (web says "Editing your links
 Also in the app: display name has a typo ("Reciepts") — fix to "Dan Rossi • Receipts | 30-Day Proof System" once the 14-day name-change lock expires (Instagram blocked it on 2026-11-07: "changed twice within 14 days").
 Security: the Instagram password was pasted into chat — change it, and note login codes go to your d*****f@gmail.com inbox, so any future web login by the swarm needs you to forward the code.
 
-## TikTok (@dan.rosa71) — partly done 2026-11-07
-Done on web: profile photo, bio ("They said you weren't ready. Keep the receipt. 30 days. One standard. Proof."), 4 duplicate uploads deleted (restorable 30 days via Activity centre → Recently deleted).
-Phone-app only (TikTok hides these on web): Settings → Account → Switch to Business account (free) → Edit profile → Website: `https://receiptspack.vercel.app/free?src=tt`; add the Instagram and YouTube buttons. Username change to danrossi2026 was refused ("not available") — leave it.
+## TikTok (@dan.rosa71) — Business account since 2026-11-07; 5 minutes in the phone app
+Confirmed on web: "Business tools unlocked" (advanced analytics, comment management, Business Page URL/email). Web still cannot save the bio or add the Website field (tested twice on 2026-11-07: the update call returns 200 with an empty body and nothing changes), and auto-messages are app-only, so these are yours — all text is ready to paste in `content/profile.json`:
+1. Edit profile → **Website**: `https://receiptspack.vercel.app/bio?src=tt`. Then set `tiktok_bio_link_live: true` in `content/audience-config.json` (or tell the swarm) so captions switch to "tap the link in my bio". The first-comment link keeps running regardless.
+2. Edit profile → **Bio**: `Doubted? Keep the receipt. 30 days. Proof. Free Step 1 template: tap the link` (77 chars). If the Website field is refused (some regions still want 1,000 followers), use the `tiktok_bio` variant pointing to the first comment.
+3. Edit profile → **Category**: Personal blog. Business Page email: the ops Gmail. Add the Instagram and YouTube buttons.
+4. Settings and privacy → Privacy → Direct messages → **Everyone** (required for auto-messages).
+5. Menu → **Business suite → Message center**: turn on Welcome message, Keyword reply, Suggested questions; paste `tiktok_welcome_message`, the three `tiktok_keyword_replies` and `tiktok_suggested_questions` from `content/profile.json`. Each goes to TikTok moderation (usually under 24h).
+Note: Business accounts may only add sounds from the Commercial Music Library inside the app. Our uploads carry their own Mixkit audio in the file, so nothing changes for the pipeline — just never add an in-app sound on top. Username change to danrossi2026 was refused ("not available") — leave it.
 
 ## YouTube (@DanRosa-u5v) — done by the swarm 2026-11-07
 Channel links now: 1) Free Step 1 template → receiptspack.vercel.app/free?src=yt, 2) Instagram, 3) Full 30-day pack $29 → /pricing?src=yt. Description carries both URLs. Every Short (10) has a creator comment with the free link. Pinning is locked by YouTube until the channel has "more history" — re-try pinning in a few weeks (watch page → comment ⋮ → Pin).

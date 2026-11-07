@@ -2,5 +2,52 @@
  "displayName": "Dan Rossi",
  "bluesky": "Proving the doubters wrong, one logged line a day. 30 days of receipts.\n\nFree Step 1 template (tap): receiptspack.vercel.app/free",
  "mastodon_note": "30 days of receipts. One honest line a day to prove the doubters wrong.\n\nFree Step 1 template (tap): https://receiptspack.vercel.app/free?src=masto",
- "mastodon_fields": [["Free Step 1", "https://receiptspack.vercel.app/free?src=masto"], ["Instagram", "https://instagram.com/danrossi2026"]]
+ "mastodon_fields": [
+  [
+   "Free Step 1",
+   "https://receiptspack.vercel.app/free?src=masto"
+  ],
+  [
+   "Instagram",
+   "https://instagram.com/danrossi2026"
+  ]
+ ],
+ "tiktok_bio": "Doubted? Keep the receipt. 30 days. Proof. Free Step 1 template: first comment",
+ "tiktok_bio_when_link_live": "Doubted? Keep the receipt. 30 days. Proof. Free Step 1 template: tap the link",
+ "tiktok_website": "https://receiptspack.vercel.app/bio?src=tt",
+ "tiktok_category": "Personal blog",
+ "tiktok_welcome_message": "Hey, Dan here. Thanks for the message. The free Step 1 template is at receiptspack.vercel.app/free and the full 30-day Receipts system is $29 once. Ask me anything about day one.",
+ "tiktok_keyword_replies": [
+  {
+   "keywords": [
+    "link",
+    "template",
+    "free"
+   ],
+   "reply": "Free Step 1 template: receiptspack.vercel.app/free?src=ttdm — one page, start tonight."
+  },
+  {
+   "keywords": [
+    "price",
+    "cost",
+    "how much",
+    "$29",
+    "buy"
+   ],
+   "reply": "The 30-day Receipts system is $29 once, no subscription: receiptspack.vercel.app/bio?src=ttdm"
+  },
+  {
+   "keywords": [
+    "what is this",
+    "how does it work",
+    "receipts"
+   ],
+   "reply": "One honest line a day for 30 days, logged where you can see it. Day 30 is the receipt you show the doubters. Free Step 1: receiptspack.vercel.app/free?src=ttdm"
+  }
+ ],
+ "tiktok_suggested_questions": [
+  "What is the free Step 1 template?",
+  "How does the 30-day system work?",
+  "How much is it?"
+ ]
 }
