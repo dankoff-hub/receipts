@@ -2,6 +2,7 @@
 // subscriber, de-duplicated by email hash. Optional: also pushes to MailerLite when MAILERLITE_API_KEY is set.
 import { put } from "@vercel/blob";
 import crypto from "node:crypto";
+import { mailConfigured } from "../../../lib/mail";
 export const dynamic = "force-dynamic";
 export async function POST(req) {
   let body = {}; try { body = await req.json(); } catch {}
@@ -13,7 +14,7 @@ export async function POST(req) {
     const id = crypto.createHash("sha256").update(email).digest("hex").slice(0, 24);
     await put(`subscribers/${id}.json`, JSON.stringify({ email, src, at: new Date().toISOString() }), { access: "private", addRandomSuffix: false, allowOverwrite: true, contentType: "application/json" }).catch(e => console.error("blob put failed", e?.message));
   }
-  if (!key) return Response.json({ ok: true, sends: false }); // stored only — no provider yet, the page must not promise an email
+  if (!key) return Response.json({ ok: true, sends: blob ? mailConfigured() : false }); // stored; sends only if the reminder job can actually email
   const r = await fetch("https://connect.mailerlite.com/api/subscribers", { method: "POST", headers: { "Content-Type": "application/json", Authorization: `Bearer ${key}` },
     body: JSON.stringify({ email, fields: { source: src }, groups: process.env.MAILERLITE_GROUP_ID ? [process.env.MAILERLITE_GROUP_ID] : undefined }) });
   if (!r.ok) return Response.json({ ok: false, error: "provider " + r.status }, { status: 502 });

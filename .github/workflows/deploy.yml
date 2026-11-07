@@ -10,6 +10,9 @@ jobs:
       VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
       PACK_DEPLOY_KEY: ${{ secrets.PACK_DEPLOY_KEY }}
       STRIPE_API_KEY: ${{ secrets.STRIPE_API_KEY }}
+      MAILJET_API_KEY: ${{ secrets.MAILJET_API_KEY }}
+      MAILJET_SECRET_KEY: ${{ secrets.MAILJET_SECRET_KEY }}
+      CRON_SECRET: ${{ secrets.CRON_SECRET }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -36,6 +39,13 @@ jobs:
               printf '%s' "$STRIPE_API_KEY" | timeout 60 vercel env add STRIPE_API_KEY production --token "$VERCEL_TOKEN" >/dev/null && echo "STRIPE_API_KEY env added"
             else echo "STRIPE_API_KEY env present"; fi
           fi
+          # Email reminder env (Mailjet keys + cron secret), added once, values never printed
+          timeout 60 vercel link --yes --project receipts --token "$VERCEL_TOKEN" >/dev/null 2>&1 || true
+          ENVS=$(timeout 60 vercel env ls production --token "$VERCEL_TOKEN" 2>/dev/null || true)
+          for V in MAILJET_API_KEY MAILJET_SECRET_KEY CRON_SECRET; do
+            VAL="${!V}"; [ -n "$VAL" ] || continue
+            if ! echo "$ENVS" | grep -q "^ *$V "; then printf '%s' "$VAL" | timeout 60 vercel env add "$V" production --token "$VERCEL_TOKEN" >/dev/null && echo "$V env added"; else echo "$V env present"; fi
+          done
           timeout 420 vercel deploy --prod --yes --token "$VERCEL_TOKEN" | tee url.txt
           URL=$(tail -1 url.txt)
           for i in $(seq 1 30); do

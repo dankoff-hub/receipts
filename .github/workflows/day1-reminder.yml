@@ -1,0 +1,16 @@
+name: Day-1 reminder (hourly)
+on:
+  schedule: [{cron: "15 * * * *"}]
+  workflow_dispatch:
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    env: { CRON_SECRET: "${{ secrets.CRON_SECRET }}" }
+    steps:
+      - name: Trigger /api/reminders/run
+        run: |
+          [ -n "$CRON_SECRET" ] || { echo "CRON_SECRET not set; skipping"; exit 0; }
+          R=$(curl -s -m 70 -w '\n%{http_code}' -X POST -H "x-cron-key: $CRON_SECRET" https://receiptspack.vercel.app/api/reminders/run)
+          echo "$R" | tail -1 | grep -q '^200$' || { echo "http $(echo "$R" | tail -1): $(echo "$R" | head -1)"; exit 1; }
+          echo "$R" | head -1 | tee -a $GITHUB_STEP_SUMMARY
