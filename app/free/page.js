@@ -53,5 +53,5 @@ return <main style={{maxWidth:520,margin:"0 auto",padding:16}}>
 <b>I am doing the 30 days in public.</b>
 <p style={{color:"#bbb",margin:"8px 0 0 0"}}>One receipt a day, same system. Watch it hold or break: <a href="https://instagram.com/danrossi2026" style={{color:"#fff"}}>Instagram</a> · <a href="https://www.youtube.com/channel/UC_Io87isTmHUvzIAs-RwiFw" style={{color:"#fff"}}>YouTube</a> · <a href="https://bsky.app/profile/danrossi2026.bsky.social" style={{color:"#fff"}}>Bluesky</a></p>
 </div>
-<p style={{fontSize:12,color:"#666",marginTop:24}}>Receipts is a self-reflection and goal tool, not therapy or medical advice.</p>
+<p style={{fontSize:12,color:"#666",marginTop:24}}>Receipts is a self-reflection and goal tool, not therapy or medical advice. <a href="/privacy" style={{color:"#888"}}>Privacy</a></p>
 </main>}

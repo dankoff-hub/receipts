@@ -28,4 +28,4 @@ export default function H(){return <main>
 {faq.map(([q,a])=><div key={q} style={card}><b>{q}</b><div style={{color:"#bbb"}}>{a}</div></div>)}
 
 <div style={{margin:"40px 0"}}><a href={PAY} style={btn}>Start your 30 days — $29</a></div>
-<p><a href="/pricing" style={{color:"#aaa"}}>Pricing</a></p></main>}
+<p><a href="/pricing" style={{color:"#aaa"}}>Pricing</a> · <a href="/privacy" style={{color:"#aaa"}}>Privacy</a></p></main>}
