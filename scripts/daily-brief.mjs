@@ -32,6 +32,7 @@ ${tags}
 let swarm = "";
 try { swarm = execSync("node scripts/target-check.mjs", { env: process.env }).toString().trim(); } catch (e) { swarm = "swarm check failed"; }
 const title = `Post today: Day ${day + 1} — ${s.hook}`;
-const bodyWithSwarm = body + "\n\n---\n**Swarm survival:** " + swarm;
+const skoolQ = (() => { try { const q = fs.readFileSync("content/skool-queue.md", "utf8"); const i = q.lastIndexOf("\n## "); return i >= 0 ? q.slice(i) : ""; } catch { return ""; } })();
+const bodyWithSwarm = body + "\n\n---\n**Swarm survival:** " + swarm + (skoolQ ? "\n\n---\n**Skool (paste by hand — see docs/skool-playbook.md)**" + skoolQ : "");
 fs.writeFileSync("/tmp/body.md", bodyWithSwarm);
 execSync(`gh issue create --title ${JSON.stringify(title)} --body-file /tmp/body.md --label daily-brief`, { stdio: "inherit" });

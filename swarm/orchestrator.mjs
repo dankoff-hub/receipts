@@ -24,6 +24,7 @@ if (live === 0) { console.log("all providers cooling down — exhausted; resume 
 stage("hunter"); try { process.stdout.write(sh("node swarm/hunter.mjs")); } catch (e) { console.log("hunter error", e.message); }
 stage("closer"); try { process.stdout.write(sh("node swarm/closer.mjs")); } catch (e) { console.log("closer error", e.message); }
 stage("creative"); try { sh("node swarm/creative.mjs"); } catch (e) { console.log("creative error", e.message); }
+stage("skool"); try { process.stdout.write(sh("node swarm/skool.mjs")); } catch (e) { console.log("skool error", e.message); }
 reloadQuota(); saveQuota();
 
 // 4) attribution — Stripe (read) + post log

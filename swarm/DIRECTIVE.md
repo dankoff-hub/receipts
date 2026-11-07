@@ -115,3 +115,7 @@ This is an absolutely zero-cost autonomous revenue operation. Execute.
 - Founder answer to "Should the Closer send replies on Bluesky unattended?": **"40/day. do posts and replies on other platforms as well. target is revenue."**
 - Effect: repo vars `CLOSER_SEND=1`, `CLOSER_DAILY_CAP=40`. Closer sends on Bluesky as @danrossi2026.bsky.social unattended, paced ≤8 per cycle, cycles every 2h, 1 reply/author ever, LLM relevance re-check + brand-safety self-check, link only when a template is explicitly requested; every reply logged in `swarm/CLOSER_LOG.json`. Sellers/apps/politics are skipped.
 - Scope extends to other platforms where a founder-owned account can be created and used on free, no-card infrastructure within each platform's ToS (Mastodon, Lemmy; Reddit only after API approval). Paid ads, X, and any payment/legal action remain banned.
+
+## Skool gate (founder request 2026-11-07 "Target skool platform")
+- Skool platform policy bans bots posting/commenting/messaging, scraping and automation requests; Terms §4 ban automated access and commercial solicitation of users; no public API; owning a community needs a card. → **Critical tier**: no agent may log in to, read programmatically, post to or message on skool.com. No cookie/extension/headless workarounds.
+- Compliant path: `swarm/skool.mjs` prepares daily human-published material (`content/skool-queue.md`, surfaced in the daily brief); the Creative agent targets the 30-day-challenge audience on channels we do own. Playbook: `docs/skool-playbook.md`.
