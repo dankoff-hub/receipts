@@ -123,3 +123,6 @@ This is an absolutely zero-cost autonomous revenue operation. Execute.
 
 ## Amendment 2026-11-07 — Followers first
 Followers lead to revenue. Medium-tier autonomous: follow-back new followers (Bluesky, Mastodon), reply to every mention/reply/quote as Dan (non-promotional, ends with a question, ≤COMMUNITY_REPLY_CAP=20/day), follow ≤FOLLOW_DAILY_CAP=20/day/platform Tier ≤2 lead authors. Forbidden: unfollow churn, follow/unfollow automation, bought followers, engagement pods. Instagram/TikTok/YouTube have no free engagement API → growth there is via content only (follow CTA variant, caption follow lines, carousels).
+
+## Amendment 2026-11-07 — Tappable path
+No CTA may point at something the viewer cannot tap on that platform. Videos/carousels say "link in my profile"; captions are platform-specific (see CLAUDE.md). Founder-only steps: TikTok profile links (Instagram, YouTube) and Business switch; Instagram bio link → receiptspack.vercel.app/free?src=ig; YouTube channel link + pinned comment with URL; a free email sender for the day-1 reminder. Refund guarantee = Critical tier (founder decision).

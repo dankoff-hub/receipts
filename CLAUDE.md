@@ -172,3 +172,9 @@ curl -sI https://receipts-blond.vercel.app/videos/day-001.mp4 | head -1
 - audience-watch tracks `bluesky_followers`, `mastodon_followers`, `followers_total_known` (+d7).
 - post-social slots b/d now push the newest rendered video to Mastodon (`/api/v2/media`, polled). Bluesky video not implemented.
 - Captions never run into the 2 s end card (clamped in render-v2).
+
+## 2026-11-07 — Customer journey (tappable path rule)
+- Rule: a URL on screen / in an IG or TikTok caption is NOT tappable. Every CTA names only what the thumb can hit on that platform: IG "link in bio"; TikTok "link in my profile (tap Instagram)" (personal TikTok <1k followers has no website field — founder must add Instagram + YouTube links to the TikTok profile, or switch to Business + verification); YouTube "link in the description" + full URL in every caption; Bluesky/Mastodon real links in every post (facets) and in bios. Spoken CTA in videos: "link in my profile". Carousel CTA slide the same. Short alias `receiptspack.vercel.app` (added via alias-setup.yml; old receipts-blond keeps working) is the typed fallback.
+- /free: headline message-matches `?src=` (ig/tt/yt/bsky/masto), Step 1-of-5 progress bar + "I wrote my receipt" tick (endowed progress, Nunes & Drèze 2006; foot-in-the-door, Freedman & Fraser 1966), instant printable `/free/sheet` (no email gate), honest reminder copy (API returns `sends:false` until an email provider exists — nothing is emailed yet), "what happens after you pay", public-proof links. /bio: same trust line + watch-me links.
+- Evidence from journey-check: 8 Stripe checkout sessions opened (Nov 3–6), 0 paid; 1 subscriber stored. Next lever: a free email sender (Brevo/MailerLite, no card) so the day-1 reminder is real.
+- `content/profile.json` + `scripts/profile-sync.mjs` (profile-sync.yml on change) keep Bluesky/Mastodon bios pointing at the short link.
