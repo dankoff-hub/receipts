@@ -12,7 +12,7 @@
    "auth": "GROQ_API_KEY secret (optional)",
    "limit": "14,400 req/day",
    "cooldown_until": 0,
-   "calls": 55,
+   "calls": 56,
    "fails": 3,
    "last_error": "400 {\"error\":{\"message\":\"'messages' must contain the word 'json' in some form, to use 'response_format' of type 'json_object'.\",\"type\":\"invalid_request_error\"}}\n"
   },
@@ -20,7 +20,7 @@
    "card": false,
    "auth": "NVIDIA_API_KEY secret (set 2026-11-06); model google/gemma-4-31b-it (llama-3.x EOL on NIM)",
    "limit": "~40 RPM",
-   "cooldown_until": 1794014383069,
+   "cooldown_until": 0,
    "calls": 0,
    "fails": 2,
    "last_error": "This operation was aborted"
@@ -56,6 +56,6 @@
   "qwen": "device-code OAuth — founder-only login",
   "puter": "browser session — founder-only login"
  },
- "rotation_offset": 1,
- "updated": "2026-11-07T01:18:25.468Z"
+ "rotation_offset": 2,
+ "updated": "2026-11-07T01:25:27.008Z"
 }
