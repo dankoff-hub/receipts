@@ -1,15 +1,17 @@
-name: Daily videos (4 slots) + IG carousel + photo → TikTok + Instagram + YouTube + Bluesky/Mastodon posts
-# Four slots per day: 08/12/16/20 UTC (a/b/c/d). Each slot generates one new video
-# (unique script, per-channel captions) and posts the OLDEST not-yet-posted video to every
+name: "Daily videos (2 slots: 09:00 + 19:00 UTC) + IG carousel + photo → TikTok + Instagram + YouTube + Bluesky/Mastodon posts"
+# Two slots a day (09:00 + 19:00 UTC = a/c). Each slot generates one new video from the
+# 30-day run spine (content/daily-run-scripts.md) and posts the OLDEST not-yet-posted video to every
 # channel — max 1 per channel per run; daily caps: TikTok 2 (Buffer free), Instagram 4, YouTube 4.
 # Volume is the first lever in scripts/growth-model.py (see content/growth-model.json).
 # A cancelled/failed run self-heals: its videos stay pending and go out next slot.
+# 2026-11-07 founder decision: 2 video slots a day (09:00 and 19:00 UTC = 09:00/19:00 London) instead of 4 —
+# near-identical videos 4x/day on a 0-follower account train the feeds to under-distribute. Slots b/d are GONE;
+# the 09:00 run also does the IG carousel, the 19:00 run also does the IG photo. publish-pending caps unchanged
+# (TikTok 2/day — exactly our two posts; IG 4/day leaves room for carousel+photo).
 on:
   schedule:
-    - cron: "0 8 * * *"
-    - cron: "0 12 * * *"
-    - cron: "0 16 * * *"
-    - cron: "0 20 * * *"
+    - cron: "0 9 * * *"
+    - cron: "0 19 * * *"
   workflow_dispatch:
     inputs:
       slot:
@@ -52,13 +54,13 @@ jobs:
         run: |
           SLOT="${{ github.event.inputs.slot }}"
           H=$(date -u +%H)
-          if [ -z "$SLOT" ]; then if [ "$H" -lt 10 ]; then SLOT=a; elif [ "$H" -lt 14 ]; then SLOT=b; elif [ "$H" -lt 18 ]; then SLOT=c; else SLOT=d; fi; fi
-          case "$SLOT" in am) SLOT=a;; pm) SLOT=b;; esac
+          if [ -z "$SLOT" ]; then if [ "$H" -lt 14 ]; then SLOT=a; else SLOT=c; fi; fi   # 2 slots: a=09:00 (video+carousel), c=19:00 (video+photo)
+          case "$SLOT" in b) SLOT=a;; d) SLOT=c;; am) SLOT=a;; pm) SLOT=c;; esac
           N=$(( ( $(date +%s) - $(date -d 2026-11-03 +%s) ) / 86400 ))
-          case "$SLOT" in a) S=0; SUF="";; b) S=1; SUF=b;; c) S=2; SUF=c;; *) S=3; SUF=d;; esac
+          case "$SLOT" in a) S=0; SUF="";; *) S=1; SUF=c;; esac
           F="public/videos/day-$(printf %03d $(( N + 1 )))${SUF}.mp4"
           echo "slot=$SLOT" >> $GITHUB_OUTPUT
-          echo "idx=$(( N * 4 + S ))" >> $GITHUB_OUTPUT
+          echo "idx=$(( N * 2 + S ))" >> $GITHUB_OUTPUT
           echo "label=$(( N + 1 ))" >> $GITHUB_OUTPUT
           echo "f=$F" >> $GITHUB_OUTPUT
           if [ -f "$F" ]; then echo "new=false" >> $GITHUB_OUTPUT; else echo "new=true" >> $GITHUB_OUTPUT; fi
@@ -68,8 +70,8 @@ jobs:
       - if: steps.day.outputs.new == 'true'
         name: Caption studio (unique per-channel captions, never repeated)
         run: node scripts/caption-studio.mjs ${{ steps.day.outputs.f }}
-      - if: steps.day.outputs.slot == 'b'
-        name: Instagram carousel (slot b only; next unused script, 6 slides, unique caption)
+      - if: steps.day.outputs.slot == 'a'
+        name: Instagram carousel (morning slot; next unused script, 6 slides, unique caption)
         run: |
           pip install -q pillow
           C="public/carousels/car-$(printf %03d ${{ steps.day.outputs.label }})"
@@ -96,7 +98,7 @@ jobs:
           node scripts/post-photo.mjs || true
       - name: Bluesky + Mastodon original post (slot a text, slot c photo+link, slots b/d video → Mastodon; never repeated)
         run: node scripts/post-social.mjs --slot=${{ steps.day.outputs.slot }} || true
-      - if: steps.day.outputs.slot == 'b' && env.car != ''
+      - if: steps.day.outputs.slot == 'a' && env.car != ''
         name: Post carousel to Instagram (1/day)
         run: |
           if grep -q "\"video\": \"$(basename $car)\"" content/post-log.json && grep -q "\"status\": \"sent\"" content/post-log.json && node -e "const l=require('./content/post-log.json');process.exit(l.some(p=>p.video==='$(basename $car)'&&p.status==='sent')?0:1)"; then echo "carousel already posted"; else node scripts/post-carousel.mjs "$car" || true; fi

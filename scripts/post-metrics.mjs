@@ -68,3 +68,28 @@ sb.history.push({ date: new Date().toISOString().slice(0, 10), youtube_subs: las
 fs.writeFileSync("content/audience-scoreboard.json", JSON.stringify(sb, null, 1));
 console.log(JSON.stringify(perf, null, 1));
 console.log("scoreboard:", JSON.stringify(sb.history[sb.history.length - 1]));
+
+// ---- 2026-11-07 founder directive: daily performance review — top/bottom yesterday + what to change tomorrow
+// Written to content/performance-review.md and echoed; the audience issue links it.
+try {
+  const yest = new Date(Date.now() - 24 * 3600e3).toISOString().slice(0, 10);
+  const recent = rows.filter(r => r.sentAt?.slice(0, 10) === yest && r.views != null).sort((a, b) => b.views - a.views);
+  const watchMed = med(rows.filter(x => x.avgWatch != null && x.channel === "instagram").map(x => x.avgWatch)) || 0;
+  const retention = recent.length ? Math.round(100 * (recent[0].avgWatch || 0) / (load(`public/videos/${recent[0].video}.json`, {}).duration || 15)) : null;
+  const lines = [
+    `# Performance review — ${yest}`,
+    "",
+    `- Posts measured: ${recent.length} | IG median watch yesterday: ${watchMed}s (target: >5s on a ~10s video)`,
+    `- Best: ${recent[0] ? `${recent[0].hook} — ${recent[0].views} views, ${recent[0].avgWatch}s watch (${retention}% retention)` : "no data"}`,
+    `- Worst: ${recent.at(-1) ? `${recent.at(-1).hook} — ${recent.at(-1).views} views` : "no data"}`,
+    "",
+    "## Tomorrow's changes (auto)",
+    recent.length > 3 && recent[0].views >= 3 * Math.max(recent.at(-1).views, 1)
+      ? `- The winning hook style ("${recent[0].hook?.slice(0, 40)}…") gets a sequel; the losing style ("${recent.at(-1).hook?.slice(0, 40)}…") is retired from new scripts.`
+      : "- Sample too small to pick a winner — keep the daily-run spine identical and judge on the full week.",
+    watchMed > 0 && watchMed < 3 ? "- IG watch time still under 3s: tomorrow's script must be under 10s spoken, hook card ≤1.3s, one ask." : "- IG watch time acceptable; no format change.",
+    `- Run status: day ${Math.ceil((Date.now() - Date.parse("2026-11-07")) / 86400e3)} of the 30-day run spine.`,
+  ];
+  fs.writeFileSync("content/performance-review.md", lines.join("\n") + "\n");
+  console.log("performance review written");
+} catch (e) { console.log("performance review skipped:", e.message); }

@@ -36,6 +36,15 @@ def _fetch(url, dst, limit_mb=120):
             if n > limit_mb << 20: raise RuntimeError("too big")
     return dst
 
+def pick_persona(rng):
+    # 2026-11-07 founder directive: daily-run spine — Dan's own receipts/life as the visual (assets/persona).
+    # Never the same photo two days running (seeded by day, not by slot).
+    import datetime as _dt
+    pool = _load("assets/persona/pool.json", {}).get("photos", [])
+    if not pool: return None
+    day = int((_dt.datetime.utcnow() - _dt.datetime(2026,11,7)).total_seconds() // 86400)
+    return {"file": f"assets/persona/{pool[day % len(pool)]}", "name": pool[day % len(pool)]}
+
 def pick_broll(theme, rng):
     pool = _load("content/broll-pool.json", {}).get("clips", [])
     c = [x for x in pool if x.get("theme") == theme]
@@ -91,7 +100,9 @@ def render(hook, speech, url, day, out, seed=0, variant=None):
     if music: meta["music"] = {"id": music["id"], "mood": music.get("mood"), "title": music.get("title")}
     else: variant["music"] = "off"
     # ---- background
-    broll = pick_broll(variant["bg"], rng) if variant["bg"] != "gradient" else None
+    # 2026-11-07: persona photo background by default (the daily run IS the content); Mixkit b-roll only for explicit themes
+    persona = pick_persona(rng) if variant.get("bg") in (None, "persona", "gradient") else None
+    broll = pick_broll(variant["bg"], rng) if variant.get("bg") in ("city", "nature", "other") else None
     if broll: meta["broll"] = {"id": broll["id"], "theme": broll["theme"], "title": broll.get("title"), "vertical": broll.get("vertical")}
     else: variant["bg"] = "gradient"
     c0, c1 = PALETTES[seed % len(PALETTES)]
@@ -167,7 +178,7 @@ def render(hook, speech, url, day, out, seed=0, variant=None):
             t0 += seg
     # persistent brand + URL, end card
     f.append(f"drawtext=fontfile={FONT}:text='RECEIPTS  ·  DAY {day}':fontcolor=0xcccccc:fontsize=34:x=(w-text_w)/2:y=h-230:enable='lt(t,{dur-1:.2f})'")
-    f.append(f"drawtext=fontfile={FONT}:text='{esc(url)}':fontcolor=0xf2c94c:fontsize=42:borderw=4:bordercolor=black@0.6:x=(w-text_w)/2:y=h-170:enable='lt(t,{dur-1:.2f})'")
+    f.append(f"drawtext=fontfile={FONT}:text='{esc(url)}':fontcolor=white:fontsize=42:borderw=5:bordercolor=black@0.85:x=(w-text_w)/2:y=h-170:enable='lt(t,{dur-1:.2f})'")
     if variant.get("cta") == "follow":  # follow-first end card
         f.append(f"drawtext=fontfile={FONT}:text='FOLLOW':fontcolor=0xf2c94c:fontsize=120:borderw=6:bordercolor=black@0.5:x=(w-text_w)/2:y=h/2-200:enable='gte(t,{dur-1:.2f})'")
         f.append(f"drawtext=fontfile={FONT}:text='for day {day+1} tomorrow':fontcolor=white:fontsize=64:x=(w-text_w)/2:y=h/2-40:enable='gte(t,{dur-1:.2f})'")
@@ -183,6 +194,13 @@ def render(hook, speech, url, day, out, seed=0, variant=None):
     # ---- inputs: 0 = background, then audio inputs
     cmd = ["ffmpeg", "-y", "-loglevel", "error"]
     if broll: cmd += ["-stream_loop", "-1", "-i", broll["file"]]
+    elif persona:
+        cmd += ["-loop", "1", "-t", f"{dur:.2f}", "-i", persona["file"]]
+        f.insert(0, f"scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,setsar=1,fps=30")
+        # slow ken-burns push on the photo; darken bottom half where captions sit
+        f.insert(1, f"zoompan=z='min(1+0.0006*on,1.15)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s=1080x1920:fps=30")
+        f.insert(2, "eq=saturation=1.05,drawbox=x=0:y=ih*0.35:w=iw:h=ih*0.65:color=black@0.35:t=fill")
+        meta["persona"] = persona["name"]
     else: cmd += ["-f", "lavfi", "-i", f"gradients=s=1080x1920:c0={c0}:c1={c1}:x0=0:y0=0:x1=1080:y1=1920:speed=0.08:d={dur:.2f}:r=30"]
     fc = [f"[0:v]{vf}[v]"]; ai = 1; mixes = []
     if variant["voice"] == "on":

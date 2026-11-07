@@ -29,8 +29,10 @@ jobs:
           python3 scripts/growth-model.py 600 | tee /tmp/model.txt
           ISSUE=$(gh issue list -l audience -L 1 --json number --jq '.[0].number' || true)
           if [ -n "$ISSUE" ]; then printf '### Audience scoreboard\n```\n%s\n```\n### Growth model (daily)\n```\n%s\n```\nLevers A–H run on free infra; I (founder time) and J ($3k creator seeding) need the founder. See content/growth-plan.md.\n' "$(tail -c 1500 /tmp/perf.txt)" "$(cat /tmp/model.txt)" | gh issue comment "$ISSUE" -F -; fi
+      - name: Daily performance review (top/bottom post, retention, tomorrow's change)
+        run: cat content/performance-review.md 2>/dev/null || true
       - name: Commit audience data
         run: |
           git config user.name dankoff-hub; git config user.email 345066702+dankoff-hub@users.noreply.github.com
-          git add content/audience-history.json content/audience-config.json content/strategy-brief.json content/post-log.json content/growth-model.json content/post-metrics.json content/audience-scoreboard.json content/variant-policy.json
+          git add content/audience-history.json content/audience-config.json content/strategy-brief.json content/post-log.json content/growth-model.json content/post-metrics.json content/audience-scoreboard.json content/performance-review.md content/variant-policy.json
           bash scripts/git-push-safe.sh "Audience watch: daily stats + strategy brief"

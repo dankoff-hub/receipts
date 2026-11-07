@@ -6,6 +6,10 @@ import os as _os
 md = open("content/launch-scripts.md").read()
 if _os.path.exists("content/forge-scripts.md"):
     md += "\n" + open("content/forge-scripts.md").read()
+# 2026-11-07 founder directive: the 30-day run (Dan's own receipts) is the content spine — it goes first.
+_spine = "content/daily-run-scripts.md"
+if _os.path.exists(_spine):
+    md = open(_spine).read() + "\n" + md
 def _clean_hook(h): return re.sub(r"\s*\[[^\]]*\]\s*$", "", h).strip()  # drop "[platform/format]" tags from creative headers
 S = [dict(n=int(m[0]), hook=_clean_hook(m[1]), say=m[2], body=m[3], cta=m[4]) for m in re.findall(r"## (\d+)\. (.+)\n- Hook[^\n]*\n- Say: (.+)\n- Body: (.+)\n- CTA: (.+)", md)]
 # no-repeat guarantee: pick the first script not yet used (content/script-ledger.json)
