@@ -2,7 +2,11 @@
 import fs from "node:fs";
 import { execSync } from "node:child_process";
 import { Q, saveQuota, reloadQuota } from "./llm.mjs";
-const sh = (c) => execSync(c, { stdio: ["ignore", "pipe", "inherit"], env: process.env }).toString();
+import { spawnSync } from "node:child_process";
+const LOGP = "swarm/CYCLE_LOG.txt"; let clog = `\n===== cycle ${new Date().toISOString()} =====\n`;
+// run a stage, keep stdout+stderr in swarm/CYCLE_LOG.txt (committed) so failures are diagnosable without Actions log access
+const sh = (c) => { const r = spawnSync("bash", ["-lc", c], { env: process.env, encoding: "utf8", maxBuffer: 16e6 }); const out = (r.stdout || "") + (r.stderr || ""); clog += `--- ${c}\n${out.slice(-6000)}`; process.stderr.write(r.stderr || ""); if (r.status !== 0) throw new Error(`${c} exit ${r.status}: ${(r.stderr || "").slice(-300)}`); return r.stdout || ""; };
+process.on("exit", () => { try { const prev = fs.existsSync(LOGP) ? fs.readFileSync(LOGP, "utf8") : ""; fs.writeFileSync(LOGP, (prev + clog).split("\n").slice(-600).join("\n")); } catch {} });
 const CK = "swarm/CHECKPOINT.json"; const ck = fs.existsSync(CK) ? JSON.parse(fs.readFileSync(CK, "utf8")) : {};
 const cycle = new Date().toISOString(); const stage = s => { ck.stage = s; ck.at = new Date().toISOString(); fs.writeFileSync(CK, JSON.stringify(ck, null, 1)); console.log(`[${s}]`); };
 
