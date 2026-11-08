@@ -173,6 +173,19 @@
    "provider": "groq",
    "platform": "bluesky",
    "status": "sent"
+  },
+  {
+   "at": "2026-11-08T23:03:12.190Z",
+   "id": "at://did:plc:muntmh44dc4dud5t3nh2vazc/app.bsky.feed.post/3mztdnfs4q22e",
+   "url": "https://bsky.app/profile/theorchidshow.myatproto.social/post/3mztdnfs4q22e",
+   "author": "theorchidshow.myatproto.social",
+   "tier": 2,
+   "why": "mentions starting reading habit",
+   "reply": "Your goal to finish those books shows confidence—tomorrow, set aside 30 minutes to read the first chapter of each.",
+   "reply_url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mztjgrtzn42e",
+   "provider": "groq",
+   "platform": "bluesky",
+   "status": "sent"
   }
  ],
  "skipped": [
@@ -808,6 +821,46 @@
    "author": "ninryu.bsky.social",
    "tier": 2,
    "why": "not a personal goal: Not about habit or challenge"
+  },
+  {
+   "at": "2026-11-08T23:03:03.322Z",
+   "id": "at://did:plc:noqzpjkgavudzncwepzv5x7j/app.bsky.feed.post/3mzth3ndwiz2q",
+   "url": "https://bsky.app/profile/junaidsamodien.bsky.social/post/3mzth3ndwiz2q",
+   "author": "junaidsamodien.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: no habit or goal mentioned"
+  },
+  {
+   "at": "2026-11-08T23:03:03.826Z",
+   "id": "at://did:plc:jvtxiigu7cg3zkigqtqhwsrn/app.bsky.feed.post/3mztelujuhs2i",
+   "url": "https://bsky.app/profile/mariaevajarrous.bsky.social/post/3mztelujuhs2i",
+   "author": "mariaevajarrous.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: asks general info, no habit goal"
+  },
+  {
+   "at": "2026-11-08T23:03:04.102Z",
+   "id": "at://did:plc:wxejaro4cmdct7nlv2zkpkcf/app.bsky.feed.post/3mzteleuuak2n",
+   "url": "https://bsky.app/profile/studentofetherium.bsky.social/post/3mzteleuuak2n",
+   "author": "studentofetherium.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: no habit or accountability request"
+  },
+  {
+   "at": "2026-11-08T23:03:04.369Z",
+   "id": "at://did:plc:7zoymjqc22imdni34yvvh4ul/app.bsky.feed.post/3mztdvzuwls2z",
+   "url": "https://bsky.app/profile/rougethebattie.bsky.social/post/3mztdvzuwls2z",
+   "author": "rougethebattie.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: no habit or goal mentioned"
+  },
+  {
+   "at": "2026-11-08T23:03:12.766Z",
+   "id": "at://did:plc:hpafu4stfnkdxowxei4ugdmt/app.bsky.feed.post/3mztdme2ktc2f",
+   "url": "https://bsky.app/profile/firstnamebob.bsky.social/post/3mztdme2ktc2f",
+   "author": "firstnamebob.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: Not about habit or goal"
   }
  ]
 }
