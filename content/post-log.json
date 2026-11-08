@@ -532,5 +532,25 @@
   "why": null,
   "captionHash": "1e626bdc5945",
   "slug": "freelance-pitch-no-log"
+ },
+ {
+  "ts": "2026-11-08T18:54:03.228Z",
+  "channel": "bluesky",
+  "kind": "video",
+  "status": "skipped",
+  "url": null,
+  "why": "bluesky video not implemented",
+  "captionHash": "b1330d998e6000aa5a5e7c06cda11374",
+  "video": "day-006.mp4"
+ },
+ {
+  "ts": "2026-11-08T18:54:10.058Z",
+  "channel": "mastodon",
+  "kind": "video",
+  "status": "sent",
+  "url": "https://mastodon.social/@danrossi2026/117582335171745542",
+  "why": null,
+  "captionHash": "b1330d998e6000aa5a5e7c06cda11374",
+  "video": "day-006.mp4"
  }
 ]
