@@ -698,7 +698,8 @@
     "dm_followup": "Your latest piece on disciplined action in \"The Improvement Journal\" really hits the core of turning intent into results. We’d love to give you the full Receipts pack free at receiptspack.vercel.app/free so you can test it with your readers. If you share the partner link receiptspack.vercel.app/p/improvebypathsof, you’ll earn 50% of each sale ($14.50) via monthly PayPal payouts—no quotas, no exclusivity. Interested? — Dan, Receipts"
    },
    "ig_dead": true,
-   "substack_blocked": true
+   "substack_blocked": true,
+   "route_exhausted": true
   },
   "https://thesoftstoic.substack.com": {
    "title": "The Soft Stoic Letter (Luise)",
@@ -778,7 +779,8 @@
     "dm_opener": "Hi Own Your Ambition (Bonnie Marcus) — I read your work and liked it. Question: do you take partner collabs?",
     "dm_followup": "Your newsletter “Own Your Ambition” calls out the workplace barriers that keep ambitious women from moving forward, and that’s exactly the friction our $29, 30‑day proof system solves – keep the receipt, then make it irrelevant. We’ll send you the full pack free at receiptspack.vercel.app/free and give you a unique partner link receiptspack.vercel.app/p/bonniemarcus1 that pays you 50% of every sale ($14.50) monthly via PayPal, with no quota or exclusivity. Interested in testing it out? — Dan, Receipts"
    },
-   "substack_blocked": true
+   "substack_blocked": true,
+   "route_exhausted": true
   },
   "https://mattskura.substack.com": {
    "title": "Matt Skura's Newsletter",
@@ -806,7 +808,8 @@
     "dm_opener": "Hi Matt Skura's Newsletter — I read your work and liked it. Question: do you take partner collabs?",
     "dm_followup": "Your focus on resilience and mental health in Matt Skura's Newsletter aligns with our goal of helping people prove they’re ready. We’d love to send you the full Receipts pack free at receiptspack.vercel.app/free. Partner link receiptspack.vercel.app/p/mattskura pays 50% of each $29 sale ($14.50) monthly via PayPal, no quota, no exclusivity. Interested? — Dan, Receipts"
    },
-   "substack_blocked": true
+   "substack_blocked": true,
+   "route_exhausted": true
   },
   "https://xtreme007.beehiiv.com": {
    "title": "Xtreme Motivation (Anton Cupido)",
@@ -944,7 +947,8 @@
     "dm_opener": "Hi The Art of The Impossible (Danielle Newnham) — I read your work and liked it. Question: do you take partner collabs?",
     "dm_followup": "Your focus on discipline as the bridge between goals and accomplishment resonates with our approach—turning “not ready” into proof. We’re offering the full Receipts pack free at receiptspack.vercel.app/free, and you can earn 50% of each $29 sale ($14.50) via receiptspack.vercel.app/p/daniellenewnham, paid monthly through PayPal, no quota, no exclusivity. Interested in a quick chat? — Dan, Receipts"
    },
-   "substack_blocked": "2026-11-07 ops Substack account suspended (Spam & Phishing policy) after DM to practicalstoicadvice; appeal = founder"
+   "substack_blocked": "2026-11-07 ops Substack account suspended (Spam & Phishing policy) after DM to practicalstoicadvice; appeal = founder",
+   "route_exhausted": true
   },
   "https://insightsjournal.substack.com": {
    "title": "Insights Journal",
@@ -972,7 +976,8 @@
     "dm_opener": "Hi Insights Journal — I read your work and liked it. Question: do you take partner collabs?",
     "dm_followup": "Your piece on the \"10‑minute comeback\" nails the quick‑action mindset we champion. We’d love to send you the full Receipts pack free at receiptspack.vercel.app/free. Partner link receiptspack.vercel.app/p/insightsjournal earns you 50% of each $29 sale ($14.50) paid monthly via PayPal, with no quota or exclusivity. Interested? — Dan, Receipts"
    },
-   "substack_blocked": "2026-11-07 ops Substack account suspended (Spam & Phishing policy) after DM to practicalstoicadvice; appeal = founder"
+   "substack_blocked": "2026-11-07 ops Substack account suspended (Spam & Phishing policy) after DM to practicalstoicadvice; appeal = founder",
+   "route_exhausted": true
   },
   "@kathyhampton_wellness": {
    "channel_id": "UC853pYj3CM6SwzFZ31uAUeg",

@@ -5,6 +5,7 @@
 // Appends to content/forge-scripts.md in the exact launch-scripts.md format.
 // Runs weekly via content-forge.yml; safe to re-run (appends, never rewrites).
 import fs from "node:fs";
+import { skillHint } from "../swarm/llm.mjs";
 
 const FILE = "content/forge-scripts.md";
 const COUNT = 40; // 4 videos + 1 carousel per day = 35 unique scripts/week
@@ -25,7 +26,7 @@ async function llmScripts() {
   const top = [...(perf.youtube?.top || []), ...(perf.instagram?.top || [])].filter(x => x.hook).map(x => `"${x.hook}" (${x.views} views, ${x.avgWatch ?? "?"}s avg watch)`).slice(0, 6);
   const bottom = [...(perf.youtube?.bottom || []), ...(perf.instagram?.bottom || [])].filter(x => x.hook).map(x => `"${x.hook}"`).slice(0, 4);
   const perfNote = top.length ? `\nPERFORMANCE DATA (real, from our channels): best hooks so far: ${top.join("; ")}. Worst: ${bottom.join("; ")}. Write hooks in the style of the best ones; the first 5 words must create an open loop or a specific concrete image (a name, a number, a place), never an abstract statement. Each script 15-25 seconds spoken.` : "";
-  const prompt = perfNote + `You write TikTok scripts for "Receipts Pack", a $29 one-time 30-day system that turns rejection and spite into a measurable standard and 30 days of proof. Dark-motivation tone, never name real people, B2C, spoken-word style, each 20-40s when read aloud. Vary the angles: investor rejection, boss doubt, ex, coach, family skepticism, being overlooked, being laughed at, being told to be realistic, gatekeepers, "who do you think you are". Output exactly ${COUNT} scripts, numbering from ${startN}, in this exact format (no other text):\n${FORMAT}`;
+  const prompt = perfNote + `You write TikTok scripts for "Receipts Pack", a $29 one-time 30-day system that turns rejection and spite into a measurable standard and 30 days of proof. Dark-motivation tone, never name real people, B2C, spoken-word style, each 20-40s when read aloud. Vary the angles: investor rejection, boss doubt, ex, coach, family skepticism, being overlooked, being laughed at, being told to be realistic, gatekeepers, "who do you think you are". Output exactly ${COUNT} scripts, numbering from ${startN}, in this exact format (no other text):\n${FORMAT}\n` + [skillHint("social-short-form-video-script", 240), skillHint("social-tiktok-growth", 160), skillHint("content-repurposing", 160)].filter(Boolean).join("\n");
   const r = await fetch("https://models.inference.ai.azure.com/chat/completions", {
     method: "POST",
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${tok}` },

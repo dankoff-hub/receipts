@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// CTA copy should follow skills/social-link-in-bio-and-traffic and skills/humanizer. No LLM call in this file.
 // Agent 5 - CTA LAB: rotates conversion lines in captions; consults the survival verdict
 // to raise urgency framing when the swarm is AT RISK. Writes content/cta-bank.json.
 import fs from "node:fs";

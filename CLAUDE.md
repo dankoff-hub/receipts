@@ -39,6 +39,7 @@ Handover context for Claude (Code or chat). Read this first; it is the full oper
 | `revenue-swarm.yml` | cron every 2h at :30 | Lead discovery → creative → attribution ledger |
 | `day1-reminder.yml` | cron hourly :15 | Day-1 reminder send (exit 0 / skip while Mailjet is unconfigured → API 503) |
 | `partner-swarm.yml` | cron 09:00 | Agent 9: Stripe partner ledger (`aff_<code>` in client_reference_id → `content/affiliate-ledger.json`, payout statement issue on the 1st–5th) + partner scout (public YouTube channel search, 1k–200k subs, fit score → `content/partner-prospects.json`, daily "Partner outreach queue" issue) + `partner-drafts.mjs` (one unique LLM-written DM/email per prospect). Sending is done by 3 Perplexity automations (10:20/14:45/19:10 London, ≤20/day, `docs/partner-sender.md`); never pays anyone. |
+| `seo-publisher.yml` | cron 04:15 | 6 unique /guides pages per day from content/seo-keywords.json. No API key. Sitemap includes them. |
 | `content-forge.yml` | cron Sun 04:00 | Weekly script/caption bank refresh |
 | `avatar-render.yml` | cron Fri 08:00 | Weekly avatar video rotation (long CPU render) |
 | `deploy.yml` / `ci.yml` | push | Vercel deploy / build check |

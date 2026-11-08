@@ -1,0 +1,32 @@
+name: SEO publisher
+on:
+  schedule:
+    - cron: "15 4 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: seo-publisher
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: node scripts/seo-publisher.mjs
+      - name: Commit SEO pages only
+        run: |
+          git add content/seo-pages.json
+          staged=$(git diff --cached --name-only)
+          if [ -n "$staged" ]; then
+            bad=$(printf '%s\n' "$staged" | grep -v '^content/seo-pages.json$' || true)
+            if [ -n "$bad" ]; then
+              echo "staged files outside content/seo-pages.json:"
+              printf '%s\n' "$bad"
+              exit 1
+            fi
+          fi
+          bash scripts/git-push-safe.sh "SEO publisher: new guide pages"

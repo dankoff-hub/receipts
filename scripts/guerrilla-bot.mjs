@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// Outreach copy should follow skills/social-link-in-bio-and-traffic and skills/humanizer. No LLM call in this file.
 // Autonomous guerrilla marketing bot — Level 28
 // Runs comment hijacking, Reddit seeding, cross-posting, trend monitoring
 import fs from "node:fs";
