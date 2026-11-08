@@ -26,7 +26,8 @@ async function llmScripts() {
   const top = [...(perf.youtube?.top || []), ...(perf.instagram?.top || [])].filter(x => x.hook).map(x => `"${x.hook}" (${x.views} views, ${x.avgWatch ?? "?"}s avg watch)`).slice(0, 6);
   const bottom = [...(perf.youtube?.bottom || []), ...(perf.instagram?.bottom || [])].filter(x => x.hook).map(x => `"${x.hook}"`).slice(0, 4);
   const perfNote = top.length ? `\nPERFORMANCE DATA (real, from our channels): best hooks so far: ${top.join("; ")}. Worst: ${bottom.join("; ")}. Write hooks in the style of the best ones; the first 5 words must create an open loop or a specific concrete image (a name, a number, a place), never an abstract statement. Each script 15-25 seconds spoken.` : "";
-  const prompt = perfNote + `You write TikTok scripts for "Receipts Pack", a $29 one-time 30-day system that turns rejection and spite into a measurable standard and 30 days of proof. Dark-motivation tone, never name real people, B2C, spoken-word style, each 20-40s when read aloud. Vary the angles: investor rejection, boss doubt, ex, coach, family skepticism, being overlooked, being laughed at, being told to be realistic, gatekeepers, "who do you think you are". Output exactly ${COUNT} scripts, numbering from ${startN}, in this exact format (no other text):\n${FORMAT}\n` + [skillHint("social-short-form-video-script", 240), skillHint("social-tiktok-growth", 160), skillHint("content-repurposing", 160)].filter(Boolean).join("\n");
+  const mech = (() => { try { return JSON.parse(fs.readFileSync("content/product-mechanism.json", "utf8")); } catch { return {}; } })();
+  const prompt = perfNote + `You write TikTok scripts for "Receipts Pack", a $29 one-time 30-day system. The method is one private receipt, then one if-then ("${mech.if_then || "If the old sentence shows up, then I do one counted action."}"), then ${mech.evening || "one line at night"}. Never name real people. Never claim a scientific guarantee, a refund, or income. B2C, spoken-word style, each 15-25s when read aloud. One action only: the free template, link in bio, not a second link. Vary the angles: investor rejection, boss doubt, ex, coach, family skepticism, being overlooked, being laughed at, being told to be realistic, gatekeepers, "who do you think you are". Output exactly ${COUNT} scripts, numbering from ${startN}, in this exact format (no other text):\n${FORMAT}\n` + [skillHint("social-short-form-video-script", 180), skillHint("social-tiktok-growth", 120), skillHint("social-instagram-growth", 120), skillHint("social-link-in-bio-and-traffic", 140), skillHint("marketing-social", 120), skillHint("content-repurposing", 100)].filter(Boolean).join("\n");
   const r = await fetch("https://models.inference.ai.azure.com/chat/completions", {
     method: "POST",
     headers: { "Content-Type": "application/json", Authorization: `Bearer ${tok}` },
@@ -51,9 +52,9 @@ function templateScripts() {
     const n = startN + i;
     out.push(`## ${n}. ${d}
 - Hook: ${d}. So I kept the receipt.
-- Say: ${c} One receipt, one measurable standard, thirty days of evidence. That is the whole system. ${r.charAt(0).toUpperCase() + r.slice(1)} became ${st}. Nobody argues with a streak.
-- Body: Turning one moment of doubt into a 30-day standard is the entire Receipts method — pick the receipt, set the standard, collect daily proof.
-- CTA: The 30-day Receipts system is $29 — link in bio.`);
+- Say: ${c} If that sentence shows up again, then I do ${st}. One line at night. That is the whole system.
+- Body: The receipt stays private. The if-then is the counted action. ${r.charAt(0).toUpperCase() + r.slice(1)} stays in the drawer. ${st} is what you can do tomorrow.
+- CTA: Free template first — link in bio. The pack is $29, one time.`);
   }
   return out.join("\n\n");
 }

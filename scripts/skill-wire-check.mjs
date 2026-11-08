@@ -3,6 +3,8 @@ import fs from "node:fs";
 const checks = [
   ["scripts/partner-drafts.mjs", "humanizer"],
   ["scripts/content-forge.mjs", "social-tiktok-growth"],
+  ["scripts/content-forge.mjs", "social-link-in-bio-and-traffic"],
+  ["scripts/repurpose-post.mjs", "product-mechanism.json"],
   ["swarm/creative.mjs", "social-tiktok-growth"],
 ];
 const missing = [];

@@ -8,6 +8,7 @@ const today = new Date().toISOString().slice(0, 10);
 const LOG = "content/post-log.json";
 const log = fs.existsSync(LOG) ? JSON.parse(fs.readFileSync(LOG, "utf8")) : [];
 const pages = JSON.parse(fs.readFileSync("content/seo-pages.json", "utf8")).pages || {};
+const mechanism = JSON.parse(fs.readFileSync("content/product-mechanism.json", "utf8"));
 const list = Object.values(pages);
 if (!list.length) { console.log("repurpose: no guides yet"); process.exit(0); }
 const used = new Set(log.filter(p => p.status === "sent" && p.captionHash).map(p => p.captionHash));
@@ -26,8 +27,10 @@ function variant(channel) {
   const tail = `Free template: ${link}`;
   const max = channel === "bluesky" ? 300 : 480;
   const room = max - graphemes(tail).length - 2;
-  const a = `${page.h1}. File the no privately, then keep one standard for 30 days. ${page.paragraphs[0]}`;
-  const b = `Not a pep talk. A dated line. ${page.h1} — ${page.paragraphs[2] || page.description}`;
+  const lines = mechanism.post_lines || [];
+  const line = lines[(dayNum + (channel === "bluesky" ? 0 : 5)) % lines.length] || mechanism.if_then;
+  const a = `${line} ${page.h1}.`;
+  const b = `${page.h1}. ${line} ${page.paragraphs[0] || page.description}`;
   const body = capGraphemes(channel === "bluesky" ? a : b, room);
   return `${body}\n\n${tail}`;
 }

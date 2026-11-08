@@ -15,7 +15,7 @@ return <main style={{maxWidth:520,margin:"0 auto",padding:16}}>
 <p style={{...eyebrow,marginBottom:8}}>Receipts · Free Step 1</p>
 <Bar />
 <h1 style={{...h1,fontSize:32,margin:"0 0 12px 0"}}>{from?`You saw the daily receipt on ${from}. Here is Step 1.`:"Write the receipt (10 minutes)"}</h1>
-<p style={{color:C.body}}>Five questions. Paper, notes app or a doc. Write each answer once, then close it. Nobody else sees this. No sign-up.</p>
+<p style={{color:C.body}}>Five questions, then one plan. Paper, notes app or a doc. Write each answer once, then close it. Nobody else sees this. No sign-up. Date the first line. Tomorrow is enough. Next Monday is enough.</p>
 
 <div style={box}><ol style={{margin:"0 0 0 20px",padding:0,lineHeight:1.6}}>
 <li>What was said or done? Write it exactly, once.</li>
@@ -23,6 +23,7 @@ return <main style={{maxWidth:520,margin:"0 auto",padding:16}}>
 <li>What did it make you feel? (dismissed, compared, rejected, underestimated, angry)</li>
 <li>What does this make you want to prove?</li>
 <li>What would make this irrelevant in 90 days?</li>
+<li>If that sentence shows up again, then I will ______ (one counted action: 10 applications, 4 sessions, or 12 pieces).</li>
 </ol>
 <p style={{color:C.muted,marginBottom:0}}>Rule: the receipt is about your standard, not about them. Never contact, name publicly or target the person.</p>
 <a href={"/free/sheet?src="+src} style={{...btnGhost,marginTop:14}}>Open the printable sheet →</a>
@@ -33,13 +34,13 @@ return <main style={{maxWidth:520,margin:"0 auto",padding:16}}>
 <div style={box}><b>Want a day-1 nudge?</b><p style={{color:C.muted,margin:"6px 0 0 0",fontSize:14}}>Leave your email and I will remind you once, on day 1. Nothing else.</p><Capture src={src} /></div>
 
 <h2 style={{marginTop:32,fontSize:26}}>Here is where most people stop.</h2>
-<p style={{color:C.body}}>Writing it down feels good for a day. Without a plan, the feeling fades and nothing changes. The full pack turns your answer to question 4 into a 30-day standard you actually follow.</p>
+<p style={{color:C.body}}>Writing it down feels good for a day. Without a plan, the feeling fades and nothing changes. The full pack turns your answer to question 4 into one if-then, then 30 days of one line at night.</p>
 
 <div style={box}>
 <b>The full pack adds (Steps 2–5):</b>
 <ul style={{color:C.body,margin:"8px 0 0 20px",padding:0,lineHeight:1.6}}>
-<li><b>Standard converter:</b> turn the feeling into one action you control, plus a “minimum day” for bad days</li>
-<li><b>30-day proof plan:</b> week-by-week steps and a daily proof log (PDF)</li>
+<li><b>Standard converter:</b> turn question 4 into one if-then you can count, plus a minimum day for bad days</li>
+<li><b>30-day proof plan:</b> one line at night for 30 days, not a journal (PDF)</li>
 <li><b>Arrival Check:</b> what to keep once you’ve proved it</li>
 <li><b>7-day bridge:</b> moving to your next standard without stalling</li>
 </ul>

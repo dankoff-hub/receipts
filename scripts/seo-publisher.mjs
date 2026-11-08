@@ -8,6 +8,7 @@ import { fileURLToPath } from "url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const kwPath = path.join(root, "content/seo-keywords.json");
 const pagesPath = path.join(root, "content/seo-pages.json");
+const mechanism = (() => { try { return JSON.parse(fs.readFileSync(path.join(root, "content/product-mechanism.json"), "utf8")); } catch { return {}; } })();
 const CAP = Number(process.env.SEO_CAP || 6);
 const BAN = /guarantee|refund|money-back|earn \$|make \$|income|therapy|cure/i;
 function skillBit() {
@@ -21,7 +22,7 @@ function skillBit() {
 const STEPS = [
   [
     "Write the no in one line: what you asked, and what came back.",
-    "Name one standard you can keep on a minimum day.",
+    "Write one if-then: if the old sentence shows up, then I do one counted action.",
     "Log one proof today, then repeat that check for 30 days.",
   ],
   [
@@ -95,7 +96,7 @@ function buildPage(k, list, live) {
     `Do not turn “${k.query}” into a thread. File it once. The free receipt log is the container.`,
   ];
   const standards = [
-    `${k.angle} A standard is a behavior you can do on a tired day. A dated proof is enough.`,
+    `${k.angle} ${mechanism.if_then || "If the old sentence shows up, then do one counted action."} ${mechanism.evening || "One line at night is enough."}`,
     `${k.angle} Skip the streak app if it makes you quit. One dated line still counts.`,
     `${k.angle} The standard has to be checkable without a reply from anyone else.`,
   ];
@@ -133,7 +134,7 @@ async function maybeEnrich(page) {
         model: "llama-3.1-8b-instant",
         temperature: 0.2,
         messages: [
-          { role: "system", content: "Rewrite the user paragraph in under 40 words. Keep the search phrase. Each page must stay unique (seo-programmatic: no doorway duplicates, no thin clones). Do not use the words guarantee, refund, income, therapy, or cure. Do not mention money earned. Return only the paragraph. " + skillBit() },
+          { role: "system", content: "Rewrite the user paragraph in under 40 words. Keep the search phrase. Each page must stay unique (seo-programmatic: no doorway duplicates, no thin clones). Do not use the words guarantee, refund, income, therapy, or cure. Do not mention money earned. The method is one if-then and one evening line, not a scientific guarantee. Return only the paragraph. " + skillBit() },
           { role: "user", content: page.paragraphs[0] },
         ],
       }),

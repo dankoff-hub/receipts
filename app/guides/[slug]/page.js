@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { C, btn, card, eyebrow, h1, h2, sub, link } from "../../theme";
 import pages from "../../../content/seo-pages.json";
+import mechanism from "../../../content/product-mechanism.json";
 
 export function generateStaticParams() {
   return Object.keys(pages.pages || {}).map((slug) => ({ slug }));
@@ -24,6 +25,7 @@ export default function Guide({ params }) {
       {page.paragraphs.map((p) => (
         <p key={p.slice(0, 24)} style={{ color: C.body, fontSize: 17, lineHeight: 1.6 }}>{p}</p>
       ))}
+      <p style={{ color: C.body, fontSize: 17, lineHeight: 1.6 }}>{mechanism.page_line}</p>
       <h2 style={h2}>Three steps</h2>
       <ol style={{ ...card, color: C.body, lineHeight: 1.6, paddingLeft: 36 }}>
         {page.steps.map((s) => <li key={s} style={{ margin: "8px 0" }}>{s}</li>)}

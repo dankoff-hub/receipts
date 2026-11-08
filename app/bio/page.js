@@ -29,8 +29,8 @@ return <main style={{maxWidth:420,margin:"0 auto",padding:16}}>
 <b>How it works</b>
 <ol style={{color:C.body,margin:"8px 0 0 20px",padding:0}}>
 <li>Write the receipt: what they said, once, privately</li>
-<li>Turn it into one standard you control (“apply to 10 roles”, “train 4×/week”)</li>
-<li>Log proof daily, with minimum days so one bad day never breaks the streak</li>
+<li>Write one if-then you can count: if the old sentence shows up, then I do one action</li>
+<li>One line at night for 30 days. A missed day is a blank line</li>
 <li>Arrival Check: decide what you keep after you’ve proved it</li>
 </ol>
 </div>

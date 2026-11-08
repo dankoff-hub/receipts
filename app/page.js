@@ -6,7 +6,8 @@ const faq=[
 ["What do I actually get?","A step-by-step 30-day system: receipt template, standard converter, proof plan, daily log, Arrival Check, and a 7-day bridge to your next goal. Delivered instantly after payment."],
 ["Why not just use a habit tracker?","Trackers count checkmarks. Receipts starts with the reason you care — being doubted — and handles the part trackers ignore: what to do after you’ve proved it."],
 ["What happens after I prove them wrong?","That’s where most people stall. The Arrival Check and 7-day bridge turn the win into a standard you keep, without needing anyone’s doubt."],
-["Is this therapy?","No. It’s a self-reflection and goal system, not medical or mental-health treatment."]];
+["Is this therapy?","No. It’s a self-reflection and goal system, not medical or mental-health treatment."],
+	["Why an if-then?","A vague promise fades on a bad day. If the old sentence shows up, then you already know the one counted action."]];
 export default function H(){
 const pay=PAY+"?client_reference_id="+withRef("home");return <main>
 <p style={eyebrow}>Receipts</p>
@@ -19,8 +20,8 @@ const pay=PAY+"?client_reference_id="+withRef("home");return <main>
 
 <h2 style={h2}>How it works</h2>
 {[["1. Receipt","Write down exactly what was said or done. Privately. Once."],
-["2. Standard","Convert it into one action you control: “apply to 10 roles”, “train 4×/week”, “publish 12 pieces”."],
-["3. Proof","30 days of logged evidence, with minimum days so one bad day never breaks you."],
+["2. If-then","Write one plan you can count: If the old sentence shows up, then I apply to 10 roles, train 4 times, or publish 12 pieces."],
+["3. Proof","30 days. One line at night. A missed day is a blank line, not a reason to stop."],
 ["4. Arrival Check","When you’ve proved it, decide what you keep — so the win doesn’t turn into “now what?”"]].map(([t,d])=><div key={t} style={card}><b>{t}</b><div style={{color:C.body}}>{d}</div></div>)}
 
 <h2 style={h2}>Why it works</h2>

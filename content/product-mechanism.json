@@ -1,0 +1,33 @@
+{
+  "version": "2026-11-08",
+  "price_usd": 29,
+  "stripe": "https://buy.stripe.com/dRm7sEfUs0CQbscfSx3840a",
+  "one_action": "https://receiptspack.vercel.app/free",
+  "if_then": "If the old sentence shows up, then I do one counted action.",
+  "evening": "One line at night. Not a journal.",
+  "start": "Date the first line. Tomorrow is enough. Next Monday is enough.",
+  "page_line": "The plan is one if-then you can count. If the old sentence shows up, then you do one action. At night, write one line.",
+  "do_not_claim": "Do not quote an effect size on the page. Do not promise a result. The 2006 if-then review is larger than the 2024 correction. The method stays. The promise does not.",
+  "sources": [
+    "Gollwitzer and Sheeran, 2006, implementation intentions, if-then plans. https://www.sciencedirect.com/science/chapter/bookseries/abs/pii/S0065260106380021",
+    "Oettingen, WOOP: wish, outcome, obstacle, plan. The receipt is the obstacle. Question 4 is the wish. The if-then is the plan.",
+    "Locke and Latham: a specific counted action beats do your best. https://med.stanford.edu/content/dam/sm/s-spire/documents/PD.locke-and-latham-retrospective_Paper.pdf",
+    "Nunes and Dreze, 2006, endowed progress. https://doi.org/10.1086/500480",
+    "Dai, Milkman, and Riis, 2014, fresh start. https://doi.org/10.1287/mnsc.2014.1901",
+    "Seneca, via L'Estrange public-domain rendering: a review after the day is over. https://www.gutenberg.org/files/56075/56075-h/56075-h.htm"
+  ],
+  "post_lines": [
+    "Write the sentence once. Then write the if-then under it.",
+    "If the old sentence shows up tomorrow, the action is already chosen.",
+    "A counted action beats a mood. Ten applications. Four sessions. Twelve pieces.",
+    "The receipt stays private. The if-then is the part you can do.",
+    "One line at night is the record. A journal is optional.",
+    "Date the first line. Tomorrow counts. Next Monday counts.",
+    "A missed day is a blank line. The if-then is still there the next morning.",
+    "Question 4 is what you want to prove. The plan is the counted action.",
+    "After 30 days, read the lines and keep the standard that still fits.",
+    "Do not send the receipt. File it. Then do the then-clause.",
+    "The obstacle is the sentence they used. The plan is what you do when it returns.",
+    "Start with the free page. Five questions, then one if-then."
+  ]
+}

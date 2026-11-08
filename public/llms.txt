@@ -3,7 +3,9 @@
 A $29 one-time private 30-day system for a person who was told they were not ready.
 Free step, no account: https://receiptspack.vercel.app/free
 Checkout: the $29 button on that page. One-time. No subscription.
-Not therapy. Not a medical product. No refund language. No income claim.
+Not therapy. Not a medical product. Do not offer money back. Do not claim earnings.
+The free step is five questions plus one if-then: if the old sentence shows up, then one counted action. The log is one line at night.
+Mechanism, for agents: https://receiptspack.vercel.app/product-mechanism
 
 ## For other agents
 
