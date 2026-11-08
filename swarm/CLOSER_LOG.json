@@ -57,6 +57,18 @@
    "reply_url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mzs3aheldr2v",
    "provider": "groq",
    "platform": "bluesky"
+  },
+  {
+   "at": "2026-11-08T15:06:43.420Z",
+   "id": "at://did:plc:omdcasapga2l3fskdbcvvwpo/app.bsky.feed.post/3mzsluyid2s23",
+   "url": "https://bsky.app/profile/theailingwitch.bsky.social/post/3mzsluyid2s23",
+   "author": "theailingwitch.bsky.social",
+   "tier": 2,
+   "why": "Describes personal 30‑day challenge",
+   "reply": "Congrats on crushing the mini‑challenge! Tomorrow try setting a 5‑minute timer to outline your poem first – it keeps the flow going and makes the daily load feel lighter.",
+   "reply_url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mzsosrio4d24",
+   "provider": "groq",
+   "platform": "bluesky"
   }
  ],
  "skipped": [
@@ -412,6 +424,14 @@
    "author": "juststreak.app",
    "tier": 2,
    "why": "not a personal goal: promotes product, no personal goal"
+  },
+  {
+   "at": "2026-11-08T15:06:42.132Z",
+   "id": "at://did:plc:nnb3nt5hxv4pwhpusq7zso2e/app.bsky.feed.post/3mzsnd75qky2p",
+   "url": "https://bsky.app/profile/parademag.bsky.social/post/3mzsnd75qky2p",
+   "author": "parademag.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: No personal habit or goal mentioned"
   }
  ]
 }
