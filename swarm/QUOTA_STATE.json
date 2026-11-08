@@ -12,7 +12,7 @@
    "auth": "GROQ_API_KEY secret (optional)",
    "limit": "14,400 req/day",
    "cooldown_until": 0,
-   "calls": 174,
+   "calls": 182,
    "fails": 4,
    "last_error": "429"
   },
@@ -57,5 +57,5 @@
   "puter": "browser session — founder-only login"
  },
  "rotation_offset": 3,
- "updated": "2026-11-08T09:16:29.606Z"
+ "updated": "2026-11-08T09:43:24.851Z"
 }
