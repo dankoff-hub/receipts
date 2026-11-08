@@ -834,9 +834,52 @@
   "at://did:plc:x5xiqu3bbmahyl2umw2ndpxy/app.bsky.feed.post/3mzrcsmalks2m",
   "at://did:plc:pc4tv4pdemi44dqxn25gipqo/app.bsky.feed.post/3mzrn5fajyb22",
   "at://did:plc:ttlyg75cufhgzdbhy45g6gdu/app.bsky.feed.post/3mzrnaojz6a2l",
-  "at://did:plc:zjdmue6qod3lwcnvfqw7bs6m/app.bsky.feed.post/3mzrnuh5pps2f"
+  "at://did:plc:zjdmue6qod3lwcnvfqw7bs6m/app.bsky.feed.post/3mzrnuh5pps2f",
+  "at://did:plc:75cf2lkmqovfcklk7ao24o4h/app.bsky.feed.post/3mzrokmg4us2v",
+  "at://did:plc:nobxu6p5ti7mrjbclfd2hgag/app.bsky.feed.post/3mzrvcbetv225",
+  "at://did:plc:2owlzxdcs6g6bxgkhouxuvcu/app.bsky.feed.post/3mzrtymjad22q",
+  "at://did:plc:2owlzxdcs6g6bxgkhouxuvcu/app.bsky.feed.post/3mzrtylrwa22q",
+  "at://did:plc:e2cyelya6qtix5wrjmmz4wr4/app.bsky.feed.post/3mzrq3rvqtc24",
+  "at://did:plc:3gmkze3exz4s5vjeinsscdc4/app.bsky.feed.post/3mzrte73ptc2z",
+  "at://did:plc:oyhytanxrgqk2yudblkwe5ve/app.bsky.feed.post/3mzrpzgsbp32f",
+  "at://did:plc:dlkfzshunj2v6kapghmh6pfs/app.bsky.feed.post/3mzrpdtxjok2e",
+  "at://did:plc:3joa2vnhph3smhhl6r7yliwk/app.bsky.feed.post/3mzrodjtu3k2u"
  ],
  "leads": [
+  {
+   "src": "bluesky",
+   "id": "at://did:plc:nobxu6p5ti7mrjbclfd2hgag/app.bsky.feed.post/3mzrvcbetv225",
+   "url": "https://bsky.app/profile/slutytim.bsky.social/post/3mzrvcbetv225",
+   "text": "Day 1/30 - My today task from @TrackerKL.bsky.social - Take a picture of your cage and post it somewhere on the internet (for example, a chastity group on reddit). - Give me next task on: tracker.kinkylocked.com/user/SlutyTIM",
+   "sub": "slutytim.bsky.social",
+   "at": "2026-11-08T07:30:06.041Z",
+   "llm": "groq",
+   "tier": 2,
+   "found": "2026-11-08T07:33:33.994Z",
+   "status": "new"
+  },
+  {
+   "src": "bluesky",
+   "id": "at://did:plc:3gmkze3exz4s5vjeinsscdc4/app.bsky.feed.post/3mzrte73ptc2z",
+   "url": "https://bsky.app/profile/nealjennings.bsky.social/post/3mzrte73ptc2z",
+   "text": "Some local residents have dug through government records to prove them wrong. There's a lot of amateur lawyering going on, and they're reporting on the daily movements of the people involved and their spouses and their van that apparently and suspiciously has no windows.",
+   "sub": "nealjennings.bsky.social",
+   "at": "2026-11-08T06:55:23.249Z",
+   "tier": 2,
+   "found": "2026-11-08T07:33:34.339Z",
+   "status": "skipped"
+  },
+  {
+   "src": "bluesky",
+   "id": "at://did:plc:oyhytanxrgqk2yudblkwe5ve/app.bsky.feed.post/3mzrpzgsbp32f",
+   "url": "https://bsky.app/profile/clarystella.bsky.social/post/3mzrpzgsbp32f",
+   "text": "but you can also kinda see the tiny, almost insignificant hope that maybe you'll prove him wrong\n\nalso the hate(?) sex is fun\n\nyeah it's a mess but it's my mess and i love them",
+   "sub": "clarystella.bsky.social",
+   "at": "2026-11-08T05:55:40.716Z",
+   "tier": 2,
+   "found": "2026-11-08T07:33:34.339Z",
+   "status": "skipped"
+  },
   {
    "src": "bluesky",
    "id": "at://did:plc:kuz2ubj3qpfa7xk3fdt3s44g/app.bsky.feed.post/3mzr5qdhczj2o",
