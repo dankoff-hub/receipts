@@ -1,5 +1,5 @@
 {
- "at": "2026-11-08T17:04:54.653Z",
+ "at": "2026-11-08T18:02:56.248Z",
  "pass": true,
  "checks": [
   {
@@ -40,7 +40,7 @@
   {
    "check": "core_prompt_budget",
    "pass": true,
-   "detail": "swarm/CORE.md ≈ 465 tokens (budget 500 soft / 700 hard)"
+   "detail": "swarm/CORE.md ≈ 443 tokens (budget 500 soft / 700 hard)"
   }
  ]
 }
