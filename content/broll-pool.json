@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-07T01:34:42.910Z",
+ "updated": "2026-11-08T04:41:08.814Z",
  "source": "mixkit.co (Mixkit License, no attribution)",
  "clips": [
   {
@@ -171,18 +171,6 @@
    "bytes1080": 76024553
   },
   {
-   "id": "51502",
-   "theme": "nature",
-   "title": "overhead view of a rocky coast and waves crashing",
-   "vertical": true,
-   "w": 720,
-   "h": 1280,
-   "dur": 15.932583,
-   "url720": "https://assets.mixkit.co/videos/51502/51502-720.mp4",
-   "url1080": "https://assets.mixkit.co/videos/51502/51502-1080.mp4",
-   "bytes1080": 62858476
-  },
-  {
    "id": "1186",
    "theme": "nature",
    "title": "small pink flowers",
@@ -291,174 +279,6 @@
    "bytes1080": null
   },
   {
-   "id": "14165",
-   "theme": "other",
-   "title": "traveling to the dream world through the clouds",
-   "vertical": false,
-   "w": 1280,
-   "h": 720,
-   "dur": 15,
-   "url720": "https://assets.mixkit.co/videos/14165/14165-720.mp4",
-   "url1080": null,
-   "bytes1080": null
-  },
-  {
-   "id": "30",
-   "theme": "other",
-   "title": "blurred abstract cars lights at night with bokeh effect",
-   "vertical": false,
-   "w": 1280,
-   "h": 720,
-   "dur": 15.348667,
-   "url720": "https://assets.mixkit.co/videos/30/30-720.mp4",
-   "url1080": "https://assets.mixkit.co/videos/30/30-1080.mp4",
-   "bytes1080": 57976735
-  },
-  {
-   "id": "3524",
-   "theme": "other",
-   "title": "television glich texture",
-   "vertical": false,
-   "w": 1280,
-   "h": 720,
-   "dur": 119.6,
-   "url720": "https://assets.mixkit.co/videos/3524/3524-720.mp4",
-   "url1080": null,
-   "bytes1080": 446945315
-  },
-  {
-   "id": "32645",
-   "theme": "other",
-   "title": "dynamic animation of the head of a screaming man",
-   "vertical": true,
-   "w": 720,
-   "h": 1280,
-   "dur": 10,
-   "url720": "https://assets.mixkit.co/videos/32645/32645-720.mp4",
-   "url1080": "https://assets.mixkit.co/videos/32645/32645-1080.mp4",
-   "bytes1080": 38767748
-  },
-  {
-   "id": "4064",
-   "theme": "other",
-   "title": "fireworks at night sky",
-   "vertical": false,
-   "w": 1280,
-   "h": 720,
-   "dur": 24.125,
-   "url720": "https://assets.mixkit.co/videos/4064/4064-720.mp4",
-   "url1080": "https://assets.mixkit.co/videos/4064/4064-1080.mp4",
-   "bytes1080": 77608392
-  },
-  {
-   "id": "2717",
-   "theme": "other",
-   "title": "rain in the wild",
-   "vertical": false,
-   "w": 1280,
-   "h": 720,
-   "dur": 13.346667,
-   "url720": "https://assets.mixkit.co/videos/2717/2717-720.mp4",
-   "url1080": "https://assets.mixkit.co/videos/2717/2717-1080.mp4",
-   "bytes1080": 40229996
-  },
-  {
-   "id": "4974",
-   "theme": "other",
-   "title": "monochromatic visual compositions",
-   "vertical": false,
-   "w": 1280,
-   "h": 720,
-   "dur": 10.343667,
-   "url720": "https://assets.mixkit.co/videos/4974/4974-720.mp4",
-   "url1080": "https://assets.mixkit.co/videos/4974/4974-1080.mp4",
-   "bytes1080": 38954146
-  },
-  {
-   "id": "18791",
-   "theme": "other",
-   "title": "worm hole seen inside",
-   "vertical": false,
-   "w": 1280,
-   "h": 720,
-   "dur": 15,
-   "url720": "https://assets.mixkit.co/videos/18791/18791-720.mp4",
-   "url1080": null,
-   "bytes1080": null
-  },
-  {
-   "id": "1610",
-   "theme": "other",
-   "title": "stars in space background",
-   "vertical": false,
-   "w": 1280,
-   "h": 720,
-   "dur": 30,
-   "url720": "https://assets.mixkit.co/videos/1610/1610-720.mp4",
-   "url1080": "https://assets.mixkit.co/videos/1610/1610-1080.mp4",
-   "bytes1080": 86744265
-  },
-  {
-   "id": "45020",
-   "theme": "other",
-   "title": "rendering of a black hole rotating in the darkness of",
-   "vertical": false,
-   "w": 1280,
-   "h": 720,
-   "dur": 8,
-   "url720": "https://assets.mixkit.co/videos/45020/45020-720.mp4",
-   "url1080": null,
-   "bytes1080": null
-  },
-  {
-   "id": "29351",
-   "theme": "other",
-   "title": "video of the earth slowly spinning on its axis",
-   "vertical": false,
-   "w": 1280,
-   "h": 720,
-   "dur": 20.033333,
-   "url720": "https://assets.mixkit.co/videos/29351/29351-720.mp4",
-   "url1080": null,
-   "bytes1080": null
-  },
-  {
-   "id": "14185",
-   "theme": "other",
-   "title": "impressive space nebula",
-   "vertical": false,
-   "w": 1280,
-   "h": 720,
-   "dur": 15.04,
-   "url720": "https://assets.mixkit.co/videos/14185/14185-720.mp4",
-   "url1080": null,
-   "bytes1080": null
-  },
-  {
-   "id": "46119",
-   "theme": "other",
-   "title": "starry night in the desert",
-   "vertical": false,
-   "w": 1280,
-   "h": 720,
-   "dur": 13.333333,
-   "url720": "https://assets.mixkit.co/videos/46119/46119-720.mp4",
-   "url1080": null,
-   "bytes1080": null
-  },
-  {
-   "id": "45033",
-   "theme": "other",
-   "title": "beautiful satellite shot of planet earth",
-   "vertical": false,
-   "w": 1280,
-   "h": 720,
-   "dur": 28.833333,
-   "url720": "https://assets.mixkit.co/videos/45033/45033-720.mp4",
-   "url1080": null,
-   "bytes1080": null
-  },
-  {
    "id": "10418",
    "theme": "other",
    "title": "shapes in space of a supernova",
@@ -471,40 +291,64 @@
    "bytes1080": 33654726
   },
   {
-   "id": "14540",
+   "id": "39770",
    "theme": "other",
-   "title": "flying across the surface of a rocky planet",
-   "vertical": false,
-   "w": 1280,
-   "h": 720,
-   "dur": 15.04,
-   "url720": "https://assets.mixkit.co/videos/14540/14540-720.mp4",
-   "url1080": null,
-   "bytes1080": null
+   "title": "view of the night sky filled with stars",
+   "vertical": true,
+   "w": 720,
+   "h": 1280,
+   "dur": 11.678333,
+   "url720": "https://assets.mixkit.co/videos/39770/39770-720.mp4",
+   "url1080": "https://assets.mixkit.co/videos/39770/39770-1080.mp4",
+   "bytes1080": 45029444
   },
   {
-   "id": "14151",
+   "id": "51501",
    "theme": "other",
-   "title": "traveling between the stars and nebulae",
-   "vertical": false,
-   "w": 1280,
-   "h": 720,
-   "dur": 15,
-   "url720": "https://assets.mixkit.co/videos/14151/14151-720.mp4",
-   "url1080": null,
-   "bytes1080": null
+   "title": "flying over a green mangrove swamp with mountain in the",
+   "vertical": true,
+   "w": 720,
+   "h": 1280,
+   "dur": 12.178833,
+   "url720": "https://assets.mixkit.co/videos/51501/51501-720.mp4",
+   "url1080": "https://assets.mixkit.co/videos/51501/51501-1080.mp4",
+   "bytes1080": 41745159
   },
   {
-   "id": "32910",
+   "id": "52079",
    "theme": "other",
-   "title": "exploring the cosmos",
-   "vertical": false,
-   "w": 1280,
-   "h": 720,
-   "dur": 15,
-   "url720": "https://assets.mixkit.co/videos/32910/32910-720.mp4",
-   "url1080": null,
-   "bytes1080": null
+   "title": "a young muscular man training at the gym with the",
+   "vertical": true,
+   "w": 720,
+   "h": 1280,
+   "dur": 6.5065,
+   "url720": "https://assets.mixkit.co/videos/52079/52079-720.mp4",
+   "url1080": "https://assets.mixkit.co/videos/52079/52079-1080.mp4",
+   "bytes1080": 21851270
+  },
+  {
+   "id": "40701",
+   "theme": "other",
+   "title": "skyscraper in the city seen when walking the street",
+   "vertical": true,
+   "w": 720,
+   "h": 1280,
+   "dur": 10.135125,
+   "url720": "https://assets.mixkit.co/videos/40701/40701-720.mp4",
+   "url1080": "https://assets.mixkit.co/videos/40701/40701-1080.mp4",
+   "bytes1080": 34632451
+  },
+  {
+   "id": "39854",
+   "theme": "other",
+   "title": "exhausted man working in an office overtime",
+   "vertical": true,
+   "w": 720,
+   "h": 1280,
+   "dur": 12.012,
+   "url720": "https://assets.mixkit.co/videos/39854/39854-720.mp4",
+   "url1080": "https://assets.mixkit.co/videos/39854/39854-1080.mp4",
+   "bytes1080": 39084439
   }
  ]
 }
