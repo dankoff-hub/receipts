@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-07T10:29:37.330Z",
+ "updated": "2026-11-08T07:53:10.996Z",
  "note": "2026-11-07 founder directive: 30-day run spine — persona photos (assets/persona) are the default background, voice ON by default (voice-off + music was the uncanny \"talking photograph\" look), music off by default. post-metrics re-weights after >=6 settled posts per level.",
  "weights": {
   "voice": {
@@ -25,9 +25,43 @@
  "floor": 0.1,
  "history": [],
  "last_evidence": {
-  "voice": {},
-  "music": {},
-  "bg": {},
-  "cta": {}
+  "voice": {
+   "on": {
+    "posts": 5,
+    "rel_views": 1.67,
+    "avg_watch": 11.94
+   }
+  },
+  "music": {
+   "on": {
+    "posts": 1,
+    "rel_views": 0.6,
+    "avg_watch": null
+   },
+   "off": {
+    "posts": 4,
+    "rel_views": 5.4,
+    "avg_watch": 11.94
+   }
+  },
+  "bg": {
+   "city": {
+    "posts": 3,
+    "rel_views": 1.67,
+    "avg_watch": 5.08
+   },
+   "nature": {
+    "posts": 2,
+    "rel_views": 5.4,
+    "avg_watch": 11.94
+   }
+  },
+  "cta": {
+   "follow": {
+    "posts": 3,
+    "rel_views": 1,
+    "avg_watch": 11.94
+   }
+  }
  }
 }

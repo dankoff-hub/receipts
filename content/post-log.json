@@ -284,7 +284,8 @@
   "status": "sent",
   "video": "day-005b.mp4",
   "day": 5,
-  "captionHash": "1bef7629532a47c33e7a11b6aad19ca1"
+  "captionHash": "1bef7629532a47c33e7a11b6aad19ca1",
+  "sentAt": "2026-11-07T12:32:49.367Z"
  },
  {
   "ts": "2026-11-07T12:31:31.349Z",
@@ -293,7 +294,8 @@
   "status": "sent",
   "video": "day-005b.mp4",
   "day": 5,
-  "captionHash": "703dffd932a78f52fd09f2f4b19b4893"
+  "captionHash": "703dffd932a78f52fd09f2f4b19b4893",
+  "sentAt": "2026-11-07T12:31:31.000Z"
  },
  {
   "ts": "2026-11-07T12:31:31.402Z",
@@ -341,7 +343,8 @@
   "status": "sent",
   "video": "day-002.mp4",
   "day": 2,
-  "captionHash": "5b4c93e6b6f2fae352f5f40155c9acf0"
+  "captionHash": "5b4c93e6b6f2fae352f5f40155c9acf0",
+  "sentAt": "2026-11-07T15:46:14.117Z"
  },
  {
   "ts": "2026-11-07T15:45:54.129Z",
@@ -380,7 +383,8 @@
   "status": "sent",
   "video": "day-003.mp4",
   "day": 3,
-  "captionHash": "5fbff81c4fced8ad3e637aecd0b991f6"
+  "captionHash": "5fbff81c4fced8ad3e637aecd0b991f6",
+  "sentAt": "2026-11-07T16:31:09.269Z"
  },
  {
   "ts": "2026-11-07T16:30:11.207Z",
@@ -398,7 +402,8 @@
   "status": "sent",
   "video": "day-005c.mp4",
   "day": 5,
-  "captionHash": "27bf8f7f77ef1d6f371ce56bd92ca057"
+  "captionHash": "27bf8f7f77ef1d6f371ce56bd92ca057",
+  "sentAt": "2026-11-07T16:30:13.923Z"
  },
  {
   "ts": "2026-11-07T20:00:39.556Z",
@@ -408,7 +413,8 @@
   "video": "day-005d.mp4",
   "day": 5,
   "captionHash": "d3c8ad9e06574f2bd7d6b940856be158",
-  "note": "restored from run 42408755491 log: ledger push failed (unstaged changes); git-push-safe now autostashes"
+  "note": "restored from run 42408755491 log: ledger push failed (unstaged changes); git-push-safe now autostashes",
+  "sentAt": "2026-11-07T20:01:09.572Z"
  },
  {
   "ts": "2026-11-07T20:01:56.685Z",

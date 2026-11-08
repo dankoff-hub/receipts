@@ -1,6 +1,150 @@
 {
- "updated": "2026-11-07T10:29:37.329Z",
+ "updated": "2026-11-08T07:53:10.992Z",
  "posts": [
+  {
+   "postId": "6aef835d9214322f6812971c",
+   "channel": "instagram",
+   "sentAt": "2026-11-07T20:01:09.572Z",
+   "link": "https://www.instagram.com/reel/Dfc_Y3Sgq4z/",
+   "video": "day-005d.mp4",
+   "hook": "Top 3 ways receipts reset your mindset",
+   "views": null,
+   "reach": null,
+   "saves": null,
+   "shares": null,
+   "likes": null,
+   "comments": null,
+   "avgWatch": null,
+   "metricsAt": "2026-11-07T20:00:29.026Z"
+  },
+  {
+   "postId": "6aef5214004e4879a76914d5",
+   "channel": "youtube",
+   "sentAt": "2026-11-07T16:30:13.923Z",
+   "link": "https://www.youtube.com/shorts/WfrASdK4v6E",
+   "video": "day-005c.mp4",
+   "hook": "30 days, 30 receipts, no excuses",
+   "views": 3,
+   "reach": null,
+   "saves": null,
+   "shares": null,
+   "likes": 0,
+   "comments": 0,
+   "avgWatch": null,
+   "metricsAt": "2026-11-07T20:08:28.743Z"
+  },
+  {
+   "postId": "6aef520751492b796ee9cf08",
+   "channel": "tiktok",
+   "sentAt": "2026-11-07T16:31:09.269Z",
+   "link": "https://tiktok.com/@dan.rosa71/video/7705467559344196877",
+   "video": "day-003.mp4",
+   "hook": "I got passed over for a promotion. Here's my 30-day plan.",
+   "views": 0,
+   "reach": 0,
+   "saves": null,
+   "shares": 0,
+   "likes": 0,
+   "comments": 0,
+   "avgWatch": 0,
+   "metricsAt": "2026-11-07T19:05:15.855Z"
+  },
+  {
+   "postId": "6aef47a9562f2e6de9677c11",
+   "channel": "instagram",
+   "sentAt": "2026-11-07T15:45:53.247Z",
+   "link": "https://www.instagram.com/p/DfciO6TEWVf/",
+   "video": "ai-20261107-receipt-notebook.jpg",
+   "hook": null,
+   "views": 0,
+   "reach": 0,
+   "saves": 0,
+   "shares": 0,
+   "likes": 0,
+   "comments": 0,
+   "avgWatch": null,
+   "metricsAt": "2026-11-07T18:47:35.661Z"
+  },
+  {
+   "postId": "6aef479c004e4879a765f19b",
+   "channel": "tiktok",
+   "sentAt": "2026-11-07T15:46:14.117Z",
+   "link": "https://tiktok.com/@dan.rosa71/video/7705456141370723597",
+   "video": "day-002.mp4",
+   "hook": "Spite is a great start and a terrible finish.",
+   "views": 0,
+   "reach": 0,
+   "saves": null,
+   "shares": 0,
+   "likes": 0,
+   "comments": 0,
+   "avgWatch": 0,
+   "metricsAt": "2026-11-07T19:05:15.855Z"
+  },
+  {
+   "postId": "6aef1a2ad6bbae6fa187a282",
+   "channel": "instagram",
+   "sentAt": "2026-11-07T12:32:13.903Z",
+   "link": "https://www.instagram.com/p/DfcMDtVlVTC/",
+   "video": "car-005",
+   "hook": null,
+   "views": 0,
+   "reach": 0,
+   "saves": 0,
+   "shares": 0,
+   "likes": 0,
+   "comments": 0,
+   "avgWatch": null,
+   "metricsAt": "2026-11-07T18:47:35.640Z"
+  },
+  {
+   "postId": "6aef1a219214322f68ef695a",
+   "channel": "youtube",
+   "sentAt": "2026-11-07T12:31:31.000Z",
+   "link": "https://www.youtube.com/shorts/ujS9uqj93K0",
+   "video": "day-005b.mp4",
+   "hook": "Your failures aren’t proof you’re stuck",
+   "views": 27,
+   "reach": null,
+   "saves": null,
+   "shares": null,
+   "likes": 3,
+   "comments": 1,
+   "avgWatch": null,
+   "metricsAt": "2026-11-07T20:08:28.743Z"
+  },
+  {
+   "postId": "6aef1a169214322f68ef67ba",
+   "channel": "instagram",
+   "sentAt": "2026-11-07T12:32:49.367Z",
+   "link": "https://www.instagram.com/reel/DfcMDYBlsj1/",
+   "video": "day-005b.mp4",
+   "hook": "Your failures aren’t proof you’re stuck",
+   "views": 3,
+   "reach": 3,
+   "saves": 0,
+   "shares": 0,
+   "likes": 0,
+   "comments": 0,
+   "avgWatch": 11.94,
+   "metricsAt": "2026-11-07T18:47:35.627Z"
+  },
+  {
+   "postId": "6aef19ced6bbae6fa1876ae0",
+   "channel": "tiktok",
+   "sentAt": "2026-11-07T12:30:57.723Z",
+   "link": "https://tiktok.com/@dan.rosa71/video/7705405591346236686",
+   "video": null,
+   "hook": null,
+   "views": 0,
+   "reach": 0,
+   "saves": null,
+   "shares": 0,
+   "likes": 0,
+   "comments": 0,
+   "avgWatch": 0,
+   "metricsAt": "2026-11-07T12:30:06.293Z"
+  },
   {
    "postId": "6aeee52aa7751de7c9d6b7e1",
    "channel": "youtube",
@@ -8,14 +152,14 @@
    "link": "https://www.youtube.com/shorts/Pp5YiliAFGA",
    "video": "day-005.mp4",
    "hook": "What if you could prove your worth in 30 days",
-   "views": 0,
+   "views": 36,
    "reach": null,
    "saves": null,
    "shares": null,
-   "likes": 0,
-   "comments": 0,
+   "likes": 2,
+   "comments": 1,
    "avgWatch": null,
-   "metricsAt": "2026-11-07T08:47:48.453Z"
+   "metricsAt": "2026-11-07T20:08:28.743Z"
   },
   {
    "postId": "6aeee51f229bf05daf3a1389",
@@ -24,14 +168,14 @@
    "link": "https://www.instagram.com/reel/DfbyH1zgMXa/",
    "video": "day-005.mp4",
    "hook": "What if you could prove your worth in 30 days",
-   "views": null,
-   "reach": null,
-   "saves": null,
-   "shares": null,
-   "likes": null,
-   "comments": null,
-   "avgWatch": null,
-   "metricsAt": "2026-11-07T08:45:19.615Z"
+   "views": 5,
+   "reach": 5,
+   "saves": 0,
+   "shares": 0,
+   "likes": 0,
+   "comments": 0,
+   "avgWatch": 5.08,
+   "metricsAt": "2026-11-07T18:47:35.625Z"
   },
   {
    "postId": "6aeee4ec229bf05daf3a02ae",
@@ -56,14 +200,14 @@
    "link": "https://www.youtube.com/shorts/eKJXl5nMtrI",
    "video": "day-004d.mp4",
    "hook": "3 questions to ask before you 'prove them wrong'.",
-   "views": 0,
+   "views": 13,
    "reach": null,
    "saves": null,
    "shares": null,
-   "likes": 0,
-   "comments": 0,
+   "likes": 1,
+   "comments": 1,
    "avgWatch": null,
-   "metricsAt": "2026-11-07T01:44:34.012Z"
+   "metricsAt": "2026-11-07T20:08:28.743Z"
   },
   {
    "postId": "6aee81e2229bf05daf1ffe8c",
@@ -72,14 +216,14 @@
    "link": "https://www.instagram.com/reel/DfbBqfEiKIL/",
    "video": "day-004d.mp4",
    "hook": "3 questions to ask before you 'prove them wrong'.",
-   "views": null,
-   "reach": null,
-   "saves": null,
-   "shares": null,
-   "likes": null,
-   "comments": null,
-   "avgWatch": null,
-   "metricsAt": "2026-11-07T01:41:54.068Z"
+   "views": 27,
+   "reach": 20,
+   "saves": 0,
+   "shares": 0,
+   "likes": 0,
+   "comments": 0,
+   "avgWatch": 5.8,
+   "metricsAt": "2026-11-07T18:47:35.634Z"
   },
   {
    "postId": "6aee81d6af7e526d43f30f1b",
@@ -104,14 +248,14 @@
    "link": "https://www.instagram.com/p/DfanaFLFmhC/",
    "video": "photo-01-dinner.jpg",
    "hook": null,
-   "views": null,
-   "reach": null,
-   "saves": null,
-   "shares": null,
-   "likes": null,
-   "comments": null,
+   "views": 0,
+   "reach": 0,
+   "saves": 0,
+   "shares": 0,
+   "likes": 0,
+   "comments": 0,
    "avgWatch": null,
-   "metricsAt": "2026-11-06T21:52:30.200Z"
+   "metricsAt": "2026-11-07T18:47:35.618Z"
   },
   {
    "postId": "6aee3adcaf7e526d43de801e",
@@ -120,14 +264,14 @@
    "link": "https://www.youtube.com/shorts/8QyWTYQ2LRU",
    "video": "day-004c.mp4",
    "hook": "I hit my goal and felt empty. Here's why.",
-   "views": 0,
+   "views": 1,
    "reach": null,
    "saves": null,
    "shares": null,
    "likes": 0,
-   "comments": 0,
+   "comments": 1,
    "avgWatch": null,
-   "metricsAt": "2026-11-06T20:57:20.672Z"
+   "metricsAt": "2026-11-07T20:08:28.743Z"
   },
   {
    "postId": "6aee3ad1004e4879a713f412",
@@ -136,14 +280,14 @@
    "link": "https://www.instagram.com/reel/Dfae9mRkduv/",
    "video": "day-004c.mp4",
    "hook": "I hit my goal and felt empty. Here's why.",
-   "views": null,
-   "reach": null,
-   "saves": null,
-   "shares": null,
-   "likes": null,
-   "comments": null,
-   "avgWatch": null,
-   "metricsAt": "2026-11-06T20:38:41.107Z"
+   "views": 6,
+   "reach": 6,
+   "saves": 0,
+   "shares": 0,
+   "likes": 0,
+   "comments": 0,
+   "avgWatch": 5.12,
+   "metricsAt": "2026-11-07T18:47:35.630Z"
   },
   {
    "postId": "6aee3ac5af7e526d43de7d47",
@@ -152,14 +296,14 @@
    "link": "https://tiktok.com/@dan.rosa71/video/7705160543056760078",
    "video": null,
    "hook": null,
-   "views": 0,
-   "reach": 0,
+   "views": 10,
+   "reach": 5,
    "saves": null,
    "shares": 0,
    "likes": 0,
    "comments": 0,
-   "avgWatch": 0,
-   "metricsAt": "2026-11-06T20:38:29.979Z"
+   "avgWatch": 3.13,
+   "metricsAt": "2026-11-07T19:05:15.855Z"
   },
   {
    "postId": "6aee3858004e4879a71335dc",
@@ -184,14 +328,14 @@
    "link": "https://www.youtube.com/shorts/j1N-mNbkDgY",
    "video": "day-004b.mp4",
    "hook": "The minimum day rule saved my streak.",
-   "views": 0,
+   "views": 5,
    "reach": null,
    "saves": null,
    "shares": null,
    "likes": 0,
-   "comments": 0,
+   "comments": 1,
    "avgWatch": null,
-   "metricsAt": "2026-11-06T20:57:20.672Z"
+   "metricsAt": "2026-11-07T20:08:28.743Z"
   },
   {
    "postId": "6aee3718004e4879a712e65a",
@@ -200,14 +344,14 @@
    "link": "https://www.instagram.com/reel/DfadJUZlQKk/",
    "video": "day-004b.mp4",
    "hook": "The minimum day rule saved my streak.",
-   "views": null,
-   "reach": null,
-   "saves": null,
-   "shares": null,
-   "likes": null,
-   "comments": null,
-   "avgWatch": null,
-   "metricsAt": "2026-11-06T20:22:48.539Z"
+   "views": 7,
+   "reach": 7,
+   "saves": 0,
+   "shares": 0,
+   "likes": 0,
+   "comments": 0,
+   "avgWatch": 4.42,
+   "metricsAt": "2026-11-07T18:47:35.638Z"
   },
   {
    "postId": "6aee36c4d6bbae6fa1460acb",
@@ -216,14 +360,14 @@
    "link": "https://www.instagram.com/p/DfadBN1I6ZJ/",
    "video": "car-004",
    "hook": null,
-   "views": null,
-   "reach": null,
-   "saves": null,
-   "shares": null,
-   "likes": null,
-   "comments": null,
+   "views": 1,
+   "reach": 1,
+   "saves": 0,
+   "shares": 0,
+   "likes": 1,
+   "comments": 2,
    "avgWatch": null,
-   "metricsAt": "2026-11-06T20:21:24.995Z"
+   "metricsAt": "2026-11-07T18:47:35.620Z"
   },
   {
    "postId": "6aee36c1004e4879a712d346",
@@ -237,9 +381,9 @@
    "saves": null,
    "shares": null,
    "likes": 0,
-   "comments": 0,
+   "comments": 1,
    "avgWatch": null,
-   "metricsAt": "2026-11-06T20:57:20.672Z"
+   "metricsAt": "2026-11-07T20:08:28.743Z"
   },
   {
    "postId": "6aee36b69214322f68ad498f",
@@ -248,14 +392,30 @@
    "link": "https://www.instagram.com/reel/DfadA-qDWd3/",
    "video": "day-004.mp4",
    "hook": "Rejected by 40 companies. Kept every receipt.",
-   "views": null,
-   "reach": null,
-   "saves": null,
-   "shares": null,
-   "likes": null,
-   "comments": null,
+   "views": 6,
+   "reach": 3,
+   "saves": 0,
+   "shares": 0,
+   "likes": 0,
+   "comments": 0,
+   "avgWatch": 7.74,
+   "metricsAt": "2026-11-07T18:47:35.644Z"
+  },
+  {
+   "postId": "6aef724742561c799d69abf1",
+   "channel": "instagram",
+   "sentAt": "2026-11-06T20:20:26.000Z",
+   "link": "https://www.instagram.com/p/Dfac3IbMSOG/",
+   "video": null,
+   "hook": null,
+   "views": 0,
+   "reach": 0,
+   "saves": 0,
+   "shares": 0,
+   "likes": 0,
+   "comments": 0,
    "avgWatch": null,
-   "metricsAt": "2026-11-06T20:21:10.629Z"
+   "metricsAt": "2026-11-07T18:47:35.623Z"
   },
   {
    "postId": "6aed2406dbada656bee3ef7c",
@@ -264,14 +424,14 @@
    "link": "https://www.youtube.com/shorts/pHrOV084xr4",
    "video": "day-003b.mp4",
    "hook": "What happens after you prove them wrong?",
-   "views": 41,
+   "views": 83,
    "reach": null,
    "saves": null,
    "shares": null,
-   "likes": 0,
-   "comments": 0,
+   "likes": 3,
+   "comments": 1,
    "avgWatch": null,
-   "metricsAt": "2026-11-06T20:57:20.672Z"
+   "metricsAt": "2026-11-07T20:08:28.743Z"
   },
   {
    "postId": "6aed23fbf3498efda75e7bc3",
@@ -286,8 +446,8 @@
    "shares": 0,
    "likes": 0,
    "comments": 0,
-   "avgWatch": 3.89,
-   "metricsAt": "2026-11-06T18:47:24.371Z"
+   "avgWatch": 3.87,
+   "metricsAt": "2026-11-07T18:47:35.636Z"
   },
   {
    "postId": "6aecd2f1217b5aff654a0a2b",
@@ -301,9 +461,9 @@
    "saves": null,
    "shares": null,
    "likes": 0,
-   "comments": 0,
+   "comments": 1,
    "avgWatch": null,
-   "metricsAt": "2026-11-06T20:57:20.672Z"
+   "metricsAt": "2026-11-07T20:08:28.743Z"
   },
   {
    "postId": "6aecd2e54070500dc30330f4",
@@ -318,8 +478,8 @@
    "shares": 0,
    "likes": 0,
    "comments": 0,
-   "avgWatch": 0.58,
-   "metricsAt": "2026-11-06T18:47:24.369Z"
+   "avgWatch": 2.11,
+   "metricsAt": "2026-11-07T18:47:35.632Z"
   },
   {
    "postId": "6aecd18c217b5aff65496ac2",
@@ -328,14 +488,14 @@
    "link": "https://www.youtube.com/shorts/plT9Kw2vQWU",
    "video": "day-002.mp4",
    "hook": "Spite is a great start and a terrible finish.",
-   "views": 42,
+   "views": 62,
    "reach": null,
    "saves": null,
    "shares": null,
-   "likes": 1,
-   "comments": 0,
+   "likes": 2,
+   "comments": 1,
    "avgWatch": null,
-   "metricsAt": "2026-11-06T20:57:20.672Z"
+   "metricsAt": "2026-11-07T20:08:28.743Z"
   },
   {
    "postId": "6aecd1800a3dd0f3ff1966ba",
@@ -350,8 +510,8 @@
    "shares": 0,
    "likes": 0,
    "comments": 0,
-   "avgWatch": 2.71,
-   "metricsAt": "2026-11-06T18:47:24.367Z"
+   "avgWatch": 2.75,
+   "metricsAt": "2026-11-07T18:47:35.664Z"
   },
   {
    "postId": "6aead322dc38f4d7bad361a9",
@@ -360,14 +520,14 @@
    "link": "https://www.youtube.com/shorts/WhFP2nzgmx4",
    "video": "avatar-intro.mp4",
    "hook": "They said you would not make it — keep the receipt.",
-   "views": 4,
+   "views": 3,
    "reach": null,
    "saves": null,
    "shares": null,
    "likes": 0,
-   "comments": 0,
+   "comments": 1,
    "avgWatch": null,
-   "metricsAt": "2026-11-06T20:57:20.672Z"
+   "metricsAt": "2026-11-07T20:08:28.743Z"
   },
   {
    "postId": "6aead2302b43f8ba7d702099",
@@ -382,8 +542,8 @@
    "shares": 0,
    "likes": 0,
    "comments": 0,
-   "avgWatch": 15.1,
-   "metricsAt": "2026-11-06T18:47:24.375Z"
+   "avgWatch": 10.59,
+   "metricsAt": "2026-11-07T18:47:35.671Z"
   },
   {
    "postId": "6aea492ba8918d96047e31ee",
@@ -399,7 +559,7 @@
    "likes": 0,
    "comments": 0,
    "avgWatch": 10.92,
-   "metricsAt": "2026-11-06T18:47:24.373Z"
+   "metricsAt": "2026-11-07T18:47:35.658Z"
   },
   {
    "postId": "6aea43b4343beca74f0c5799",

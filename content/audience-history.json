@@ -37,6 +37,17 @@
    "bluesky_followers": 0,
    "mastodon_followers": 0,
    "stripe_paid_by_src": {}
+  },
+  {
+   "date": "2026-11-08",
+   "youtube_channel_id": "UC-S1lywjoVwp0HPUv8s4TKA",
+   "youtube_subs": null,
+   "youtube_views": null,
+   "tiktok_followers": 0,
+   "instagram_followers": null,
+   "bluesky_followers": 5,
+   "mastodon_followers": 0,
+   "stripe_paid_by_src": {}
   }
  ]
 }
