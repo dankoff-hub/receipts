@@ -30,7 +30,7 @@
    "auth": "none (anonymous)",
    "limit": "rate-limited anonymous",
    "cooldown_until": 0,
-   "calls": 47,
+   "calls": 48,
    "fails": 19
   },
   "ollama_local": {
@@ -57,5 +57,5 @@
   "puter": "browser session — founder-only login"
  },
  "rotation_offset": 1,
- "updated": "2026-11-08T18:55:48.188Z"
+ "updated": "2026-11-08T18:56:46.084Z"
 }

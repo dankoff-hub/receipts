@@ -584,5 +584,27 @@
   "why": null,
   "captionHash": "63b3044e2b381cf685aa8470aad8360b",
   "video": null
+ },
+ {
+  "ts": "2026-11-08T18:56:44.861Z",
+  "channel": "bluesky",
+  "kind": "text",
+  "slot": "e",
+  "status": "sent",
+  "url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mzt3o3jwwk27",
+  "why": null,
+  "captionHash": "fa531c85acce767d980a0f55a19e8ef0",
+  "video": null
+ },
+ {
+  "ts": "2026-11-08T18:56:46.083Z",
+  "channel": "mastodon",
+  "kind": "text",
+  "slot": "e",
+  "status": "sent",
+  "url": "https://mastodon.social/@danrossi2026/117582345399664947",
+  "why": null,
+  "captionHash": "fa531c85acce767d980a0f55a19e8ef0",
+  "video": null
  }
 ]
