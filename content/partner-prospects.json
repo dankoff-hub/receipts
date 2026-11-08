@@ -2927,7 +2927,7 @@
    "median_views": 1435650,
    "max_views": 1435650,
    "score": 95,
-   "status": "prospect",
+   "status": "contacted",
    "found": "2026-11-08",
    "url": "https://www.youtube.com/@MotiversitySpeakers",
    "checked": "2026-11-08",
@@ -2940,7 +2940,9 @@
     "short": "The 2026 comeback speech is about becoming unrecognizable, not a mood. What sparked that angle? — Dan",
     "dm_opener": "Your “COMEBACK UNRECOGNIZABLE IN 2026” speech nails the idea of reinventing yourself—what sparked that angle?",
     "generated": "2026-11-08T17:40:20.915Z"
-   }
+   },
+   "contacted": "2026-11-08",
+   "contact_channel": "ig"
   },
   "@NGE783": {
    "handle": "@NGE783",
