@@ -73,7 +73,15 @@ async function bluesky() {
   if (!s.accessJwt) return { status: "failed", why: "login" };
   const auth = { authorization: "Bearer " + s.accessJwt };
   let body = text; const facets = [];
-  if (link) { const shown = link; body = text + "\n\nFree 30-day tracker: " + shown; const b = Buffer.byteLength(body) - Buffer.byteLength(shown); facets.push({ index: { byteStart: b, byteEnd: b + Buffer.byteLength(shown) }, features: [{ $type: "app.bsky.richtext.facet#link", uri: "https://" + link + "?src=bsky" }] }); }
+  if (link) {
+    const shown = link;
+    const tail = "\n\nFree template: " + shown;
+    const room = 300 - [...new Intl.Segmenter("en", { granularity: "grapheme" }).segment(tail)].length;
+    const g = [...new Intl.Segmenter("en", { granularity: "grapheme" }).segment(text)].map(x => x.segment);
+    body = (g.length > room ? g.slice(0, room).join("").replace(/\s+\S*$/, "").trim() : text) + tail;
+    const b = Buffer.byteLength(body) - Buffer.byteLength(shown);
+    facets.push({ index: { byteStart: b, byteEnd: b + Buffer.byteLength(shown) }, features: [{ $type: "app.bsky.richtext.facet#link", uri: "https://" + link + "?src=bsky" }] });
+  }
   const rec = { $type: "app.bsky.feed.post", text: body, createdAt: new Date().toISOString(), langs: ["en"], ...(facets.length ? { facets } : {}) };
   if (imgBuf) { const up = await (await fetch("https://bsky.social/xrpc/com.atproto.repo.uploadBlob", { method: "POST", headers: { ...auth, "content-type": "image/jpeg" }, body: imgBuf })).json(); if (up.blob) rec.embed = { $type: "app.bsky.embed.images", images: [{ alt, image: up.blob }] }; }
   const r = await fetch("https://bsky.social/xrpc/com.atproto.repo.createRecord", { method: "POST", headers: { ...auth, "content-type": "application/json" }, body: JSON.stringify({ repo: s.did, collection: "app.bsky.feed.post", record: rec }) });
