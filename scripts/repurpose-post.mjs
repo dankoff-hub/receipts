@@ -10,18 +10,26 @@ const log = fs.existsSync(LOG) ? JSON.parse(fs.readFileSync(LOG, "utf8")) : [];
 const pages = JSON.parse(fs.readFileSync("content/seo-pages.json", "utf8")).pages || {};
 const list = Object.values(pages);
 if (!list.length) { console.log("repurpose: no guides yet"); process.exit(0); }
-const used = new Set(log.filter(p => p.captionHash).map(p => p.captionHash));
+const used = new Set(log.filter(p => p.status === "sent" && p.captionHash).map(p => p.captionHash));
 const dayNum = Number(today.slice(8, 10));
 const page = list[dayNum % list.length];
 const BAN = /guarantee|refund|money-back|earn \$|make \$|income|therapy|cure/i;
 
+function graphemes(s) { return [...new Intl.Segmenter("en", { granularity: "grapheme" }).segment(s)].map((x) => x.segment); }
+function capGraphemes(s, max) {
+  const g = graphemes(s);
+  if (g.length <= max) return s;
+  return g.slice(0, max).join("").replace(/\s+\S*$/, "").trim();
+}
 function variant(channel) {
   const link = `receiptspack.vercel.app/free?src=${channel}-repurpose`;
+  const tail = `Free template: ${link}`;
+  const max = channel === "bluesky" ? 300 : 480;
+  const room = max - graphemes(tail).length - 2;
   const a = `${page.h1}. File the no privately, then keep one standard for 30 days. ${page.paragraphs[0]}`;
   const b = `Not a pep talk. A dated line. ${page.h1} — ${page.paragraphs[2] || page.description}`;
-  const body = channel === "bluesky" ? a : b;
-  const text = `${body}\n\nFree template: ${link}`.replace(/\s+\n/g, "\n").trim();
-  return text.length > 480 ? text.slice(0, 470).replace(/\s+\S*$/, "") : text;
+  const body = capGraphemes(channel === "bluesky" ? a : b, room);
+  return `${body}\n\n${tail}`;
 }
 
 async function bluesky(text) {
