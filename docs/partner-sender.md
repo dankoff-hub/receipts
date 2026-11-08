@@ -16,7 +16,7 @@ and replies.
 ## Platforms and routes
 | Platform | Account | Outreach action | Text used | Sweep |
 |---|---|---|---|---|
-| Instagram | @danrossi2026 (web) | profile → Message → paste → Send | `drafts.dm` | direct/inbox Primary, General, Requests |
+| Instagram | @danrossi2026 (web) | profile → Message → paste → Send | `drafts.dm_opener` (first contact only) | direct/inbox Primary, General, Requests |
 | Gmail | ops mailbox | compose to a **public** author address (never stored in repo) | `drafts.email_subject` + `drafts.email` | inbox, newer_than:1d |
 | Substack | ops account "Dan Rossi" | `substack.com/@<pub>` → Message → paste → send arrow | `drafts.dm` | substack.com/inbox (Direct) |
 | YouTube | @DanRosa-u5v (Google) | comment on the prospect's `latest_video` (no links; links get held) | `drafts.short` | comments on our own videos (Studio → Comments) — reply to every real comment |
@@ -32,7 +32,7 @@ One route per prospect; never two platforms for the same person on the same day.
 ## Per-window procedure
 1. `cd /home/user/workspace/receipts && git checkout -q -- . && git pull -q --rebase`; `node scripts/partner-log.mjs x y --check`
    → stop sending if `remaining` is 0; skip any platform whose `platform_remaining` is 0.
-2. Pick `status: "prospect"` entries with drafts, highest score first, skipping `ig_dead`, `ig_private`, `needs_founder`.
+2. Pick `status: "prospect"` entries with drafts, highest score first, skipping `ig_dead`, `ig_private`, `needs_founder`, `route_exhausted`, and any `substack_blocked` value. Prefer a prospect with `ig` or `tt`. Do not attempt Substack — the ops account is suspended. First contact uses `drafts.dm_opener` only (no link, no offer, no price). `drafts.dm` is the reply after they answer.
 3. Send with the route table. Verify every send in the page (text visible in thread/comment list, box empty).
 4. Log immediately: `node scripts/partner-log.mjs "<prospect key>" <ig|email|substack|yt|tiktok> <label>` (exit 2 = cap → stop).
 5. Sweep all inboxes/comment feeds. Positive reply → run `PARTNER_PACK_SECRET=$(cat ~/.config/receipts/partner.key) node scripts/partner-grant.mjs <drafts.code>`

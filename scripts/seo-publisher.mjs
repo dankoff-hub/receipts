@@ -8,7 +8,7 @@ import { fileURLToPath } from "url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const kwPath = path.join(root, "content/seo-keywords.json");
 const pagesPath = path.join(root, "content/seo-pages.json");
-const CAP = 6;
+const CAP = Number(process.env.SEO_CAP || 6);
 const BAN = /guarantee|refund|money-back|earn \$|make \$|income|therapy|cure/i;
 function skillBit() {
   try {

@@ -1,0 +1,27 @@
+name: Repurpose posts (Bluesky + Mastodon)
+on:
+  schedule:
+    - cron: "30 11 * * *"
+    - cron: "30 15 * * *"
+  workflow_dispatch:
+permissions: { contents: write }
+concurrency: { group: repurpose-post, cancel-in-progress: false }
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    env:
+      BLUESKY_HANDLE: ${{ vars.BLUESKY_HANDLE }}
+      BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+      MASTODON_TOKEN: ${{ secrets.MASTODON_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: node scripts/repurpose-post.mjs
+      - name: Commit log only
+        run: |
+          git config user.name dankoff-hub
+          git config user.email 345066702+dankoff-hub@users.noreply.github.com
+          git add content/post-log.json
+          git diff --cached --quiet || bash scripts/git-push-safe.sh "Repurpose posts log"

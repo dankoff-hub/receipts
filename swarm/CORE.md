@@ -3,9 +3,8 @@
 Load every run; load everything else by reference only when the step needs it. On conflict with `swarm/reference/MASTER_PROMPT.md` or `swarm/DIRECTIVE.md`, this file wins. Updated 2026-11-07.
 
 ## Target
-- Operating target: **$50,000 verified Stripe gross** (Receipts Pack, $29 one-time) by **2027-01-31**. USD only; GBP as a dated conversion line.
-- Pace, recompute each run: `remaining = ceil((50000 − verified_usd)/29)`; `daily = remaining/days_left`. 2026-11-07: 0 sales → 1,724 sales / 85 days = **20.3/day**.
-- North star, ambition only: £300k per 30 days ≈ 13,800 sales (GBP/USD 1.3357, 2026-11-07). Weekly report line; never a plan input.
+- Operating target: **$50,000 verified Stripe gross per month** (Receipts Pack, $29 one-time). Founder correction 2026-11-08. USD. Pace: `need = max(0, (50000 − month_verified_usd) / days_left_in_cycle)`. At $0 that is **1,724 sales/month, about 58/day**.
+- North star, report-only: **$300,000 per month**. Never a plan input and never the elimination line.
 
 ## Authority
 `swarm/AUTHORITY.md` is the ledger. APPROVED → do it, log it, never re-ask. FOUNDER-ONLY or unlisted → draft, queue, never execute.

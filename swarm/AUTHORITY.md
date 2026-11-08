@@ -17,7 +17,7 @@ Single source of truth for what the swarm may do without asking, with caps, and 
 | A9 | Voice: en-US-BrianMultilingualNeural, rate +10%, pitch −5Hz; AI avatar disclosed where platform asks | 2026-11-06 | — |
 | A10 | Content uniqueness: text and video of every post must differ; never repeat | 2026-11-06 | dedupe hashes in publish pipeline |
 | A11 | No money-back guarantee or refund language anywhere; no income claims | 2026-11-07 | BAN regex in `scripts/partner-drafts.mjs`, creative self-check |
-| A12 | Operating target $50,000 by 2027-01-31 in USD; £300k/30d recorded as north star only | 2026-11-07 | `swarm/CORE.md`, `swarm/GOALS.md` |
+| A12 | Operating target $50,000 verified Stripe gross per month; north star $300,000 per month, report-only, not the elimination line | 2026-11-08 | Founder: "target is 50K a month, with north star 300K a month revenue". `swarm/CORE.md`, `scripts/target-check.mjs` |
 
 ## FOUNDER-ONLY (draft and queue; never execute)
 

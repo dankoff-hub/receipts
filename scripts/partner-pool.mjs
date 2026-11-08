@@ -13,25 +13,26 @@ const blocked = (p) => p.substack_blocked === true || (typeof p.substack_blocked
 const seen = new Set();
 function openerFor(p) {
   const handle = String(p.handle || "").replace(/^@/, "").trim();
-  const title = String(p.title || handle || "your work").replace(/\s+/g, " ").trim();
-  const desc = String(p.desc || "").replace(/\b(amazing|love)\b/gi, "").replace(/\s+/g, " ").trim();
-  const token = (handle || title.split(/\s+/)[0] || "you").replace(/[^\w.-]/g, "");
-  let specific = (desc.length > 28 ? desc : title).replace(/https?:\/\/\S+/gi, "").replace(/\b[\w.-]+\.(com|app|io|ee)\b/gi, "").trim();
-  specific = specific.split(/[.!?]/)[0].trim();
-  if (!specific.toLowerCase().includes(token.toLowerCase().slice(0, Math.min(6, token.length)))) {
-    specific = `${title} (${token}) — ${specific}`;
+  const title = String(p.title || handle || "your work").replace(/https?:\/\/\S+/g, "").replace(/[^\w\s']/g, " ").replace(/\s+/g, " ").trim().slice(0, 72);
+  const about = String(p.desc || "").replace(/https?:\/\/\S+/g, "").replace(/\$\d[\d.]*/g, "").replace(/\b(amazing|love)\b/gi, "").replace(/\s+/g, " ").trim();
+  const detail = (about.split(/[.!?]/).map((s) => s.trim()).find((s) => s.length > 18) || title).slice(0, 90);
+  const who = p.kind === "newsletter" ? "letter" : "channel";
+  const questions = [
+    `What made you start the ${who}?`,
+    "Which day was the hardest to keep on camera?",
+    "Do you keep a private log, or is the video the record?",
+    "What should someone do on day 1 if they are starting from zero?",
+    "Which week did it stop feeling like a challenge?",
+  ];
+  const q = questions[[...handle].reduce((n, ch) => n + ch.charCodeAt(0), 0) % questions.length];
+  let text = `${title} — ${detail}. ${q}`.replace(/\s+/g, " ").trim();
+  if (/https?:|www\.|\.com|\.app|\$|refund|guarantee|partner collab|free pack/i.test(text)) {
+    text = `${title} — that framing is concrete. What made you start the ${who}?`;
   }
-  const q = "do you take partner collabs?";
-  let text = `${specific} ${q}`.replace(/\s+/g, " ").trim();
-  if (text.length > 180) {
-    const budget = 180 - q.length - 1;
-    text = `${specific.slice(0, budget).replace(/\s+\S*$/, "").trim()} ${q}`;
-  }
-  if (text.length > 180) text = text.slice(0, 180).trim();
-  if (/https?:|receipts|\$\d|pack link/i.test(text)) text = `${title} (${token}) — ${q}`.slice(0, 180);
+  text = text.slice(0, 220);
   let n = 2;
   const base = text;
-  while (seen.has(text)) text = `${base.slice(0, 176)} ${n++}`.slice(0, 180);
+  while (seen.has(text)) text = `${base.slice(0, 210)} (${n++})`.slice(0, 220);
   seen.add(text);
   return text;
 }
@@ -47,7 +48,9 @@ for (const p of Object.values(prospects)) {
     p.drafts = { ...(p.drafts || {}), dm_opener: openerFor(p) };
     openers_added++;
   }
-  if (!hasIg(p) && blocked(p) && !hasTt(p)) {
+  const noSocial = !hasIg(p) && !hasTt(p);
+  const noPublicMail = !p.public_email;
+  if (noSocial && (blocked(p) || (p.kind === "newsletter" && noPublicMail) || !p.latest_video)) {
     if (!p.route_exhausted) route_exhausted++;
     p.route_exhausted = true;
   }

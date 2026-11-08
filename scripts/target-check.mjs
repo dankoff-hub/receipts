@@ -3,7 +3,8 @@
 // Revenue source: Stripe Checkout Sessions (payment link), via STRIPE_API_KEY
 // (read-only restricted key, rk_live_..., checkout sessions read). Offline if unset.
 const KEY = process.env.STRIPE_API_KEY;
-const TARGET = Number(process.env.SWARM_TARGET_MONTHLY || 300000); // USD per cycle
+const TARGET = Number(process.env.SWARM_TARGET_MONTHLY || 50000); // operating target, USD per 30-day cycle
+const NORTH_STAR = 300000; // report-only; never the elimination line
 const LAUNCH = Date.parse("2026-11-03T00:00:00Z");
 const CYCLE_DAYS = 30;
 const now = Date.now();
@@ -30,11 +31,11 @@ if (KEY) {
 }
 
 if (revenue === null) {
-  console.log(`REVENUE TRACKING OFFLINE (${note || "STRIPE_API_KEY not set"}) — survival cannot be verified. Cycle ${cycle + 1}, day ${daysElapsed}/${CYCLE_DAYS}, target ${fmt(TARGET)}.`);
+  console.log(`REVENUE TRACKING OFFLINE (${note || "STRIPE_API_KEY not set"}) — survival cannot be verified. Cycle ${cycle + 1}, day ${daysElapsed}/${CYCLE_DAYS}, monthly target ${fmt(TARGET)}, north star ${fmt(NORTH_STAR)}/month.`);
   process.exit(0);
 }
 const projected = revenue / daysElapsed * CYCLE_DAYS;
 const neededPerDay = Math.max(0, (TARGET - revenue) / Math.max(1, daysLeft));
 const surviving = revenue >= TARGET || projected >= TARGET;
 const verdict = revenue >= TARGET ? "TARGET ACHIEVED — SWARM PROMOTED" : surviving ? "SURVIVING" : `AT RISK — ELIMINATION IN ${daysLeft} DAYS`;
-console.log(`SWARM STATUS: ${verdict} · cycle ${cycle + 1} day ${daysElapsed}/${CYCLE_DAYS} · revenue ${fmt(revenue)} (${sales} sales) · target ${fmt(TARGET)} · need ${fmt(neededPerDay)}/day for remaining ${daysLeft} days`);
+console.log(`SWARM STATUS: ${verdict} · cycle ${cycle + 1} day ${daysElapsed}/${CYCLE_DAYS} · revenue ${fmt(revenue)} (${sales} sales) · monthly target ${fmt(TARGET)} · need ${fmt(neededPerDay)}/day for remaining ${daysLeft} days · north star ${fmt(NORTH_STAR)}/month (not the verdict)`);

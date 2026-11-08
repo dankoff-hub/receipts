@@ -1,6 +1,6 @@
 # GOALS — Operation Revenue Swarm (Absolute Zero)
-- Master target: $50,000 attributed Receipts Pack revenue ($29 one-time) by 2027-01-31 (month 3 of bootstrap). Founder budget $3k is founder-only; the swarm spends $0.
-- Pace (recompute every run): remaining_sales = ceil((50000 − verified_usd)/29); required_daily = remaining_sales/days_left. 2026-11-07: 0 sales → 1,724 sales / 85 days = 20.3/day. North star £300k/30d (≈13,800 sales) is report-only.
+- Operating target (founder, 2026-11-08): **$50,000 verified Stripe gross per month**. Not a one-time $50k by 2027-01-31. At $29 that is 1,724 sales/month, about 58/day. Founder budget $3k is founder-only; the swarm spends $0.
+- North star, report-only: **$300,000 per month** (10,345 sales). Never the elimination threshold. Do not fabricate progress toward either number.
 - Per-run operating prompt: swarm/CORE.md. Approvals and caps: swarm/AUTHORITY.md. Long-form reference: swarm/reference/MASTER_PROMPT.md.
 - Zero-cost constraint (inviolable): no card, no paid tier, no auto-billing trial anywhere in the swarm.
 - Channels: Instagram (focus), YouTube (focus), TikTok, Bluesky, Mastodon. No X. No paid ads.
