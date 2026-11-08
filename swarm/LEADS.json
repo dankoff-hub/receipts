@@ -879,9 +879,42 @@
   "at://did:plc:4zrnz2x2fztnauudzi3uzbre/app.bsky.feed.post/3mzsnhk7mrk2n",
   "at://did:plc:mymtwcwcrqntl45sgfz47au7/app.bsky.feed.post/3mzskda4rw22y",
   "masto:117581180074743015",
-  "masto:117581296479035606"
+  "masto:117581296479035606",
+  "at://did:plc:ivseqixxc5dkn5unizifey3i/app.bsky.feed.post/3mzsqupatsv2o",
+  "at://did:plc:7p3zdhpclbhiy6io6cxujceb/app.bsky.feed.post/3mzsv7rpjvs22",
+  "at://did:plc:ogyb6rgwozch4phnhqu7riqo/app.bsky.feed.post/3mzss4cww4s2r",
+  "at://did:plc:esrwuoens4elzw5gujm7vrla/app.bsky.feed.post/3mzss55ssgb2v",
+  "at://did:plc:tmrtcp7mz7phazcjeeeioua2/app.bsky.feed.post/3mzsrzujbjs2n",
+  "at://did:plc:5bw2qoyujw6umacxg5mnvhpo/app.bsky.feed.post/3mzsve7anzc2g",
+  "at://did:plc:dg5xh4m47twlgw3spvdok5dg/app.bsky.feed.post/3mzsuig7sqc2r",
+  "at://did:plc:toy3ck2wmfu2jnpimsiyfum4/app.bsky.feed.post/3mzst2m34qw2n",
+  "at://did:plc:bkirumazwwozj3f5x4bhpmum/app.bsky.feed.post/3mzssos7das2e",
+  "masto:117581559060027515",
+  "masto:117581886543397946"
  ],
  "leads": [
+  {
+   "src": "bluesky",
+   "id": "at://did:plc:ogyb6rgwozch4phnhqu7riqo/app.bsky.feed.post/3mzss4cww4s2r",
+   "url": "https://bsky.app/profile/ghammel.com/post/3mzss4cww4s2r",
+   "text": "Right now I’m grouping by feature type: functionality (to do, habit tracker, pomodoro etc) and whimsy (all the rpg stuff) 🙃",
+   "sub": "ghammel.com",
+   "at": "2026-11-08T16:05:44.869Z",
+   "tier": 2,
+   "found": "2026-11-08T17:05:46.025Z",
+   "status": "skipped"
+  },
+  {
+   "src": "bluesky",
+   "id": "at://did:plc:5bw2qoyujw6umacxg5mnvhpo/app.bsky.feed.post/3mzsve7anzc2g",
+   "url": "https://bsky.app/profile/robdotcole.bsky.social/post/3mzsve7anzc2g",
+   "text": "So, obviously, we shouldn't prove them wrong\n\nDid I distill that down correctly?  😀",
+   "sub": "robdotcole.bsky.social",
+   "at": "2026-11-08T17:03:50.653Z",
+   "tier": 2,
+   "found": "2026-11-08T17:05:46.790Z",
+   "status": "skipped"
+  },
   {
    "src": "bluesky",
    "id": "at://did:plc:omdcasapga2l3fskdbcvvwpo/app.bsky.feed.post/3mzsluyid2s23",

@@ -432,6 +432,22 @@
    "author": "parademag.bsky.social",
    "tier": 2,
    "why": "not a personal goal: No personal habit or goal mentioned"
+  },
+  {
+   "at": "2026-11-08T17:05:48.134Z",
+   "id": "at://did:plc:5bw2qoyujw6umacxg5mnvhpo/app.bsky.feed.post/3mzsve7anzc2g",
+   "url": "https://bsky.app/profile/robdotcole.bsky.social/post/3mzsve7anzc2g",
+   "author": "robdotcole.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: Not about a habit or challenge"
+  },
+  {
+   "at": "2026-11-08T17:05:48.584Z",
+   "id": "at://did:plc:ogyb6rgwozch4phnhqu7riqo/app.bsky.feed.post/3mzss4cww4s2r",
+   "url": "https://bsky.app/profile/ghammel.com/post/3mzss4cww4s2r",
+   "author": "ghammel.com",
+   "tier": 2,
+   "why": "not a personal goal: Discussing feature ideas"
   }
  ]
 }
