@@ -847,9 +847,52 @@
   "at://did:plc:k6knfvifugzrhr5w2j3672fp/app.bsky.feed.post/3mzrvoxgbwc2q",
   "lemmy:54149541",
   "at://did:plc:ke5r5puj575q4cnzsgctebdk/app.bsky.feed.post/3mzrxotjwrk2l",
-  "at://did:plc:t7yfvr663z5hunuau2lutuco/app.bsky.feed.post/3mzrx3rrtdz27"
+  "at://did:plc:t7yfvr663z5hunuau2lutuco/app.bsky.feed.post/3mzrx3rrtdz27",
+  "at://did:plc:xcjqcgj57oxobrqx5azpwhhq/app.bsky.feed.post/3mzsbhipmjs27",
+  "at://did:plc:7354zg6d23af3ufzaibsrvfs/app.bsky.feed.post/3mzsaztpo7c2m",
+  "at://did:plc:kruyayewkxnoweegcljjliy6/app.bsky.feed.post/3mzsazpy5df2s",
+  "at://did:plc:xkshbutvv6xrnjzgxo653g2e/app.bsky.feed.post/3mzsbdaaigg2k",
+  "at://did:plc:w77dhwju4mcfpdu2tf5ggkm7/app.bsky.feed.post/3mzs5zuwhus24",
+  "at://did:plc:amwxzdlagdc4kfcd4djz2z72/app.bsky.feed.post/3mzs75yygjc27",
+  "at://did:plc:6xchoosndqfmcst2m5bnfuqu/app.bsky.feed.post/3mzs5evl53c2o",
+  "at://did:plc:wfjcm4szpttfxxfepnpuuowm/app.bsky.feed.post/3mzs3apqjrc2x",
+  "masto:117580346516527884",
+  "masto:117580298509984776"
  ],
  "leads": [
+  {
+   "src": "bluesky",
+   "id": "at://did:plc:kruyayewkxnoweegcljjliy6/app.bsky.feed.post/3mzsazpy5df2s",
+   "url": "https://bsky.app/profile/learnmix.bsky.social/post/3mzsazpy5df2s",
+   "text": "Habit Tracker Worksheet — ready to print and use. https://learnmix.com/r/1qk1x4m-bs #Worksheets #UKTeachers",
+   "sub": "learnmix.bsky.social",
+   "at": "2026-11-08T11:00:03.959Z",
+   "tier": 2,
+   "found": "2026-11-08T11:11:11.386Z",
+   "status": "new"
+  },
+  {
+   "src": "bluesky",
+   "id": "at://did:plc:amwxzdlagdc4kfcd4djz2z72/app.bsky.feed.post/3mzs75yygjc27",
+   "url": "https://bsky.app/profile/scenario-studios.bsky.social/post/3mzs75yygjc27",
+   "text": "I don’t believe @nytimes.com. He’s an AIPAC Jew who opposes NYC’s Muslim Mayor. But of course they would claim he’s unopposed. We need to just prove them wrong.",
+   "sub": "scenario-studios.bsky.social",
+   "at": "2026-11-08T10:26:40.449Z",
+   "tier": 2,
+   "found": "2026-11-08T11:11:12.048Z",
+   "status": "new"
+  },
+  {
+   "src": "bluesky",
+   "id": "at://did:plc:wfjcm4szpttfxxfepnpuuowm/app.bsky.feed.post/3mzs3apqjrc2x",
+   "url": "https://bsky.app/profile/dracuwhora.bsky.social/post/3mzs3apqjrc2x",
+   "text": "DMing people to prove them wrong with hard data and then blocking them",
+   "sub": "dracuwhora.bsky.social",
+   "at": "2026-11-08T09:16:36.450Z",
+   "tier": 2,
+   "found": "2026-11-08T11:11:12.316Z",
+   "status": "skipped"
+  },
   {
    "src": "bluesky",
    "id": "at://did:plc:ke5r5puj575q4cnzsgctebdk/app.bsky.feed.post/3mzrxotjwrk2l",
