@@ -562,5 +562,27 @@
   "why": "bluesky video not implemented",
   "captionHash": "c49a133aa8cb98b929f30e19d2f51353",
   "video": "day-005d.mp4"
+ },
+ {
+  "ts": "2026-11-08T18:55:47.461Z",
+  "channel": "bluesky",
+  "kind": "text",
+  "slot": "e",
+  "status": "failed",
+  "url": null,
+  "why": "{\"error\":\"InvalidRequest\",\"message\":\"Invalid app.bsky.feed.post record: grapheme too big (maximum 300, got 302) at $.record.text\"}",
+  "captionHash": "63b3044e2b381cf685aa8470aad8360b",
+  "video": null
+ },
+ {
+  "ts": "2026-11-08T18:55:48.187Z",
+  "channel": "mastodon",
+  "kind": "text",
+  "slot": "e",
+  "status": "sent",
+  "url": "https://mastodon.social/@danrossi2026/117582341596340310",
+  "why": null,
+  "captionHash": "63b3044e2b381cf685aa8470aad8360b",
+  "video": null
  }
 ]
