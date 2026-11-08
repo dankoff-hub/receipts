@@ -338,7 +338,7 @@
    "site": null,
    "desc": "Discipline. Focus. Self-Improvement. Welcome to my channel — motivation for young men who refuse to ",
    "score": 90,
-   "status": "prospect",
+   "status": "contacted",
    "found": "2026-11-07",
    "checked": "2026-11-07",
    "kind": "youtube",
@@ -359,7 +359,9 @@
    "latest_video": null,
    "threads": null,
    "substack": null,
-   "has_email": false
+   "has_email": false,
+   "contacted": "2026-11-08",
+   "contact_channel": "yt"
   },
   "@ChadEveryday": {
    "title": "Chadeveryday",
@@ -694,7 +696,7 @@
     "dm_followup": "Your latest piece on disciplined action in \"The Improvement Journal\" really hits the core of turning intent into results. We’d love to give you the full Receipts pack free at receiptspack.vercel.app/free so you can test it with your readers. If you share the partner link receiptspack.vercel.app/p/improvebypathsof, you’ll earn 50% of each sale ($14.50) via monthly PayPal payouts—no quotas, no exclusivity. Interested? — Dan, Receipts"
    },
    "ig_dead": true,
-   "substack_blocked": "2026-11-07 ops Substack account suspended (Spam & Phishing policy) after DM to practicalstoicadvice; appeal = founder"
+   "substack_blocked": true
   },
   "https://thesoftstoic.substack.com": {
    "title": "The Soft Stoic Letter (Luise)",
@@ -774,7 +776,7 @@
     "dm_opener": "Hi Own Your Ambition (Bonnie Marcus) — I read your work and liked it. Question: do you take partner collabs?",
     "dm_followup": "Your newsletter “Own Your Ambition” calls out the workplace barriers that keep ambitious women from moving forward, and that’s exactly the friction our $29, 30‑day proof system solves – keep the receipt, then make it irrelevant. We’ll send you the full pack free at receiptspack.vercel.app/free and give you a unique partner link receiptspack.vercel.app/p/bonniemarcus1 that pays you 50% of every sale ($14.50) monthly via PayPal, with no quota or exclusivity. Interested in testing it out? — Dan, Receipts"
    },
-   "substack_blocked": "2026-11-07 ops Substack account suspended (Spam & Phishing policy) after DM to practicalstoicadvice; appeal = founder"
+   "substack_blocked": true
   },
   "https://mattskura.substack.com": {
    "title": "Matt Skura's Newsletter",
@@ -802,7 +804,7 @@
     "dm_opener": "Hi Matt Skura's Newsletter — I read your work and liked it. Question: do you take partner collabs?",
     "dm_followup": "Your focus on resilience and mental health in Matt Skura's Newsletter aligns with our goal of helping people prove they’re ready. We’d love to send you the full Receipts pack free at receiptspack.vercel.app/free. Partner link receiptspack.vercel.app/p/mattskura pays 50% of each $29 sale ($14.50) monthly via PayPal, no quota, no exclusivity. Interested? — Dan, Receipts"
    },
-   "substack_blocked": "2026-11-07 ops Substack account suspended (Spam & Phishing policy) after DM to practicalstoicadvice; appeal = founder"
+   "substack_blocked": true
   },
   "https://xtreme007.beehiiv.com": {
    "title": "Xtreme Motivation (Anton Cupido)",
@@ -1004,7 +1006,7 @@
    "tt": "tiktok.com/@jennaonsocial",
    "site": null,
    "score": 70,
-   "status": "prospect",
+   "status": "contacted",
    "found": "2026-11-07",
    "url": "https://www.youtube.com/@Growingwithjenna",
    "checked": "2026-11-08",
@@ -1022,7 +1024,9 @@
    "latest_video": null,
    "threads": null,
    "substack": null,
-   "has_email": false
+   "has_email": false,
+   "contacted": "2026-11-08",
+   "contact_channel": "tiktok"
   },
   "@growthhub11-e9f": {
    "channel_id": "UCIv8q7D2xeBfxDpI1TFheBQ",
