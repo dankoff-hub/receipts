@@ -188,82 +188,92 @@
    {
     "platform": "instagram",
     "format": "POV story",
-    "hook": "When they laughed at your goal, you logged day one",
-    "say": "I heard the doubt, set a measurable standard, and recorded my first proof. Each morning I snap the metric. By day 30 the numbers speak louder than words.",
-    "body": "A clear standard turns mockery into measurable momentum.",
-    "cta": "Start the $29 challenge now, link in bio",
+    "hook": "When they laughed at your plan, you measured it.",
+    "say": "I heard the doubt, set a single metric, recorded every day. Day one, I logged the first number. By day fifteen, the graph rose. Now I have proof they were wrong.",
+    "body": "A clear standard turns mockery into data.",
+    "cta": "Start your 30‑day proof for $29 – link in bio",
     "provider": "groq",
-    "id": "66496cd5be8e67f2a82867b3243b28b3"
+    "id": "c3e675191a70600695389cc157f46b48"
    },
    {
     "platform": "instagram",
-    "format": "Myth-bust",
-    "hook": "Everyone claims talent wins, I prove consistency beats it",
-    "say": "They said talent alone matters, so I defined a daily output standard and captured 30 days of results. The proof is in the spreadsheet, not the hype.",
-    "body": "Consistency is the real standard that silences talent myths.",
-    "cta": "Join for $29, link in bio",
+    "format": "myth‑bust",
+    "hook": "Everyone claims consistency is impossible—here's the receipt.",
+    "say": "They told me consistency was a myth. I chose one habit, tracked it for 30 days. Each entry showed progress, no excuses. The final tally proved them wrong.",
+    "body": "One simple standard disproves the myth of inconsistency.",
+    "cta": "Grab the 30‑day system for $29 – link in bio",
     "provider": "groq",
-    "id": "abc96a054c7b9d3522914668afacf53f"
+    "id": "4b4271863e1f302e38ade2fa6e6dd2f8"
    },
    {
     "platform": "instagram",
-    "format": "Receipt reveal",
-    "hook": "Doubt was loud, my receipts are louder",
-    "say": "Someone told me I couldn't track progress, so I set a numeric target and posted a photo of each day's metric. Thirty days later the stack of receipts proves it.",
-    "body": "Visible proof validates any claim.",
-    "cta": "Grab your $29 pass, link in bio",
+    "format": "challenge",
+    "hook": "Break the streak they said you couldn’t break.",
+    "say": "A doubter said I’d quit after week two. I set a daily checkpoint, recorded it, and kept the streak alive. Day thirty, the log is solid proof.",
+    "body": "Streaks become evidence when you define a daily metric.",
+    "cta": "Join the challenge for $29 – link in bio",
     "provider": "groq",
-    "id": "1aa32e08cc2b5fbd0dd1045b2d797a4e"
+    "id": "b34ab30211b11d6360c623127729da5d"
    },
    {
     "platform": "youtube",
-    "format": "Challenge recap",
-    "hook": "Day 1 again? Watch the proof stack grow",
-    "say": "A doubter said I’d quit, so I committed to a daily benchmark and filmed each day's result. The montage shows every proof point over 30 days.",
-    "body": "A visual timeline turns skepticism into evidence.",
-    "cta": "Enroll for $29, link in bio",
+    "format": "confession",
+    "hook": "I heard ‘you’ll never finish’—so I logged it.",
+    "say": "They whispered I’d fail, so I chose a single result to track. Every sunrise I recorded the number, and the final chart silenced them.",
+    "body": "A single measurable goal turns doubt into a visual story.",
+    "cta": "Get the 30‑day proof kit for $29 – link in bio",
     "provider": "groq",
-    "id": "7111dd4aea17da3ced4b76bda840b122"
+    "id": "88e4c1fd2ed4fa1f84a1c9fbb9af3745"
    },
    {
     "platform": "youtube",
-    "format": "List",
-    "hook": "3 steps to turn doubt into daily receipts",
-    "say": "1️⃣ Identify the doubter’s claim. 2️⃣ Set one concrete standard. 3️⃣ Capture a proof piece each day for 30 days. My channel shows the full stack.",
-    "body": "A simple list converts skepticism into data.",
-    "cta": "Get the $29 system, link in bio",
+    "format": "list",
+    "hook": "5 ways to prove the naysayers wrong in 30 days.",
+    "say": "1. Pick one metric. 2. Capture it daily. 3. Share the log. 4. Watch the trend. 5. Show the final receipt. Each step builds undeniable proof.",
+    "body": "A step‑by‑step standard creates undeniable evidence.",
+    "cta": "Start your proof for $29 – link in bio",
     "provider": "groq",
-    "id": "a87b7e9ffdf2b54a927498fd91f73aa9"
+    "id": "923ccf3798ceee286064743f56195ac9"
+   },
+   {
+    "platform": "youtube",
+    "format": "receipt reveal",
+    "hook": "Watch the receipt that shut their doubts forever.",
+    "say": "They claimed I couldn’t sustain. I filmed each day’s result, compiled the timeline, and the final screenshot answered the question—yes, I did.",
+    "body": "Visual receipts turn skepticism into confirmation.",
+    "cta": "Unlock the 30‑day system for $29 – link in bio",
+    "provider": "groq",
+    "id": "b7ffac0fc6621e964cf869cb7b094791"
    },
    {
     "platform": "tiktok",
-    "format": "Quick myth-bust",
-    "hook": "They claimed progress is invisible—here’s the proof",
-    "say": "A critic said I couldn’t quantify growth, so I chose a single KPI, posted a 5‑second clip daily, and built 30 proof clips. The trend is real.",
-    "body": "Visible metrics crush invisible doubts.",
-    "cta": "Tap the $29 link in bio",
+    "format": "day‑1 again",
+    "hook": "Day 1 again—prove them wrong this time.",
+    "say": "The community said I’d drop out. I reset the tracker, logged day one, and kept the chain. Thirty days later, the proof is live.",
+    "body": "Resetting a standard shows resilience and results.",
+    "cta": "Join for $29 – link in bio",
     "provider": "groq",
-    "id": "094a7322397df81af4c54be5019cf55d"
+    "id": "f5654af9fb4c7cbfd947d4677e95ff65"
    },
    {
     "platform": "tiktok",
-    "format": "Daily check‑in challenge",
-    "hook": "Day 5 broke? Reset, record, repeat",
-    "say": "Our community heard a naysayer, set one daily number, and every broken streak gets a fresh receipt shot. 30 days, 30 proofs, no excuses.",
-    "body": "Resetting keeps the standard alive.",
-    "cta": "Join the $29 challenge, link in bio",
+    "format": "challenge",
+    "hook": "30‑day doubt‑to‑data challenge starts now.",
+    "say": "Someone told me I couldn’t commit. I chose one number, recorded it daily, and posted the streak. The final count is the receipt they feared.",
+    "body": "Commit to a single metric and let the data speak.",
+    "cta": "Enroll for $29 – link in bio",
     "provider": "groq",
-    "id": "62595dff3cbcb019f5a99be4a3b97642"
+    "id": "6404940d0d14ed25aa33633b820a1134"
    },
    {
     "platform": "tiktok",
-    "format": "Receipt reveal montage",
-    "hook": "30 receipts, one doubter silenced",
-    "say": "Someone doubted my consistency, so I filmed each day’s result, compiled a 30‑second montage, and let the receipts do the talking.",
-    "body": "A montage of proof ends the debate.",
-    "cta": "Start now for $29, link in bio",
+    "format": "myth‑bust",
+    "hook": "Myth: you can’t prove progress in a month—here’s proof.",
+    "say": "They said progress is invisible. I set a daily log, captured each entry, and the month‑end chart proved otherwise.",
+    "body": "Consistent measurement makes the invisible visible.",
+    "cta": "Get the 30‑day proof plan for $29 – link in bio",
     "provider": "groq",
-    "id": "91f447d1fb139e3921ca1827975be5d5"
+    "id": "615d0986a78e8edb2a8a1bb0b4b54e96"
    }
   ]
  },
@@ -313,6 +323,15 @@
   "a87b7e9ffdf2b54a927498fd91f73aa9",
   "094a7322397df81af4c54be5019cf55d",
   "62595dff3cbcb019f5a99be4a3b97642",
-  "91f447d1fb139e3921ca1827975be5d5"
+  "91f447d1fb139e3921ca1827975be5d5",
+  "c3e675191a70600695389cc157f46b48",
+  "4b4271863e1f302e38ade2fa6e6dd2f8",
+  "b34ab30211b11d6360c623127729da5d",
+  "88e4c1fd2ed4fa1f84a1c9fbb9af3745",
+  "923ccf3798ceee286064743f56195ac9",
+  "b7ffac0fc6621e964cf869cb7b094791",
+  "f5654af9fb4c7cbfd947d4677e95ff65",
+  "6404940d0d14ed25aa33633b820a1134",
+  "615d0986a78e8edb2a8a1bb0b4b54e96"
  ]
 }
