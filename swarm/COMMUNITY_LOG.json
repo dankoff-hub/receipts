@@ -1,5 +1,16 @@
 {
- "replies": [],
+ "replies": [
+  {
+   "at": "2026-11-08T18:15:32.377Z",
+   "platform": "bluesky",
+   "target": "at://did:plc:xzp7jwiy4wuiq7bdlzhlenbh/app.bsky.feed.post/3mzsz56habk2k",
+   "author": "supermedusa.bsky.social",
+   "text": "Thanks for sharing your plan! 1‑2k words is a solid chunk—aim for a specific time slot to keep momentum. Maybe schedule a quick 10‑minute stretch break? How do you usually prep your draft?",
+   "status": "sent",
+   "url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mzszefn2f32v",
+   "provider": "pollinations"
+  }
+ ],
  "follows": [
   {
    "at": "2026-11-07T10:28:49.803Z",

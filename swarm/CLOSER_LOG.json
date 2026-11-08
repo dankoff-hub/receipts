@@ -69,6 +69,84 @@
    "reply_url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mzsosrio4d24",
    "provider": "groq",
    "platform": "bluesky"
+  },
+  {
+   "at": "2026-11-08T18:05:27.377Z",
+   "id": "at://did:plc:xzp7jwiy4wuiq7bdlzhlenbh/app.bsky.feed.post/3mzsynsqhlc2l",
+   "url": "https://bsky.app/profile/supermedusa.bsky.social/post/3mzsynsqhlc2l",
+   "author": "supermedusa.bsky.social",
+   "tier": 2,
+   "why": "working on personal writing goal",
+   "reply": "Your goal to share the novel is inspiring. Tomorrow, write a 500‑word scene to move the story forward.",
+   "reply_url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mzsysenxb52o",
+   "provider": "groq",
+   "platform": "bluesky",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-08T18:05:29.308Z",
+   "id": "at://did:plc:ch3nmicrxjgfsudp6cv7jgyh/app.bsky.feed.post/3mzsx6uhudl2b",
+   "url": "https://bsky.app/profile/debbee.bsky.social/post/3mzsx6uhudl2b",
+   "author": "debbee.bsky.social",
+   "tier": 2,
+   "why": "sharing new fitness habit",
+   "reply": "Congrats on hitting week 6 and kicking off Couch to 5k! Tomorrow, add a 10‑minute cool‑down stretch after your jog to boost recovery.",
+   "reply_url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mzsysgivfy2u",
+   "provider": "groq",
+   "platform": "bluesky",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-08T18:05:33.634Z",
+   "id": "at://did:plc:44qqrhooiey5nnznj6vghux6/app.bsky.feed.post/3mzssvvxsp22h",
+   "url": "https://bsky.app/profile/frozenpawpadz.bsky.social/post/3mzssvvxsp22h",
+   "author": "frozenpawpadz.bsky.social",
+   "tier": 2,
+   "why": "Personal accountability goal",
+   "reply": "Finishing a project feels great—pick the smallest piece and finish it. Tomorrow, spend 30 minutes completing that one task.",
+   "reply_url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mzsyskmy2t2q",
+   "provider": "groq",
+   "platform": "bluesky",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-08T18:08:24.943Z",
+   "id": "at://did:plc:yq3y5mnmxsnp5k7iowykn6cm/app.bsky.feed.post/3mzslnxzjhc2a",
+   "url": "https://bsky.app/profile/beavisetc.bsky.social/post/3mzslnxzjhc2a",
+   "author": "beavisetc.bsky.social",
+   "tier": 2,
+   "why": "Starts a habit, no request for a template.",
+   "reply": "Your goal: build authentic community. Tomorrow: reply to each comment with a thoughtful question.",
+   "reply_url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mzsyxnytsi2f",
+   "provider": "pollinations",
+   "platform": "bluesky",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-08T18:10:09.905Z",
+   "id": "at://did:plc:j7umbsjb3bpcxvrvglnbyirt/app.bsky.feed.post/3mzskywbx7c2v",
+   "url": "https://bsky.app/profile/graehall.bsky.social/post/3mzskywbx7c2v",
+   "author": "graehall.bsky.social",
+   "tier": 2,
+   "why": "Working on health habit, no template request",
+   "reply": "Great job hitting 200k! Tomorrow, aim for a 5k ride to keep momentum. Keep pushing toward 300k.",
+   "reply_url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mzsz2s3w4h2n",
+   "provider": "pollinations",
+   "platform": "bluesky",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-08T18:12:53.949Z",
+   "id": "at://did:plc:6zqdg7xzhlqprhtdyzoutk2k/app.bsky.feed.post/3mzsh6kdlks2o",
+   "url": "https://bsky.app/profile/caladaley.bsky.social/post/3mzsh6kdlks2o",
+   "author": "caladaley.bsky.social",
+   "tier": 2,
+   "why": "Mentions personal goal of refraining from violence",
+   "reply": "Your goal: keep your art flow free of violent imagery. Tomorrow, commit to 10 minutes of sketching a street view before lunch.",
+   "reply_url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mzsz7oj7wr2u",
+   "provider": "pollinations",
+   "platform": "bluesky",
+   "status": "sent"
   }
  ],
  "skipped": [
@@ -448,6 +526,158 @@
    "author": "ghammel.com",
    "tier": 2,
    "why": "not a personal goal: Discussing feature ideas"
+  },
+  {
+   "at": "2026-11-08T18:05:25.400Z",
+   "id": "at://did:plc:ioz7ntet4vlcc7aapqvxxkib/app.bsky.feed.post/3mzrtk5yvxs2f",
+   "url": "https://bsky.app/profile/thanksatan.bsky.social/post/3mzrtk5yvxs2f",
+   "author": "thanksatan.bsky.social",
+   "tier": 1,
+   "why": "not a personal goal: no habit or accountability request"
+  },
+  {
+   "at": "2026-11-08T18:05:27.670Z",
+   "id": "at://did:plc:uzkthbeimpugecznybipkzzj/app.bsky.feed.post/3mzsy3eisck2c",
+   "url": "https://bsky.app/profile/joybella.blacksky.app/post/3mzsy3eisck2c",
+   "author": "joybella.blacksky.app",
+   "tier": 2,
+   "why": "not a personal goal: No habit or challenge mentioned"
+  },
+  {
+   "at": "2026-11-08T18:05:28.134Z",
+   "id": "at://did:plc:sqvutj42aiukencj7lzfyvqu/app.bsky.feed.post/3mzsxfrgi422z",
+   "url": "https://bsky.app/profile/murphyga.bsky.social/post/3mzsxfrgi422z",
+   "author": "murphyga.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: Just sharing pottery project"
+  },
+  {
+   "at": "2026-11-08T18:05:28.495Z",
+   "id": "at://did:plc:3rvqqwtnq6zfhcr46hcw7s63/app.bsky.feed.post/3mzsxfh75ik25",
+   "url": "https://bsky.app/profile/horrorfan101.bsky.social/post/3mzsxfh75ik25",
+   "author": "horrorfan101.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: No habit or goal mentioned"
+  },
+  {
+   "at": "2026-11-08T18:05:29.690Z",
+   "id": "at://did:plc:g23uc75b4px6zhg7i352a3mh/app.bsky.feed.post/3mzswpkcctk23",
+   "url": "https://bsky.app/profile/mrpandragon.bsky.social/post/3mzswpkcctk23",
+   "author": "mrpandragon.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: no habit or challenge mentioned"
+  },
+  {
+   "at": "2026-11-08T18:05:30.227Z",
+   "id": "at://did:plc:qvymt4ezsqnpqvgnaopyetd3/app.bsky.feed.post/3mzswffb5wc2f",
+   "url": "https://bsky.app/profile/alexis44.bsky.social/post/3mzswffb5wc2f",
+   "author": "alexis44.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: No habit or goal mentioned"
+  },
+  {
+   "at": "2026-11-08T18:05:30.665Z",
+   "id": "at://did:plc:nb4meyc5olxwqc3fhzlt3ieq/app.bsky.feed.post/3mzsvuqomls2j",
+   "url": "https://bsky.app/profile/trocchio.bsky.social/post/3mzsvuqomls2j",
+   "author": "trocchio.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: Political complaint, no habit goal"
+  },
+  {
+   "at": "2026-11-08T18:05:31.142Z",
+   "id": "at://did:plc:axpiqry6jr4gjg7zvi2xz5vy/app.bsky.feed.post/3mzsvhn65lk2i",
+   "url": "https://bsky.app/profile/mrsteed.bsky.social/post/3mzsvhn65lk2i",
+   "author": "mrsteed.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: no habit or accountability request"
+  },
+  {
+   "at": "2026-11-08T18:05:31.611Z",
+   "id": "at://did:plc:kpja7ffuqrsbq7qya6oi3imq/app.bsky.feed.post/3mzsvffizpc2n",
+   "url": "https://bsky.app/profile/ogerponfan.bsky.social/post/3mzsvffizpc2n",
+   "author": "ogerponfan.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: No habit or accountability mentioned"
+  },
+  {
+   "at": "2026-11-08T18:05:31.877Z",
+   "id": "at://did:plc:plq7giazhs36ya5xn7dvtth3/app.bsky.feed.post/3mzsuxykerk2h",
+   "url": "https://bsky.app/profile/blazing7799.bsky.social/post/3mzsuxykerk2h",
+   "author": "blazing7799.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: no habit or challenge mentioned"
+  },
+  {
+   "at": "2026-11-08T18:05:32.233Z",
+   "id": "at://did:plc:6zbw5aeo2ovqlb2yex6rimpi/app.bsky.feed.post/3mzsurnxza22e",
+   "url": "https://bsky.app/profile/kanangafm.bsky.social/post/3mzsurnxza22e",
+   "author": "kanangafm.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: no habit or accountability request"
+  },
+  {
+   "at": "2026-11-08T18:05:34.010Z",
+   "id": "at://did:plc:ddmbn3yna7suy3i4czk527dn/app.bsky.feed.post/3mzsqmko2322l",
+   "url": "https://bsky.app/profile/mariacadenzavnaeve.bsky.social/post/3mzsqmko2322l",
+   "author": "mariacadenzavnaeve.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: No habit or goal mentioned"
+  },
+  {
+   "at": "2026-11-08T18:05:34.459Z",
+   "id": "at://did:plc:nyo64swhley7khl4uo3o2ijd/app.bsky.feed.post/3mzsncydmsc22",
+   "url": "https://bsky.app/profile/scowsh.bsky.social/post/3mzsncydmsc22",
+   "author": "scowsh.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: No habit or challenge mentioned"
+  },
+  {
+   "at": "2026-11-08T18:05:34.949Z",
+   "id": "at://did:plc:p7oa53h3ubyeth663q6lpvqj/app.bsky.feed.post/3mzsn5m4p6s2j",
+   "url": "https://bsky.app/profile/ktompkinsii.bsky.social/post/3mzsn5m4p6s2j",
+   "author": "ktompkinsii.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: No habit or challenge mentioned"
+  },
+  {
+   "at": "2026-11-08T18:05:39.467Z",
+   "id": "at://did:plc:o5jj2ed2rkll3ulveo33o3rx/app.bsky.feed.post/3mzslvs6bsc26",
+   "url": "https://bsky.app/profile/gung-ho-giggity.bsky.social/post/3mzslvs6bsc26",
+   "author": "gung-ho-giggity.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: No habit or challenge mentioned"
+  },
+  {
+   "at": "2026-11-08T18:06:32.542Z",
+   "id": "at://did:plc:7f6ucae4lfhytozaujo4orv2/app.bsky.feed.post/3mzslvfh2kc26",
+   "url": "https://bsky.app/profile/docfredslumz.bsky.social/post/3mzslvfh2kc26",
+   "author": "docfredslumz.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: No explicit ask for a tracker or template"
+  },
+  {
+   "at": "2026-11-08T18:11:05.524Z",
+   "id": "at://did:plc:oapqhbxzbxqmffuz3vde742v/app.bsky.feed.post/3mzsiizuuj22j",
+   "url": "https://bsky.app/profile/rolandelli.bsky.social/post/3mzsiizuuj22j",
+   "author": "rolandelli.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: Not a habit or challenge"
+  },
+  {
+   "at": "2026-11-08T18:13:45.712Z",
+   "id": "at://did:plc:ywswdp35g47cxhc7sbigwvvh/app.bsky.feed.post/3mzrqykkd4c2n",
+   "url": "https://bsky.app/profile/lacemuse.bsky.social/post/3mzrqykkd4c2n",
+   "author": "lacemuse.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: No mention of habit or tracker"
+  },
+  {
+   "at": "2026-11-08T18:14:39.663Z",
+   "id": "at://did:plc:nkoe6bcizdp2ea7nenjeee5a/app.bsky.feed.post/3mzqknsoakl2r",
+   "url": "https://bsky.app/profile/alzamon.bsky.social/post/3mzqknsoakl2r",
+   "author": "alzamon.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: No personal goal or request present"
   }
  ]
 }

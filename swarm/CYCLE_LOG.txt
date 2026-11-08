@@ -408,3 +408,37 @@ community: SEND — {"bluesky":{"followBack":0,"replies":0,"follows":0},"mastodo
 creative: today already done
 --- node swarm/skool.mjs
 skool: today already prepared
+
+===== cycle 2026-11-08T18:04:36.962Z =====
+--- node swarm/audit.mjs
+audit PASS ✓ card_free_llm ✓ card_free_execution ✓ card_free_edge_worker ✓ card_free_posting ✓ card_free_state ✓ no_auto_billing ✓ local_fallback_exists ✓ core_prompt_budget
+--- node swarm/hunter.mjs
+worker leads merged: 0
+hunter: fetched 920 items (seen 986)
+hunter: scanned 220 new posts → tier1 1, tier2 26 (llm calls 6)
+--- node swarm/closer.mjs
+closer: 25 fresh bluesky/mastodon leads, 0/40 replies sent today, mode SEND (founder-enabled)
+closer: replied → https://bsky.app/profile/supermedusa.bsky.social/post/3mzsynsqhlc2l
+closer: replied → https://bsky.app/profile/debbee.bsky.social/post/3mzsx6uhudl2b
+closer: replied → https://bsky.app/profile/frozenpawpadz.bsky.social/post/3mzssvvxsp22h
+closer: replied → https://bsky.app/profile/beavisetc.bsky.social/post/3mzslnxzjhc2a
+closer: replied → https://bsky.app/profile/graehall.bsky.social/post/3mzskywbx7c2v
+closer: replied → https://bsky.app/profile/caladaley.bsky.social/post/3mzsh6kdlks2o
+llm groq HTTP 429: {"error":{"message":"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m6sjtcrweq7847g3mgh91ffh` service tier `on_demand` on tokens per 
+llm pollinations HTTP 402: {"status":402,"success":false,"error":{"code":"FREE_LIMIT","message":"Free limit reached: 1 reply every 45 seconds per IP. Retry after 41s, or get unlimited rep
+llm pollinations HTTP 402: {"status":402,"success":false,"error":{"code":"FREE_LIMIT","message":"Free limit reached: 1 reply every 45 seconds per IP. Retry after 40s, or get unlimited rep
+llm pollinations HTTP 402: {"status":402,"success":false,"error":{"code":"FREE_LIMIT","message":"Free limit reached: 1 reply every 45 seconds per IP. Retry after 34s, or get unlimited rep
+llm pollinations HTTP 402: {"status":402,"success":false,"error":{"code":"FREE_LIMIT","message":"Free limit reached: 1 reply every 45 seconds per IP. Retry after 39s, or get unlimited rep
+llm pollinations HTTP 402: {"status":402,"success":false,"error":{"code":"FREE_LIMIT","message":"Free limit reached: 1 reply every 45 seconds per IP. Retry after 41s, or get unlimited rep
+llm pollinations HTTP 402: {"status":402,"success":false,"error":{"code":"FREE_LIMIT","message":"Free limit reached: 1 reply every 45 seconds per IP. Retry after 40s, or get unlimited rep
+llm pollinations HTTP 402: {"status":402,"success":false,"error":{"code":"FREE_LIMIT","message":"Free limit reached: 1 reply every 45 seconds per IP. Retry after 37s, or get unlimited rep
+llm pollinations HTTP 402: {"status":402,"success":false,"error":{"code":"FREE_LIMIT","message":"Free limit reached: 1 reply every 45 seconds per IP. Retry after 41s, or get unlimited rep
+llm pollinations HTTP 402: {"status":402,"success":false,"error":{"code":"FREE_LIMIT","message":"Free limit reached: 1 reply every 45 seconds per IP. Retry after 36s, or get unlimited rep
+llm pollinations HTTP 402: {"status":402,"success":false,"error":{"code":"FREE_LIMIT","message":"Free limit reached: 1 reply every 45 seconds per IP. Retry after 41s, or get unlimited rep
+--- node swarm/community.mjs
+community: SEND — {"bluesky":{"followBack":0,"replies":1,"follows":0},"mastodon":{"followBack":0,"replies":0,"follows":0}}; reply budget left 19, follow budget {"bluesky":0,"mastodon":20}
+llm pollinations HTTP 402: {"status":402,"success":false,"error":{"code":"FREE_LIMIT","message":"Free limit reached: 1 reply every 45 seconds per IP. Retry after 38s, or get unlimited rep
+--- node swarm/creative.mjs
+creative: today already done
+--- node swarm/skool.mjs
+skool: today already prepared

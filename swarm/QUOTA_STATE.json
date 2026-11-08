@@ -11,9 +11,9 @@
    "card": false,
    "auth": "GROQ_API_KEY secret (optional)",
    "limit": "14,400 req/day",
-   "cooldown_until": 0,
-   "calls": 221,
-   "fails": 4,
+   "cooldown_until": 1794164734950,
+   "calls": 248,
+   "fails": 5,
    "last_error": "429"
   },
   "nvidia_nim": {
@@ -30,8 +30,8 @@
    "auth": "none (anonymous)",
    "limit": "rate-limited anonymous",
    "cooldown_until": 0,
-   "calls": 23,
-   "fails": 8
+   "calls": 46,
+   "fails": 19
   },
   "ollama_local": {
    "card": false,
@@ -56,6 +56,6 @@
   "qwen": "device-code OAuth — founder-only login",
   "puter": "browser session — founder-only login"
  },
- "rotation_offset": 0,
- "updated": "2026-11-08T18:03:45.177Z"
+ "rotation_offset": 1,
+ "updated": "2026-11-08T18:15:34.635Z"
 }
