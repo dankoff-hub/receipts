@@ -13,7 +13,8 @@ const list = Object.values(pages);
 if (!list.length) { console.log("repurpose: no guides yet"); process.exit(0); }
 const used = new Set(log.filter(p => p.status === "sent" && p.captionHash).map(p => p.captionHash));
 const dayNum = Number(today.slice(8, 10));
-const page = list[dayNum % list.length];
+const arg = process.argv.find(a => a.startsWith("--pick="));
+const page = arg ? (pages[arg.slice(7)] || list[dayNum % list.length]) : list[dayNum % list.length];
 const BAN = /guarantee|refund|money-back|earn \$|make \$|income|therapy|cure/i;
 
 function graphemes(s) { return [...new Intl.Segmenter("en", { granularity: "grapheme" }).segment(s)].map((x) => x.segment); }
