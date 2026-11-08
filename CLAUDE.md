@@ -42,6 +42,7 @@ Handover context for Claude (Code or chat). Read this first; it is the full oper
 | `seo-publisher.yml` | cron 04:15 | 6 unique /guides pages per day from content/seo-keywords.json. No API key. Sitemap includes them. |
 | `indexnow.yml` | cron 04:45 | Free IndexNow ping of guide URLs. No account. |
 | `repurpose-post.yml` | cron 11:30 + 15:30 | Unique Bluesky + Mastodon posts from that day's guide. Not partner outreach. |
+| `distribution-scout.yml` | cron 08:15 + 18:15 | Queues free doors and one library note. Does not submit, reply, or create an account. |
 | `content-forge.yml` | cron Sun 04:00 | Weekly script/caption bank refresh |
 | `avatar-render.yml` | cron Fri 08:00 | Weekly avatar video rotation (long CPU render) |
 | `deploy.yml` / `ci.yml` | push | Vercel deploy / build check |

@@ -1,0 +1,24 @@
+name: Distribution scout (no submit)
+on:
+  schedule:
+    - cron: "15 8 * * *"
+    - cron: "15 18 * * *"
+  workflow_dispatch:
+permissions: { contents: write }
+concurrency: { group: distribution-scout, cancel-in-progress: false }
+jobs:
+  scout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: node scripts/distribution-scout.mjs
+      - run: node scripts/learn-public.mjs
+      - name: Commit queue only
+        run: |
+          git config user.name dankoff-hub
+          git config user.email 345066702+dankoff-hub@users.noreply.github.com
+          git add content/distribution-queue.json content/library-notes.json
+          git diff --cached --quiet || bash scripts/git-push-safe.sh "Distribution scout: queue + one library note"

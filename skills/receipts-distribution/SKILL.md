@@ -20,6 +20,7 @@ description: "Connect Receipts Pack generators to vendored skills and free-infra
 
 - No X. No paid ads. No card. No refund, guarantee, or income claims.
 - No Reddit or Skool automation. No new logins.
+- Distribution scout may queue a door. It may not submit, pay, or create an account. Substack cap is 0. Do not raise IG, YouTube, or TikTok above 8.
 - No HMAC pack link in cold outreach.
 - Unique text per post. Do not reuse one caption across channels or prospects.
 - Do not overwrite an existing `dm_opener`.

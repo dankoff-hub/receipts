@@ -42,7 +42,7 @@ One route per prospect; never two platforms for the same person on the same day.
 6. Commit `content/partner-prospects.json content/partner-outreach-log.json content/partners.json` via `scripts/git-push-safe.sh`.
 
 ## Hard rules
-- 20/day total, 8/platform (enforced by `partner-log.mjs`). Never the same text twice. No refund/guarantee/earnings wording.
+- 20/day total, 8/platform (enforced by `partner-log.mjs`). Substack override is 0. Do not raise IG, YouTube, or TikTok. Never the same text twice. No refund/guarantee/earnings wording.
 - One nudge after 7 days, then stop. Stop a platform for the day on any "action blocked / try again / unusual activity" notice (`<platform>_blocked: <date>` on the prospect).
 - Never send the HMAC pack link cold. Never create payments, accept legal terms, or change the commission.
 

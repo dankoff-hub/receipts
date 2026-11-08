@@ -18,6 +18,7 @@ Single source of truth for what the swarm may do without asking, with caps, and 
 | A10 | Content uniqueness: text and video of every post must differ; never repeat | 2026-11-06 | dedupe hashes in publish pipeline |
 | A11 | No money-back guarantee or refund language anywhere; no income claims | 2026-11-07 | BAN regex in `scripts/partner-drafts.mjs`, creative self-check |
 | A12 | Operating target $50,000 verified Stripe gross per month; north star $300,000 per month, report-only, not the elimination line | 2026-11-08 | Founder: "target is 50K a month, with north star 300K a month revenue". `swarm/CORE.md`, `scripts/target-check.mjs` |
+| A13 | Caps: IG, email, YouTube, TikTok, Threads, Bluesky, Mastodon stay at 8. Substack is 0 until the founder appeal clears. Do not raise a cap on an account that has already been limited. New doors are scouted, not auto-submitted, and only if no account, no card, no badge | 2026-11-08 | Founder: move caps if needed, careful of account blocks. `content/partner-outreach-log.json` `cap_overrides` |
 
 ## FOUNDER-ONLY (draft and queue; never execute)
 

@@ -15,7 +15,7 @@ export default async function Pack({ searchParams }) {
       <input name="email" type="email" required placeholder="you@example.com" style={input} />
       <button style={{ ...btn, border: 0, cursor: "pointer", margin: 0, width: "100%", minHeight: 46 }}>Open my pack</button>
     </form>
-    <p style={{ color: C.muted, fontSize: 14 }}>Haven’t bought it yet? <a href="/bio?src=pack" style={link}>Start with the free Step 1 →</a></p>
+    <p style={{ color: C.muted, fontSize: 14 }}>Haven’t bought it yet? <a href="/free?src=pack" style={link}>Start with the free Step 1 →</a></p>
   </main>;
   const b = loadBundle();
   const q = `?${v.key}=${encodeURIComponent(v.val)}${v.extra || ""}`;

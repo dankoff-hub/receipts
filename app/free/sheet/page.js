@@ -10,7 +10,7 @@ return <main style={{background:"#fff",color:"#111",maxWidth:680,margin:"0 auto"
 {Q.map((q,i)=><div key={i} style={{margin:"0 0 18px 0"}}><b style={{fontSize:15}}>{i+1}. {q}</b>
 <div style={{height:i===0?110:i===3||i===4?96:52,border:"1px solid #999",borderRadius:6,marginTop:6}} /></div>)}
 <div style={{borderTop:"1px solid #ccc",paddingTop:12,display:"flex",justifyContent:"space-between",fontSize:12,color:"#666"}}>
-<span>Date: ____________</span><span>Step 2 (standard converter) is in the pack: receiptspack.vercel.app/free</span></div>
+<span>Date: ____________</span><span>Done? Go back to receiptspack.vercel.app/free — Step 2 is the one-time $29 pack, not this page.</span></div>
 <p className="np" style={{marginTop:24,fontSize:14}}><a href={"/free?src="+src} style={{color:"#111",display:"inline-block",padding:"10px 0"}}>← Back</a> · Use your browser’s Print or “Save as PDF”.</p>
 <style>{`@media print{.np{display:none}body{background:#fff!important;padding:0!important}}`}</style>
 </main>}

@@ -1,0 +1,51 @@
+{
+ "updated": "2026-11-08T17:47:32.615Z",
+ "rule": "Do not submit. Do not reply. Substack stays at 0. IG/YouTube/TikTok caps stay at 8. A door is sendable only with no account, no card, no badge, no plan picker.",
+ "sendable": 0,
+ "doors": [
+  {
+   "name": "SaaSLineup",
+   "url": "https://saaslineup.com/submit",
+   "kind": "directory",
+   "status": 200,
+   "checked": "2026-11-08T17:47:31.212Z",
+   "no_account": true,
+   "card_or_price_mentioned": true,
+   "badge_required": true,
+   "plan_choice": false,
+   "sendable": false,
+   "action": "skip — account, card, badge, or plan"
+  },
+  {
+   "name": "TheSaaSDir",
+   "url": "https://thesaasdir.com/submit",
+   "kind": "directory",
+   "status": 200,
+   "checked": "2026-11-08T17:47:31.763Z",
+   "no_account": true,
+   "card_or_price_mentioned": true,
+   "badge_required": false,
+   "plan_choice": false,
+   "sendable": false,
+   "action": "skip — account, card, badge, or plan"
+  },
+  {
+   "name": "PublishYourSaaS",
+   "url": "https://publishyoursaas.com/submit",
+   "kind": "directory",
+   "status": 200,
+   "checked": "2026-11-08T17:47:32.546Z",
+   "no_account": true,
+   "card_or_price_mentioned": true,
+   "badge_required": false,
+   "plan_choice": false,
+   "sendable": false,
+   "action": "skip — account, card, badge, or plan"
+  }
+ ],
+ "listens": [
+  {
+   "error": "Unexpected token '<', \"<html><hea\"... is not valid JSON"
+  }
+ ]
+}
