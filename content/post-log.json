@@ -606,5 +606,64 @@
   "why": null,
   "captionHash": "fa531c85acce767d980a0f55a19e8ef0",
   "video": null
+ },
+ {
+  "ts": "2026-11-08T19:27:52.814Z",
+  "channel": "tiktok",
+  "postId": "6af0cd2e229bf05dafce7aa8",
+  "dueAt": "2026-11-08T19:27:42.545Z",
+  "status": "sent",
+  "video": "day-004.mp4",
+  "day": 4,
+  "captionHash": "839c14fadfcc7088cbba1c998b42115c"
+ },
+ {
+  "ts": "2026-11-08T19:28:04.064Z",
+  "channel": "instagram",
+  "postId": "6af0cd39d6bbae6fa1092daf",
+  "status": "sent",
+  "video": "day-006.mp4",
+  "day": 1,
+  "captionHash": "5612b8d4257e1cea8d098a3cab4cda6e"
+ },
+ {
+  "ts": "2026-11-08T19:28:07.303Z",
+  "channel": "youtube",
+  "postId": "6af0cd44004e4879a7d82bf2",
+  "status": "sent",
+  "video": "day-006.mp4",
+  "day": 1,
+  "captionHash": "04aa912bbbcda1fb5bdaa7659656052e"
+ },
+ {
+  "ts": "2026-11-08T19:28:20.541Z",
+  "channel": "instagram_photo",
+  "postId": "6af0cd4a229bf05dafce84b0",
+  "status": "sent",
+  "video": "photo-02-bills.jpg",
+  "slug": "bills",
+  "captionHash": "6354b824b013df6e4bdd97feb67dd6ff"
+ },
+ {
+  "ts": "2026-11-08T19:28:22.574Z",
+  "channel": "bluesky",
+  "kind": "photo",
+  "slot": "c",
+  "status": "sent",
+  "url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mzt5gmq66v2w",
+  "why": null,
+  "captionHash": "78c68ae618a3c7089a693d31389e2264",
+  "video": "photo-02-bills.jpg"
+ },
+ {
+  "ts": "2026-11-08T19:28:25.158Z",
+  "channel": "mastodon",
+  "kind": "photo",
+  "slot": "c",
+  "status": "sent",
+  "url": "https://mastodon.social/@danrossi2026/117582469859766238",
+  "why": null,
+  "captionHash": "78c68ae618a3c7089a693d31389e2264",
+  "video": "photo-02-bills.jpg"
  }
 ]
