@@ -1,6 +1,6 @@
 {
-  "at": "2026-11-07T06:16:04.771Z",
-  "total": 60,
+  "at": "2026-11-08T06:17:17.481Z",
+  "total": 100,
   "flagged": [
     {
       "n": 4,
@@ -204,6 +204,326 @@
     },
     {
       "n": 60,
+      "title": "The mentor who said not yet",
+      "reasons": [
+        "duplicate-hook"
+      ],
+      "file": "content/forge-scripts.md"
+    },
+    {
+      "n": 61,
+      "title": "The investor who passed",
+      "reasons": [
+        "duplicate-hook"
+      ],
+      "file": "content/forge-scripts.md"
+    },
+    {
+      "n": 62,
+      "title": "The boss who smirked",
+      "reasons": [
+        "duplicate-hook"
+      ],
+      "file": "content/forge-scripts.md"
+    },
+    {
+      "n": 63,
+      "title": "The ex who laughed",
+      "reasons": [
+        "duplicate-hook"
+      ],
+      "file": "content/forge-scripts.md"
+    },
+    {
+      "n": 64,
+      "title": "The coach who cut you",
+      "reasons": [
+        "duplicate-hook"
+      ],
+      "file": "content/forge-scripts.md"
+    },
+    {
+      "n": 65,
+      "title": "The family member who said be realistic",
+      "reasons": [
+        "duplicate-hook"
+      ],
+      "file": "content/forge-scripts.md"
+    },
+    {
+      "n": 66,
+      "title": "The friend who went quiet",
+      "reasons": [
+        "duplicate-hook"
+      ],
+      "file": "content/forge-scripts.md"
+    },
+    {
+      "n": 67,
+      "title": "The gatekeeper who never replied",
+      "reasons": [
+        "duplicate-hook"
+      ],
+      "file": "content/forge-scripts.md"
+    },
+    {
+      "n": 68,
+      "title": "The manager who said next year",
+      "reasons": [
+        "duplicate-hook"
+      ],
+      "file": "content/forge-scripts.md"
+    },
+    {
+      "n": 69,
+      "title": "The group chat that went silent",
+      "reasons": [
+        "duplicate-hook"
+      ],
+      "file": "content/forge-scripts.md"
+    },
+    {
+      "n": 70,
+      "title": "The mentor who said not yet",
+      "reasons": [
+        "duplicate-hook"
+      ],
+      "file": "content/forge-scripts.md"
+    },
+    {
+      "n": 71,
+      "title": "The investor who passed",
+      "reasons": [
+        "duplicate-hook"
+      ],
+      "file": "content/forge-scripts.md"
+    },
+    {
+      "n": 72,
+      "title": "The boss who smirked",
+      "reasons": [
+        "duplicate-hook"
+      ],
+      "file": "content/forge-scripts.md"
+    },
+    {
+      "n": 73,
+      "title": "The ex who laughed",
+      "reasons": [
+        "duplicate-hook"
+      ],
+      "file": "content/forge-scripts.md"
+    },
+    {
+      "n": 74,
+      "title": "The coach who cut you",
+      "reasons": [
+        "duplicate-hook"
+      ],
+      "file": "content/forge-scripts.md"
+    },
+    {
+      "n": 75,
+      "title": "The family member who said be realistic",
+      "reasons": [
+        "duplicate-hook"
+      ],
+      "file": "content/forge-scripts.md"
+    },
+    {
+      "n": 76,
+      "title": "The friend who went quiet",
+      "reasons": [
+        "duplicate-hook"
+      ],
+      "file": "content/forge-scripts.md"
+    },
+    {
+      "n": 77,
+      "title": "The gatekeeper who never replied",
+      "reasons": [
+        "duplicate-hook"
+      ],
+      "file": "content/forge-scripts.md"
+    },
+    {
+      "n": 78,
+      "title": "The manager who said next year",
+      "reasons": [
+        "duplicate-hook"
+      ],
+      "file": "content/forge-scripts.md"
+    },
+    {
+      "n": 79,
+      "title": "The group chat that went silent",
+      "reasons": [
+        "duplicate-hook"
+      ],
+      "file": "content/forge-scripts.md"
+    },
+    {
+      "n": 80,
+      "title": "The mentor who said not yet",
+      "reasons": [
+        "duplicate-hook"
+      ],
+      "file": "content/forge-scripts.md"
+    },
+    {
+      "n": 81,
+      "title": "The investor who passed",
+      "reasons": [
+        "duplicate-hook"
+      ],
+      "file": "content/forge-scripts.md"
+    },
+    {
+      "n": 82,
+      "title": "The boss who smirked",
+      "reasons": [
+        "duplicate-hook"
+      ],
+      "file": "content/forge-scripts.md"
+    },
+    {
+      "n": 83,
+      "title": "The ex who laughed",
+      "reasons": [
+        "duplicate-hook"
+      ],
+      "file": "content/forge-scripts.md"
+    },
+    {
+      "n": 84,
+      "title": "The coach who cut you",
+      "reasons": [
+        "duplicate-hook"
+      ],
+      "file": "content/forge-scripts.md"
+    },
+    {
+      "n": 85,
+      "title": "The family member who said be realistic",
+      "reasons": [
+        "duplicate-hook"
+      ],
+      "file": "content/forge-scripts.md"
+    },
+    {
+      "n": 86,
+      "title": "The friend who went quiet",
+      "reasons": [
+        "duplicate-hook"
+      ],
+      "file": "content/forge-scripts.md"
+    },
+    {
+      "n": 87,
+      "title": "The gatekeeper who never replied",
+      "reasons": [
+        "duplicate-hook"
+      ],
+      "file": "content/forge-scripts.md"
+    },
+    {
+      "n": 88,
+      "title": "The manager who said next year",
+      "reasons": [
+        "duplicate-hook"
+      ],
+      "file": "content/forge-scripts.md"
+    },
+    {
+      "n": 89,
+      "title": "The group chat that went silent",
+      "reasons": [
+        "duplicate-hook"
+      ],
+      "file": "content/forge-scripts.md"
+    },
+    {
+      "n": 90,
+      "title": "The mentor who said not yet",
+      "reasons": [
+        "duplicate-hook"
+      ],
+      "file": "content/forge-scripts.md"
+    },
+    {
+      "n": 91,
+      "title": "The investor who passed",
+      "reasons": [
+        "duplicate-hook"
+      ],
+      "file": "content/forge-scripts.md"
+    },
+    {
+      "n": 92,
+      "title": "The boss who smirked",
+      "reasons": [
+        "duplicate-hook"
+      ],
+      "file": "content/forge-scripts.md"
+    },
+    {
+      "n": 93,
+      "title": "The ex who laughed",
+      "reasons": [
+        "duplicate-hook"
+      ],
+      "file": "content/forge-scripts.md"
+    },
+    {
+      "n": 94,
+      "title": "The coach who cut you",
+      "reasons": [
+        "duplicate-hook"
+      ],
+      "file": "content/forge-scripts.md"
+    },
+    {
+      "n": 95,
+      "title": "The family member who said be realistic",
+      "reasons": [
+        "duplicate-hook"
+      ],
+      "file": "content/forge-scripts.md"
+    },
+    {
+      "n": 96,
+      "title": "The friend who went quiet",
+      "reasons": [
+        "duplicate-hook"
+      ],
+      "file": "content/forge-scripts.md"
+    },
+    {
+      "n": 97,
+      "title": "The gatekeeper who never replied",
+      "reasons": [
+        "duplicate-hook"
+      ],
+      "file": "content/forge-scripts.md"
+    },
+    {
+      "n": 98,
+      "title": "The manager who said next year",
+      "reasons": [
+        "duplicate-hook"
+      ],
+      "file": "content/forge-scripts.md"
+    },
+    {
+      "n": 99,
+      "title": "The group chat that went silent",
+      "reasons": [
+        "duplicate-hook"
+      ],
+      "file": "content/forge-scripts.md"
+    },
+    {
+      "n": 100,
       "title": "The mentor who said not yet",
       "reasons": [
         "duplicate-hook"
