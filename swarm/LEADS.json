@@ -843,9 +843,35 @@
   "at://did:plc:3gmkze3exz4s5vjeinsscdc4/app.bsky.feed.post/3mzrte73ptc2z",
   "at://did:plc:oyhytanxrgqk2yudblkwe5ve/app.bsky.feed.post/3mzrpzgsbp32f",
   "at://did:plc:dlkfzshunj2v6kapghmh6pfs/app.bsky.feed.post/3mzrpdtxjok2e",
-  "at://did:plc:3joa2vnhph3smhhl6r7yliwk/app.bsky.feed.post/3mzrodjtu3k2u"
+  "at://did:plc:3joa2vnhph3smhhl6r7yliwk/app.bsky.feed.post/3mzrodjtu3k2u",
+  "at://did:plc:k6knfvifugzrhr5w2j3672fp/app.bsky.feed.post/3mzrvoxgbwc2q",
+  "lemmy:54149541",
+  "at://did:plc:ke5r5puj575q4cnzsgctebdk/app.bsky.feed.post/3mzrxotjwrk2l",
+  "at://did:plc:t7yfvr663z5hunuau2lutuco/app.bsky.feed.post/3mzrx3rrtdz27"
  ],
  "leads": [
+  {
+   "src": "bluesky",
+   "id": "at://did:plc:ke5r5puj575q4cnzsgctebdk/app.bsky.feed.post/3mzrxotjwrk2l",
+   "url": "https://bsky.app/profile/sn0wq-ai-lab.bsky.social/post/3mzrxotjwrk2l",
+   "text": "Study with me+ポモドーロタイマー+habit trackerみたいなものを作ってみた。いい感じ。",
+   "sub": "sn0wq-ai-lab.bsky.social",
+   "at": "2026-11-08T08:12:55.220Z",
+   "tier": 2,
+   "found": "2026-11-08T09:16:25.380Z",
+   "status": "sent"
+  },
+  {
+   "src": "bluesky",
+   "id": "at://did:plc:t7yfvr663z5hunuau2lutuco/app.bsky.feed.post/3mzrx3rrtdz27",
+   "url": "https://bsky.app/profile/marketpulsestudio.bsky.social/post/3mzrx3rrtdz27",
+   "text": "Habits aren't all daily. 'Gym 3x a week' should be scored as 3/3, not 3/7.\n\n2027 Habit Tracker: 15 habits, weekly targets, year heatmap. $5.99\n\nhttps://www.etsy.com/listing/4607442180\n\n#HabitTracker #2027Goals #Productivity",
+   "sub": "marketpulsestudio.bsky.social",
+   "at": "2026-11-08T08:02:10.105Z",
+   "tier": 2,
+   "found": "2026-11-08T09:16:25.380Z",
+   "status": "new"
+  },
   {
    "src": "bluesky",
    "id": "at://did:plc:nobxu6p5ti7mrjbclfd2hgag/app.bsky.feed.post/3mzrvcbetv225",

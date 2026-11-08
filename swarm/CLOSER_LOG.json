@@ -45,6 +45,18 @@
    "reply_url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mzposvsmem2c",
    "provider": "groq",
    "platform": "bluesky"
+  },
+  {
+   "at": "2026-11-08T09:16:27.727Z",
+   "id": "at://did:plc:ke5r5puj575q4cnzsgctebdk/app.bsky.feed.post/3mzrxotjwrk2l",
+   "url": "https://bsky.app/profile/sn0wq-ai-lab.bsky.social/post/3mzrxotjwrk2l",
+   "author": "sn0wq-ai-lab.bsky.social",
+   "tier": 2,
+   "why": "shares personal habit tracker creation",
+   "reply": "Nice build! Try setting the Pomodoro to 25 min then a 5‑min break and log the break activity in your habit tracker – it keeps the momentum going tomorrow.",
+   "reply_url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mzs3aheldr2v",
+   "provider": "groq",
+   "platform": "bluesky"
   }
  ],
  "skipped": [
