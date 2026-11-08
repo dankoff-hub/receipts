@@ -665,5 +665,23 @@
   "why": null,
   "captionHash": "78c68ae618a3c7089a693d31389e2264",
   "video": "photo-02-bills.jpg"
+ },
+ {
+  "ts": "2026-11-08T19:36:51.673Z",
+  "channel": "instagram",
+  "postId": "6af0cf49562f2e6de9da6e28",
+  "status": "sent",
+  "video": "day-006c.mp4",
+  "day": 1,
+  "captionHash": "506cb7e2feb3723e52e1a60ea7030f4d"
+ },
+ {
+  "ts": "2026-11-08T19:36:54.961Z",
+  "channel": "youtube",
+  "postId": "6af0cf54004e4879a7d8f2d4",
+  "status": "sent",
+  "video": "day-006c.mp4",
+  "day": 1,
+  "captionHash": "6a661796f4f0a706e2cf66a103e17476"
  }
 ]
