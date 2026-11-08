@@ -819,9 +819,39 @@
   "at://did:plc:hqp5p56ukumcynbhp7j7vqdo/app.bsky.feed.post/3mzqwqie4z7w2",
   "at://did:plc:eyqmmgc6hzplivg7b4hrrnwi/app.bsky.feed.post/3mzquuetuzk26",
   "at://did:plc:hut6aguffcsxljufne6l74ck/app.bsky.feed.post/3mzqygnwvbs2u",
-  "at://did:plc:ak3lxjznz5ujwsmylthx32m5/app.bsky.feed.post/3mzqtyjcucs2b"
+  "at://did:plc:ak3lxjznz5ujwsmylthx32m5/app.bsky.feed.post/3mzqtyjcucs2b",
+  "lemmy:54125365",
+  "lemmy:54122043",
+  "at://did:plc:kuz2ubj3qpfa7xk3fdt3s44g/app.bsky.feed.post/3mzr5qdhczj2o",
+  "at://did:plc:ttlyg75cufhgzdbhy45g6gdu/app.bsky.feed.post/3mzr7svp5uu22",
+  "at://did:plc:ybuiun226nnvhqdknlxk75qw/app.bsky.feed.post/3mzqyywg2b22y",
+  "at://did:plc:hdikya74mrelh2xd64efr6a6/app.bsky.feed.post/3mzr5fuk7ck2l",
+  "at://did:plc:7wzgefgpqi5yymqjoszpevzc/app.bsky.feed.post/3mzr2hj54ck2k"
  ],
  "leads": [
+  {
+   "src": "bluesky",
+   "id": "at://did:plc:kuz2ubj3qpfa7xk3fdt3s44g/app.bsky.feed.post/3mzr5qdhczj2o",
+   "url": "https://bsky.app/profile/dido15.bsky.social/post/3mzr5qdhczj2o",
+   "text": "When a client payment lands, move a fixed % of it to savings that day. This tracker does the sum: log the amount paid and it shows what to set aside, using one % you set in Settings. Made-up example: 20% of 500 = 100. A savings habit, not tax advice. https://iyadkh.gumroad.com/l/cuutvo",
+   "sub": "dido15.bsky.social",
+   "at": "2026-11-08T00:28:27.841Z",
+   "llm": "groq",
+   "tier": 2,
+   "found": "2026-11-08T01:40:22.609Z",
+   "status": "new"
+  },
+  {
+   "src": "bluesky",
+   "id": "at://did:plc:7wzgefgpqi5yymqjoszpevzc/app.bsky.feed.post/3mzr2hj54ck2k",
+   "url": "https://bsky.app/profile/cumbojizzy.bsky.social/post/3mzr2hj54ck2k",
+   "text": "-without coming off as performative. I get thats all some people are gonna see now, but as long as I don't give up again, I'll prove them wrong. I'll leave this town one day. I'll find a life out there I'm proud of living. Until then; lay low, be kind, do the right thing, lock in, and be patient.",
+   "sub": "cumbojizzy.bsky.social",
+   "at": "2026-11-07T23:29:50.922Z",
+   "tier": 2,
+   "found": "2026-11-08T01:40:23.615Z",
+   "status": "skipped"
+  },
   {
    "src": "bluesky",
    "id": "at://did:plc:jfqup6hjfbznjnkykoqamv5s/app.bsky.feed.post/3mzqtrbjj7y2l",

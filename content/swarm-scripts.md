@@ -107,3 +107,45 @@
 - Say: Day 1 screenshot, day 15 screenshot, day 30 screenshot. The numbers never lie.
 - Body: Turn doubt into a daily receipt.
 - CTA: Grab the $29 system, link in bio
+
+## 1019. Someone told me I’d never save consistently [instagram/POV story]
+- Hook: Someone told me I’d never save consistently
+- Say: I logged today’s client payment, moved 15% to savings, and the app showed a green check. Day 2, same move, same check. It’s now a habit, not a hope.
+- Body: Turn doubt into a daily savings standard and see proof each night.
+- CTA: Start the $29 30‑day proof system, link in bio
+
+## 1020. I heard “you’ll quit after week one” and listened [instagram/confession]
+- Hook: I heard “you’ll quit after week one” and listened
+- Say: Day 5 I missed the move, the tracker flagged red. I fixed it instantly, proof restored. Now I never miss a day.
+- Body: Accountability shines when you measure each moment.
+- CTA: Join the 30‑day challenge, $29, link in bio
+
+## 1021. Five signs you’re still stuck in doubt about saving [youtube/list]
+- Hook: Five signs you’re still stuck in doubt about saving
+- Say: 1) No baseline, 2) No daily log, 3) No visual proof, 4) No fixed % rule, 5) No community check‑ins. I fixed all with one tool.
+- Body: Define a standard, track daily, see proof.
+- CTA: Unlock the 30‑day receipt pack for $29, link in bio
+
+## 1022. When a client paid, I proved the doubters wrong instantly [youtube/receipt reveal]
+- Hook: When a client paid, I proved the doubters wrong instantly
+- Say: Payment hit, I auto‑allocated 20%, the dashboard lit up green. I posted the screenshot, daily proof for the community.
+- Body: Immediate proof turns skepticism into support.
+- CTA: Start your $29 proof journey, link in bio
+
+## 1023. Someone said I’d never turn payments into savings [tiktok/day‑in‑the‑life vlog]
+- Hook: Someone said I’d never turn payments into savings
+- Say: Morning: client payment arrives. I tap the app, set 12% to savings. Night: the streak counter shows 7 days straight.
+- Body: Consistent standards build undeniable proof.
+- CTA: Tap the link for the $29 30‑day system in my bio
+
+## 1024. My friends claim “saving is too hard for freelancers” [tiktok/myth‑bust duet]
+- Hook: My friends claim “saving is too hard for freelancers”
+- Say: I logged every invoice, auto‑moved a set %, and the daily graph glowed. Even on low weeks, proof stayed positive.
+- Body: A simple rule beats complex excuses.
+- CTA: Check the $29 receipt pack, link in bio
+
+## 1025. Day 1 again? Let’s prove the streak together [tiktok/live‑community shoutout]
+- Hook: Day 1 again? Let’s prove the streak together
+- Say: We all logged today’s payment, moved our set %, and the community board lit up. Missed a day? The red flag reminded us to fix it fast.
+- Body: Shared standards create collective proof.
+- CTA: Join the 30‑day challenge for $29, link in bio

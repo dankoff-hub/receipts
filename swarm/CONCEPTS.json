@@ -183,6 +183,78 @@
     "provider": "groq",
     "id": "bea8759ef9373c9238f54b6038e7d622"
    }
+  ],
+  "2026-11-08": [
+   {
+    "platform": "instagram",
+    "format": "POV story",
+    "hook": "Someone told me I’d never save consistently",
+    "say": "I logged today’s client payment, moved 15% to savings, and the app showed a green check. Day 2, same move, same check. It’s now a habit, not a hope.",
+    "body": "Turn doubt into a daily savings standard and see proof each night.",
+    "cta": "Start the $29 30‑day proof system, link in bio",
+    "provider": "groq",
+    "id": "b1d3229b6327c00e142bb6546b12dc81"
+   },
+   {
+    "platform": "instagram",
+    "format": "confession",
+    "hook": "I heard “you’ll quit after week one” and listened",
+    "say": "Day 5 I missed the move, the tracker flagged red. I fixed it instantly, proof restored. Now I never miss a day.",
+    "body": "Accountability shines when you measure each moment.",
+    "cta": "Join the 30‑day challenge, $29, link in bio",
+    "provider": "groq",
+    "id": "e9c85752ecc38f23bbf94e1e0b65beb1"
+   },
+   {
+    "platform": "youtube",
+    "format": "list",
+    "hook": "Five signs you’re still stuck in doubt about saving",
+    "say": "1) No baseline, 2) No daily log, 3) No visual proof, 4) No fixed % rule, 5) No community check‑ins. I fixed all with one tool.",
+    "body": "Define a standard, track daily, see proof.",
+    "cta": "Unlock the 30‑day receipt pack for $29, link in bio",
+    "provider": "groq",
+    "id": "89f6383fd05ca1cd3b307629371af9fc"
+   },
+   {
+    "platform": "youtube",
+    "format": "receipt reveal",
+    "hook": "When a client paid, I proved the doubters wrong instantly",
+    "say": "Payment hit, I auto‑allocated 20%, the dashboard lit up green. I posted the screenshot, daily proof for the community.",
+    "body": "Immediate proof turns skepticism into support.",
+    "cta": "Start your $29 proof journey, link in bio",
+    "provider": "groq",
+    "id": "8d7f8ba354335102564becace2227f99"
+   },
+   {
+    "platform": "tiktok",
+    "format": "day‑in‑the‑life vlog",
+    "hook": "Someone said I’d never turn payments into savings",
+    "say": "Morning: client payment arrives. I tap the app, set 12% to savings. Night: the streak counter shows 7 days straight.",
+    "body": "Consistent standards build undeniable proof.",
+    "cta": "Tap the link for the $29 30‑day system in my bio",
+    "provider": "groq",
+    "id": "15a1f00aa90b5d72c3e2373e086db8a9"
+   },
+   {
+    "platform": "tiktok",
+    "format": "myth‑bust duet",
+    "hook": "My friends claim “saving is too hard for freelancers”",
+    "say": "I logged every invoice, auto‑moved a set %, and the daily graph glowed. Even on low weeks, proof stayed positive.",
+    "body": "A simple rule beats complex excuses.",
+    "cta": "Check the $29 receipt pack, link in bio",
+    "provider": "groq",
+    "id": "f672ec6f7414edf23ca911049d422b2b"
+   },
+   {
+    "platform": "tiktok",
+    "format": "live‑community shoutout",
+    "hook": "Day 1 again? Let’s prove the streak together",
+    "say": "We all logged today’s payment, moved our set %, and the community board lit up. Missed a day? The red flag reminded us to fix it fast.",
+    "body": "Shared standards create collective proof.",
+    "cta": "Join the 30‑day challenge for $29, link in bio",
+    "provider": "groq",
+    "id": "0d6c4d78cc60d560a78686053e98b310"
+   }
   ]
  },
  "hooks": [
@@ -216,6 +288,13 @@
   "9ed623907dece73acdd16c15649b1346",
   "b0e09bf6b0349373cf0f7bcf13fb2143",
   "b3184e3e70617377cd4d4d93b65bfb80",
-  "bea8759ef9373c9238f54b6038e7d622"
+  "bea8759ef9373c9238f54b6038e7d622",
+  "b1d3229b6327c00e142bb6546b12dc81",
+  "e9c85752ecc38f23bbf94e1e0b65beb1",
+  "89f6383fd05ca1cd3b307629371af9fc",
+  "8d7f8ba354335102564becace2227f99",
+  "15a1f00aa90b5d72c3e2373e086db8a9",
+  "f672ec6f7414edf23ca911049d422b2b",
+  "0d6c4d78cc60d560a78686053e98b310"
  ]
 }
