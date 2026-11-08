@@ -147,6 +147,32 @@
    "provider": "pollinations",
    "platform": "bluesky",
    "status": "sent"
+  },
+  {
+   "at": "2026-11-08T19:15:39.352Z",
+   "id": "at://did:plc:6tbhugw3d4dzhfq3q6wwtwnw/app.bsky.feed.post/3mzt2pnaxts2u",
+   "url": "https://bsky.app/profile/satoshi-nikaidou.bsky.social/post/3mzt2pnaxts2u",
+   "author": "satoshi-nikaidou.bsky.social",
+   "tier": 2,
+   "why": "shares personal 30‑day habit results",
+   "reply": "Your goal of turning daily steps into steady earnings is clear. Tomorrow, set a reminder to log at least 12,000 steps and submit the data before bedtime.",
+   "reply_url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mzt4pvj3ec2x",
+   "provider": "groq",
+   "platform": "bluesky",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-08T19:15:42.007Z",
+   "id": "at://did:plc:tj4fzwfifk3vxi5awesvlimg/app.bsky.feed.post/3mzoteyumg22t",
+   "url": "https://bsky.app/profile/chainraven.bsky.social/post/3mzoteyumg22t",
+   "author": "chainraven.bsky.social",
+   "tier": 2,
+   "why": "mentions updating schedule for a challenge",
+   "reply": "If your goal is consistent posting, try scheduling Saturday updates now. Tomorrow, draft your next comic caption and set a reminder to post it on Saturday.",
+   "reply_url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mzt4pxzxc527",
+   "provider": "groq",
+   "platform": "bluesky",
+   "status": "sent"
   }
  ],
  "skipped": [
@@ -678,6 +704,54 @@
    "author": "alzamon.bsky.social",
    "tier": 2,
    "why": "not a personal goal: No personal goal or request present"
+  },
+  {
+   "at": "2026-11-08T19:15:38.060Z",
+   "id": "at://did:plc:eb4qdx25j5qmjc3j4d3dpilu/app.bsky.feed.post/3mzt3tweghc2v",
+   "url": "https://bsky.app/profile/miinipah.net/post/3mzt3tweghc2v",
+   "author": "miinipah.net",
+   "tier": 2,
+   "why": "not a personal goal: No clear habit or challenge mentioned"
+  },
+  {
+   "at": "2026-11-08T19:15:39.610Z",
+   "id": "at://did:plc:4lofwiwstrg5xfiaiw344ehc/app.bsky.feed.post/3mzt2ff2xfc2s",
+   "url": "https://bsky.app/profile/bingodabear.bsky.social/post/3mzt2ff2xfc2s",
+   "author": "bingodabear.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: no habit or goal mentioned"
+  },
+  {
+   "at": "2026-11-08T19:15:39.948Z",
+   "id": "at://did:plc:pmprs7vzjqz3efkkdcchqvhm/app.bsky.feed.post/3mzt2aocdp226",
+   "url": "https://bsky.app/profile/saraashh1988.bsky.social/post/3mzt2aocdp226",
+   "author": "saraashh1988.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: No habit or challenge mentioned"
+  },
+  {
+   "at": "2026-11-08T19:15:40.396Z",
+   "id": "at://did:plc:zdkowekqqiywrbaddgbozaoh/app.bsky.feed.post/3mzt252akus2g",
+   "url": "https://bsky.app/profile/savortheveal.bsky.social/post/3mzt252akus2g",
+   "author": "savortheveal.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: No habit or challenge mentioned"
+  },
+  {
+   "at": "2026-11-08T19:15:40.671Z",
+   "id": "at://did:plc:hs5bqwcmhxx2l2y7l2ka37by/app.bsky.feed.post/3mzsze6olm22g",
+   "url": "https://bsky.app/profile/callielowenstein.bsky.social/post/3mzsze6olm22g",
+   "author": "callielowenstein.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: no habit or accountability request"
+  },
+  {
+   "at": "2026-11-08T19:15:40.956Z",
+   "id": "at://did:plc:zlvm3ogswnrakrdobxyy6mdq/app.bsky.feed.post/3mzoytcktyc2x",
+   "url": "https://bsky.app/profile/shewolf007.bsky.social/post/3mzoytcktyc2x",
+   "author": "shewolf007.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: no habit or goal request"
   }
  ]
 }

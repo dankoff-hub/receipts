@@ -11,8 +11,8 @@
    "card": false,
    "auth": "GROQ_API_KEY secret (optional)",
    "limit": "14,400 req/day",
-   "cooldown_until": 1794164734950,
-   "calls": 248,
+   "cooldown_until": 0,
+   "calls": 263,
    "fails": 5,
    "last_error": "429"
   },
@@ -56,6 +56,6 @@
   "qwen": "device-code OAuth — founder-only login",
   "puter": "browser session — founder-only login"
  },
- "rotation_offset": 1,
- "updated": "2026-11-08T18:56:46.084Z"
+ "rotation_offset": 2,
+ "updated": "2026-11-08T19:15:44.921Z"
 }

@@ -1,20 +1,19 @@
-# REVENUE SWARM REPORT — 2026-11-08T18:04:36.962Z
+# REVENUE SWARM REPORT — 2026-11-08T19:14:48.343Z
 ## Primary
 - Attributed revenue: **$0.00** / $50000 (0.00%)
 - Revenue by src: none yet
 - Paid sessions: 0 · posts last 24h: 1
-- Hunter this cycle: scanned 220 → Tier1 1, Tier2 26 (LLM calls 6) · open Tier1 awaiting human-approved reply: 0
+- Hunter this cycle: scanned 66 → Tier1 0, Tier2 7 (LLM calls 5) · open Tier1 awaiting human-approved reply: 0
 - Creative today: 9 concepts (groq) → content/swarm-scripts.md
 - Time-to-first-revenue-touch: not yet — 0 paid sessions since launch
 ## Cascade / quota (calls/fails)
-groq:248/5⏸ nvidia_nim:6/2 pollinations:46/19 ollama_local:0/1 template:1/0
+groq:263/5 nvidia_nim:6/2 pollinations:48/19 ollama_local:0/1 template:1/0
 ## Top intent posts (public, read-only; replies need founder-owned accounts → High risk, human approval)
-- T1 bluesky: Newest chapter of Levinhearts III is finally done, after two months of on and off writing. Unfortunately, AO3 is still down. But if anyone  — https://bsky.app/profile/thanksatan.bsky.social/post/3mzrtk5yvxs2f
-- T2 bluesky: I'm starting to think. I should make my updates on Saturday instead. Less busy time for me on that day alkdtgjash anyway [throws this on th — https://bsky.app/profile/chainraven.bsky.social/post/3mzoteyumg22t
-- T2 bluesky: I started a vampire novel about a month ago, it's very fun! Gonna write today. Hopefully someday it will be out there in the world for all t — https://bsky.app/profile/supermedusa.bsky.social/post/3mzsynsqhlc2l
-- T2 bluesky: I started pottery about a year and a half ago. I thought I’d make something for my kids. Something they could really use not just something  — https://bsky.app/profile/murphyga.bsky.social/post/3mzsxfrgi422z
-- T2 bluesky: So today was 6 weeks since I started Sunday morning jog n gym. I’ve now started the free NHS app Couch to 5k, today being day 1. And X5 reps — https://bsky.app/profile/debbee.bsky.social/post/3mzsx6uhudl2b
-- T2 bluesky: Just today I was being targetted by a bunch of people and I'm like "DA FUGG!?" So I started a "Immortals Game" pilgrimage to hunt down the i — https://bsky.app/profile/mrpandragon.bsky.social/post/3mzswpkcctk23
-- T2 bluesky: Oh thank Calypso we still have one day! My arm feels way better so I started work on my piece but I was panicking a little as I misremembere — https://bsky.app/profile/alexis44.bsky.social/post/3mzswffb5wc2f
-- T2 bluesky: Today been a month since I started dating @newuko.bsky.social and its been very special to me and I couldn't be happier dating her <3 It's — https://bsky.app/profile/ogerponfan.bsky.social/post/3mzsvffizpc2n
-## Zero-cost audit: PASS (2026-11-08T18:04:37.848Z)
+- T2 bluesky: Nov 8. 10409 steps. 1 hour muscle training. My money:1,486,683 yen. I posted the results of walk to earn apps on note. This is the result of — https://bsky.app/profile/satoshi-nikaidou.bsky.social/post/3mzt2pnaxts2u
+- T2 bluesky: I started this like right after I posted about finishing Kirby 64 earlier today — https://bsky.app/profile/miinipah.net/post/3mzt3tweghc2v
+- T2 bluesky: I got a Wii on day one and realised that the browser supported Flash (and at that stage I was a bit of a ninja with flash media and i/o) so  — https://bsky.app/profile/readyuser.one/post/3mzt3m5sca22e
+- T2 bluesky: day one billion of wishing Dave and Chester from Chord Progressions were real and my husbands — https://bsky.app/profile/bingodabear.bsky.social/post/3mzt2ff2xfc2s
+- T2 bluesky: I started off the day strong, but then out of nowhere I got sick. I HATE throwing up more than anything. It really messes up my head due to  — https://bsky.app/profile/saraashh1988.bsky.social/post/3mzt2aocdp226
+- T2 bluesky: i should not be out in public on day one of my period everyone is pissing me off....this was a Dateline under a blanket sunday, not a produc — https://bsky.app/profile/savortheveal.bsky.social/post/3mzt252akus2g
+- T2 bluesky: in my experience in k-5 classrooms especially, i'd think of the antonym as 'thin'. so like, in one of my old schools, they were trying to do — https://bsky.app/profile/callielowenstein.bsky.social/post/3mzsze6olm22g
+## Zero-cost audit: PASS (2026-11-08T19:14:49.117Z)
