@@ -2504,7 +2504,7 @@
    "median_views": 6050,
    "max_views": 22000,
    "score": 75,
-   "status": "prospect",
+   "status": "contacted",
    "found": "2026-11-08",
    "url": "https://www.youtube.com/@colehershner",
    "drafts": {
@@ -2517,7 +2517,9 @@
     "generated": "2026-11-08T17:40:23.220Z"
    },
    "checked": "2026-11-08",
-   "drafts_provider": "groq"
+   "drafts_provider": "groq",
+   "contacted": "2026-11-08",
+   "contact_channel": "ig"
   },
   "@AndrewGuerraa": {
    "handle": "@AndrewGuerraa",
