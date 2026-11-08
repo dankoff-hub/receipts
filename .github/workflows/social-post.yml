@@ -2,7 +2,7 @@ name: Social post (Bluesky + Mastodon, manual)
 on:
   workflow_dispatch:
     inputs:
-      slot: { description: "a = text post, c = photo post", default: "a" }
+      slot: { description: "a or e = text, b or d = video, c = photo", default: "a" }
       force: { description: "ignore once-per-day guard (true/false)", default: "false" }
 jobs:
   post:

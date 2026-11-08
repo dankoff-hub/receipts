@@ -18,9 +18,9 @@ const load = (p, d) => { try { return JSON.parse(fs.readFileSync(p, "utf8")); } 
 const log = load(LOG, []), ledger = load(LEDGER, { used: [] }); ledger.social ??= [];
 const md5 = s => crypto.createHash("md5").update(s).digest("hex");
 const HANDLE = process.env.BLUESKY_HANDLE, APP_PW = process.env.BLUESKY_APP_PASSWORD, MTOK = process.env.MASTODON_TOKEN;
-const kind = slot === "c" ? "photo" : slot === "a" ? "text" : (slot === "b" || slot === "d") ? "video" : null;
+const kind = slot === "c" ? "photo" : (slot === "a" || slot === "e") ? "text" : (slot === "b" || slot === "d") ? "video" : null;
 if (!kind) { console.log("post-social: nothing scheduled for slot", slot); process.exit(0); }
-const already = ch => log.some(p => p.channel === ch && p.ts.slice(0, 10) === today && p.kind === kind && p.status === "sent");
+const already = ch => !FORCE && log.some(p => p.channel === ch && p.ts.slice(0, 10) === today && p.kind === kind && p.status === "sent" && (kind !== "text" || p.slot === slot));
 
 // ---------- content ----------
 let text, imagePath, alt, link, videoPath;
@@ -107,7 +107,7 @@ let sentAny = false;
 for (const [ch, fn] of [["bluesky", bluesky], ["mastodon", mastodon]]) {
   if (already(ch) && !FORCE) { console.log(`post-social: ${ch} ${kind} already posted today`); continue; }
   let res; try { res = await fn(); } catch (e) { res = { status: "failed", why: e.message.slice(0, 160) }; }
-  log.push({ ts: new Date().toISOString(), channel: ch, kind, status: res.status, url: res.url || null, why: res.why || null, captionHash: h, video: videoPath ? videoPath.split("/").pop() : imagePath ? imagePath.split("/").pop() : null });
+  log.push({ ts: new Date().toISOString(), channel: ch, kind, slot, status: res.status, url: res.url || null, why: res.why || null, captionHash: h, video: videoPath ? videoPath.split("/").pop() : imagePath ? imagePath.split("/").pop() : null });
   console.log(`post-social: ${ch} ${kind} → ${res.status} ${res.url || res.why || ""}`);
   if (res.status === "sent") sentAny = true;
 }
