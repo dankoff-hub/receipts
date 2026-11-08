@@ -21,7 +21,7 @@ description: "Connect Receipts Pack generators to vendored skills and free-infra
 
 - No X. No paid ads. No card. No refund, guarantee, or income claims.
 - No Reddit or Skool automation. No new logins.
-- Distribution scout may queue a door. It may not submit, pay, or create an account. Substack cap is 0. Do not raise IG, YouTube, or TikTok above 8.
+- Distribution scout may queue a door. It may not submit, pay, or create an account. Daily partner cap is 120. Bluesky and Mastodon may use up to 40 each. Instagram, YouTube, and TikTok stay at 8. Substack stays at 0. A burst on a new social account is what gets blocked, not the daily total.
 - No HMAC pack link in cold outreach.
 - Unique text per post. Do not reuse one caption across channels or prospects.
 - Product method: one private receipt, one counted if-then, one line at night, date the first line. Do not quote an effect size. Do not say science guarantees a result.

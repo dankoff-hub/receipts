@@ -9,7 +9,7 @@ import fs from "node:fs";
 import { chat, parseJSON, saveQuota, skillHint } from "./llm.mjs";
 process.on("exit", () => saveQuota());
 const SEND = process.env.CLOSER_SEND === "1";
-const HANDLE = process.env.BLUESKY_HANDLE, APP_PW = process.env.BLUESKY_APP_PASSWORD, CAP = Number(process.env.CLOSER_DAILY_CAP || 3);
+const HANDLE = process.env.BLUESKY_HANDLE, APP_PW = process.env.BLUESKY_APP_PASSWORD, CAP = Number(process.env.CLOSER_DAILY_CAP || 40);
 const FREE = "receiptspack.vercel.app/free";
 const LOG_P = "swarm/CLOSER_LOG.json", LEADS_P = "swarm/LEADS.json";
 const load = (p, d) => { try { return JSON.parse(fs.readFileSync(p, "utf8")); } catch { return d; } };
@@ -26,7 +26,7 @@ const fresh = leads.leads.filter(l => platformOf(l) && l.status === "new" && !OW
   .sort((a, b) => a.tier - b.tier || new Date(b.at) - new Date(a.at)).slice(0, Number(process.env.CLOSER_CONSIDER || 25));
 console.log(`closer: ${fresh.length} fresh bluesky/mastodon leads, ${sentToday}/${CAP} replies sent today, mode ${SEND && HANDLE && APP_PW ? "SEND (founder-enabled)" : "DRAFT-ONLY"}`);
 // pace: founder cap per UTC day (CLOSER_DAILY_CAP) spread over the cycles of the day (CLOSER_PER_CYCLE) so the account never bursts
-let budget = Math.min(CAP - sentToday, Number(process.env.CLOSER_PER_CYCLE || Math.ceil(CAP / 6) + 1)), session = null;
+let budget = Math.min(CAP - sentToday, Number(process.env.CLOSER_PER_CYCLE || 8)), session = null;
 const bad = /\b(guarantee|guaranteed|cure|therapy|diagnos|depress|anxiety disorder|invest|returns|earn \$|make money|limited time|buy now|only \$|discount|act fast|refund)\b/i;
 const ASK = /\b(template|tracker|planner|printable|pdf|worksheet|where (can|do) i (get|find|buy)|link please|send (me )?the link)\b/i;
 const TACTICS = [

@@ -1,5 +1,5 @@
 // Log a sent partner message + mark the prospect contacted. Usage: node scripts/partner-log.mjs <handle> <channel: ig|email|substack|yt> [to]
-// Enforces the daily cap (20) across channels AND a per-platform cap (8) so no single account carries the risk; exits 2 when capped.
+// Enforces cap_per_day (120) and cap_per_platform. Risky channels override lower: ig, yt, tiktok stay at 8. Substack stays at 0. Exits 2 when capped.
 import fs from "node:fs"; import crypto from "node:crypto";
 const [handle, channel, to = ""] = process.argv.slice(2);
 const LP = "content/partner-outreach-log.json", PP = "content/partner-prospects.json";

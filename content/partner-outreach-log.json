@@ -1,9 +1,12 @@
 {
- "note": "One entry per message sent by the swarm (channel, handle, date, sha1 of text). Daily cap 20 across channels, 8 per platform; 4 windows a day.",
- "cap_per_day": 20,
- "cap_per_platform": 8,
+ "note": "Daily cap 120 across channels. Instagram, YouTube, and TikTok stay at 8 because those accounts are new and a burst is what gets blocked. Bluesky and Mastodon carry the rest, paced. Substack stays at 0. One unique text per person. No link on first contact.",
+ "cap_per_day": 120,
+ "cap_per_platform": 40,
  "cap_overrides": {
-  "substack": 0
+  "substack": 0,
+  "ig": 8,
+  "yt": 8,
+  "tiktok": 8
  },
  "sent": [
   {
