@@ -15,6 +15,7 @@ const pay=PAY+"?client_reference_id="+withRef("home");return <main>
 <a href={pay} style={btn}>Get the Receipts Pack — $29</a>
 <p style={{...small,marginTop:10}}>One-time payment · instant access</p>
 <p style={{fontSize:15}}><a href="/free?src=home" style={link}>Not ready? Start with the free receipt template →</a></p>
+	<p style={{fontSize:15}}><a href="/card?src=home" style={link}>Or make a shareable receipt card →</a></p>
 
 <h2 style={h2}>How it works</h2>
 {[["1. Receipt","Write down exactly what was said or done. Privately. Once."],
