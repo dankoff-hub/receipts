@@ -1042,7 +1042,7 @@
    "tt": null,
    "site": null,
    "score": 50,
-   "status": "prospect",
+   "status": "contacted",
    "found": "2026-11-07",
    "url": "https://www.youtube.com/@growthhub11-e9f",
    "checked": "2026-11-07",
@@ -1060,7 +1060,9 @@
    "latest_video": null,
    "threads": null,
    "substack": null,
-   "has_email": false
+   "has_email": false,
+   "contacted": "2026-11-08",
+   "contact_channel": "yt"
   },
   "@ashleyldalton": {
    "channel_id": "UCmDADkm7CG7uyZBqKHnLxNQ",
@@ -1103,7 +1105,7 @@
    "has_email": false,
    "site": "pin.it/1armMax",
    "score": 40,
-   "status": "prospect",
+   "status": "contacted",
    "found": "2026-11-07",
    "url": "https://www.youtube.com/@Havenhaania",
    "checked": "2026-11-08",
@@ -1115,7 +1117,9 @@
     "email": "Hi Haania,\n\nI’ve been following your channel where you blend university experiences with niqabi perspectives, and I think our Receipts system could be a great fit. We’d like to give you the full 30‑day proof pack at no cost so you can see how it works firsthand.\n\nIf you like it, you can join as a partner using receiptspack.vercel.app/p/havenhaania, which pays you 50% of every sale ($14.50) on a monthly PayPal basis—no sales quota, no exclusivity required. All the details are in our partner terms page: receiptspack.vercel.app/partners/terms.\n\nLet me know if you’d be interested in receiving the free pack and discussing the partnership. \n\nDan Rossi — Receipts",
     "short": "Hey Haania, love how you mix university life with niqabi content—I'd like to send you our full 30‑day Receipts pack free and chat about a partner link. Look for \"Receipts partners\" or just reply. — Dan",
     "generated": "2026-11-08T09:43:24.850Z"
-   }
+   },
+   "contacted": "2026-11-08",
+   "contact_channel": "yt"
   },
   "@DrQuindelJones": {
    "channel_id": "UCoac8oO8Bh9RvYxanZIGyJw",
@@ -1171,7 +1175,7 @@
    "has_email": false,
    "site": "collegeofconfidence.com",
    "score": 55,
-   "status": "prospect",
+   "status": "contacted",
    "found": "2026-11-07",
    "url": "https://www.youtube.com/@TrishBlackwell",
    "checked": "2026-11-08",
@@ -1183,7 +1187,9 @@
     "email": "Hey Trish,\n\nI was impressed by your journaling series that helps people turn confidence into action – especially the episode on breaking mental blocks. We’ve built Receipts, a $29, 30‑day proof system that lets users keep a receipt and then make doubts irrelevant, and we’d like to give you the full pack free (sign up at receiptspack.vercel.app/free).\n\nIf you enjoy it, we can set you up with a partner link (receiptspack.vercel.app/p/trishblackwell) that pays 50% of every sale ($14.50) each month via PayPal. There’s no sales quota, no exclusivity, and you keep the earnings.\n\nTerms: receiptspack.vercel.app/partners/terms\n\nLooking forward to hearing your thoughts.\n\nDan Rossi — Receipts",
     "short": "Your \"follow‑through\" journaling tip hits the core of habit change. We'd like to send you our free 30‑day Receipts pack and discuss a partner link – look for \"Receipts partners\" or reply. — Dan",
     "generated": "2026-11-08T09:43:19.053Z"
-   }
+   },
+   "contacted": "2026-11-08",
+   "contact_channel": "yt"
   },
   "@onecraftydolo": {
    "channel_id": "UCXc6R_63hlbqRq9Yhc4cnIQ",
@@ -1253,7 +1259,7 @@
    "has_email": false,
    "site": null,
    "score": 55,
-   "status": "prospect",
+   "status": "contacted",
    "found": "2026-11-07",
    "url": "https://www.youtube.com/@Aristocrat.Looksmaxing",
    "checked": "2026-11-08",
@@ -1265,7 +1271,9 @@
     "email": "Hey Aristocrat team,\n\nI’ve been following your channel’s focus on turning discipline into visual appeal, especially your recent deep‑dive on posture hacks. I think our Receipts system—a $29, 30‑day proof pack that helps people keep the receipt and make doubts irrelevant—could complement your content nicely. We’re offering you the full pack for free; just claim it at receiptspack.vercel.app/free.\n\nIf it resonates, we have a partner program that pays 50% of every sale (that’s $14.50 per purchase) directly to you via PayPal each month. There’s no sales quota, no exclusivity, and you keep full control of your channel.\n\nTerms are simple and transparent: receiptspack.vercel.app/partners/terms. Let me know if you’d like to give the pack a spin and discuss the partnership.\n\nDan Rossi — Receipts",
     "short": "Your video on disciplined looksmaxing really hits the high‑value vibe. Want a free 30‑day proof pack and a partner link to earn on sales? Look for \"Receipts partners\" or reply. — Dan",
     "generated": "2026-11-08T09:43:20.269Z"
-   }
+   },
+   "contacted": "2026-11-08",
+   "contact_channel": "yt"
   },
   "@MassAccountability": {
    "channel_id": "UCS0zbejHzcZiTSrts5-D7Vw",
@@ -1343,7 +1351,7 @@
    "has_email": false,
    "site": null,
    "score": 50,
-   "status": "prospect",
+   "status": "contacted",
    "found": "2026-11-08",
    "url": "https://www.youtube.com/@liveitapp",
    "checked": "2026-11-08",
@@ -1355,7 +1363,9 @@
     "email": "Hey LiveIt team,\n\nYour approach to integrating journaling, planning, and habit tracking into one seamless flow is exactly the kind of workflow we aim to support. We’d love to give you free access to our 30‑day Receipts proof system – simply start at receiptspack.vercel.app/free and see how it fits.\n\nIf it clicks, we can set up a partner link (receiptspack.vercel.app/p/liveitapp) that returns 50% of each $29 sale ($14.50) to you, paid monthly via PayPal, with no minimums or exclusivity clauses.\n\nTerms are outlined here: receiptspack.vercel.app/partners/terms. Let me know if you’re interested in trying it out and discussing the partnership.\n\nDan Rossi — Receipts",
     "short": "Your all‑in‑one life organizer really streamlines daily planning. I'd love to send you our free 30‑day Receipts pack and chat about a partner link – look for \"Receipts partners\" or just reply. — Dan",
     "generated": "2026-11-08T09:43:22.936Z"
-   }
+   },
+   "contacted": "2026-11-08",
+   "contact_channel": "yt"
   },
   "@planningwithkay": {
    "channel_id": "UCvAiAY4gFc9_z5lhMuwGtSw",
