@@ -5,7 +5,7 @@ import { chat, parseJSON, saveQuota } from "./llm.mjs";
 process.on("exit", () => saveQuota());
 const QUERIES = ["30 day challenge tracker template", "prove them wrong 30 days", "accountability tracker printable", "someone said I couldn't", "habit tracker pdf where to buy", "daily proof journal", "day 1 of 30 day challenge", "starting a 30 day challenge tomorrow", "need an accountability partner habit", "habit tracker recommendation", "75 hard day 1", "doubted me so I started", "writing down the rejection", "if then plan habit"];
 const T1 = /\b(where (can|do) i (buy|get|find)( a| the)? (tracker|template|planner|journal|pdf|system)|(drop|send|share) (me )?(the|a) link|link please|is there a (template|tracker|pdf|printable)|how much (is|does|for)( a| the)? (tracker|template|planner|journal)|worth buying|recommend(ation)?s? for (a |an )?(tracker|template|planner|journal|accountability)|take my money|looking for (a |an )?(habit |accountability |30[- ]day )?(tracker|template|system|planner|journal))\b/i;
-const T2 = /\b(start(ing)? (a )?30[- ]day|accountab|track(ing)? (my )?progress|prove (them|him|her|everyone) wrong|told me i (couldn'?t|wasn'?t)|habit tracker|daily proof|streak)\b/i;
+const T2 = /\b(i('m| am)? start(ing|ed)?|my (30[- ]day|habit|streak)|day 1|day one|accountab|prove (them|him|her|everyone) wrong|told me i (couldn'?t|wasn'?t)|daily proof)\b/i;
 const LEADS_P = "swarm/LEADS.json"; const leads = fs.existsSync(LEADS_P) ? JSON.parse(fs.readFileSync(LEADS_P, "utf8")) : { seen: [], leads: [] };
 const UA = { "User-Agent": "receipts-swarm/1.0 (read-only research)" };
 const items = [];
@@ -20,7 +20,7 @@ for (const q of QUERIES) {
 }
 // Bluesky freshness pass: broad terms restricted to the last 48h (searchPosts `since`), so the Closer always sees recent, replyable posts.
 const since = new Date(Date.now() - 48 * 3600e3).toISOString();
-for (const q of ["30 day challenge", "habit tracker", "day 1 of 30", "accountability partner", "prove them wrong", "starting tomorrow challenge", "new habit day one"]) {
+for (const q of ["day 1 of 30", "starting my 30", "I started today", "accountability partner", "prove them wrong", "told me I couldn't", "day one of my", "writing it down"]) {
   try { const r = await fetch(`https://api.bsky.app/xrpc/app.bsky.feed.searchPosts?q=${encodeURIComponent(q)}&limit=50&sort=latest&since=${encodeURIComponent(since)}`, { headers: UA }); if (!r.ok) console.error(`bluesky(since) HTTP ${r.status}`); const j = await r.json();
     for (const p of j?.posts || []) { const hnd = p.author?.handle, rk = p.uri?.split("/").pop(); push({ src: "bluesky", id: p.uri, url: `https://bsky.app/profile/${hnd}/post/${rk}`, text: String(p.record?.text || "").slice(0, 600), sub: hnd, at: p.record?.createdAt }); } } catch (e) { console.error("bluesky(since) err", e.message); }
 }
