@@ -120,6 +120,13 @@
    "to": "YouTube comment on latest video",
    "date": "2026-11-08T13:23:09.555Z",
    "sha1": "27177f3409e7"
+  },
+  {
+   "handle": "https://wisewordsnewsletter.beehiiv.com",
+   "channel": "email",
+   "to": "",
+   "date": "2026-11-08T15:31:48.027Z",
+   "sha1": "1b5091b563a3"
   }
  ],
  "cap_per_platform": 8

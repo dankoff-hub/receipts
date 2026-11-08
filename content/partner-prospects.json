@@ -871,7 +871,7 @@
    ],
    "desc": "Mindset, grit, consistency",
    "score": 55,
-   "status": "prospect",
+   "status": "contacted",
    "found": "2026-11-07",
    "checked": "2026-11-07",
    "kind": "newsletter",
@@ -885,7 +885,9 @@
     "short": "Your tip on using daily mindset drills to boost grit is spot on. I'd like to send you our 30‑day proof pack free and discuss a partner link—look for “Receipts partners” or just reply. — Dan",
     "dm_opener": "Hi Wise Words Weekly (Grant Shay) — I read your work and liked it. Question: do you take partner collabs?",
     "dm_followup": "Grant, your focus on mindset, grit and consistency in Wise Words Weekly aligns perfectly with our $29, 30‑day proof system that turns “not ready” into proof. We’d love to send you the full Receipts pack free at receiptspack.vercel.app/free and set you up with a partner link receiptspack.vercel.app/p/wisewordsnewslet that pays you 50% of each sale ($14.50) via monthly PayPal, with no quotas or exclusivity. Interested in a quick chat? — Dan, Receipts"
-   }
+   },
+   "contacted": "2026-11-08",
+   "contact_channel": "email"
   },
   "https://vitalcore-newsletter.beehiiv.com": {
    "title": "VitalCore Newsletter",
