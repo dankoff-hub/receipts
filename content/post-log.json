@@ -522,5 +522,15 @@
   "why": null,
   "captionHash": "271feca189ca",
   "slug": "freelance-pitch-no-log"
+ },
+ {
+  "ts": "2026-11-08T17:41:32.406Z",
+  "channel": "bluesky",
+  "kind": "repurpose",
+  "status": "sent",
+  "url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mzsxhm66pb2c",
+  "why": null,
+  "captionHash": "1e626bdc5945",
+  "slug": "freelance-pitch-no-log"
  }
 ]
