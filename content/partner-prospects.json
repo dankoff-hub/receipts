@@ -2336,7 +2336,7 @@
    "median_views": 4400,
    "max_views": 8800,
    "score": 110,
-   "status": "prospect",
+   "status": "contacted",
    "found": "2026-11-08",
    "url": "https://www.youtube.com/@DanZakaria",
    "drafts": {
@@ -2349,7 +2349,9 @@
     "generated": "2026-11-08T17:40:17.610Z"
    },
    "checked": "2026-11-08",
-   "drafts_provider": "groq"
+   "drafts_provider": "groq",
+   "contacted": "2026-11-08",
+   "contact_channel": "ig"
   },
   "@KaizenBorn": {
    "handle": "@KaizenBorn",
