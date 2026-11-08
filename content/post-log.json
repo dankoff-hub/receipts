@@ -502,5 +502,25 @@
   "video": "car-001",
   "day": 1,
   "captionHash": "8c96672acc74ac5c439ab7c78f95b8cb"
+ },
+ {
+  "ts": "2026-11-08T17:39:26.987Z",
+  "channel": "bluesky",
+  "kind": "repurpose",
+  "status": "failed",
+  "url": null,
+  "why": "{\"error\":\"InvalidRequest\",\"message\":\"Invalid app.bsky.feed.post record: grapheme too big (maximum 300, got 306) at $.record.text\"}",
+  "captionHash": "2594f0d88245",
+  "slug": "freelance-pitch-no-log"
+ },
+ {
+  "ts": "2026-11-08T17:39:27.486Z",
+  "channel": "mastodon",
+  "kind": "repurpose",
+  "status": "sent",
+  "url": "https://mastodon.social/@danrossi2026/117582041404052361",
+  "why": null,
+  "captionHash": "271feca189ca",
+  "slug": "freelance-pitch-no-log"
  }
 ]
