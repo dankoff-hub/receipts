@@ -75,9 +75,19 @@ async def tts(text, mp3):
             elif ch["type"] == "WordBoundary": words.append((ch["offset"] / 1e7, (ch["offset"] + ch["duration"]) / 1e7, ch["text"]))
     return words
 
-def render(hook, speech, url, day, out, seed=0, variant=None):
+def render(hook, speech, url, day, out, seed=0, variant=None, talking_head=None):
     variant = dict({"voice": "on", "music": "off", "bg": "persona"}, **(variant or {}))
-    HOOK_T = min(1.3, max(0.6, 0.18 * len(hook.split()) + 0.3))  # 2026-11-07: hook card max 1.3s; voice must be speaking within the first second (retention fix)
+    # 2026-11-07 founder directive: high-res talking-head hook (SadTalker 512+GFPGAN,
+    # rendered on free Colab GPU into assets/talking-head/day-NN.mp4). The clip
+    # speaks the hook; the rest of the reel keeps the persona-photo + caption format.
+    TH_DUR = 0.0
+    if talking_head and os.path.exists(talking_head):
+        TH_DUR = float(subprocess.check_output(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", talking_head]).decode())
+        variant["talking_head"] = True
+        HOOK_T = TH_DUR  # all downstream timing (voice delay, captions) starts after the clip
+    else:
+        talking_head = None
+        HOOK_T = min(1.3, max(0.6, 0.18 * len(hook.split()) + 0.3))  # 2026-11-07: hook card max 1.3s; voice must be speaking within the first second (retention fix)
     MIN_SHOW = 1.1  # a caption phrase never stays on screen less than this
     rng = random.Random(seed * 7919 + 17)
     os.makedirs("/tmp/vid", exist_ok=True); mp3 = "/tmp/vid/voice.mp3"
@@ -117,9 +127,9 @@ def render(hook, speech, url, day, out, seed=0, variant=None):
         f.append("eq=saturation=1.08,drawbox=x=0:y=0:w=iw:h=ih:color=black@0.22:t=fill")
     # progress bar (top) — tells the brain "this is short"
     f.append(f"drawbox=x=0:y=0:w=iw*t/{dur:.2f}:h=14:color=0xf2c94c@0.9:t=fill")
-    # hook card
+    # hook card (skipped when the talking-head clip speaks the hook)
     hl = textwrap.wrap(hook, 16); size = 96 if len(hl) <= 3 else 80; lh = int(size * 1.2); tot = lh * len(hl)
-    for j, ln in enumerate(hl):
+    for j, ln in enumerate(hl if not talking_head else []):
         p = f"/tmp/vid/h{j}.txt"; open(p, "w").write(ln)
         f.append(f"drawtext=fontfile={FONT}:textfile={p}:fontcolor=white:fontsize={size}:borderw=6:bordercolor=black@0.6:x=(w-text_w)/2:y=(h-{tot})/2+{j*lh}:enable='lt(t,{HOOK_T})'")
     # phrase captions: 3–5 spoken words per card, shown whole (no per-word flicker), minimum hold time, synced to speech
@@ -221,9 +231,23 @@ def render(hook, speech, url, day, out, seed=0, variant=None):
         fc.append(f"[{ai}:a]atrim=0:{dur:.2f},volume={gain}dB,afade=t=in:st=0:d=0.8,afade=t=out:st={dur-1.0:.2f}:d=1.0,aformat=sample_rates=44100:channel_layouts=stereo[ma]"); mixes.append("[ma]"); ai += 1
     if len(mixes) == 2: fc.append(f"{mixes[0]}{mixes[1]}amix=inputs=2:duration=first:dropout_transition=0:normalize=0[a]")
     else: fc.append(f"{mixes[0]}acopy[a]")
+    main_out = "/tmp/vid/main.mp4" if talking_head else out
     cmd += ["-filter_complex", ";".join(fc), "-map", "[v]", "-map", "[a]", "-c:v", "libx264", "-preset", "veryfast", "-pix_fmt", "yuv420p",
-            "-c:a", "aac", "-b:a", "128k", "-t", f"{dur:.2f}", "-shortest", out]
+            "-c:a", "aac", "-b:a", "128k", "-t", f"{dur:.2f}", "-shortest", main_out]
     subprocess.run(cmd, check=True)
+    if talking_head:
+        # pass 2: overlay the talking-head clip over [0, TH_DUR] and put its
+        # audio first (main audio starts with TH_DUR of silence by design).
+        cmd2 = ["ffmpeg", "-y", "-loglevel", "error", "-i", main_out, "-i", talking_head,
+                "-filter_complex",
+                f"[1:v]scale=970:970,setsar=1,fps=30[th];"
+                f"[0:v][th]overlay=(W-w)/2:290:enable='lt(t,{TH_DUR:.2f})'[v0];"
+                f"[v0]drawtext=fontfile={FONT}:text='AI avatar':fontcolor=white@0.85:fontsize=28:box=1:boxcolor=black@0.55:boxborderw=8:x=w-text_w-32:y=44:enable='lt(t,{TH_DUR:.2f})'[v];"
+                f"[1:a]aformat=sample_rates=44100:channel_layouts=stereo[tha];"
+                f"[tha][0:a]concat=n=2:v=0:a=1[a]",
+                "-map", "[v]", "-map", "[a]", "-c:v", "libx264", "-preset", "veryfast", "-pix_fmt", "yuv420p",
+                "-c:a", "aac", "-b:a", "128k", "-t", f"{dur:.2f}", out]
+        subprocess.run(cmd2, check=True)
     meta["variant"] = variant
     return dur, meta
 

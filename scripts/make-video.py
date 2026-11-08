@@ -70,7 +70,13 @@ if _force:
 _cta_spoken = re.sub(r"\$?29[^.]*link in bio\.?", "Free step one template, link in the first comment.", s["cta"]).replace("link in bio", "link in the first comment")  # the first comment carries the link on every platform
 if _variant.get("cta") == "follow": _cta_spoken = f"Follow for day {_label + 1}."
 speech = f"{s['hook']} {s['say']} {_cta_spoken}"
-dur, _meta = _rv.render(s["hook"], speech, "receiptspack.vercel.app/free", _label, out, seed=_slot_seed, variant=_variant)
+# 2026-11-07 founder directive: high-res talking-head hook clips (free Colab GPU batch)
+# speak the hook; when present the voiceover starts with the Say line instead.
+_th = None
+if _label and _os.path.exists(f"assets/talking-head/day-{_label:02d}.mp4") and _variant.get("voice") == "on":
+    _th = f"assets/talking-head/day-{_label:02d}.mp4"
+    speech = f"{s['say']} {_cta_spoken}"
+dur, _meta = _rv.render(s["hook"], speech, "receiptspack.vercel.app/free", _label, out, seed=_slot_seed, variant=_variant, talking_head=_th)
 print("variant:", json.dumps(_meta))
 _tags = ["provethemwrong","receipts","30daychallenge","fyp","careertok","motivation","selfimprovement"]
 try:
