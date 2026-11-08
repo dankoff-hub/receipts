@@ -857,9 +857,33 @@
   "at://did:plc:6xchoosndqfmcst2m5bnfuqu/app.bsky.feed.post/3mzs5evl53c2o",
   "at://did:plc:wfjcm4szpttfxxfepnpuuowm/app.bsky.feed.post/3mzs3apqjrc2x",
   "masto:117580346516527884",
-  "masto:117580298509984776"
+  "masto:117580298509984776",
+  "at://did:plc:ldq2jamdgtqu5ypght3dwvzn/app.bsky.feed.post/3mzsecq42n22w",
+  "lemmy:54154023",
+  "at://did:plc:zrby72gi5x2rbj7jonj2fj5z/app.bsky.feed.post/3mzsiq3q7fbr2",
+  "at://did:plc:wkcgq5ccef62gfnulqpdx34g/app.bsky.feed.post/3mzseldhz2k5y",
+  "at://did:plc:qfwqezpal7ap6nyzea57utwp/app.bsky.feed.post/3mzsej4dmed2w",
+  "at://did:plc:4dd4sl5o6v6l2qgyz4vllqap/app.bsky.feed.post/3mzsgt67t4k2b",
+  "at://did:plc:sutbip7z4yhl2co5a47wjsqs/app.bsky.feed.post/3mzsg3s5sjc2h",
+  "at://did:plc:egdfq6jqnymcfc5natpqs5j5/app.bsky.feed.post/3mzsdsxu6hj2b",
+  "at://did:plc:jxu3rmmr6jdksvifcmso2v4x/app.bsky.feed.post/3mzsdb4zrw42c",
+  "at://did:plc:5egtguolbckaja7p6tvfjgb5/app.bsky.feed.post/3mzsf6pprxk2t",
+  "at://did:plc:jm5td73pj6huouah4dwglocp/app.bsky.feed.post/3mzsed6yzswr2",
+  "masto:117580807264646437",
+  "masto:117580568376737488"
  ],
  "leads": [
+  {
+   "src": "bluesky",
+   "id": "at://did:plc:wkcgq5ccef62gfnulqpdx34g/app.bsky.feed.post/3mzseldhz2k5y",
+   "url": "https://bsky.app/profile/juststreak.app/post/3mzseldhz2k5y",
+   "text": "The \"it takes 21 days to build a habit\" rule came from a plastic surgeon in 1960 — and he never said it. The real number is in the video. Guess it before you watch 👀\n🦊 just streak — habit tracker with a fox who grows with your streak. Link in bio.\n#habittracker #streak",
+   "sub": "juststreak.app",
+   "at": "2026-11-08T12:05:20.094Z",
+   "tier": 2,
+   "found": "2026-11-08T13:24:44.782Z",
+   "status": "skipped"
+  },
   {
    "src": "bluesky",
    "id": "at://did:plc:kruyayewkxnoweegcljjliy6/app.bsky.feed.post/3mzsazpy5df2s",
