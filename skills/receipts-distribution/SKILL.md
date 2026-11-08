@@ -25,6 +25,7 @@ description: "Connect Receipts Pack generators to vendored skills and free-infra
 - No HMAC pack link in cold outreach.
 - Unique text per post. Do not reuse one caption across channels or prospects.
 - Product method: one private receipt, one counted if-then, one line at night, date the first line. Do not quote an effect size. Do not say science guarantees a result.
+- Traffic replies: `swarm/closer.mjs` may reply on Bluesky and Mastodon to a personal habit or 30-day post. The free link goes only on an explicit ask for a template. No link otherwise. One reply per author. Daily cap stays the repo var. Reddit and Skool stay human-only. No X. No auto-DM.
 - Do not overwrite an existing `dm_opener`.
 
 ## Free infra only

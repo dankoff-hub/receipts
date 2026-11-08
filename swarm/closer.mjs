@@ -26,7 +26,24 @@ const fresh = leads.leads.filter(l => platformOf(l) && l.status === "new" && !OW
 console.log(`closer: ${fresh.length} fresh bluesky/mastodon leads, ${sentToday}/${CAP} replies sent today, mode ${SEND && HANDLE && APP_PW ? "SEND (founder-enabled)" : "DRAFT-ONLY"}`);
 // pace: founder cap per UTC day (CLOSER_DAILY_CAP) spread over the cycles of the day (CLOSER_PER_CYCLE) so the account never bursts
 let budget = Math.min(CAP - sentToday, Number(process.env.CLOSER_PER_CYCLE || Math.ceil(CAP / 6) + 1)), session = null;
-const bad = /\b(guarantee|guaranteed|cure|therapy|diagnos|depress|anxiety disorder|invest|returns|earn \$|make money|limited time|buy now|only \$|discount|act fast)\b/i;
+const bad = /\b(guarantee|guaranteed|cure|therapy|diagnos|depress|anxiety disorder|invest|returns|earn \$|make money|limited time|buy now|only \$|discount|act fast|refund)\b/i;
+const ASK = /\b(template|tracker|planner|printable|pdf|worksheet|where (can|do) i (get|find|buy)|link please|send (me )?the link)\b/i;
+const TACTICS = [
+  "Write the number tonight. If the old sentence shows up tomorrow, the action is already chosen.",
+  "Date the first line. Tomorrow counts. A missed day is a blank line, not a restart.",
+  "Pick one counted action you can do tired. Ten applications, four sessions, or twelve pieces.",
+  "One line at night is enough. A journal is optional.",
+  "Keep the sentence private. The counted action is the part you can do.",
+  "If it shows up again, do the one thing you already wrote down. Then stop.",
+];
+function localReply(lead, askLink) {
+  const words = String(lead.text || "").replace(/https?:\/\/\S+/g, "").replace(/[^\w\s']/g, " ").split(/\s+/).filter(w => w.length > 4 && !/challenge|tracker|habit|accountab|starting|tomorrow|today|proof/i.test(w));
+  const bit = (words[0] || "that").slice(0, 24);
+  const tactic = TACTICS[(lead.sub || "").length % TACTICS.length];
+  let reply = `${bit} is the hard part. ${tactic}`;
+  if (askLink) reply += ` Free one-page template if useful: ${FREE}`;
+  return reply.slice(0, 280);
+}
 
 async function login() {
   const r = await fetch("https://bsky.social/xrpc/com.atproto.server.createSession", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ identifier: HANDLE, password: APP_PW }) });
@@ -40,15 +57,16 @@ for (const lead of fresh) {
   if (budget <= 0) { console.log("closer: daily cap reached"); break; }
   const mark = (status, why, extra = {}) => { lead.status = status; (status === "sent" ? log.replies : log.skipped).push({ at: new Date().toISOString(), id: lead.id, url: lead.url, author: lead.sub, tier: lead.tier, why, ...extra }); };
   // 1) relevance re-check — LLM must confirm a real, personal, current goal (rule regex over-matches idioms like "30 days to prove them wrong")
-  const chk = await chat(`A post: """${lead.text}""" Is the author personally, currently working on (or asking for help with) a habit, streak, 30-day challenge, discipline or accountability goal of their own? Not relevant: creative/art posting series, product or portfolio promotion, news, politics, jokes without a real goal. Reply JSON {"relevant":true|false,"wants_template":true|false,"why":"<10 words"}. wants_template=true only if they explicitly ask for a tracker/template/planner/pdf/system/link.`, { system: "Strict classifier. JSON only.", maxTokens: 120 });
-  const c = parseJSON(chk.text);
+  const chk = await chat(`A post: """${lead.text}""" Is the author personally working on, starting, or asking for help with a habit, streak, 30-day challenge, discipline, or accountability goal? Not relevant: selling a product, news, politics, a joke with no goal. Reply JSON {"relevant":true|false,"wants_template":true|false,"why":"<10 words"}. wants_template=true only if they explicitly ask for a tracker, template, planner, pdf, or link.`, { system: "Classifier. JSON only. " + skillHint("social-reply-and-comment-writer", 160), maxTokens: 80 });
+  const c = parseJSON(chk.text) || (chk.provider === "template" ? { relevant: lead.tier <= 2, wants_template: ASK.test(lead.text), why: "model down, tier kept" } : null);
   if (!c) { mark("skipped", "no classifier available"); continue; }
   if (!c.relevant) { mark("skipped", "not a personal goal: " + (c.why || "")); continue; }
   // 2) draft — helpful first, product last, link only on explicit ask
-  const askLink = lead.tier === 1 && c.wants_template;
-  const d = await chat(`Write a Bluesky reply (max 240 chars, plain text, no hashtags, no emojis, no quotes around it) to this post: """${lead.text}""". You are Dan, a regular guy who logs one honest line a day for 30 days ("receipts") to prove doubters wrong. Reply like a friend who has been there: one specific, useful or lightly funny line about THEIR goal, then one concrete tactic they can use tomorrow. Never introduce yourself, never say "I'm Dan", never pitch, never mention receipts/30 days unless it answers their question.${askLink ? ` End with: "Free one-page template if useful: ${FREE}"` : " Do NOT include any link or product mention."} Return JSON {"reply":"..."}.`, { system: "You write short, human, non-promotional replies. JSON only. " + skillHint("social-reply-and-comment-writer", 600) + " " + skillHint("openclaudia-bluesky", 300), maxTokens: 200 });
+  const askLink = (lead.tier === 1 || ASK.test(lead.text)) && (c.wants_template || ASK.test(lead.text));
+  const d = await chat(`Write a reply under 220 characters, plain text, no hashtags, no emojis. Post: """${lead.text}""". One specific line about their goal, then one counted action they can do tomorrow. Never introduce yourself. Never say I'm Dan. Never pitch. Never mention a price.${askLink ? ` End with: Free one-page template if useful: ${FREE}` : " No link."} Return JSON {"reply":"..."}.`, { system: "Short human replies. JSON only. " + skillHint("social-reply-and-comment-writer", 280) + " " + skillHint("openclaudia-bluesky", 160) + " " + skillHint("marketing-community-marketing", 120), maxTokens: 140 });
   let reply = parseJSON(d.text)?.reply?.trim();
-  if (!reply) { mark("skipped", "no draft"); continue; }
+  let provider = d.provider;
+  if (!reply) { reply = localReply(lead, askLink); provider = "template"; }
   // 3) self-check (DIRECTIVE §5 high-risk self-check): length, banned claims, no link unless allowed, no @-spam
   if (reply.length > 290) reply = reply.slice(0, 287).replace(/\s+\S*$/, "") + "…";
   if (/^(hey|hi)?[,!\s]*(i'?m|i am|this is) dan\b/i.test(reply) || /prove them wrong, one/i.test(reply)) { mark("skipped", "self-check failed: self-intro/template", { draft: reply }); continue; }
@@ -61,7 +79,7 @@ for (const lead of fresh) {
       const acct = lead.sub ? "@" + lead.sub + " " : "";
       const r = await fetch("https://mastodon.social/api/v1/statuses", { method: "POST", headers: { "content-type": "application/json", authorization: "Bearer " + MTOK, "Idempotency-Key": lead.id }, body: JSON.stringify({ status: acct + reply, in_reply_to_id: lead.id.slice(6), visibility: "public", language: "en" }) });
       const j = await r.json(); if (!r.ok) throw new Error(JSON.stringify(j).slice(0, 200));
-      mark("sent", c.why || "", { reply, reply_url: j.url, provider: d.provider, platform });
+      mark("sent", c.why || "", { reply, reply_url: j.url, provider, platform, status: "sent" });
       repliedAuthors.add(lead.sub); budget--; console.log("closer: replied (mastodon) →", lead.url);
     } catch (e) { mark("failed", e.message.slice(0, 200), { draft: reply, platform }); }
     continue;
@@ -76,7 +94,7 @@ for (const lead of fresh) {
     const r = await fetch("https://bsky.social/xrpc/com.atproto.repo.createRecord", { method: "POST", headers: { "content-type": "application/json", authorization: "Bearer " + session.accessJwt }, body: JSON.stringify({ repo: session.did, collection: "app.bsky.feed.post", record: rec }) });
     const j = await r.json(); if (!r.ok) throw new Error(JSON.stringify(j).slice(0, 200));
     const rk = j.uri.split("/").pop();
-    mark("sent", c.why || "", { reply, reply_url: `https://bsky.app/profile/${HANDLE}/post/${rk}`, provider: d.provider, platform: "bluesky" });
+    mark("sent", c.why || "", { reply, reply_url: `https://bsky.app/profile/${HANDLE}/post/${rk}`, provider, platform: "bluesky", status: "sent" });
     repliedAuthors.add(ref.author); budget--; console.log("closer: replied →", lead.url);
   } catch (e) { mark("failed", e.message.slice(0, 200), { draft: reply }); }
 }

@@ -5,6 +5,7 @@ const checks = [
   ["scripts/content-forge.mjs", "social-tiktok-growth"],
   ["scripts/content-forge.mjs", "social-link-in-bio-and-traffic"],
   ["scripts/repurpose-post.mjs", "product-mechanism.json"],
+  ["swarm/closer.mjs", "marketing-community-marketing"],
   ["swarm/creative.mjs", "social-tiktok-growth"],
 ];
 const missing = [];

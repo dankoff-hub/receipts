@@ -26,9 +26,15 @@ const strip = h => String(h || "").replace(/<[^>]+>/g, " ").replace(/&amp;/g, "&
 async function draftReply(theirText, context) {
   const r = await chat(`Someone ${context} on Bluesky/Mastodon. Their words: """${theirText.slice(0, 600)}""". You are Dan, a regular guy logging one honest line a day for 30 days to prove doubters wrong. Write a warm, specific reply (max 220 chars, plain text, no hashtags, no emojis, no links, no quotes). Thank or acknowledge what THEY said in concrete terms, add one useful or lightly funny line, and end with a short question that invites them to keep talking (about their own goal or day). Never pitch, never mention a product or price. Return JSON {"reply":"..."}.`,
     { system: "You write short, human, non-promotional replies. JSON only. " + skillHint("social-reply-and-comment-writer", 500), maxTokens: 160 });
-  const t = parseJSON(r.text)?.reply?.trim();
-  if (!t || t.length > 280 || bad.test(t) || /https?:\/\//.test(t)) return null;
-  return { text: t, provider: r.provider };
+  let t = parseJSON(r.text)?.reply?.trim();
+  let provider = r.provider;
+  if (!t) {
+    const words = String(theirText || "").replace(/[^\w\s']/g, " ").split(/\s+/).filter(w => w.length > 4);
+    t = `${(words[0] || "That").slice(0, 24)} is worth keeping. What does tomorrow's one line look like?`;
+    provider = "template";
+  }
+  if (t.length > 280 || bad.test(t) || /https?:\/\//.test(t)) return null;
+  return { text: t, provider };
 }
 const record = (kind, o) => { log[kind].push({ at: new Date().toISOString(), ...o }); };
 
