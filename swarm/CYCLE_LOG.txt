@@ -260,3 +260,21 @@ creative rejected:
 creative: 7 concepts via groq → content/swarm-scripts.md (+7)
 --- node swarm/skool.mjs
 skool: prepared 2026-11-08 via groq
+
+===== cycle 2026-11-08T03:16:56.653Z =====
+--- node swarm/audit.mjs
+audit PASS ✓ card_free_llm ✓ card_free_execution ✓ card_free_edge_worker ✓ card_free_posting ✓ card_free_state ✓ no_auto_billing ✓ local_fallback_exists ✓ core_prompt_budget
+--- node swarm/hunter.mjs
+worker leads merged: 0
+hunter: fetched 685 items (seen 827)
+hunter: scanned 5 new posts → tier1 0, tier2 0 (llm calls 4)
+--- node swarm/closer.mjs
+closer: 0 fresh bluesky/mastodon leads, 0/40 replies sent today, mode SEND (founder-enabled)
+--- node swarm/community.mjs
+community: SEND — {"bluesky":{"followBack":0,"replies":0,"follows":0},"mastodon":{"followBack":0,"replies":0,"follows":0}}; reply budget left 20, follow budget {"bluesky":0,"mastodon":20}
+--- node swarm/creative.mjs
+creative rejected:
+  off-brand:reel ← I let doubt drive my daily metric
+creative: 8 concepts via groq → content/swarm-scripts.md (+8)
+--- node swarm/skool.mjs
+skool: today already prepared

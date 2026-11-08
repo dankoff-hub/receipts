@@ -188,72 +188,82 @@
    {
     "platform": "instagram",
     "format": "POV story",
-    "hook": "Someone told me I’d never save consistently",
-    "say": "I logged today’s client payment, moved 15% to savings, and the app showed a green check. Day 2, same move, same check. It’s now a habit, not a hope.",
-    "body": "Turn doubt into a daily savings standard and see proof each night.",
-    "cta": "Start the $29 30‑day proof system, link in bio",
+    "hook": "When they laughed at your goal, you logged day one",
+    "say": "I heard the doubt, set a measurable standard, and recorded my first proof. Each morning I snap the metric. By day 30 the numbers speak louder than words.",
+    "body": "A clear standard turns mockery into measurable momentum.",
+    "cta": "Start the $29 challenge now, link in bio",
     "provider": "groq",
-    "id": "b1d3229b6327c00e142bb6546b12dc81"
+    "id": "66496cd5be8e67f2a82867b3243b28b3"
    },
    {
     "platform": "instagram",
-    "format": "confession",
-    "hook": "I heard “you’ll quit after week one” and listened",
-    "say": "Day 5 I missed the move, the tracker flagged red. I fixed it instantly, proof restored. Now I never miss a day.",
-    "body": "Accountability shines when you measure each moment.",
-    "cta": "Join the 30‑day challenge, $29, link in bio",
+    "format": "Myth-bust",
+    "hook": "Everyone claims talent wins, I prove consistency beats it",
+    "say": "They said talent alone matters, so I defined a daily output standard and captured 30 days of results. The proof is in the spreadsheet, not the hype.",
+    "body": "Consistency is the real standard that silences talent myths.",
+    "cta": "Join for $29, link in bio",
     "provider": "groq",
-    "id": "e9c85752ecc38f23bbf94e1e0b65beb1"
+    "id": "abc96a054c7b9d3522914668afacf53f"
+   },
+   {
+    "platform": "instagram",
+    "format": "Receipt reveal",
+    "hook": "Doubt was loud, my receipts are louder",
+    "say": "Someone told me I couldn't track progress, so I set a numeric target and posted a photo of each day's metric. Thirty days later the stack of receipts proves it.",
+    "body": "Visible proof validates any claim.",
+    "cta": "Grab your $29 pass, link in bio",
+    "provider": "groq",
+    "id": "1aa32e08cc2b5fbd0dd1045b2d797a4e"
    },
    {
     "platform": "youtube",
-    "format": "list",
-    "hook": "Five signs you’re still stuck in doubt about saving",
-    "say": "1) No baseline, 2) No daily log, 3) No visual proof, 4) No fixed % rule, 5) No community check‑ins. I fixed all with one tool.",
-    "body": "Define a standard, track daily, see proof.",
-    "cta": "Unlock the 30‑day receipt pack for $29, link in bio",
+    "format": "Challenge recap",
+    "hook": "Day 1 again? Watch the proof stack grow",
+    "say": "A doubter said I’d quit, so I committed to a daily benchmark and filmed each day's result. The montage shows every proof point over 30 days.",
+    "body": "A visual timeline turns skepticism into evidence.",
+    "cta": "Enroll for $29, link in bio",
     "provider": "groq",
-    "id": "89f6383fd05ca1cd3b307629371af9fc"
+    "id": "7111dd4aea17da3ced4b76bda840b122"
    },
    {
     "platform": "youtube",
-    "format": "receipt reveal",
-    "hook": "When a client paid, I proved the doubters wrong instantly",
-    "say": "Payment hit, I auto‑allocated 20%, the dashboard lit up green. I posted the screenshot, daily proof for the community.",
-    "body": "Immediate proof turns skepticism into support.",
-    "cta": "Start your $29 proof journey, link in bio",
+    "format": "List",
+    "hook": "3 steps to turn doubt into daily receipts",
+    "say": "1️⃣ Identify the doubter’s claim. 2️⃣ Set one concrete standard. 3️⃣ Capture a proof piece each day for 30 days. My channel shows the full stack.",
+    "body": "A simple list converts skepticism into data.",
+    "cta": "Get the $29 system, link in bio",
     "provider": "groq",
-    "id": "8d7f8ba354335102564becace2227f99"
+    "id": "a87b7e9ffdf2b54a927498fd91f73aa9"
    },
    {
     "platform": "tiktok",
-    "format": "day‑in‑the‑life vlog",
-    "hook": "Someone said I’d never turn payments into savings",
-    "say": "Morning: client payment arrives. I tap the app, set 12% to savings. Night: the streak counter shows 7 days straight.",
-    "body": "Consistent standards build undeniable proof.",
-    "cta": "Tap the link for the $29 30‑day system in my bio",
+    "format": "Quick myth-bust",
+    "hook": "They claimed progress is invisible—here’s the proof",
+    "say": "A critic said I couldn’t quantify growth, so I chose a single KPI, posted a 5‑second clip daily, and built 30 proof clips. The trend is real.",
+    "body": "Visible metrics crush invisible doubts.",
+    "cta": "Tap the $29 link in bio",
     "provider": "groq",
-    "id": "15a1f00aa90b5d72c3e2373e086db8a9"
+    "id": "094a7322397df81af4c54be5019cf55d"
    },
    {
     "platform": "tiktok",
-    "format": "myth‑bust duet",
-    "hook": "My friends claim “saving is too hard for freelancers”",
-    "say": "I logged every invoice, auto‑moved a set %, and the daily graph glowed. Even on low weeks, proof stayed positive.",
-    "body": "A simple rule beats complex excuses.",
-    "cta": "Check the $29 receipt pack, link in bio",
+    "format": "Daily check‑in challenge",
+    "hook": "Day 5 broke? Reset, record, repeat",
+    "say": "Our community heard a naysayer, set one daily number, and every broken streak gets a fresh receipt shot. 30 days, 30 proofs, no excuses.",
+    "body": "Resetting keeps the standard alive.",
+    "cta": "Join the $29 challenge, link in bio",
     "provider": "groq",
-    "id": "f672ec6f7414edf23ca911049d422b2b"
+    "id": "62595dff3cbcb019f5a99be4a3b97642"
    },
    {
     "platform": "tiktok",
-    "format": "live‑community shoutout",
-    "hook": "Day 1 again? Let’s prove the streak together",
-    "say": "We all logged today’s payment, moved our set %, and the community board lit up. Missed a day? The red flag reminded us to fix it fast.",
-    "body": "Shared standards create collective proof.",
-    "cta": "Join the 30‑day challenge for $29, link in bio",
+    "format": "Receipt reveal montage",
+    "hook": "30 receipts, one doubter silenced",
+    "say": "Someone doubted my consistency, so I filmed each day’s result, compiled a 30‑second montage, and let the receipts do the talking.",
+    "body": "A montage of proof ends the debate.",
+    "cta": "Start now for $29, link in bio",
     "provider": "groq",
-    "id": "0d6c4d78cc60d560a78686053e98b310"
+    "id": "91f447d1fb139e3921ca1827975be5d5"
    }
   ]
  },
@@ -295,6 +305,14 @@
   "8d7f8ba354335102564becace2227f99",
   "15a1f00aa90b5d72c3e2373e086db8a9",
   "f672ec6f7414edf23ca911049d422b2b",
-  "0d6c4d78cc60d560a78686053e98b310"
+  "0d6c4d78cc60d560a78686053e98b310",
+  "66496cd5be8e67f2a82867b3243b28b3",
+  "abc96a054c7b9d3522914668afacf53f",
+  "1aa32e08cc2b5fbd0dd1045b2d797a4e",
+  "7111dd4aea17da3ced4b76bda840b122",
+  "a87b7e9ffdf2b54a927498fd91f73aa9",
+  "094a7322397df81af4c54be5019cf55d",
+  "62595dff3cbcb019f5a99be4a3b97642",
+  "91f447d1fb139e3921ca1827975be5d5"
  ]
 }
