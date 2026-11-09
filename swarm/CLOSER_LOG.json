@@ -1277,6 +1277,38 @@
    "author": "gimpy.bsky.social",
    "tier": 2,
    "why": "not a personal goal: No request for habit or accountability"
+  },
+  {
+   "at": "2026-11-09T15:24:11.794Z",
+   "id": "at://did:plc:hzynmbe3fjlfzni45l3i7nvb/app.bsky.feed.post/3mzv6z3gfos2u",
+   "url": "https://bsky.app/profile/forseti.bsky.social/post/3mzv6z3gfos2u",
+   "author": "forseti.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: No habit or challenge mentioned"
+  },
+  {
+   "at": "2026-11-09T15:24:12.205Z",
+   "id": "at://did:plc:v6x2iuhp55dyzpchbrd6tyds/app.bsky.feed.post/3mzv56iju222e",
+   "url": "https://bsky.app/profile/pfkelly.bsky.social/post/3mzv56iju222e",
+   "author": "pfkelly.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: no habit or challenge mentioned"
+  },
+  {
+   "at": "2026-11-09T15:24:12.757Z",
+   "id": "at://did:plc:6tl7ui6wucdhz3423xeo4ogt/app.bsky.feed.post/3mzv3waryoc2u",
+   "url": "https://bsky.app/profile/yamjam.bsky.social/post/3mzv3waryoc2u",
+   "author": "yamjam.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: No habit or challenge mentioned"
+  },
+  {
+   "at": "2026-11-09T15:24:13.142Z",
+   "id": "at://did:plc:wgkqct5ydercw5mliithdzyy/app.bsky.feed.post/3mzv32um4r22i",
+   "url": "https://bsky.app/profile/wildecard.eurosky.social/post/3mzv32um4r22i",
+   "author": "wildecard.eurosky.social",
+   "tier": 2,
+   "why": "not a personal goal: No habit or template request"
   }
  ]
 }

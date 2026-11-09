@@ -29,6 +29,16 @@
    "status": "sent",
    "url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mzv2qf3xmn2p",
    "provider": "groq"
+  },
+  {
+   "at": "2026-11-09T15:24:15.034Z",
+   "platform": "bluesky",
+   "target": "at://did:plc:a7xusynd6sm6nz62lwzbpl47/app.bsky.feed.post/3mzv354sifk23",
+   "author": "espicle2719.bsky.social",
+   "text": "I hear you—warming up can feel like the longest part, especially when the Wii’s waiting. Maybe set a 5‑minute stretch timer before you start? What’s your go‑to warm‑up move?",
+   "status": "sent",
+   "url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mzvaazt7ii27",
+   "provider": "groq"
   }
  ],
  "follows": [
