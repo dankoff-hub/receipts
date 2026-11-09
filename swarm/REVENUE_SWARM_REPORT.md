@@ -1,18 +1,20 @@
-# REVENUE SWARM REPORT — 2026-11-09T21:19:37.766Z
+# REVENUE SWARM REPORT — 2026-11-09T23:11:08.273Z
 ## Primary
 - Attributed revenue: **$0.00** / $50000 (0.00%)
 - Revenue by src: none yet
 - Paid sessions: 0 · posts last 24h: 0
-- Hunter this cycle: scanned 92 → Tier1 0, Tier2 6 (LLM calls 6) · open Tier1 awaiting human-approved reply: 0
+- Hunter this cycle: scanned 99 → Tier1 0, Tier2 17 (LLM calls 6) · open Tier1 awaiting human-approved reply: 0
 - Creative today: 9 concepts (groq) → content/swarm-scripts.md
 - Time-to-first-revenue-touch: not yet — 0 paid sessions since launch
 ## Cascade / quota (calls/fails)
-groq:444/5 nvidia_nim:6/2 pollinations:48/19 ollama_local:0/1 template:1/0
+groq:471/6⏸ nvidia_nim:7/2 pollinations:61/26⏸ ollama_local:0/1 template:1/0
 ## Top intent posts (public, read-only; replies need founder-owned accounts → High risk, human approval)
-- T2 bluesky: Fitness glorp post: so one of my three currently outstanding medals arrived today. The others are coming but the company was having supply c — https://bsky.app/profile/renfemlad.bsky.social/post/3mzvtaz5mnk2p
-- T2 bluesky: had to do some stuff with Eon's old belongings today, including the bag she had with her when she died. as i was going through the bag i sta — https://bsky.app/profile/moth.gay/post/3mzvr54upks2b
-- T2 bluesky: One of my fave memories at Disneyland recently was that I started calling Mickey 'Michael' as a fun little bit, and by the end of the trip I — https://bsky.app/profile/riniwolfbeardog.bsky.social/post/3mzvq6xqmkc2l
-- T2 bluesky: A year ago I started a really stupid daily thing and even though I stopped a few months ago I'm still really happy with it. Here's a few hig — https://bsky.app/profile/curiousquail.com/post/3mzvomjbzdv2h
-- T2 bluesky: Good news - you don’t have to listen to me tonight! In my place will be one of our all-star guests and day one supporter, The Beef Mortos!  — https://bsky.app/profile/professordegree.bsky.social/post/3mzvt3yijys2y
-- T2 bluesky: I started writing a fanfiction when ao3 went down 🫩 can't wait to post it though ! — https://bsky.app/profile/punclaw64.bsky.social/post/3mzvotmshzs2j
-## Zero-cost audit: PASS (2026-11-09T21:19:38.769Z)
+- T2 bluesky: Best raw 2 m temperature forecast of the models with n≥30 at lead day 1 over the last 90 days: ECMWF AIFS Single (2.3 °F MAE, n=89) Instanta — https://bsky.app/profile/castcheck.zifanzhang.com/post/3mzvvabdtcg2y
+- T2 bluesky: And yeah, I know he's two, but I started processing concepts like this around then. It might not be a win today, but it should get there. T — https://bsky.app/profile/scottcrawford.org/post/3mzvzzh2ioc2f
+- T2 bluesky: I started a new writing project today and I’m feeling REALLY good about it. — https://bsky.app/profile/shadowsense.xyz/post/3mzvzt7nfec2q
+- T2 bluesky: Okay I started working out again today. Starting slow. Feels great. — https://bsky.app/profile/prosediva.bsky.social/post/3mzvzddrpnk2z
+- T2 bluesky: Btw I started taking japanese lessons in october and today the professor said she was proud of me cause I did especially well in an atelier  — https://bsky.app/profile/machayuart.bsky.social/post/3mzvxvtli3s2q
+- T2 bluesky: It started at work today😔 I have to track it on my phone bc I always forget when it is — https://bsky.app/profile/cherishingstydia.bsky.social/post/3mzvxpwxye22h
+- T2 bluesky: Today I started my 1st playthrough of #Sekiro & got all the way past the chained ogre! With my disability I never thought it would be possib — https://bsky.app/profile/kookycrumbz.bsky.social/post/3mzvx3fux4k2b
+- T2 bluesky: I started playing Devil's Third today (via emulator) It's trash, but it's my kind of trash. A rare time where a game is kinda bad but bad in — https://bsky.app/profile/buzogryz.bsky.social/post/3mzvwpexhws2x
+## Zero-cost audit: PASS (2026-11-09T23:11:09.156Z)

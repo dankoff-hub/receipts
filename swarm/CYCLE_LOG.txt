@@ -1,36 +1,3 @@
-worker leads merged: 0
-hunter: fetched 689 items (seen 737)
-hunter: scanned 2 new posts → tier1 0, tier2 1 (llm calls 1)
---- node swarm/closer.mjs
-closer: 0 fresh bluesky/mastodon leads, 0/40 replies sent today, mode SEND (founder-enabled)
---- node swarm/creative.mjs
-creative: today already done
---- node swarm/skool.mjs
-skool: today already prepared
-
-===== cycle 2026-11-07T10:28:04.922Z =====
---- node swarm/audit.mjs
-audit PASS ✓ card_free_llm ✓ card_free_execution ✓ card_free_edge_worker ✓ card_free_posting ✓ card_free_state ✓ no_auto_billing ✓ local_fallback_exists
---- node swarm/hunter.mjs
-worker leads merged: 0
-hunter: fetched 691 items (seen 739)
-hunter: scanned 5 new posts → tier1 0, tier2 2 (llm calls 4)
---- node swarm/closer.mjs
-closer: 2 fresh bluesky/mastodon leads, 0/40 replies sent today, mode SEND (founder-enabled)
-closer: replied → https://bsky.app/profile/bovine3dom.masto.ai.ap.brid.gy/post/3mzpkwxinjzj2
---- node swarm/community.mjs
-community: SEND — {"bluesky":{"followBack":0,"replies":0,"follows":20},"mastodon":{"followBack":0,"replies":0,"follows":1}}; reply budget left 20, follow budget {"bluesky":0,"mastodon":19}
---- node swarm/creative.mjs
-creative: today already done
---- node swarm/skool.mjs
-skool: today already prepared
-
-===== cycle 2026-11-07T11:09:33.045Z =====
---- node swarm/audit.mjs
-audit PASS ✓ card_free_llm ✓ card_free_execution ✓ card_free_edge_worker ✓ card_free_posting ✓ card_free_state ✓ no_auto_billing ✓ local_fallback_exists
---- node swarm/hunter.mjs
-worker leads merged: 0
-hunter: fetched 693 items (seen 744)
 hunter: scanned 3 new posts → tier1 0, tier2 0 (llm calls 2)
 --- node swarm/closer.mjs
 closer: 0 fresh bluesky/mastodon leads, 0/40 replies sent today, mode SEND (founder-enabled)
@@ -593,6 +560,39 @@ closer: replied → https://bsky.app/profile/renfemlad.bsky.social/post/3mzvtaz5
 closer: replied → https://bsky.app/profile/curiousquail.com/post/3mzvomjbzdv2h
 --- node swarm/community.mjs
 community: SEND — {"bluesky":{"followBack":0,"replies":0,"follows":0},"mastodon":{"followBack":0,"replies":0,"follows":0}}; reply budget left 17, follow budget {"bluesky":0,"mastodon":19}
+--- node swarm/creative.mjs
+creative: today already done
+--- node swarm/skool.mjs
+skool: today already prepared
+
+===== cycle 2026-11-09T23:11:08.273Z =====
+--- node swarm/audit.mjs
+audit PASS ✓ card_free_llm ✓ card_free_execution ✓ card_free_edge_worker ✓ card_free_posting ✓ card_free_state ✓ no_auto_billing ✓ local_fallback_exists ✓ core_prompt_budget
+--- node swarm/hunter.mjs
+worker leads merged: 0
+hunter: fetched 915 items (seen 2313)
+hunter: scanned 99 new posts → tier1 0, tier2 17 (llm calls 6)
+--- node swarm/closer.mjs
+closer: 16 fresh bluesky/mastodon leads, 14/40 replies sent today, mode SEND (founder-enabled)
+closer: replied → https://bsky.app/profile/shadowsense.xyz/post/3mzvzt7nfec2q
+closer: replied → https://bsky.app/profile/prosediva.bsky.social/post/3mzvzddrpnk2z
+closer: replied → https://bsky.app/profile/owlshiftgames.bsky.social/post/3mzvyktlzm22e
+closer: replied → https://bsky.app/profile/machayuart.bsky.social/post/3mzvxvtli3s2q
+closer: replied → https://bsky.app/profile/cherishingstydia.bsky.social/post/3mzvxpwxye22h
+closer: replied → https://bsky.app/profile/paetonk11.bsky.social/post/3mzvxfzutek2r
+closer: replied → https://bsky.app/profile/sbakelar.bsky.social/post/3mzvvb2atx22f
+closer: replied → https://bsky.app/profile/wofflecone.bsky.social/post/3mzvuzkocts25
+llm groq HTTP 429: {"error":{"message":"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m6sjtcrweq7847g3mgh91ffh` service tier `on_demand` on tokens per 
+llm pollinations HTTP 402: {"status":402,"success":false,"error":{"code":"FREE_LIMIT","message":"Free limit reached: 1 reply every 45 seconds per IP. Retry after 40s, or get unlimited rep
+llm pollinations HTTP 402: {"status":402,"success":false,"error":{"code":"FREE_LIMIT","message":"Free limit reached: 1 reply every 45 seconds per IP. Retry after 40s, or get unlimited rep
+llm pollinations HTTP 402: {"status":402,"success":false,"error":{"code":"FREE_LIMIT","message":"Free limit reached: 1 reply every 45 seconds per IP. Retry after 36s, or get unlimited rep
+--- node swarm/community.mjs
+community: SEND — {"bluesky":{"followBack":0,"replies":3,"follows":0},"mastodon":{"followBack":0,"replies":0,"follows":0}}; reply budget left 14, follow budget {"bluesky":0,"mastodon":19}
+llm pollinations HTTP 402: {"status":402,"success":false,"error":{"code":"FREE_LIMIT","message":"Free limit reached: 1 reply every 45 seconds per IP. Retry after 38s, or get unlimited rep
+llm pollinations HTTP 402: {"status":402,"success":false,"error":{"code":"FREE_LIMIT","message":"Free limit reached: 1 reply every 45 seconds per IP. Retry after 40s, or get unlimited rep
+llm pollinations HTTP 402: {"status":402,"success":false,"error":{"code":"FREE_LIMIT","message":"Free limit reached: 1 reply every 45 seconds per IP. Retry after 41s, or get unlimited rep
+llm pollinations HTTP 503: {"status":503,"success":false,"error":{"code":"SERVICE_UNAVAILABLE","message":"The Classic API is at its limit right now. Retry after 10s, or get full access to
+llm pollinations: 503 {"status":503,"success":false,"error":{"code":"SERVICE_UNAVAILABLE","message":"The Classic API is at its limit right now. Retry after 10s, or get full access to
 --- node swarm/creative.mjs
 creative: today already done
 --- node swarm/skool.mjs

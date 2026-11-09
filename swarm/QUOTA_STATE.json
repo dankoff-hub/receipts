@@ -11,9 +11,9 @@
    "card": false,
    "auth": "GROQ_API_KEY secret (optional)",
    "limit": "14,400 req/day",
-   "cooldown_until": 0,
-   "calls": 444,
-   "fails": 5,
+   "cooldown_until": 1794269528346,
+   "calls": 471,
+   "fails": 6,
    "last_error": "429"
   },
   "nvidia_nim": {
@@ -21,7 +21,7 @@
    "auth": "NVIDIA_API_KEY secret (set 2026-11-06); model google/gemma-4-31b-it (llama-3.x EOL on NIM)",
    "limit": "~40 RPM",
    "cooldown_until": 0,
-   "calls": 6,
+   "calls": 7,
    "fails": 2,
    "last_error": "This operation was aborted"
   },
@@ -29,9 +29,10 @@
    "card": false,
    "auth": "none (anonymous)",
    "limit": "rate-limited anonymous",
-   "cooldown_until": 0,
-   "calls": 48,
-   "fails": 19
+   "cooldown_until": 1794267102427,
+   "calls": 61,
+   "fails": 26,
+   "last_error": "503 {\"status\":503,\"success\":false,\"error\":{\"code\":\"SERVICE_UNAVAILABLE\",\"message\":\"The Classic API is at its limit right now. Retry after 10s, or get full access to"
   },
   "ollama_local": {
    "card": false,
@@ -56,6 +57,6 @@
   "qwen": "device-code OAuth — founder-only login",
   "puter": "browser session — founder-only login"
  },
- "rotation_offset": 0,
- "updated": "2026-11-09T21:20:32.543Z"
+ "rotation_offset": 1,
+ "updated": "2026-11-09T23:17:58.298Z"
 }
