@@ -293,3 +293,57 @@
 - Say: Our Skool chat logged 5 minutes of coding, 3 reps, and a shared screenshot.
 - Body: Community turns broken streaks into fresh standards.
 - CTA: Enter the $29 30‑day challenge – link in bio
+
+## 1050. When they laughed, I set the bar [instagram/POV story]
+- Hook: When they laughed, I set the bar
+- Say: I heard the mock, I wrote a metric. Day 1 I logged the exact number. Day 2 I beat it. Day 3 the proof is on screen.
+- Body: A single standard turns ridicule into measurable growth.
+- CTA: Start your 30‑day proof for $29 – link in bio
+
+## 1051. Their doubt, my daily scoreboard [instagram/receipt reveal]
+- Hook: Their doubt, my daily scoreboard
+- Say: They claimed I couldn't track progress. I posted a screenshot each morning. Seven days later the chart was undeniable.
+- Body: One clear metric silences any skeptic.
+- CTA: Grab the system for $29 – link in bio
+
+## 1052. 30 days, one proof per sunrise [instagram/challenge]
+- Hook: 30 days, one proof per sunrise
+- Say: A doubter said consistency is a myth. I posted a photo of my result at dawn for a month. Every day, the evidence grew.
+- Body: Consistent proof beats empty words.
+- CTA: Join the challenge for $29 – link in bio
+
+## 1053. 5 ways doubt becomes data [youtube/list]
+- Hook: 5 ways doubt becomes data
+- Say: Someone said I couldn't quantify success. I listed five standards and showed daily screenshots. Each day added a new receipt.
+- Body: Turning doubt into a measurable list fuels progress.
+- CTA: Get the 30‑day system for $29 – link in bio
+
+## 1054. Myth: Proof is optional [youtube/myth‑bust]
+- Hook: Myth: Proof is optional
+- Say: A critic claimed proof is optional. I busted that myth with 30 days of logged results, one per video.
+- Body: Proof is the only truth you need.
+- CTA: Unlock daily proof for $29 – link in bio
+
+## 1055. I confessed to a doubter’s challenge [youtube/confession]
+- Hook: I confessed to a doubter’s challenge
+- Say: A skeptic dared me to record a standard. I confessed each night with the day’s receipt, building unstoppable momentum.
+- Body: Confession + data creates unstoppable credibility.
+- CTA: Start your $29 journey – link in bio
+
+## 1056. POV: You hear doubt, I record proof [tiktok/POV]
+- Hook: POV: You hear doubt, I record proof
+- Say: They said I couldn’t track. I filmed my metric at 7 AM, then again at 7 PM, for 30 days straight.
+- Body: A single daily receipt shatters doubt.
+- CTA: Join for $29 – link in bio
+
+## 1057. 30‑day proof sprint starts now [tiktok/challenge]
+- Hook: 30‑day proof sprint starts now
+- Say: A doubter posted a challenge. I answered with a daily screenshot, each day louder than the last.
+- Body: Daily proof is the loudest reply.
+- CTA: Enter the sprint for $29 – link in bio
+
+## 1058. Day 1 again? Prove it together [tiktok/live‑community]
+- Hook: Day 1 again? Prove it together
+- Say: Our Skool group saw broken streaks. We posted today’s metric, rebuilt the chain, and posted the receipt live.
+- Body: Community proof rebuilds any broken streak.
+- CTA: Join the live 30‑day proof for $29 – link in bio

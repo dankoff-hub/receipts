@@ -280,72 +280,92 @@
    {
     "platform": "instagram",
     "format": "POV story",
-    "hook": "When they whispered 'you'll never finish',",
-    "say": "I logged 5km run, 3 push‑ups, and a clean code commit. Day 1 proof.",
-    "body": "Turn doubt into a measurable daily metric.",
-    "cta": "Start the 30‑day proof for $29 – link in bio",
+    "hook": "When they laughed, I set the bar",
+    "say": "I heard the mock, I wrote a metric. Day 1 I logged the exact number. Day 2 I beat it. Day 3 the proof is on screen.",
+    "body": "A single standard turns ridicule into measurable growth.",
+    "cta": "Start your 30‑day proof for $29 – link in bio",
     "provider": "groq",
-    "id": "ddd3424566e3dac26438bb0242e0e639"
+    "id": "c2b6ebb3b5e983d06970f61a6282fb6f"
    },
    {
     "platform": "instagram",
-    "format": "list",
-    "hook": "5 ways to silence the 'impossible' voice",
-    "say": "1. Set a clear metric. 2. Record it. 3. Share it. Day 2 proof: 2 pages written.",
-    "body": "A simple checklist makes doubt tangible.",
-    "cta": "Grab the 30‑day system for $29 – link in bio",
+    "format": "receipt reveal",
+    "hook": "Their doubt, my daily scoreboard",
+    "say": "They claimed I couldn't track progress. I posted a screenshot each morning. Seven days later the chart was undeniable.",
+    "body": "One clear metric silences any skeptic.",
+    "cta": "Grab the system for $29 – link in bio",
     "provider": "groq",
-    "id": "124c793efb6c12b0711ff398af63f714"
+    "id": "9911d3447f97ed533cb5243a67e99e6b"
    },
    {
     "platform": "instagram",
-    "format": "confession",
-    "hook": "I cracked the 'you can't' code on day 3",
-    "say": "My doubter said I’d fail. I posted a screenshot of 100% test coverage.",
-    "body": "Proof beats opinion every time.",
-    "cta": "Join the 30‑day challenge for $29 – link in bio",
+    "format": "challenge",
+    "hook": "30 days, one proof per sunrise",
+    "say": "A doubter said consistency is a myth. I posted a photo of my result at dawn for a month. Every day, the evidence grew.",
+    "body": "Consistent proof beats empty words.",
+    "cta": "Join the challenge for $29 – link in bio",
     "provider": "groq",
-    "id": "6e9cd539b26575c63a0fb95f50e7c92c"
+    "id": "22aa3e0caef5476bec8d3ff177f8c680"
    },
    {
     "platform": "youtube",
-    "format": "challenge",
-    "hook": "30 days, 30 proofs, one doubter silenced",
-    "say": "Day 4: I lifted 20 kg, logged the weight, and uploaded the bar chart.",
-    "body": "Consistency converts criticism into data.",
-    "cta": "Start your proof journey for $29 – link in bio",
+    "format": "list",
+    "hook": "5 ways doubt becomes data",
+    "say": "Someone said I couldn't quantify success. I listed five standards and showed daily screenshots. Each day added a new receipt.",
+    "body": "Turning doubt into a measurable list fuels progress.",
+    "cta": "Get the 30‑day system for $29 – link in bio",
     "provider": "groq",
-    "id": "b929b3f2b01ae55c15da346c0ce32405"
+    "id": "f19f9a286113821420ffb8af3fc91e54"
    },
    {
     "platform": "youtube",
     "format": "myth‑bust",
-    "hook": "Myth: You can't track progress in 30 days",
-    "say": "I recorded daily sales calls, 15 of them, and posted the spreadsheet on day 5.",
-    "body": "Data disproves the myth.",
-    "cta": "Get the $29 system now – link in bio",
+    "hook": "Myth: Proof is optional",
+    "say": "A critic claimed proof is optional. I busted that myth with 30 days of logged results, one per video.",
+    "body": "Proof is the only truth you need.",
+    "cta": "Unlock daily proof for $29 – link in bio",
     "provider": "groq",
-    "id": "a3adb0678fbb0e9df38c108bf9367829"
+    "id": "119b221563e2f6daf3c37f15df5adbae"
+   },
+   {
+    "platform": "youtube",
+    "format": "confession",
+    "hook": "I confessed to a doubter’s challenge",
+    "say": "A skeptic dared me to record a standard. I confessed each night with the day’s receipt, building unstoppable momentum.",
+    "body": "Confession + data creates unstoppable credibility.",
+    "cta": "Start your $29 journey – link in bio",
+    "provider": "groq",
+    "id": "2b1f57cfc63fa7af0ace54ad35baef62"
    },
    {
     "platform": "tiktok",
-    "format": "confession",
-    "hook": "I cried on day 8, then proved them wrong",
-    "say": "I posted a screenshot of a completed game level after two tears.",
-    "body": "Emotion fuels execution.",
-    "cta": "Start the 30‑day proof for $29 – link in bio",
+    "format": "POV",
+    "hook": "POV: You hear doubt, I record proof",
+    "say": "They said I couldn’t track. I filmed my metric at 7 AM, then again at 7 PM, for 30 days straight.",
+    "body": "A single daily receipt shatters doubt.",
+    "cta": "Join for $29 – link in bio",
     "provider": "groq",
-    "id": "f65e3df4911f17660e465b4dd22b18df"
+    "id": "ea0a2e6b2d0a1c337e135454733c07ff"
+   },
+   {
+    "platform": "tiktok",
+    "format": "challenge",
+    "hook": "30‑day proof sprint starts now",
+    "say": "A doubter posted a challenge. I answered with a daily screenshot, each day louder than the last.",
+    "body": "Daily proof is the loudest reply.",
+    "cta": "Enter the sprint for $29 – link in bio",
+    "provider": "groq",
+    "id": "15b9cc2dba1707ab9337aafbf7ada459"
    },
    {
     "platform": "tiktok",
     "format": "live‑community",
-    "hook": "Day 1 again? Let’s reset together",
-    "say": "Our Skool chat logged 5 minutes of coding, 3 reps, and a shared screenshot.",
-    "body": "Community turns broken streaks into fresh standards.",
-    "cta": "Enter the $29 30‑day challenge – link in bio",
+    "hook": "Day 1 again? Prove it together",
+    "say": "Our Skool group saw broken streaks. We posted today’s metric, rebuilt the chain, and posted the receipt live.",
+    "body": "Community proof rebuilds any broken streak.",
+    "cta": "Join the live 30‑day proof for $29 – link in bio",
     "provider": "groq",
-    "id": "c4be753f8768e2e592e9841c7fbed306"
+    "id": "d2c7c4c3b8644dea11860534f5b1125e"
    }
   ]
  },
@@ -411,6 +431,15 @@
   "b929b3f2b01ae55c15da346c0ce32405",
   "a3adb0678fbb0e9df38c108bf9367829",
   "f65e3df4911f17660e465b4dd22b18df",
-  "c4be753f8768e2e592e9841c7fbed306"
+  "c4be753f8768e2e592e9841c7fbed306",
+  "c2b6ebb3b5e983d06970f61a6282fb6f",
+  "9911d3447f97ed533cb5243a67e99e6b",
+  "22aa3e0caef5476bec8d3ff177f8c680",
+  "f19f9a286113821420ffb8af3fc91e54",
+  "119b221563e2f6daf3c37f15df5adbae",
+  "2b1f57cfc63fa7af0ace54ad35baef62",
+  "ea0a2e6b2d0a1c337e135454733c07ff",
+  "15b9cc2dba1707ab9337aafbf7ada459",
+  "d2c7c4c3b8644dea11860534f5b1125e"
  ]
 }

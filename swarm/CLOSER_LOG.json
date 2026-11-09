@@ -212,6 +212,32 @@
    "provider": "groq",
    "platform": "bluesky",
    "status": "sent"
+  },
+  {
+   "at": "2026-11-09T03:15:56.113Z",
+   "id": "at://did:plc:awtovhhjbao2yxx7qhirc6qy/app.bsky.feed.post/3mztw33nn2k2c",
+   "url": "https://bsky.app/profile/fretzlemania.bsky.social/post/3mztw33nn2k2c",
+   "author": "fretzlemania.bsky.social",
+   "tier": 2,
+   "why": "starting food logging habit",
+   "reply": "Tracking your meals will give you clear insight into your health. Tomorrow, write down everything you eat for just one meal and note the portion sizes.",
+   "reply_url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mztxkpcjg62e",
+   "provider": "groq",
+   "platform": "bluesky",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-09T03:16:00.825Z",
+   "id": "at://did:plc:qb72mdwsvkjdafj4ca4uztm6/app.bsky.feed.post/3mzttejngq22f",
+   "url": "https://bsky.app/profile/chubbywubbydragon.bsky.social/post/3mzttejngq22f",
+   "author": "chubbywubbydragon.bsky.social",
+   "tier": 2,
+   "why": "30‑day writing challenge progress",
+   "reply": "Congrats on hitting 6k! Keep the momentum toward 30k— tomorrow, write 500 words for Chapter 4.",
+   "reply_url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mztxktsjyc2q",
+   "provider": "groq",
+   "platform": "bluesky",
+   "status": "sent"
   }
  ],
  "skipped": [
@@ -975,6 +1001,78 @@
    "author": "workingyarns.bsky.social",
    "tier": 2,
    "why": "not a personal goal: Just sharing knitting experience"
+  },
+  {
+   "at": "2026-11-09T03:15:54.017Z",
+   "id": "at://did:plc:5yo5a4q7iwyb7vnzohjzcdgf/app.bsky.feed.post/3mztxcidnfc2v",
+   "url": "https://bsky.app/profile/aightlinez.bsky.social/post/3mztxcidnfc2v",
+   "author": "aightlinez.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: no habit or goal request"
+  },
+  {
+   "at": "2026-11-09T03:15:56.531Z",
+   "id": "at://did:plc:6xard5bzct5pb5v2rvy74nyn/app.bsky.feed.post/3mztvzt3aa223",
+   "url": "https://bsky.app/profile/rovingdatamancer.bsky.social/post/3mztvzt3aa223",
+   "author": "rovingdatamancer.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: No habit or goal mentioned"
+  },
+  {
+   "at": "2026-11-09T03:15:56.995Z",
+   "id": "at://did:plc:yhnqxuj2givkla4ws2ltcvtl/app.bsky.feed.post/3mztvzgdmyn32",
+   "url": "https://bsky.app/profile/emorydunn.mastodon.tinycart.club.ap.brid.gy/post/3mztvzgdmyn32",
+   "author": "emorydunn.mastodon.tinycart.club.ap.brid.gy",
+   "tier": 2,
+   "why": "not a personal goal: No habit or challenge mentioned"
+  },
+  {
+   "at": "2026-11-09T03:15:57.342Z",
+   "id": "at://did:plc:6nx4qtbmzokqrflzkxpa4ttm/app.bsky.feed.post/3mztvg46ys22b",
+   "url": "https://bsky.app/profile/manicpixidckgrl.bsky.social/post/3mztvg46ys22b",
+   "author": "manicpixidckgrl.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: no habit or accountability request"
+  },
+  {
+   "at": "2026-11-09T03:15:57.837Z",
+   "id": "at://did:plc:6para5t57huovxnebf2t5uw4/app.bsky.feed.post/3mztugohzd22h",
+   "url": "https://bsky.app/profile/nekosaibot.bsky.social/post/3mztugohzd22h",
+   "author": "nekosaibot.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: No habit or challenge mentioned"
+  },
+  {
+   "at": "2026-11-09T03:15:58.537Z",
+   "id": "at://did:plc:o77sfplqplsxzfcppbntr7jg/app.bsky.feed.post/3mzttnlsmpc2p",
+   "url": "https://bsky.app/profile/fiishboner.bsky.social/post/3mzttnlsmpc2p",
+   "author": "fiishboner.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: no habit or accountability request"
+  },
+  {
+   "at": "2026-11-09T03:15:58.935Z",
+   "id": "at://did:plc:rl774brw4gingrnw2grdv7rl/app.bsky.feed.post/3mzttmlqvhk2j",
+   "url": "https://bsky.app/profile/onsetlifejumble.bsky.social/post/3mzttmlqvhk2j",
+   "author": "onsetlifejumble.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: No habit or accountability request"
+  },
+  {
+   "at": "2026-11-09T03:16:01.248Z",
+   "id": "at://did:plc:2v6qjrygidqgjucx4qczz75v/app.bsky.feed.post/3mzttbcaupc2z",
+   "url": "https://bsky.app/profile/pistorius.bsky.social/post/3mzttbcaupc2z",
+   "author": "pistorius.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: No habit or challenge mentioned"
+  },
+  {
+   "at": "2026-11-09T03:16:01.839Z",
+   "id": "at://did:plc:rziysslywxnikqbkvaenagd3/app.bsky.feed.post/3mztt6xz3cs24",
+   "url": "https://bsky.app/profile/otherjacobyt.bsky.social/post/3mztt6xz3cs24",
+   "author": "otherjacobyt.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: No explicit habit or template request"
   }
  ]
 }
