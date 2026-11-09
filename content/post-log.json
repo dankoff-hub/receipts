@@ -750,5 +750,25 @@
   "video": "car-002",
   "day": 2,
   "captionHash": "a7746c1bc5e8d6ba9abaee7acbc1f33f"
+ },
+ {
+  "ts": "2026-11-09T12:19:41.646Z",
+  "channel": "bluesky",
+  "kind": "repurpose",
+  "status": "sent",
+  "url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mzuvwzgbnq24",
+  "why": null,
+  "captionHash": "57bdeeec1e0b",
+  "slug": "portfolio-review-rejection"
+ },
+ {
+  "ts": "2026-11-09T12:19:42.109Z",
+  "channel": "mastodon",
+  "kind": "repurpose",
+  "status": "sent",
+  "url": "https://mastodon.social/@danrossi2026/117586446383113950",
+  "why": null,
+  "captionHash": "553272e3ecfd",
+  "slug": "portfolio-review-rejection"
  }
 ]
