@@ -290,6 +290,32 @@
    "provider": "groq",
    "platform": "bluesky",
    "status": "sent"
+  },
+  {
+   "at": "2026-11-09T17:29:11.748Z",
+   "id": "at://did:plc:u6lcz4o767mbd3bvgm2nlnb2/app.bsky.feed.post/3mzvbp5keds2q",
+   "url": "https://bsky.app/profile/zaliah03.bsky.social/post/3mzvbp5keds2q",
+   "author": "zaliah03.bsky.social",
+   "tier": 2,
+   "why": "art daily habit challenge",
+   "reply": "Your daily 30‑minute art goal will build serious skill fast. Tomorrow, set a timer for 30 minutes and sketch a single object from a different angle.",
+   "reply_url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mzvhahbhop2x",
+   "provider": "groq",
+   "platform": "bluesky",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-09T17:29:12.736Z",
+   "id": "at://did:plc:mo6pmkd3cvtig3h4yn4z46i7/app.bsky.feed.post/3mzvauldytc2e",
+   "url": "https://bsky.app/profile/katinthestars.bsky.social/post/3mzvauldytc2e",
+   "author": "katinthestars.bsky.social",
+   "tier": 2,
+   "why": "shares personal activism habit",
+   "reply": "Your goal of turning frustration into real change is inspiring. Tomorrow, write one concise email to a local representative outlining your key demands.",
+   "reply_url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mzvhai7mjp2x",
+   "provider": "groq",
+   "platform": "bluesky",
+   "status": "sent"
   }
  ],
  "skipped": [
@@ -1309,6 +1335,78 @@
    "author": "wildecard.eurosky.social",
    "tier": 2,
    "why": "not a personal goal: No habit or template request"
+  },
+  {
+   "at": "2026-11-09T17:29:06.787Z",
+   "id": "at://did:plc:uzs3quwddq6ze7bistmmi5nm/app.bsky.feed.post/3mzvh3ytsak2t",
+   "url": "https://bsky.app/profile/thomasalong.bsky.social/post/3mzvh3ytsak2t",
+   "author": "thomasalong.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: No habit or challenge mentioned"
+  },
+  {
+   "at": "2026-11-09T17:29:07.574Z",
+   "id": "at://did:plc:umdgkya3c2urx6aspnnmoiyx/app.bsky.feed.post/3mzvgydbknc2e",
+   "url": "https://bsky.app/profile/outcast04.bsky.social/post/3mzvgydbknc2e",
+   "author": "outcast04.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: No habit or challenge mentioned"
+  },
+  {
+   "at": "2026-11-09T17:29:08.047Z",
+   "id": "at://did:plc:h6o4nkhxb24l5tousvtzwp7j/app.bsky.feed.post/3mzvgjkccjc24",
+   "url": "https://bsky.app/profile/alasdair1908.bsky.social/post/3mzvgjkccjc24",
+   "author": "alasdair1908.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: No habit or accountability request"
+  },
+  {
+   "at": "2026-11-09T17:29:08.355Z",
+   "id": "at://did:plc:czhaaqc6aumfrg2dh7qas73s/app.bsky.feed.post/3mzvfm2ispu2s",
+   "url": "https://bsky.app/profile/philhey.bsky.social/post/3mzvfm2ispu2s",
+   "author": "philhey.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: just sharing reading progress"
+  },
+  {
+   "at": "2026-11-09T17:29:08.934Z",
+   "id": "at://did:plc:f4cqgnhbwr4247prt47byydx/app.bsky.feed.post/3mzvfb3rlp223",
+   "url": "https://bsky.app/profile/brat2381.bsky.social/post/3mzvfb3rlp223",
+   "author": "brat2381.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: garden update, not a habit challenge"
+  },
+  {
+   "at": "2026-11-09T17:29:09.446Z",
+   "id": "at://did:plc:iudtrgl37qr5sdwbf6sy772v/app.bsky.feed.post/3mzvdxs5g3k2n",
+   "url": "https://bsky.app/profile/punished-dia.bsky.social/post/3mzvdxs5g3k2n",
+   "author": "punished-dia.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: No habit or goal mentioned"
+  },
+  {
+   "at": "2026-11-09T17:29:09.761Z",
+   "id": "at://did:plc:7e4rbbnplqy25pnyuaju2kw7/app.bsky.feed.post/3mzvdwkgeb32a",
+   "url": "https://bsky.app/profile/rrenizerse.bsky.social/post/3mzvdwkgeb32a",
+   "author": "rrenizerse.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: Discusses channel history, not a challenge"
+  },
+  {
+   "at": "2026-11-09T17:29:10.019Z",
+   "id": "at://did:plc:z2cretjhy3ptlzzh6hwwosmp/app.bsky.feed.post/3mzvdvbjeks2g",
+   "url": "https://bsky.app/profile/girlcoffee.bsky.social/post/3mzvdvbjeks2g",
+   "author": "girlcoffee.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: no habit or goal mentioned"
+  },
+  {
+   "at": "2026-11-09T17:29:10.377Z",
+   "id": "at://did:plc:zbacv2usgfmjvh7aq642q6la/app.bsky.feed.post/3mzvc536ubs2g",
+   "url": "https://bsky.app/profile/asadrawing.bsky.social/post/3mzvc536ubs2g",
+   "author": "asadrawing.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: no habit or accountability request"
   }
  ]
 }
