@@ -342,6 +342,32 @@
    "provider": "groq",
    "platform": "bluesky",
    "status": "sent"
+  },
+  {
+   "at": "2026-11-09T21:20:26.523Z",
+   "id": "at://did:plc:klrmjgfnobbju2ni2usnxf5b/app.bsky.feed.post/3mzvtaz5mnk2p",
+   "url": "https://bsky.app/profile/renfemlad.bsky.social/post/3mzvtaz5mnk2p",
+   "author": "renfemlad.bsky.social",
+   "tier": 2,
+   "why": "working on fitness goal",
+   "reply": "Congrats on the new medal! Keep pushing to finish those 14 miles—tomorrow add a 3‑mile stretch walk to stay on track.",
+   "reply_url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mzvu5xbd6m2q",
+   "provider": "groq",
+   "platform": "bluesky",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-09T21:20:29.641Z",
+   "id": "at://did:plc:cbi2s6luhuhobsmnggababsf/app.bsky.feed.post/3mzvomjbzdv2h",
+   "url": "https://bsky.app/profile/curiousquail.com/post/3mzvomjbzdv2h",
+   "author": "curiousquail.com",
+   "tier": 2,
+   "why": "shares personal habit highlights",
+   "reply": "Your goal of turning daily moments into lasting joy is clear—tomorrow, set a reminder to capture one highlight and share it right after your day ends.",
+   "reply_url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mzvu62ahjt2o",
+   "provider": "groq",
+   "platform": "bluesky",
+   "status": "sent"
   }
  ],
  "skipped": [
@@ -1521,6 +1547,38 @@
    "author": "mostafatqmtd.bsky.social",
    "tier": 2,
    "why": "not a personal goal: no habit or goal mentioned"
+  },
+  {
+   "at": "2026-11-09T21:20:27.220Z",
+   "id": "at://did:plc:dxi4zo73ifcyzdxsjfwe64ua/app.bsky.feed.post/3mzvt3yijys2y",
+   "url": "https://bsky.app/profile/professordegree.bsky.social/post/3mzvt3yijys2y",
+   "author": "professordegree.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: no habit or accountability request"
+  },
+  {
+   "at": "2026-11-09T21:20:27.635Z",
+   "id": "at://did:plc:2ceymd4dcfxta5s2bo376rmw/app.bsky.feed.post/3mzvr54upks2b",
+   "url": "https://bsky.app/profile/moth.gay/post/3mzvr54upks2b",
+   "author": "moth.gay",
+   "tier": 2,
+   "why": "not a personal goal: no habit or goal request"
+  },
+  {
+   "at": "2026-11-09T21:20:27.979Z",
+   "id": "at://did:plc:l6knrorac32s5udt7rwnzrq5/app.bsky.feed.post/3mzvq6xqmkc2l",
+   "url": "https://bsky.app/profile/riniwolfbeardog.bsky.social/post/3mzvq6xqmkc2l",
+   "author": "riniwolfbeardog.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: no habit or goal mentioned"
+  },
+  {
+   "at": "2026-11-09T21:20:28.467Z",
+   "id": "at://did:plc:zwmgit3h67mkwrax5xhidglm/app.bsky.feed.post/3mzvotmshzs2j",
+   "url": "https://bsky.app/profile/punclaw64.bsky.social/post/3mzvotmshzs2j",
+   "author": "punclaw64.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: Not a habit or accountability request"
   }
  ]
 }
