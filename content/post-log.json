@@ -770,5 +770,33 @@
   "why": null,
   "captionHash": "553272e3ecfd",
   "slug": "portfolio-review-rejection"
+ },
+ {
+  "ts": "2026-11-09T19:49:50.193Z",
+  "channel": "tiktok",
+  "postId": "6af223d329d3f56e691fbbda",
+  "dueAt": "2026-11-09T19:49:39.987Z",
+  "status": "sent",
+  "video": "day-004c.mp4",
+  "day": 4,
+  "captionHash": "c616f4d2fea5d7342980849bd0381b6a"
+ },
+ {
+  "ts": "2026-11-09T19:51:02.377Z",
+  "channel": "instagram",
+  "postId": "6af2241ca16d1f1c1e9858ff",
+  "status": "sent",
+  "video": "day-007c.mp4",
+  "day": 2,
+  "captionHash": "db93061ccda881d62852fde030b1f14f"
+ },
+ {
+  "ts": "2026-11-09T19:51:06.013Z",
+  "channel": "youtube",
+  "postId": "6af224274edc9538ca00a83f",
+  "status": "sent",
+  "video": "day-007c.mp4",
+  "day": 2,
+  "captionHash": "cda68c23122a33371fe90762faa0d2c3"
  }
 ]
