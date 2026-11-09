@@ -3327,7 +3327,7 @@
    "median_views": 606,
    "max_views": 26000,
    "score": 105,
-   "status": "prospect",
+   "status": "contacted",
    "found": "2026-11-09",
    "url": "https://www.youtube.com/@TheTreasureShow",
    "checked": "2026-11-09",
@@ -3340,7 +3340,9 @@
     "short": "Your video on staying consistent with weight loss when motivation is gone really resonates—could we send you our free 30‑day proof pack and discuss a partner link? Look for \"Receipts partners\" or reply. — Dan",
     "dm_opener": "Your recent video on staying consistent with weight loss when motivation is gone really nails the mindset gap—how do you keep viewers engaged during low‑energy weeks?",
     "generated": "2026-11-09T09:59:51.528Z"
-   }
+   },
+   "contacted": "2026-11-09",
+   "contact_channel": "ig"
   },
   "@SheReflects-s2u": {
    "handle": "@SheReflects-s2u",
