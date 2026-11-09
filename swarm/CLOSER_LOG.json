@@ -238,6 +238,19 @@
    "provider": "groq",
    "platform": "bluesky",
    "status": "sent"
+  },
+  {
+   "at": "2026-11-09T07:54:00.580Z",
+   "id": "at://did:plc:bgrwyxbttk3emtjbtgekdtaf/app.bsky.feed.post/3mzufsiied22o",
+   "url": "https://bsky.app/profile/picketer.bsky.social/post/3mzufsiied22o",
+   "author": "picketer.bsky.social",
+   "tier": 2,
+   "why": "mentions starting a habit",
+   "reply": "Aim to keep your focus steady like the temperature drop. Tomorrow, set a 10‑minute block to review your progress and adjust your plan.",
+   "reply_url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mzuh3wtuuu2x",
+   "provider": "groq",
+   "platform": "bluesky",
+   "status": "sent"
   }
  ],
  "skipped": [
@@ -1137,6 +1150,30 @@
    "author": "birdlawpa.bsky.social",
    "tier": 2,
    "why": "not a personal goal: No habit or goal mentioned"
+  },
+  {
+   "at": "2026-11-09T07:54:00.925Z",
+   "id": "masto:117585308685863894",
+   "url": "https://mastodon.social/@neuroticken/117585308685863894",
+   "author": "neuroticken",
+   "tier": 2,
+   "why": "not a personal goal: asks about game world choice"
+  },
+  {
+   "at": "2026-11-09T07:54:01.378Z",
+   "id": "at://did:plc:apnodzci5gh5wag6laiv27dc/app.bsky.feed.post/3mzueyh5v6c2d",
+   "url": "https://bsky.app/profile/skweeki.tv/post/3mzueyh5v6c2d",
+   "author": "skweeki.tv",
+   "tier": 2,
+   "why": "not a personal goal: No habit or goal mentioned"
+  },
+  {
+   "at": "2026-11-09T07:54:01.784Z",
+   "id": "at://did:plc:mtz2vuovmmrytdivy4z4po74/app.bsky.feed.post/3mzuc2zowdc2v",
+   "url": "https://bsky.app/profile/danthebrad.bsky.social/post/3mzuc2zowdc2v",
+   "author": "danthebrad.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: no habit or goal mentioned"
   }
  ]
 }
