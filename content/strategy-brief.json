@@ -1,61 +1,76 @@
 {
- "generated": "2026-11-08",
+ "generated": "2026-11-09",
  "deltas_7d": {
   "youtube_subs": 0,
   "tiktok_followers": 0,
   "instagram_followers": null,
-  "bluesky_followers": 5,
+  "bluesky_followers": 9,
   "mastodon_followers": 0
  },
- "followers_total_known": 5,
- "posts_logged": 47,
+ "followers_total_known": 9,
+ "posts_logged": 71,
  "post_issues": [],
- "best_cta_index": 4,
- "best_tag_mix_index": 0,
+ "best_cta_index": 5,
+ "best_tag_mix_index": 1,
  "notes": [
-  "growth day 2026-11-08 — biasing captions toward that day's CTA/tag indexes until signal changes",
+  "growth day 2026-11-09 — biasing captions toward that day's CTA/tag indexes until signal changes",
   "youtube stats unavailable (page blocked or channel undiscovered)",
   "instagram stats unavailable (login wall)"
  ],
  "variant_experiment": {
-  "updated": "2026-11-08T07:53:10.996Z",
+  "updated": "2026-11-09T08:19:30.713Z",
   "evidence": {
    "voice": {
     "on": {
-     "posts": 5,
-     "rel_views": 1.67,
-     "avg_watch": 11.94
+     "posts": 10,
+     "rel_views": 1.89,
+     "avg_watch": 3.33
     }
    },
    "music": {
-    "on": {
-     "posts": 1,
-     "rel_views": 0.6,
-     "avg_watch": null
-    },
     "off": {
+     "posts": 6,
+     "rel_views": 1.89,
+     "avg_watch": 8.31
+    },
+    "on": {
      "posts": 4,
-     "rel_views": 5.4,
-     "avg_watch": 11.94
+     "rel_views": 4,
+     "avg_watch": 3.1
     }
    },
    "bg": {
+    "persona": {
+     "posts": 2,
+     "rel_views": 0,
+     "avg_watch": null
+    },
+    "gradient": {
+     "posts": 2,
+     "rel_views": 4,
+     "avg_watch": 3.1
+    },
     "city": {
-     "posts": 3,
-     "rel_views": 1.67,
-     "avg_watch": 5.08
+     "posts": 4,
+     "rel_views": 2.72,
+     "avg_watch": 3.33
     },
     "nature": {
      "posts": 2,
-     "rel_views": 5.4,
-     "avg_watch": 11.94
+     "rel_views": 1.89,
+     "avg_watch": 8.31
     }
    },
    "cta": {
-    "follow": {
+    "template": {
      "posts": 3,
      "rel_views": 1,
-     "avg_watch": 11.94
+     "avg_watch": 3.1
+    },
+    "follow": {
+     "posts": 5,
+     "rel_views": 1.6,
+     "avg_watch": 8.31
     }
    }
   },
@@ -82,11 +97,11 @@
   "applied_now": []
  },
  "performance": {
-  "updated": "2026-11-08T07:53:10.996Z",
+  "updated": "2026-11-09T08:19:30.713Z",
   "instagram": {
-   "posts": 18,
-   "medianViews": 3,
-   "medianAvgWatch": 5.12,
+   "posts": 24,
+   "medianViews": 5,
+   "medianAvgWatch": 3.87,
    "top": [
     {
      "hook": "Spite is a great start and a terrible finish.",
@@ -102,8 +117,8 @@
     },
     {
      "hook": "3 questions to ask before you 'prove them wrong'.",
-     "views": 27,
-     "avgWatch": 5.8,
+     "views": 30,
+     "avgWatch": 5.59,
      "video": "day-004d.mp4"
     }
    ],
@@ -138,39 +153,39 @@
    ]
   },
   "youtube": {
-   "posts": 11,
-   "medianViews": 5,
+   "posts": 14,
+   "medianViews": 18,
    "medianAvgWatch": null,
    "top": [
     {
      "hook": "What happens after you prove them wrong?",
-     "views": 83,
+     "views": 119,
      "avgWatch": null,
      "video": "day-003b.mp4"
     },
     {
-     "hook": "Spite is a great start and a terrible finish.",
-     "views": 62,
+     "hook": "30 days, 30 receipts, no excuses",
+     "views": 102,
      "avgWatch": null,
-     "video": "day-002.mp4"
+     "video": "day-005c.mp4"
     },
     {
-     "hook": "What if you could prove your worth in 30 days",
-     "views": 36,
+     "hook": "Spite is a great start and a terrible finish.",
+     "views": 64,
      "avgWatch": null,
-     "video": "day-005.mp4"
+     "video": "day-002.mp4"
     }
    ],
    "bottom": [
     {
-     "hook": "They said you would not make it — keep the receipt.",
-     "views": 3,
-     "video": "avatar-intro.mp4"
+     "hook": "Nobody claps on day one. Good.",
+     "views": 0,
+     "video": "day-006c.mp4"
     },
     {
-     "hook": "I hit my goal and felt empty. Here's why.",
-     "views": 1,
-     "video": "day-004c.mp4"
+     "hook": "They passed me over. I logged it.",
+     "views": 0,
+     "video": "day-006.mp4"
     },
     {
      "hook": "Rejected by 40 companies. Kept every receipt.",
@@ -181,18 +196,23 @@
    "breakouts": [
     {
      "hook": "What happens after you prove them wrong?",
-     "views": 83,
+     "views": 119,
      "video": "day-003b.mp4"
     },
     {
+     "hook": "30 days, 30 receipts, no excuses",
+     "views": 102,
+     "video": "day-005c.mp4"
+    },
+    {
      "hook": "Spite is a great start and a terrible finish.",
-     "views": 62,
+     "views": 64,
      "video": "day-002.mp4"
     }
    ]
   },
   "tiktok": {
-   "posts": 7,
+   "posts": 9,
    "medianViews": 0,
    "medianAvgWatch": 0,
    "top": [
@@ -203,16 +223,16 @@
      "video": null
     },
     {
-     "hook": "I got passed over for a promotion. Here's my 30-day plan.",
+     "hook": "Rejected by 40 companies. Kept every receipt.",
      "views": 0,
      "avgWatch": 0,
-     "video": "day-003.mp4"
+     "video": "day-004.mp4"
     },
     {
-     "hook": "Spite is a great start and a terrible finish.",
+     "hook": "What happens after you prove them wrong?",
      "views": 0,
-     "avgWatch": 0,
-     "video": "day-002.mp4"
+     "avgWatch": 27.97,
+     "video": "day-003b.mp4"
     }
    ],
    "bottom": [
@@ -237,6 +257,7 @@
  },
  "breakout_hooks": [
   "Spite is a great start and a terrible finish.",
-  "What happens after you prove them wrong?"
+  "What happens after you prove them wrong?",
+  "30 days, 30 receipts, no excuses"
  ]
 }

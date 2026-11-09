@@ -1,10 +1,10 @@
-# Performance review — 2026-11-07
+# Performance review — 2026-11-08
 
-- Posts measured: 14 | IG median watch yesterday: 5.12s (target: >5s on a ~10s video)
-- Best: What if you could prove your worth in 30 days — 36 views, nulls watch (0% retention)
-- Worst: null — 0 views
+- Posts measured: 7 | IG median watch yesterday: 3.87s (target: >5s on a ~10s video)
+- Best: Top 3 ways receipts reset your mindset — 18 views, nulls watch (0% retention)
+- Worst: What happens after you prove them wrong? — 0 views
 
 ## Tomorrow's changes (auto)
-- The winning hook style ("What if you could prove your worth in 30…") gets a sequel; the losing style ("undefined…") is retired from new scripts.
+- The winning hook style ("Top 3 ways receipts reset your mindset…") gets a sequel; the losing style ("What happens after you prove them wrong?…") is retired from new scripts.
 - IG watch time acceptable; no format change.
-- Run status: day 2 of the 30-day run spine.
+- Run status: day 3 of the 30-day run spine.
