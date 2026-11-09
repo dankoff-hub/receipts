@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-08T18:58:46.188Z",
+ "updated": "2026-11-09T09:17:26.057Z",
  "rule": "Do not submit. Do not reply. Substack stays at 0. IG/YouTube/TikTok caps stay at 8. A door is sendable only with no account, no card, no badge, no plan picker.",
  "sendable": 0,
  "doors": [
@@ -8,7 +8,7 @@
    "url": "https://saaslineup.com/submit",
    "kind": "directory",
    "status": 200,
-   "checked": "2026-11-08T18:58:45.192Z",
+   "checked": "2026-11-09T09:17:25.099Z",
    "no_account": true,
    "card_or_price_mentioned": true,
    "badge_required": true,
@@ -21,7 +21,7 @@
    "url": "https://thesaasdir.com/submit",
    "kind": "directory",
    "status": 200,
-   "checked": "2026-11-08T18:58:45.495Z",
+   "checked": "2026-11-09T09:17:25.529Z",
    "no_account": true,
    "card_or_price_mentioned": true,
    "badge_required": false,
@@ -34,7 +34,7 @@
    "url": "https://publishyoursaas.com/submit",
    "kind": "directory",
    "status": 200,
-   "checked": "2026-11-08T18:58:46.000Z",
+   "checked": "2026-11-09T09:17:25.974Z",
    "no_account": true,
    "card_or_price_mentioned": true,
    "badge_required": false,
@@ -44,6 +44,9 @@
   }
  ],
  "listens": [
+  {
+   "error": "Unexpected token '<', \"<html><hea\"... is not valid JSON"
+  },
   {
    "error": "Unexpected token '<', \"<html><hea\"... is not valid JSON"
   },
