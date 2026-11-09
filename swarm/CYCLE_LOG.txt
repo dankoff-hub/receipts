@@ -1,21 +1,3 @@
-creative: today already done
---- node swarm/skool.mjs
-skool: today already prepared
-
-===== cycle 2026-11-07T05:15:23.238Z =====
---- node swarm/audit.mjs
-audit PASS ✓ card_free_llm ✓ card_free_execution ✓ card_free_edge_worker ✓ card_free_posting ✓ card_free_state ✓ no_auto_billing ✓ local_fallback_exists
---- node swarm/hunter.mjs
-worker leads merged: 0
-hunter: fetched 693 items (seen 718)
-hunter: scanned 12 new posts → tier1 0, tier2 5 (llm calls 6)
---- node swarm/closer.mjs
-closer: 2 fresh bluesky/mastodon leads, 0/40 replies sent today, mode SEND (founder-enabled)
---- node swarm/creative.mjs
-creative: today already done
---- node swarm/skool.mjs
-skool: today already prepared
-
 ===== cycle 2026-11-07T07:30:55.577Z =====
 --- node swarm/audit.mjs
 audit PASS ✓ card_free_llm ✓ card_free_execution ✓ card_free_edge_worker ✓ card_free_posting ✓ card_free_state ✓ no_auto_billing ✓ local_fallback_exists
@@ -591,6 +573,24 @@ hunter: scanned 84 new posts → tier1 0, tier2 11 (llm calls 6)
 closer: 11 fresh bluesky/mastodon leads, 8/40 replies sent today, mode SEND (founder-enabled)
 closer: replied → https://bsky.app/profile/zaliah03.bsky.social/post/3mzvbp5keds2q
 closer: replied → https://bsky.app/profile/katinthestars.bsky.social/post/3mzvauldytc2e
+--- node swarm/community.mjs
+community: SEND — {"bluesky":{"followBack":0,"replies":0,"follows":0},"mastodon":{"followBack":0,"replies":0,"follows":0}}; reply budget left 17, follow budget {"bluesky":0,"mastodon":19}
+--- node swarm/creative.mjs
+creative: today already done
+--- node swarm/skool.mjs
+skool: today already prepared
+
+===== cycle 2026-11-09T19:26:13.475Z =====
+--- node swarm/audit.mjs
+audit PASS ✓ card_free_llm ✓ card_free_execution ✓ card_free_edge_worker ✓ card_free_posting ✓ card_free_state ✓ no_auto_billing ✓ local_fallback_exists ✓ core_prompt_budget
+--- node swarm/hunter.mjs
+worker leads merged: 0
+hunter: fetched 913 items (seen 2114)
+hunter: scanned 107 new posts → tier1 0, tier2 14 (llm calls 6)
+--- node swarm/closer.mjs
+closer: 13 fresh bluesky/mastodon leads, 10/40 replies sent today, mode SEND (founder-enabled)
+closer: replied → https://bsky.app/profile/ernstjweiss.bsky.social/post/3mzvmhalrw22z
+closer: replied → https://bsky.app/profile/rare-ear-candy.bsky.social/post/3mzvktpgkqs2z
 --- node swarm/community.mjs
 community: SEND — {"bluesky":{"followBack":0,"replies":0,"follows":0},"mastodon":{"followBack":0,"replies":0,"follows":0}}; reply budget left 17, follow budget {"bluesky":0,"mastodon":19}
 --- node swarm/creative.mjs

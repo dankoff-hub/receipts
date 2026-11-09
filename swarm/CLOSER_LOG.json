@@ -316,6 +316,32 @@
    "provider": "groq",
    "platform": "bluesky",
    "status": "sent"
+  },
+  {
+   "at": "2026-11-09T19:27:06.925Z",
+   "id": "at://did:plc:lduq7hcozcsx32hjgtbpsgl4/app.bsky.feed.post/3mzvmhalrw22z",
+   "url": "https://bsky.app/profile/ernstjweiss.bsky.social/post/3mzvmhalrw22z",
+   "author": "ernstjweiss.bsky.social",
+   "tier": 2,
+   "why": "mentions starting listening habit",
+   "reply": "Your goal to absorb new ideas is spot on. Tomorrow, schedule 15 minutes to jot down three key takeaways from the audiobook.",
+   "reply_url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mzvntco7sm2x",
+   "provider": "groq",
+   "platform": "bluesky",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-09T19:27:10.097Z",
+   "id": "at://did:plc:hubd6t2rroxnf7hysuovhtdx/app.bsky.feed.post/3mzvktpgkqs2z",
+   "url": "https://bsky.app/profile/rare-ear-candy.bsky.social/post/3mzvktpgkqs2z",
+   "author": "rare-ear-candy.bsky.social",
+   "tier": 2,
+   "why": "starting 30-day gratitude journal",
+   "reply": "Your 30‑day gratitude journal is a powerful habit. Tomorrow, write down three moments you felt proud of helping someone, and share one with a friend.",
+   "reply_url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mzvntfoyie2x",
+   "provider": "groq",
+   "platform": "bluesky",
+   "status": "sent"
   }
  ],
  "skipped": [
@@ -1407,6 +1433,94 @@
    "author": "asadrawing.bsky.social",
    "tier": 2,
    "why": "not a personal goal: no habit or accountability request"
+  },
+  {
+   "at": "2026-11-09T19:27:04.478Z",
+   "id": "at://did:plc:hqaj6wh7b3an6vr6aiwaqwpg/app.bsky.feed.post/3mzvmvqim3s2w",
+   "url": "https://bsky.app/profile/davidkuszmar.com/post/3mzvmvqim3s2w",
+   "author": "davidkuszmar.com",
+   "tier": 2,
+   "why": "not a personal goal: No habit or accountability request"
+  },
+  {
+   "at": "2026-11-09T19:27:04.945Z",
+   "id": "at://did:plc:kzofb7deovtxrtzfwyi6w3ro/app.bsky.feed.post/3mzvmt2bcak2z",
+   "url": "https://bsky.app/profile/kazukiusagi.bsky.social/post/3mzvmt2bcak2z",
+   "author": "kazukiusagi.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: No habit or goal mentioned"
+  },
+  {
+   "at": "2026-11-09T19:27:05.340Z",
+   "id": "at://did:plc:pqh3jcymaxzgjxzyrlai5fms/app.bsky.feed.post/3mzvmmuxux22j",
+   "url": "https://bsky.app/profile/tonedeafcrow.bsky.social/post/3mzvmmuxux22j",
+   "author": "tonedeafcrow.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: talks about gaming, not habit"
+  },
+  {
+   "at": "2026-11-09T19:27:07.798Z",
+   "id": "at://did:plc:mezfyndkg5jmrndtsofxlkbd/app.bsky.feed.post/3mzvmg52p722p",
+   "url": "https://bsky.app/profile/knightsofladyren.bsky.social/post/3mzvmg52p722p",
+   "author": "knightsofladyren.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: no habit or challenge mentioned"
+  },
+  {
+   "at": "2026-11-09T19:27:08.126Z",
+   "id": "at://did:plc:ifnsnq3u4gzys66relvjmxpj/app.bsky.feed.post/3mzvli2yjxs2c",
+   "url": "https://bsky.app/profile/jason.revolutionarygames.co/post/3mzvli2yjxs2c",
+   "author": "jason.revolutionarygames.co",
+   "tier": 2,
+   "why": "not a personal goal: No habit or accountability request"
+  },
+  {
+   "at": "2026-11-09T19:27:08.541Z",
+   "id": "at://did:plc:y7ah42exo4soirsuxledsqk7/app.bsky.feed.post/3mzvlapu7nk26",
+   "url": "https://bsky.app/profile/nihilora.bsky.social/post/3mzvlapu7nk26",
+   "author": "nihilora.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: game feature request"
+  },
+  {
+   "at": "2026-11-09T19:27:09.013Z",
+   "id": "at://did:plc:hjtfr4n6ae4cidwbv7riwekk/app.bsky.feed.post/3mzvkwc6yqs23",
+   "url": "https://bsky.app/profile/marburybirds.bsky.social/post/3mzvkwc6yqs23",
+   "author": "marburybirds.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: No habit or accountability request"
+  },
+  {
+   "at": "2026-11-09T19:27:10.517Z",
+   "id": "at://did:plc:u7ugrpguwfepbezhkrbdi3ge/app.bsky.feed.post/3mzvkjv6wi226",
+   "url": "https://bsky.app/profile/decafewinated.bsky.social/post/3mzvkjv6wi226",
+   "author": "decafewinated.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: offers commissions, not a habit goal"
+  },
+  {
+   "at": "2026-11-09T19:27:10.899Z",
+   "id": "at://did:plc:x2kcugmykrqcchfgwnxk7kuj/app.bsky.feed.post/3mzvjfylkm22p",
+   "url": "https://bsky.app/profile/helenaimeeart.bsky.social/post/3mzvjfylkm22p",
+   "author": "helenaimeeart.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: just game character share"
+  },
+  {
+   "at": "2026-11-09T19:27:11.276Z",
+   "id": "at://did:plc:hp2pfzfct3vi6stm7b5dkawq/app.bsky.feed.post/3mzvig56xa22z",
+   "url": "https://bsky.app/profile/kaitlinlikesgames.bsky.social/post/3mzvig56xa22z",
+   "author": "kaitlinlikesgames.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: not a habit or challenge"
+  },
+  {
+   "at": "2026-11-09T19:27:11.659Z",
+   "id": "at://did:plc:vpp7f7ufytz6erd7e6mrlm2x/app.bsky.feed.post/3mzviaghabk2c",
+   "url": "https://bsky.app/profile/mostafatqmtd.bsky.social/post/3mzviaghabk2c",
+   "author": "mostafatqmtd.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: no habit or goal mentioned"
   }
  ]
 }
