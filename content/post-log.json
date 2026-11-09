@@ -691,5 +691,64 @@
   "day": 1,
   "captionHash": "6a661796f4f0a706e2cf66a103e17476",
   "sentAt": "2026-11-08T19:36:54.833Z"
+ },
+ {
+  "ts": "2026-11-09T09:59:43.339Z",
+  "channel": "tiktok",
+  "postId": "6af19984f309feb7ee0312b1",
+  "dueAt": "2026-11-09T09:59:33.019Z",
+  "status": "sent",
+  "video": "day-004b.mp4",
+  "day": 4,
+  "captionHash": "6fb7804ff702105a3fc9025c36b7ca37"
+ },
+ {
+  "ts": "2026-11-09T10:03:55.817Z",
+  "channel": "instagram",
+  "postId": "6af19a81c2f2264e30f82c5e",
+  "status": "sent",
+  "video": "day-007.mp4",
+  "day": 2,
+  "captionHash": "75c87c6437042077e25ff24a0d391c83"
+ },
+ {
+  "ts": "2026-11-09T10:03:58.922Z",
+  "channel": "youtube",
+  "postId": "6af19a8c0a95c92bf2e68d6f",
+  "status": "sent",
+  "video": "day-007.mp4",
+  "day": 2,
+  "captionHash": "0bf46b9f0ead3b5b96c5276ad4d8075c"
+ },
+ {
+  "ts": "2026-11-09T10:04:00.145Z",
+  "channel": "bluesky",
+  "kind": "text",
+  "slot": "a",
+  "status": "sent",
+  "url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mzuoef3c5o2h",
+  "why": null,
+  "captionHash": "f79e41d76f718235b641a88e312c2537",
+  "video": null
+ },
+ {
+  "ts": "2026-11-09T10:04:00.929Z",
+  "channel": "mastodon",
+  "kind": "text",
+  "slot": "a",
+  "status": "sent",
+  "url": "https://mastodon.social/@danrossi2026/117585912823609672",
+  "why": null,
+  "captionHash": "f79e41d76f718235b641a88e312c2537",
+  "video": null
+ },
+ {
+  "ts": "2026-11-09T10:04:12.222Z",
+  "channel": "instagram_carousel",
+  "postId": "6af19a91f309feb7ee03c9b4",
+  "status": "sent",
+  "video": "car-002",
+  "day": 2,
+  "captionHash": "a7746c1bc5e8d6ba9abaee7acbc1f33f"
  }
 ]
