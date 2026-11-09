@@ -275,6 +275,78 @@
     "provider": "groq",
     "id": "615d0986a78e8edb2a8a1bb0b4b54e96"
    }
+  ],
+  "2026-11-09": [
+   {
+    "platform": "instagram",
+    "format": "POV story",
+    "hook": "When they whispered 'you'll never finish',",
+    "say": "I logged 5km run, 3 push‑ups, and a clean code commit. Day 1 proof.",
+    "body": "Turn doubt into a measurable daily metric.",
+    "cta": "Start the 30‑day proof for $29 – link in bio",
+    "provider": "groq",
+    "id": "ddd3424566e3dac26438bb0242e0e639"
+   },
+   {
+    "platform": "instagram",
+    "format": "list",
+    "hook": "5 ways to silence the 'impossible' voice",
+    "say": "1. Set a clear metric. 2. Record it. 3. Share it. Day 2 proof: 2 pages written.",
+    "body": "A simple checklist makes doubt tangible.",
+    "cta": "Grab the 30‑day system for $29 – link in bio",
+    "provider": "groq",
+    "id": "124c793efb6c12b0711ff398af63f714"
+   },
+   {
+    "platform": "instagram",
+    "format": "confession",
+    "hook": "I cracked the 'you can't' code on day 3",
+    "say": "My doubter said I’d fail. I posted a screenshot of 100% test coverage.",
+    "body": "Proof beats opinion every time.",
+    "cta": "Join the 30‑day challenge for $29 – link in bio",
+    "provider": "groq",
+    "id": "6e9cd539b26575c63a0fb95f50e7c92c"
+   },
+   {
+    "platform": "youtube",
+    "format": "challenge",
+    "hook": "30 days, 30 proofs, one doubter silenced",
+    "say": "Day 4: I lifted 20 kg, logged the weight, and uploaded the bar chart.",
+    "body": "Consistency converts criticism into data.",
+    "cta": "Start your proof journey for $29 – link in bio",
+    "provider": "groq",
+    "id": "b929b3f2b01ae55c15da346c0ce32405"
+   },
+   {
+    "platform": "youtube",
+    "format": "myth‑bust",
+    "hook": "Myth: You can't track progress in 30 days",
+    "say": "I recorded daily sales calls, 15 of them, and posted the spreadsheet on day 5.",
+    "body": "Data disproves the myth.",
+    "cta": "Get the $29 system now – link in bio",
+    "provider": "groq",
+    "id": "a3adb0678fbb0e9df38c108bf9367829"
+   },
+   {
+    "platform": "tiktok",
+    "format": "confession",
+    "hook": "I cried on day 8, then proved them wrong",
+    "say": "I posted a screenshot of a completed game level after two tears.",
+    "body": "Emotion fuels execution.",
+    "cta": "Start the 30‑day proof for $29 – link in bio",
+    "provider": "groq",
+    "id": "f65e3df4911f17660e465b4dd22b18df"
+   },
+   {
+    "platform": "tiktok",
+    "format": "live‑community",
+    "hook": "Day 1 again? Let’s reset together",
+    "say": "Our Skool chat logged 5 minutes of coding, 3 reps, and a shared screenshot.",
+    "body": "Community turns broken streaks into fresh standards.",
+    "cta": "Enter the $29 30‑day challenge – link in bio",
+    "provider": "groq",
+    "id": "c4be753f8768e2e592e9841c7fbed306"
+   }
   ]
  },
  "hooks": [
@@ -332,6 +404,13 @@
   "b7ffac0fc6621e964cf869cb7b094791",
   "f5654af9fb4c7cbfd947d4677e95ff65",
   "6404940d0d14ed25aa33633b820a1134",
-  "615d0986a78e8edb2a8a1bb0b4b54e96"
+  "615d0986a78e8edb2a8a1bb0b4b54e96",
+  "ddd3424566e3dac26438bb0242e0e639",
+  "124c793efb6c12b0711ff398af63f714",
+  "6e9cd539b26575c63a0fb95f50e7c92c",
+  "b929b3f2b01ae55c15da346c0ce32405",
+  "a3adb0678fbb0e9df38c108bf9367829",
+  "f65e3df4911f17660e465b4dd22b18df",
+  "c4be753f8768e2e592e9841c7fbed306"
  ]
 }

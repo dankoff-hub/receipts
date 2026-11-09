@@ -186,6 +186,32 @@
    "provider": "groq",
    "platform": "bluesky",
    "status": "sent"
+  },
+  {
+   "at": "2026-11-09T01:43:56.852Z",
+   "id": "at://did:plc:3a5dsfpxhwriz35u7zvalczb/app.bsky.feed.post/3mztlevfuet2e",
+   "url": "https://bsky.app/profile/hjalmer.com/post/3mztlevfuet2e",
+   "author": "hjalmer.com",
+   "tier": 2,
+   "why": "mentions personal habit improvement",
+   "reply": "Your goal to cut back on fuel is solid. Tomorrow, try using a manual hand rake for a quick tidy-up before the season shifts.",
+   "reply_url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mztsg7pler27",
+   "provider": "groq",
+   "platform": "bluesky",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-09T01:43:58.129Z",
+   "id": "at://did:plc:p2jooj44xxomfe6n4e7i76xj/app.bsky.feed.post/3mztkq527n22k",
+   "url": "https://bsky.app/profile/intrusive-th0t.bsky.social/post/3mztkq527n22k",
+   "author": "intrusive-th0t.bsky.social",
+   "tier": 2,
+   "why": "starting a habit",
+   "reply": "Good luck! Focus on your goal of staying consistent. Tomorrow, schedule three short posts to keep the momentum going.",
+   "reply_url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mztsgawo6t26",
+   "provider": "groq",
+   "platform": "bluesky",
+   "status": "sent"
   }
  ],
  "skipped": [
@@ -861,6 +887,94 @@
    "author": "firstnamebob.bsky.social",
    "tier": 2,
    "why": "not a personal goal: Not about habit or goal"
+  },
+  {
+   "at": "2026-11-09T01:43:51.422Z",
+   "id": "at://did:plc:piwyxifjr3ndpmmp7jsbardl/app.bsky.feed.post/3mztrqbmof22o",
+   "url": "https://bsky.app/profile/thisisme7.bsky.social/post/3mztrqbmof22o",
+   "author": "thisisme7.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: No habit or goal mentioned"
+  },
+  {
+   "at": "2026-11-09T01:43:51.988Z",
+   "id": "at://did:plc:4zzx5ksxstahm5iwytra3rjw/app.bsky.feed.post/3mztqfhhfkk2x",
+   "url": "https://bsky.app/profile/omeba.bsky.social/post/3mztqfhhfkk2x",
+   "author": "omeba.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: Just sharing game start, not a habit challenge"
+  },
+  {
+   "at": "2026-11-09T01:43:52.343Z",
+   "id": "at://did:plc:7yov6iofiph5pbfk7lbv3s7n/app.bsky.feed.post/3mztqdkrnss2y",
+   "url": "https://bsky.app/profile/coldwolf615.bsky.social/post/3mztqdkrnss2y",
+   "author": "coldwolf615.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: no habit or goal request"
+  },
+  {
+   "at": "2026-11-09T01:43:52.661Z",
+   "id": "at://did:plc:ekqgaqllesr77ksfwl7dqv5p/app.bsky.feed.post/3mztqcxq7uc2t",
+   "url": "https://bsky.app/profile/blazewarriorwolf.bsky.social/post/3mztqcxq7uc2t",
+   "author": "blazewarriorwolf.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: no habit or challenge mentioned"
+  },
+  {
+   "at": "2026-11-09T01:43:53.061Z",
+   "id": "at://did:plc:hei7jsldddza6xvf2zaocltp/app.bsky.feed.post/3mztq3xaylc2y",
+   "url": "https://bsky.app/profile/smymy-128.bsky.social/post/3mztq3xaylc2y",
+   "author": "smymy-128.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: about game development, not habit"
+  },
+  {
+   "at": "2026-11-09T01:43:53.591Z",
+   "id": "at://did:plc:3os5koneqswvjz5xkzp52n5v/app.bsky.feed.post/3mztotqxxb22c",
+   "url": "https://bsky.app/profile/gojeffgo.com/post/3mztotqxxb22c",
+   "author": "gojeffgo.com",
+   "tier": 2,
+   "why": "not a personal goal: No habit or goal mentioned"
+  },
+  {
+   "at": "2026-11-09T01:43:54.054Z",
+   "id": "at://did:plc:3lqmq5moq5q336shkvrt3f5s/app.bsky.feed.post/3mztofcdqv22e",
+   "url": "https://bsky.app/profile/thesporkmaster.bsky.social/post/3mztofcdqv22e",
+   "author": "thesporkmaster.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: no habit or goal mentioned"
+  },
+  {
+   "at": "2026-11-09T01:43:54.515Z",
+   "id": "at://did:plc:a3awelxrffaersstz2u3ksjt/app.bsky.feed.post/3mzto2aiccc2r",
+   "url": "https://bsky.app/profile/carlchri.bsky.social/post/3mzto2aiccc2r",
+   "author": "carlchri.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: No personal habit request"
+  },
+  {
+   "at": "2026-11-09T01:43:54.899Z",
+   "id": "at://did:plc:z4ecz6hqkrtrhu3vd2dzypeo/app.bsky.feed.post/3mztn4gxnys2t",
+   "url": "https://bsky.app/profile/a1yosha.bsky.social/post/3mztn4gxnys2t",
+   "author": "a1yosha.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: about gaming, not habit"
+  },
+  {
+   "at": "2026-11-09T01:43:55.228Z",
+   "id": "at://did:plc:uje6de3lld77rxkwmlkyg6w2/app.bsky.feed.post/3mztmvjozwc2n",
+   "url": "https://bsky.app/profile/catmccormick.bsky.social/post/3mztmvjozwc2n",
+   "author": "catmccormick.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: Discussing game remake concept"
+  },
+  {
+   "at": "2026-11-09T01:43:57.172Z",
+   "id": "at://did:plc:crfmy4af6g3s6f22s2pvoa5j/app.bsky.feed.post/3mztkwiygis2k",
+   "url": "https://bsky.app/profile/workingyarns.bsky.social/post/3mztkwiygis2k",
+   "author": "workingyarns.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: Just sharing knitting experience"
   }
  ]
 }

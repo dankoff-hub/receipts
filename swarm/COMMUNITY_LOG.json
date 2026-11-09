@@ -347,6 +347,174 @@
    "handle": "halleycomet3.bsky.social",
    "reason": "lead tier 2",
    "status": "sent"
+  },
+  {
+   "at": "2026-11-09T01:43:59.301Z",
+   "platform": "bluesky",
+   "who": "did:plc:p2ifovxlwkrfybm7xm6rbliy",
+   "handle": "comedyfilmfestival.bsky.social",
+   "reason": "follow-back",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-09T01:44:00.179Z",
+   "platform": "bluesky",
+   "who": "did:plc:ioz7ntet4vlcc7aapqvxxkib",
+   "handle": "thanksatan.bsky.social",
+   "reason": "lead tier 1",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-09T01:44:00.724Z",
+   "platform": "bluesky",
+   "who": "did:plc:piwyxifjr3ndpmmp7jsbardl",
+   "handle": "thisisme7.bsky.social",
+   "reason": "lead tier 2",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-09T01:44:01.170Z",
+   "platform": "bluesky",
+   "who": "did:plc:4zzx5ksxstahm5iwytra3rjw",
+   "handle": "omeba.bsky.social",
+   "reason": "lead tier 2",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-09T01:44:01.351Z",
+   "platform": "bluesky",
+   "who": "did:plc:7yov6iofiph5pbfk7lbv3s7n",
+   "handle": "coldwolf615.bsky.social",
+   "reason": "lead tier 2",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-09T01:44:01.744Z",
+   "platform": "bluesky",
+   "who": "did:plc:ekqgaqllesr77ksfwl7dqv5p",
+   "handle": "blazewarriorwolf.bsky.social",
+   "reason": "lead tier 2",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-09T01:44:02.165Z",
+   "platform": "bluesky",
+   "who": "did:plc:hei7jsldddza6xvf2zaocltp",
+   "handle": "smymy-128.bsky.social",
+   "reason": "lead tier 2",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-09T01:44:02.345Z",
+   "platform": "bluesky",
+   "who": "did:plc:3os5koneqswvjz5xkzp52n5v",
+   "handle": "gojeffgo.com",
+   "reason": "lead tier 2",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-09T01:44:02.734Z",
+   "platform": "bluesky",
+   "who": "did:plc:3lqmq5moq5q336shkvrt3f5s",
+   "handle": "thesporkmaster.bsky.social",
+   "reason": "lead tier 2",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-09T01:44:02.912Z",
+   "platform": "bluesky",
+   "who": "did:plc:a3awelxrffaersstz2u3ksjt",
+   "handle": "carlchri.bsky.social",
+   "reason": "lead tier 2",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-09T01:44:03.309Z",
+   "platform": "bluesky",
+   "who": "did:plc:z4ecz6hqkrtrhu3vd2dzypeo",
+   "handle": "a1yosha.bsky.social",
+   "reason": "lead tier 2",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-09T01:44:03.733Z",
+   "platform": "bluesky",
+   "who": "did:plc:uje6de3lld77rxkwmlkyg6w2",
+   "handle": "catmccormick.bsky.social",
+   "reason": "lead tier 2",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-09T01:44:03.996Z",
+   "platform": "bluesky",
+   "who": "did:plc:3a5dsfpxhwriz35u7zvalczb",
+   "handle": "hjalmer.com",
+   "reason": "lead tier 2",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-09T01:44:04.391Z",
+   "platform": "bluesky",
+   "who": "did:plc:crfmy4af6g3s6f22s2pvoa5j",
+   "handle": "workingyarns.bsky.social",
+   "reason": "lead tier 2",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-09T01:44:04.834Z",
+   "platform": "bluesky",
+   "who": "did:plc:p2jooj44xxomfe6n4e7i76xj",
+   "handle": "intrusive-th0t.bsky.social",
+   "reason": "lead tier 2",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-09T01:44:05.226Z",
+   "platform": "bluesky",
+   "who": "did:plc:fa2mk3l24k5yvdqhyio5t2lu",
+   "handle": "kristenklopez.bsky.social",
+   "reason": "lead tier 2",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-09T01:44:05.608Z",
+   "platform": "bluesky",
+   "who": "did:plc:noqzpjkgavudzncwepzv5x7j",
+   "handle": "junaidsamodien.bsky.social",
+   "reason": "lead tier 2",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-09T01:44:06.004Z",
+   "platform": "bluesky",
+   "who": "did:plc:jvtxiigu7cg3zkigqtqhwsrn",
+   "handle": "mariaevajarrous.bsky.social",
+   "reason": "lead tier 2",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-09T01:44:06.391Z",
+   "platform": "bluesky",
+   "who": "did:plc:wxejaro4cmdct7nlv2zkpkcf",
+   "handle": "studentofetherium.bsky.social",
+   "reason": "lead tier 2",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-09T01:44:06.567Z",
+   "platform": "bluesky",
+   "who": "did:plc:7zoymjqc22imdni34yvvh4ul",
+   "handle": "rougethebattie.bsky.social",
+   "reason": "lead tier 2",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-09T01:44:08.014Z",
+   "platform": "mastodon",
+   "who": "114280564207031761",
+   "handle": "serendipityencouraged.wordpress.com@serendipityencouraged.wordpress.com",
+   "reason": "lead tier 2",
+   "status": "sent"
   }
  ],
  "seen": {}
