@@ -19,6 +19,16 @@
    "status": "sent",
    "url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mzuh3yzken2h",
    "provider": "groq"
+  },
+  {
+   "at": "2026-11-09T13:45:27.714Z",
+   "platform": "bluesky",
+   "target": "at://did:plc:a7xusynd6sm6nz62lwzbpl47/app.bsky.feed.post/3mzutrgyrr223",
+   "author": "espicle2719.bsky.social",
+   "text": "I hear you—life’s got a lot on its plate. Glad you’ll fit it in when you can, even at a steady pace. What’s the one small step you think you’ll tackle today?",
+   "status": "sent",
+   "url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mzv2qf3xmn2p",
+   "provider": "groq"
   }
  ],
  "follows": [

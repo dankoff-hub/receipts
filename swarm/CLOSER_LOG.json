@@ -277,6 +277,19 @@
    "provider": "groq",
    "platform": "bluesky",
    "status": "sent"
+  },
+  {
+   "at": "2026-11-09T13:45:26.516Z",
+   "id": "at://did:plc:egpt62lbwnzxrdz3gkt4wxgl/app.bsky.feed.post/3mzuuarxkus2k",
+   "url": "https://bsky.app/profile/theflamingace.bsky.social/post/3mzuuarxkus2k",
+   "author": "theflamingace.bsky.social",
+   "tier": 2,
+   "why": "writing habit progress",
+   "reply": "Your goal to hit a solid daily word count is impressive—keep that momentum. Tomorrow, set a timer for one focused hour and outline the next chapter.",
+   "reply_url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mzv2qdxers2h",
+   "provider": "groq",
+   "platform": "bluesky",
+   "status": "sent"
   }
  ],
  "skipped": [
@@ -1232,6 +1245,38 @@
    "author": "luma.fm",
    "tier": 2,
    "why": "not a personal goal: just project update"
+  },
+  {
+   "at": "2026-11-09T13:45:22.763Z",
+   "id": "at://did:plc:rcu7ybho7gdw3x3cxp64jnue/app.bsky.feed.post/3mzuzt4ltnk2m",
+   "url": "https://bsky.app/profile/robertferry.bsky.social/post/3mzuzt4ltnk2m",
+   "author": "robertferry.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: no habit or challenge mentioned"
+  },
+  {
+   "at": "2026-11-09T13:45:23.142Z",
+   "id": "at://did:plc:bkiy3uszsrvuszvacid2utk2/app.bsky.feed.post/3mzuznphue226",
+   "url": "https://bsky.app/profile/zoe1978.bsky.social/post/3mzuznphue226",
+   "author": "zoe1978.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: no habit or challenge mentioned"
+  },
+  {
+   "at": "2026-11-09T13:45:23.523Z",
+   "id": "at://did:plc:lfmjf5ejpx64smw3w4th6cti/app.bsky.feed.post/3mzuvqucgnc2w",
+   "url": "https://bsky.app/profile/resistasista76.bsky.social/post/3mzuvqucgnc2w",
+   "author": "resistasista76.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: No habit or accountability request"
+  },
+  {
+   "at": "2026-11-09T13:45:23.949Z",
+   "id": "at://did:plc:7qvnag2wmk2iidyvs2yz4rww/app.bsky.feed.post/3mzuva7765s26",
+   "url": "https://bsky.app/profile/gimpy.bsky.social/post/3mzuva7765s26",
+   "author": "gimpy.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: No request for habit or accountability"
   }
  ]
 }
