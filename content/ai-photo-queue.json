@@ -9,6 +9,15 @@
    "model": "flux",
    "prompt": "a worn pocket notebook closed on a wooden desk, a pen resting on top, a folded paper receipt tucked under the elastic band, soft morning window light, shot on 35mm film, natural grain, photorealistic, no people, no visible writing, no letters, no text, no watermark, 4k detail",
    "url": "https://receipts-blond.vercel.app/photos/ai-20261107-receipt-notebook.jpg"
+  },
+  {
+   "day": "2026-11-09",
+   "file": "ai-20261109-gym-floor.jpg",
+   "slug": "ai-20261109-gym-floor",
+   "scene": "gym-floor",
+   "model": "flux",
+   "prompt": "empty gym at 6am, one dumbbell on the rubber floor, towel and water bottle on a bench, long shadows from tall windows, iphone candid, slightly imperfect framing, photorealistic, no people, no visible writing, no letters, no text, no watermark, 4k detail",
+   "url": "https://receiptspack.vercel.app/photos/ai-20261109-gym-floor.jpg"
   }
  ]
 }
