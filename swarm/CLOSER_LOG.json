@@ -251,6 +251,32 @@
    "provider": "groq",
    "platform": "bluesky",
    "status": "sent"
+  },
+  {
+   "at": "2026-11-09T11:23:19.904Z",
+   "id": "at://did:plc:6bfmxppsqylrtl3eppepxnzz/app.bsky.feed.post/3mzus26qy4k26",
+   "url": "https://bsky.app/profile/vassalady.bsky.social/post/3mzus26qy4k26",
+   "author": "vassalady.bsky.social",
+   "tier": 2,
+   "why": "personal habit",
+   "reply": "Great job setting that sunrise alarm! Your goal of consistent mornings is within reach. Tomorrow, place your phone charger across the room before bed.",
+   "reply_url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mzussaednm24",
+   "provider": "groq",
+   "platform": "bluesky",
+   "status": "sent"
+  },
+  {
+   "at": "2026-11-09T11:23:21.702Z",
+   "id": "at://did:plc:a7xusynd6sm6nz62lwzbpl47/app.bsky.feed.post/3mzun2b52sk2s",
+   "url": "https://bsky.app/profile/espicle2719.bsky.social/post/3mzun2b52sk2s",
+   "author": "espicle2719.bsky.social",
+   "tier": 2,
+   "why": "starting a new habit challenge",
+   "reply": "Crush that first Regional Top—keep the momentum. Tomorrow, log one extra lap and review your split times to tighten each segment.",
+   "reply_url": "https://bsky.app/profile/danrossi2026.bsky.social/post/3mzussc3bnw23",
+   "provider": "groq",
+   "platform": "bluesky",
+   "status": "sent"
   }
  ],
  "skipped": [
@@ -1190,6 +1216,22 @@
    "author": "dreampooka.bsky.social",
    "tier": 2,
    "why": "not a personal goal: no habit or accountability request"
+  },
+  {
+   "at": "2026-11-09T11:23:20.124Z",
+   "id": "at://did:plc:kyq3ie7hj6sqo7srkwzudxbx/app.bsky.feed.post/3mzurmckxic2u",
+   "url": "https://bsky.app/profile/rachel-mentzoni.bsky.social/post/3mzurmckxic2u",
+   "author": "rachel-mentzoni.bsky.social",
+   "tier": 2,
+   "why": "not a personal goal: Not about habit or challenge"
+  },
+  {
+   "at": "2026-11-09T11:23:20.546Z",
+   "id": "at://did:plc:qo2vs5i3ev2mbmyghtlwacjx/app.bsky.feed.post/3mzuqdnfmxc2a",
+   "url": "https://bsky.app/profile/luma.fm/post/3mzuqdnfmxc2a",
+   "author": "luma.fm",
+   "tier": 2,
+   "why": "not a personal goal: just project update"
   }
  ]
 }
