@@ -3,8 +3,10 @@ main = "src/worker.js"
 compatibility_date = "2026-10-01"
 workers_dev = true
 
-[triggers]
-crons = ["5 */2 * * *"]   # Hunter scan every 2h (1 of 5 free cron triggers)
+# Cron paused 2026-11-10 by founder request. No triggers until explicitly resumed.
+
+# [triggers]
+# crons = ["5 */2 * * *"]
 
 [[kv_namespaces]]
 binding = "SWARM_KV"
